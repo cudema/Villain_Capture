@@ -1,11 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler
+public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
-    [SerializeField]
-    protected TrunManager trunmanager;
     [SerializeField]
     BattleMainSeleter seleter;
     [SerializeField]
@@ -29,12 +28,17 @@ public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler
         seleter.ChangeBattleAction(action);
     }
 
-    public void SelectThis()
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Action();
+    }
+
+    public virtual void SelectThis()
     {
         image.color = selectColor;
     }
 
-    public void UnselectedThis()
+    public virtual void UnselectedThis()
     {
         image.color = baseColor;
     }

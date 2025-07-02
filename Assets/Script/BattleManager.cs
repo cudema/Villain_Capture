@@ -1,44 +1,98 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public enum BattleAction { 초기화 = -1, 촬영 = 0, 행동, 아이템, 도주 }
+public enum Trun { 아군 = 0, 적 }
 
-public class BattleMainSeleter : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
-    [SerializeField]
-    BattleAction currentAction = BattleAction.초기화;
-    [SerializeField]
-    BattleButtonBase[] buttons = new BattleButtonBase[4];
+    static Trun currentTrun = Trun.아군;
+    static BattleAction currentAction = BattleAction.초기화;
+    InputManager input;
+    static BattleManager battlemanager;
+    static SpawnObject spawner;
 
-    public void ChangeBattleAction(BattleAction newAction)
+    public static event Action OnEnemyTrun;
+    public static event Action EndEnemyTrun;
+
+    public static event Action OnPlayerTrun;
+    public static event Action EndPlayerTrun;
+
+    public static event Action OnPlayerAction;
+    public static event Action EndPlayerAction;
+
+    private void Awake()
     {
-        if (currentAction != BattleAction.초기화)
+        if (battlemanager == null)
         {
-            buttons[(int)currentAction].UnselectedThis();
+            battlemanager = this;
         }
-        currentAction = newAction;
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        buttons[(int)currentAction].SelectThis();
+        input = GameObject.Find("PlayerInputManager").GetComponent<InputManager>();
+        spawner = transform.GetComponentInChildren<SpawnObject>();
     }
 
-    public void ChangeBattleAction(float value)
+    private void Start()
     {
-        if ((int)((float)currentAction + value) < (int)BattleAction.촬영 || (int)((float)currentAction + value) > (int)BattleAction.도주)
+        spawner.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangeTrun(Trun.아군);
+        }
+    }
+
+    public static void ChangeTrun(Trun newTrun)
+    {
+        if (currentTrun == newTrun)
         {
             return;
         }
 
-        if (currentAction != BattleAction.초기화)
+        currentTrun = newTrun;
+        switch (currentTrun)
         {
-            buttons[(int)currentAction].UnselectedThis();
+            case Trun.아군:
+                EndEnemyTrun?.Invoke();
+                OnPlayerTrun?.Invoke();
+                break;
+            case Trun.적:
+                EndPlayerTrun?.Invoke();
+                OnEnemyTrun?.Invoke();
+                break;
+            default:
+                break;
         }
-
-        currentAction = (BattleAction)((float)currentAction + value);
-
-        buttons[(int)currentAction].SelectThis();
     }
 
-    public void SelectButton()
+    public static void PlayerAction(BattleAction newAction)
     {
-        buttons[(int)currentAction].Action();
+        currentAction = newAction;
+
+        if (newAction != BattleAction.초기화)
+        {
+            battlemanager.StartCoroutine(InAction());
+        }
+    }
+
+    static IEnumerator InAction()
+    {
+        OnPlayerAction?.Invoke();
+        yield return new WaitUntil(() => currentAction == BattleAction.초기화);
+        EndPlayerAction?.Invoke();
+        ChangeTrun(Trun.적);
+    }
+
+    public static void PatternStart(NodePattern pattern)
+    {
+        spawner.SpawnObj(pattern);
     }
 }

@@ -1,29 +1,53 @@
 using System.Collections;
 using UnityEngine;
 
+[System.Serializable]
+public class NodePattern
+{
+    public GameObject node;
+    public int spawnNodeCount;
+    public float spawnTime;
+    public float patternEndTime;
+}
+
 public class SpawnObject : MonoBehaviour
 {
     [SerializeField]
-    GameObject obj;
-    [SerializeField]
-    float spawnTime;
+    NodePattern samplePattern;
+
 
     private void Start()
     {
-        SpawnObj();
+
     }
 
-    void SpawnObj()
+    private void OnEnable()
     {
-        StartCoroutine(temp());
+        
     }
 
-    IEnumerator temp()
+    private void OnDisable()
     {
-        Instantiate(obj, transform.position, Quaternion.identity);
+        BattleManager.PlayerAction(BattleAction.√ ±‚»≠);
+    }
 
-        yield return new WaitForSeconds(spawnTime);
+    public void SpawnObj(NodePattern pattern)
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(temp(pattern));
+    }
 
-        SpawnObj();
+    IEnumerator temp(NodePattern pattern)
+    {
+        for (int i = 0; i < pattern.spawnNodeCount; i++)
+        {
+            Instantiate(pattern.node, transform.position + new Vector3(0, 10, 0), Quaternion.identity);
+
+            yield return new WaitForSeconds(pattern.spawnTime);
+        }
+
+        yield return new WaitForSeconds(pattern.patternEndTime);
+
+        gameObject.SetActive(false);
     }
 }

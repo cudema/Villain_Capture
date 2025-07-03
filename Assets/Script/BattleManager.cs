@@ -10,13 +10,32 @@ public class BattleManager : MonoBehaviour
     static Trun currentTrun = Trun.아군;
     static int currentAction = -1;
     InputManager input;
-    static BattleManager battlemanager;
+    public static BattleManager battlemanager
+    {
+        get; private set;
+    }
     static SpawnObject spawner;
     static EnemyBase currentEnemy = null;
     public static EnemyBase CurrentEnemy
     {
         get { return currentEnemy; }
         private set => currentEnemy = value;
+    }
+
+    [Header("이동 반경 설정")]
+    [SerializeField]
+    Vector2 center;
+    public Vector2 Center
+    {
+        get { return center; }
+        private set { center = value; }
+    }
+    [SerializeField]
+    Vector2 radius;
+    public Vector2 Radius
+    {
+        get { return radius; }
+        private set { radius = value; }
     }
 
     public static event Action OnEnemyTrun;

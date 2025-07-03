@@ -31,7 +31,7 @@ public class PatternBase : ScriptableObject
         for (int i = 0; i < bulletCount; i++)
         {
             GameObject go = Instantiate(bullet, enemy.transform.position, Quaternion.identity);
-            go.GetComponent<SampleBullet>().Setup(bulletSpeed);
+            go.GetComponent<BulletBase>().Setup(bulletSpeed);
             Destroy(go, 3.0f);
 
             yield return new WaitForSeconds(bulletSpawnDelay);

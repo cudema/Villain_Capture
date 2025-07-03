@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
 {
     PlayerInput input;
     [SerializeField]
-    BattleMainSeleter selecter;
+    static BattleSeleterBase selecter;
     [SerializeField]
     PlayerContoller contoller;
 
@@ -48,7 +48,7 @@ public class InputManager : MonoBehaviour
 
     public void OnChangeSelect(InputValue value)
     {
-        selecter.ChangeBattleAction(value.Get<float>());
+        selecter.ChangeBattleAction(value.Get<Vector2>());
     }
 
     public void OnSelect(InputValue value)
@@ -60,5 +60,10 @@ public class InputManager : MonoBehaviour
     {
         Vector2 temp = value.Get<Vector2>();
         contoller.SetDirection(temp);
+    }
+
+    public static void ChangeSelecter(BattleSeleterBase newSeleter)
+    {
+        selecter = newSeleter;
     }
 }

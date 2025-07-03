@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BattleRun : BattleButtonBase
+public class BattleRun : BattleMainButtonBase
 {
     public override void Action()
     {

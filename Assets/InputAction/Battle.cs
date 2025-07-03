@@ -95,7 +95,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""name"": ""ChangeSelect"",
                     ""type"": ""Value"",
                     ""id"": ""4e249abc-f2ae-4616-8b7f-8d66c79ee036"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -121,19 +121,41 @@ public partial class @Battle: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""1D Axis"",
+                    ""name"": ""2D Vector"",
                     ""id"": ""457ac823-431f-4fbf-9b94-08e5f709a349"",
-                    ""path"": ""1DAxis"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
-                    ""processors"": ""AxisDeadzone(min=-1,max=1)"",
+                    ""processors"": ""ScaleVector2"",
                     ""groups"": """",
                     ""action"": ""ChangeSelect"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
+                    ""name"": ""Up"",
                     ""id"": ""f00d1149-fe5a-43d3-b71f-a5ed651163ae"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""a8628098-6307-4a77-844a-1425adc33f95"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""3c8ffab8-7215-4022-bb28-1be1efdb2aed"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -143,8 +165,8 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""a8628098-6307-4a77-844a-1425adc33f95"",
+                    ""name"": ""Right"",
+                    ""id"": ""0dfaec0b-e7ee-44cd-b29a-f47696eef67d"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",

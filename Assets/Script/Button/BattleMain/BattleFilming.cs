@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BattleFilming : BattleButtonBase
+public class BattleFilming : BattleMainButtonBase
 {
     [Header("√‘øµ")]
     [SerializeField]
@@ -12,7 +12,7 @@ public class BattleFilming : BattleButtonBase
 
     public override void Action()
     {
-        BattleManager.PlayerAction(BattleAction.√‘øµ);
+        BattleManager.PlayerAction((int)BattleAction.√‘øµ);
     }
 
     public override void SelectThis()

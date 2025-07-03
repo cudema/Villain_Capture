@@ -15,7 +15,6 @@ public class SpawnObject : MonoBehaviour
     [SerializeField]
     NodePattern samplePattern;
 
-
     private void Start()
     {
 
@@ -28,25 +27,28 @@ public class SpawnObject : MonoBehaviour
 
     private void OnDisable()
     {
-        BattleManager.PlayerAction(BattleAction.초기화);
+        BattleManager.PlayerAction((int)BattleAction.초기화);
     }
 
     public void SpawnObj(NodePattern pattern)
     {
         gameObject.SetActive(true);
-        StartCoroutine(temp(pattern));
+        StartCoroutine(ShowNode(pattern));
     }
 
-    IEnumerator temp(NodePattern pattern)
+    IEnumerator ShowNode(NodePattern pattern)
     {
+        GameObject[] temp = new GameObject[pattern.spawnNodeCount];
+
         for (int i = 0; i < pattern.spawnNodeCount; i++)
         {
-            Instantiate(pattern.node, transform.position + new Vector3(0, 10, 0), Quaternion.identity);
+            temp[i] = Instantiate(pattern.node, transform.position + new Vector3(0, 10, 0), Quaternion.identity);
 
             yield return new WaitForSeconds(pattern.spawnTime);
         }
 
-        yield return new WaitForSeconds(pattern.patternEndTime);
+        yield return new WaitUntil(() => temp[pattern.spawnNodeCount - 1] == null);
+        yield return new WaitForSeconds(0.2f);
 
         gameObject.SetActive(false);
     }

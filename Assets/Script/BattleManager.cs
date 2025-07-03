@@ -8,10 +8,16 @@ public enum Trun { 아군 = 0, 적 }
 public class BattleManager : MonoBehaviour
 {
     static Trun currentTrun = Trun.아군;
-    static BattleAction currentAction = BattleAction.초기화;
+    static int currentAction = -1;
     InputManager input;
     static BattleManager battlemanager;
     static SpawnObject spawner;
+    static EnemyBase currentEnemy = null;
+    public static EnemyBase CurrentEnemy
+    {
+        get { return currentEnemy; }
+        private set => currentEnemy = value;
+    }
 
     public static event Action OnEnemyTrun;
     public static event Action EndEnemyTrun;
@@ -73,11 +79,11 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public static void PlayerAction(BattleAction newAction)
+    public static void PlayerAction(int newAction)
     {
         currentAction = newAction;
 
-        if (newAction != BattleAction.초기화)
+        if (newAction != -1)
         {
             battlemanager.StartCoroutine(InAction());
         }
@@ -86,7 +92,7 @@ public class BattleManager : MonoBehaviour
     static IEnumerator InAction()
     {
         OnPlayerAction?.Invoke();
-        yield return new WaitUntil(() => currentAction == BattleAction.초기화);
+        yield return new WaitUntil(() => currentAction == -1);
         EndPlayerAction?.Invoke();
         ChangeTrun(Trun.적);
     }
@@ -94,5 +100,10 @@ public class BattleManager : MonoBehaviour
     public static void PatternStart(NodePattern pattern)
     {
         spawner.SpawnObj(pattern);
+    }
+
+    public static void SetEnemy(EnemyBase newEnemy)
+    {
+        currentEnemy = newEnemy;
     }
 }

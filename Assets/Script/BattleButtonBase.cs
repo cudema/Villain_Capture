@@ -5,22 +5,28 @@ using UnityEngine.UI;
 
 public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
-    [SerializeField]
-    BattleMainSeleter seleter;
-    [SerializeField]
-    BattleAction action;
+    protected BattleSeleterBase seleter;
+
+    protected int action;
 
     [Header("»ö")]
     [SerializeField]
-    Color baseColor;
+    protected Color baseColor;
     [SerializeField]
-    Color selectColor;
+    protected Color selectColor;
 
     Image image;
 
     private void Start()
     {
         image = GetComponent<Image>();
+        seleter = transform.GetComponentInParent<BattleSeleterBase>();
+    }
+
+    private void Reset()
+    {
+        baseColor = new Color(1, 1, 1, 1);
+        selectColor = new Color(1, 0.51372f, 0.51372f, 1);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

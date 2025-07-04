@@ -8,6 +8,8 @@ public class TwinClive : PatternBase
     float radiusRange;
     [SerializeField]
     float tiltRange;
+    [SerializeField]
+    bool randomPosition;
 
     protected override IEnumerator BingPattern()
     {
@@ -25,6 +27,12 @@ public class TwinClive : PatternBase
 
             GameObject cloen = Instantiate(bullet, new Vector3(ranX, ranY, enemy.transform.position.z), Quaternion.Euler(new Vector3(0, 0, tilt)));
             cloen.GetComponent<BulletBase>().Setup(attackDelay);
+
+            if (randomPosition)
+            {
+                ranX = Random.Range(center.x - tempVector.x, center.x + tempVector.x);
+                ranY = Random.Range(center.y - tempVector.y, center.y + tempVector.y);
+            }
 
             yield return new WaitForSeconds(bulletSpawnDelay);
         }

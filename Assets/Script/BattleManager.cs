@@ -125,4 +125,9 @@ public class BattleManager : MonoBehaviour
     {
         currentEnemy = newEnemy;
     }
+
+    //public static void ChangeCenter(Vector2 newCenter)
+    //{
+    //    battlemanager.center += newCenter;
+    //}
 }

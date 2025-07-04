@@ -50,18 +50,6 @@ public class PlayerContoller : MonoBehaviour
         moveDirection = new Vector3(vector.x, vector.y, 0);
     }
 
-    public Vector3[] GetMoveRadius()
-    {
-        Vector3[] vectors = new Vector3[5];
-        vectors[0] = new Vector3(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x - 0.5f, BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y + 0.5f, 0);
-        vectors[1] = new Vector3(BattleManager.battlemanager.Center.x + BattleManager.battlemanager.Radius.x + 0.5f, BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y + 0.5f, 0);
-        vectors[2] = new Vector3(BattleManager.battlemanager.Center.x + BattleManager.battlemanager.Radius.x + 0.5f, BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y - 0.5f, 0);
-        vectors[3] = new Vector3(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x - 0.5f, BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y - 0.5f, 0);
-        vectors[4] = new Vector3(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x - 0.5f, BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y + 0.5f, 0);
-
-        return vectors;
-    }
-
     public void SetPattern()
     {
         BattleManager.PatternStart(pattern);

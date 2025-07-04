@@ -8,5 +8,10 @@ public class MoveObject : MonoBehaviour
     private void Update()
     {
         transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+
+        if (transform.position.y < -6)
+        {
+            Destroy(gameObject);
+        }
     }
 }

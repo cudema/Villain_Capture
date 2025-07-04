@@ -24,7 +24,7 @@ public class PatternBase : ScriptableObject
         this.enemy = enemy;
     }
 
-    public void StartPattern()
+    public virtual void StartPattern()
     {
         enemy.StartCoroutine(BingPattern());
     }

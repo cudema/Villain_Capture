@@ -5,9 +5,9 @@ public class TwinCliveBullet : BulletBase
 {
     Collider hitcollider;
 
-    public override void Setup(float speed)
+    public override void Setup(float attackDelay)
     {
-        base.Setup(speed);
+        base.Setup(attackDelay);
         hitcollider = GetComponent<Collider>();
         ShootBullet();
     }
@@ -24,7 +24,7 @@ public class TwinCliveBullet : BulletBase
 
     IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(attackDelay);
 
         hitcollider.enabled = true;
 

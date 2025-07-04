@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea6b4b02757495489ffd587d5926335, type: 3}
-  m_Name: TwinClive
+  m_Script: {fileID: 11500000, guid: c34c19ca321f35541bf8d33a405c01a1, type: 3}
+  m_Name: BladeWave
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7159280481276931533, guid: 78c2cf7038d6c394797fb1298b5ffa56, type: 3}
-  bulletSpeed: 0
-  bulletCount: 2
-  bulletSpawnDelay: 0.3
+  bullet: {fileID: 3435580627398291278, guid: 7c15fb2d8fd849c4ea1a0dcb8c4aefaf, type: 3}
+  bulletSpeed: 10
+  bulletCount: 1
+  bulletSpawnDelay: 0
   attackDelay: 2
-  radiusRange: 0.5
-  tiltRange: 25

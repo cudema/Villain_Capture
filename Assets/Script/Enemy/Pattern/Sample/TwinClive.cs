@@ -24,12 +24,12 @@ public class TwinClive : PatternBase
             temp += 90;
 
             GameObject cloen = Instantiate(bullet, new Vector3(ranX, ranY, enemy.transform.position.z), Quaternion.Euler(new Vector3(0, 0, tilt)));
-            cloen.GetComponent<BulletBase>().Setup(bulletSpeed);
+            cloen.GetComponent<BulletBase>().Setup(attackDelay);
 
             yield return new WaitForSeconds(bulletSpawnDelay);
         }
 
-        yield return new WaitForSeconds(bulletSpeed);
+        yield return new WaitForSeconds(attackDelay);
 
         BattleManager.ChangeTrun(Trun.¾Æ±º);
     }

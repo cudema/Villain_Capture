@@ -3,10 +3,17 @@ using UnityEngine;
 public class BulletBase : MonoBehaviour
 {
     protected float speed;
+    protected float attackDelay;
 
-    public virtual void Setup(float speed)
+    public virtual void Setup(float atteckDelay)
+    {
+        this.attackDelay = atteckDelay;
+    }
+
+    public virtual void Setup(float speed, float atteckDelay)
     {
         this.speed = speed;
+        this.attackDelay = atteckDelay;
     }
 
     private void Update()

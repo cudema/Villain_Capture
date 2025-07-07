@@ -6,9 +6,9 @@ public class BladeWaveBullet : BulletBase
     GameObject warning;
     GameObject bullet;
 
-    public override void Setup(float speed, float atteckDelay)
+    public override void Setup(PatternBase patternBase)
     {
-        base.Setup(speed, atteckDelay);
+        base.Setup(patternBase);
         warning = transform.GetChild(0).gameObject;
         bullet = transform.GetChild(1).gameObject;
         ShootBullet();

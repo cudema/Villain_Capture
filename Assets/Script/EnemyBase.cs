@@ -46,6 +46,8 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField]
     protected PatternBase[] patterns;
 
+    GameObject wraning;
+
     public event Action ChangedPhotoGauge;
     public event Action PhotoGaugeReachedMax;
     public event Action ChangedAngerGauge;
@@ -55,6 +57,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         BattleManager.SetEnemy(this);
         BattleManager.OnEnemyTrun += StartPattern;
+        wraning = transform.GetChild(0).gameObject;
         for (int i = 0; i < patterns.Length; i++)
         {
             patterns[i].Setup(this);
@@ -70,5 +73,15 @@ public abstract class EnemyBase : MonoBehaviour
     {
         int temp = UnityEngine.Random.Range(0, patterns.Length);
         patterns[temp].StartPattern();
+    }
+
+    public void OnWraning()
+    {
+        wraning.SetActive(true);
+    }
+
+    public void OffWraning()
+    {
+        wraning.SetActive(false);
     }
 }

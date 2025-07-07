@@ -8,18 +8,18 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     protected GameObject bullet;
     [SerializeField]
-    protected float bulletSpeed;
+    public float bulletSpeed;
     [SerializeField]
     protected int bulletCount;
     [SerializeField]
     protected float bulletSpawnDelay;
     [SerializeField]
-    protected float attackDelay;
+    public float attackDelay;
 
-    protected MonoBehaviour enemy;
+    protected EnemyBase enemy;
     protected GameObject go;
 
-    public void Setup(MonoBehaviour enemy)
+    public void Setup(EnemyBase enemy)
     {
         this.enemy = enemy;
     }
@@ -34,7 +34,7 @@ public class PatternBase : ScriptableObject
         for (int i = 0; i < bulletCount; i++)
         {
             go = Instantiate(bullet, enemy.transform.position, Quaternion.identity);
-            go.GetComponent<BulletBase>().Setup(bulletSpeed);
+            go.GetComponent<BulletBase>().Setup(this);
             Destroy(go, 3.0f);
 
             yield return new WaitForSeconds(bulletSpawnDelay);

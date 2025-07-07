@@ -6,6 +6,10 @@ public class FractureBuster : PatternBase
 {
     [SerializeField]
     float smallBulletArrivalTime;
+    public float SmallBulletArrivalTime
+    {
+        get; private set;
+    }
 
     Vector2[][] randomPos = new Vector2[3][];
     [Header("랜덤 범위")]
@@ -13,6 +17,10 @@ public class FractureBuster : PatternBase
     float minDistance;
 
     Vector2[] ativePos = new Vector2[] { Vector2.zero, Vector2.zero, Vector2.zero };
+    public Vector2[] AtivePos
+    {
+        get; private set;
+    }
 
     [Header("보스 돌진")]
     [SerializeField]
@@ -53,8 +61,7 @@ public class FractureBuster : PatternBase
             SetRandomPos(randomPos[2], 2);
 
             go = Instantiate(bullet, enemy.transform.position, Quaternion.identity);
-            go.GetComponent<BulletBase>().Setup(bulletSpeed, attackDelay);
-            go.GetComponent<FractureBusterBullet>().SetRandomPos(ativePos, smallBulletArrivalTime);
+            go.GetComponent<FractureBusterBullet>().Setup(this);
             warning = go.transform.GetChild(0).gameObject;
 
             yield return new WaitForSeconds(bulletSpawnDelay);

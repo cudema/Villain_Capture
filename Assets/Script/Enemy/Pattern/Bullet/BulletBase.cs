@@ -5,15 +5,10 @@ public class BulletBase : MonoBehaviour
     protected float speed;
     protected float attackDelay;
 
-    public virtual void Setup(float atteckDelay)
+    public virtual void Setup(PatternBase patternBase)
     {
-        this.attackDelay = atteckDelay;
-    }
-
-    public virtual void Setup(float speed, float atteckDelay)
-    {
-        this.speed = speed;
-        this.attackDelay = atteckDelay;
+        speed = patternBase.bulletSpeed;
+        attackDelay = patternBase.attackDelay;
     }
 
     private void Update()

@@ -12,15 +12,17 @@ public class FractureBusterBullet : BulletBase
 
     Vector2 pointOfBullet;
 
-    public override void Setup(float speed, float atteckDelay)
+    public void Setup(FractureBuster patternBase)
     {
-        base.Setup(speed, atteckDelay);
+        base.Setup(patternBase);
         warning = transform.GetChild(0).gameObject;
         bullet = transform.GetChild(1).gameObject;
         smallBullet[0] = bullet.transform.GetChild(0).gameObject;
         smallBullet[1] = bullet.transform.GetChild(1).gameObject;
         smallBullet[2] = bullet.transform.GetChild(2).gameObject;
         pointOfBullet = new Vector2(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x, BattleManager.battlemanager.Center.y);
+        randomPos = patternBase.AtivePos;
+        this.smallBulletArrivalTime = patternBase.SmallBulletArrivalTime;
         ShootBullet();
     }
 
@@ -59,12 +61,6 @@ public class FractureBusterBullet : BulletBase
             smallBullet[2].transform.localPosition += (Vector2.Distance(pointOfBullet, randomPos[2])) * GoToPos(randomPos[2]) / smallBulletArrivalTime;
             yield return null;
         }
-    }
-
-    public void SetRandomPos(Vector2[] newPos, float smallBulletArrivalTime)
-    {
-        randomPos = newPos;
-        this.smallBulletArrivalTime = smallBulletArrivalTime;
     }
 
     Vector3 GoToPos(Vector2 pos)

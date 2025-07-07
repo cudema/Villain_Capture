@@ -5,9 +5,9 @@ public class TwinCliveBullet : BulletBase
 {
     Collider hitcollider;
 
-    public override void Setup(float attackDelay)
+    public override void Setup(PatternBase patternBase)
     {
-        base.Setup(attackDelay);
+        base.Setup(patternBase);
         hitcollider = GetComponent<Collider>();
         ShootBullet();
     }

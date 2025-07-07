@@ -15,11 +15,11 @@ MonoBehaviour:
   bullet: {fileID: 8222855455361264066, guid: 82924de0514757640968dda3275e7cdb, type: 3}
   bulletSpeed: 1
   bulletCount: 5
-  bulletSpawnDelay: 1
+  bulletSpawnDelay: 2
   attackDelay: 1
   startSootDelay: 1
   scalePerSecond: 1
   rushDelay: 1
   collisionDistance: 0
   radiusRange: 0.5
-  patternEndDelay: 1
+  patternEndDelay: 0.5

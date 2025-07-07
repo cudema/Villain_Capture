@@ -16,7 +16,6 @@ public class GroundZeroBullet : BulletBase
         bullets[2] = transform.GetChild(2).gameObject;
         GroundZero asdf = (GroundZero)patternBase;
         scalePerSecond = asdf.ScalePerSecond;
-        Debug.Log(asdf.ScalePerSecond);
         ShootBullet();
     }
 

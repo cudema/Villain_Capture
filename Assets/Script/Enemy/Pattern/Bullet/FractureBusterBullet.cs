@@ -22,7 +22,7 @@ public class FractureBusterBullet : BulletBase
         smallBullet[2] = bullet.transform.GetChild(2).gameObject;
         pointOfBullet = new Vector2(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x, BattleManager.battlemanager.Center.y);
         randomPos = patternBase.AtivePos;
-        this.smallBulletArrivalTime = patternBase.SmallBulletArrivalTime;
+        smallBulletArrivalTime = patternBase.SmallBulletArrivalTime;
         ShootBullet();
     }
 

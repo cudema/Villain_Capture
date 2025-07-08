@@ -8,6 +8,7 @@ public class BattleMainSeleter : BattleSeleterBase
     {
         //이거 전투 시작시 셋팅하는 부분으로 움겨야함
         BattleManager.OnPlayerAction += OffUI;
+        BattleManager.OnEnemyTrun += OffUI;
         BattleManager.OnPlayerTrun += OnUI;
         InputManager.ChangeSelecter(this);
     }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "FractureBuster", menuName = "Scriptable Objects/FractureBuster")]
@@ -8,7 +9,7 @@ public class FractureBuster : PatternBase
     float smallBulletArrivalTime;
     public float SmallBulletArrivalTime
     {
-        get; private set;
+        get => smallBulletArrivalTime; private set => smallBulletArrivalTime = value;
     }
 
     Vector2[][] randomPos = new Vector2[3][];
@@ -19,7 +20,7 @@ public class FractureBuster : PatternBase
     Vector2[] ativePos = new Vector2[] { Vector2.zero, Vector2.zero, Vector2.zero };
     public Vector2[] AtivePos
     {
-        get; private set;
+        get => ativePos; private set => ativePos = value;
     }
 
     [Header("보스 돌진")]

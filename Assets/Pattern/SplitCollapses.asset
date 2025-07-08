@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea6b4b02757495489ffd587d5926335, type: 3}
-  m_Name: TwinClive1234
+  m_Script: {fileID: 11500000, guid: 435ab8b7d331ea74b80bb9d9f7a22f25, type: 3}
+  m_Name: SplitCollapses
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7159280481276931533, guid: 78c2cf7038d6c394797fb1298b5ffa56, type: 3}
+  bullet: {fileID: 1908805849458401597, guid: 7cfd96dd065f5a24b82da901d0a65c87, type: 3}
   bulletSpeed: 0
-  bulletCount: 3
-  bulletSpawnDelay: 0.3
-  attackDelay: 2
-  radiusRange: 0.85
-  tiltRange: 40
-  randomPosition: 1
+  bulletCount: 0
+  bulletSpawnDelay: 0
+  attackDelay: 0
+  isFourWayAttack: 0

@@ -47,9 +47,9 @@ public class GroundZeroBullet : BulletBase
             bullets[1].transform.position += speed * Time.deltaTime * tempVectors[1].normalized;
             bullets[2].transform.position += speed * Time.deltaTime * tempVectors[2].normalized;
 
-            bullets[0].transform.localScale += Vector3.one * Time.deltaTime * scalePerSecond;
-            bullets[1].transform.localScale += Vector3.one * Time.deltaTime * scalePerSecond;
-            bullets[2].transform.localScale += Vector3.one * Time.deltaTime * scalePerSecond;
+            bullets[0].transform.localScale += new Vector3(scalePerSecond * Time.deltaTime, scalePerSecond * Time.deltaTime, 0);
+            bullets[1].transform.localScale += new Vector3(scalePerSecond * Time.deltaTime, scalePerSecond * Time.deltaTime, 0);
+            bullets[2].transform.localScale += new Vector3(scalePerSecond * Time.deltaTime, scalePerSecond * Time.deltaTime, 0);
 
             if (Vector3.Distance(bullets[0].transform.position, transform.position) > 5)
             {

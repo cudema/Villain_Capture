@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adaf7de29d363b741a3bebec31061c4e, type: 3}
   m_Name: RageAssault
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 6161374347783475099, guid: 42c758dd3e677d948baeb37427ef459c, type: 3}
   bulletSpeed: 0
-  bulletCount: 0
+  bulletCount: 8
   bulletSpawnDelay: 0
   attackDelay: 0
-  rushDelay: 0
-  rushSpeed: 0
-  chopDelay: 0
-  chopRidus: 0
+  rushDelay: 0.5
+  rushSpeed: 15
+  chopDelay: 1
+  chopRidus: 5

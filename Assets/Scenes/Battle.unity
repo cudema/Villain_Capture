@@ -1416,7 +1416,7 @@ MonoBehaviour:
   speed: 10
   pattern:
     node: {fileID: 6739017329534641423, guid: 26efc91f5cb6122489eb35e01c003079, type: 3}
-    spawnNodeCount: 3
+    spawnNodeCount: 2
     spawnTime: 1
     patternEndTime: 3
 --- !u!114 &368535002
@@ -1431,6 +1431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c86b1e86ba6e548b10f1f794ff5a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  maxAttackJudgment: 1
+  currentAttackJudgment: 0
 --- !u!1 &384245077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1520,7 @@ GameObject:
   - component: {fileID: 425250374}
   - component: {fileID: 425250376}
   - component: {fileID: 425250375}
+  - component: {fileID: 425250377}
   m_Layer: 5
   m_Name: "\uCD2C\uC601\uAC8C\uC774\uC9C0"
   m_TagString: Untagged
@@ -1582,6 +1586,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425250373}
   m_CullTransparentMesh: 1
+--- !u!114 &425250377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425250373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f29b8ad302dd9241a528adb479c36b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &454434305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,7 +1897,7 @@ RectTransform:
   m_GameObject: {fileID: 463817997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 425250374}
@@ -2167,6 +2183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e39eb7766ddd5141a6c198311cf017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHaveJudgment: 0
 --- !u!65 &701036412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2842,7 +2859,7 @@ PrefabInstance:
     - target: {fileID: 9205371885998440386, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1101575906}
+      objectReference: {fileID: 1608534303}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2984,43 +3001,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083920053}
   m_CullTransparentMesh: 1
---- !u!84 &1101575906
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 6
-  m_Width: 640
-  m_Height: 360
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_UseDynamicScaleExplicit: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1105178698
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,6 +3610,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contoller: {fileID: 368535001}
+  photo:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a3bcdf57-1508-43b9-9927-a3497a097f94
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!4 &1231061278
 Transform:
   m_ObjectHideFlags: 0
@@ -3658,7 +3647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 06c3ce66ea959c247a14f4934f5da798, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -3669,7 +3658,31 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e249abc-f2ae-4616-8b7f-8d66c79ee036
+    m_ActionName: 'BattleMenu/ChangeSelect[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5df1badd-f5a8-499c-b11e-7ed4d77f0893
+    m_ActionName: 'BattleMenu/Select[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77ab7c16-7c0b-4d88-8d40-f37e1d574bdc
+    m_ActionName: BattleMenu/Back
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 637da303-0343-42d1-b980-b4dae579609b
+    m_ActionName: 'BattleMove/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7851cb11-7e76-4f50-b35b-85535f29adbf
+    m_ActionName: 'Menu/OpenMenu[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f4a0d06-5b4e-478a-9d4b-fcc89dda728d
+    m_ActionName: 'BattlePhoto/Photo[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Menu
@@ -4857,15 +4870,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: "\uC870\uBB34\uB808\uAE30"
-  maxPhotoGauge: 0
-  maxAngerGauge: 0
-  patterns:
-  - {fileID: 11400000, guid: 52e3be953f1451d4bbdee7d84d5a3a1c, type: 2}
-  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
+  maxPhotoGauge: 100
+  maxAngerGauge: 100
+  nomalPattern:
   - {fileID: 11400000, guid: 5ae767196120382478879085ed79090f, type: 2}
   - {fileID: 11400000, guid: bc7f00f02e7cd9d4d902eadb9a3f7641, type: 2}
   - {fileID: 11400000, guid: b554bae5ea76c9c41b6e0b5f0e57437e, type: 2}
-  - {fileID: 11400000, guid: a4162f98556bf2b4fbe068a4abc4e844, type: 2}
+  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
+  spacialPattern:
+  - {fileID: 11400000, guid: 52e3be953f1451d4bbdee7d84d5a3a1c, type: 2}
+  enagedPattern: {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
+--- !u!84 &1608534303
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 640
+  m_Height: 360
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &1684017707
 GameObject:
   m_ObjectHideFlags: 0

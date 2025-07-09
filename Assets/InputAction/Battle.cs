@@ -298,6 +298,34 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""BattlePhoto"",
+            ""id"": ""deb407e7-dc7e-451d-a3d2-613c69399d06"",
+            ""actions"": [
+                {
+                    ""name"": ""Photo"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f4a0d06-5b4e-478a-9d4b-fcc89dda728d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a9653d6e-d5e3-4385-91c3-3281a0355361"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Photo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -313,6 +341,9 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_OpenMenu = m_Menu.FindAction("OpenMenu", throwIfNotFound: true);
+        // BattlePhoto
+        m_BattlePhoto = asset.FindActionMap("BattlePhoto", throwIfNotFound: true);
+        m_BattlePhoto_Photo = m_BattlePhoto.FindAction("Photo", throwIfNotFound: true);
     }
 
     ~@Battle()
@@ -320,6 +351,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_BattleMenu.enabled, "This will cause a leak and performance issues, Battle.BattleMenu.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_BattleMove.enabled, "This will cause a leak and performance issues, Battle.BattleMove.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Menu.enabled, "This will cause a leak and performance issues, Battle.Menu.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_BattlePhoto.enabled, "This will cause a leak and performance issues, Battle.BattlePhoto.Disable() has not been called.");
     }
 
     /// <summary>
@@ -701,6 +733,102 @@ public partial class @Battle: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="MenuActions" /> instance referencing this action map.
     /// </summary>
     public MenuActions @Menu => new MenuActions(this);
+
+    // BattlePhoto
+    private readonly InputActionMap m_BattlePhoto;
+    private List<IBattlePhotoActions> m_BattlePhotoActionsCallbackInterfaces = new List<IBattlePhotoActions>();
+    private readonly InputAction m_BattlePhoto_Photo;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "BattlePhoto".
+    /// </summary>
+    public struct BattlePhotoActions
+    {
+        private @Battle m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public BattlePhotoActions(@Battle wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "BattlePhoto/Photo".
+        /// </summary>
+        public InputAction @Photo => m_Wrapper.m_BattlePhoto_Photo;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_BattlePhoto; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="BattlePhotoActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(BattlePhotoActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="BattlePhotoActions" />
+        public void AddCallbacks(IBattlePhotoActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BattlePhotoActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BattlePhotoActionsCallbackInterfaces.Add(instance);
+            @Photo.started += instance.OnPhoto;
+            @Photo.performed += instance.OnPhoto;
+            @Photo.canceled += instance.OnPhoto;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="BattlePhotoActions" />
+        private void UnregisterCallbacks(IBattlePhotoActions instance)
+        {
+            @Photo.started -= instance.OnPhoto;
+            @Photo.performed -= instance.OnPhoto;
+            @Photo.canceled -= instance.OnPhoto;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="BattlePhotoActions.UnregisterCallbacks(IBattlePhotoActions)" />.
+        /// </summary>
+        /// <seealso cref="BattlePhotoActions.UnregisterCallbacks(IBattlePhotoActions)" />
+        public void RemoveCallbacks(IBattlePhotoActions instance)
+        {
+            if (m_Wrapper.m_BattlePhotoActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="BattlePhotoActions.AddCallbacks(IBattlePhotoActions)" />
+        /// <seealso cref="BattlePhotoActions.RemoveCallbacks(IBattlePhotoActions)" />
+        /// <seealso cref="BattlePhotoActions.UnregisterCallbacks(IBattlePhotoActions)" />
+        public void SetCallbacks(IBattlePhotoActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BattlePhotoActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BattlePhotoActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="BattlePhotoActions" /> instance referencing this action map.
+    /// </summary>
+    public BattlePhotoActions @BattlePhoto => new BattlePhotoActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "BattleMenu" which allows adding and removing callbacks.
     /// </summary>
@@ -759,5 +887,20 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenMenu(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "BattlePhoto" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="BattlePhotoActions.AddCallbacks(IBattlePhotoActions)" />
+    /// <seealso cref="BattlePhotoActions.RemoveCallbacks(IBattlePhotoActions)" />
+    public interface IBattlePhotoActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Photo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPhoto(InputAction.CallbackContext context);
     }
 }

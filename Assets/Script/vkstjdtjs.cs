@@ -1,22 +1,51 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class vkstjdtjs : MonoBehaviour
 {
-    private void Update()
+    public bool isHaveJudgment = false;
+
+    public IEnumerator HitNode(int count)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        InputManager.inputManager.photo.performed += OnAttackjudgment;
+        float judTemp = 0;
+
+        for (int i = 0; i < count; i++)
         {
-            FindNode();
+            isHaveJudgment = false;
+            yield return new WaitUntil(() => isHaveJudgment);
+
+            float temp = FindNode();
+
+            if (temp >= 0.9f)
+            {
+                judTemp += 0 / count;
+                continue;
+            }
+            if (temp >= 0.5f)
+            {
+                judTemp += 0.7f / count;
+                continue;
+            }
+            if (temp >= 0)
+            {
+                judTemp += 1.0f / count;
+                continue;
+            }
         }
+        PlayerData.player.CurrentAttackJudgment = judTemp;
+        InputManager.inputManager.photo.performed -= OnAttackjudgment;
     }
 
-    void FindNode()
+    float FindNode()
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(0, 0.5f, 0), new Vector3(1.5f, 1, 1.5f));
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(0, 4, 0), new Vector3(1.5f, 12, 1.5f));
 
         if (colliders.Length <= 0)
         {
-            return;
+            Debug.Log("판정 가능한 노드 없음");
+            return -1;
         }
 
         Collider sortCollider = colliders[0];
@@ -32,11 +61,17 @@ public class vkstjdtjs : MonoBehaviour
         }
 
         Destroy(sortCollider.gameObject);
-        Debug.Log(sortDistance);
+        return sortDistance;
     }
 
     float GetNodeDistance(Collider node)
     {
         return Vector3.Distance(transform.position, node.transform.position);
+    }
+
+    void OnAttackjudgment(InputAction.CallbackContext context)
+    {
+        Debug.Log(123123123);
+        isHaveJudgment = true;
     }
 }

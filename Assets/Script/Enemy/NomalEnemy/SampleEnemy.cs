@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SampleEnemy : EnemyBase
 {
-    private void Start()
+    private void Awake()
     {
         Setup();
     }

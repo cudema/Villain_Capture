@@ -42,12 +42,15 @@ public class SpawnObject : MonoBehaviour
 
         for (int i = 0; i < pattern.spawnNodeCount; i++)
         {
-            temp[i] = Instantiate(pattern.node, transform.position + new Vector3(0, 10, 0), Quaternion.identity);
-
             yield return new WaitForSeconds(pattern.spawnTime);
+
+            temp[i] = Instantiate(pattern.node, transform.position + new Vector3(0, 10, 0), Quaternion.identity);
         }
 
-        yield return new WaitUntil(() => temp[pattern.spawnNodeCount - 1] == null);
+        yield return StartCoroutine(GetComponent<vkstjdtjs>().HitNode(pattern.spawnNodeCount));
+
+        PlayerData.player.GetComponent<PlayerContoller>().Attack();
+
         yield return new WaitForSeconds(0.2f);
 
         gameObject.SetActive(false);

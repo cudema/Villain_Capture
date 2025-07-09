@@ -17,12 +17,10 @@ public class RageAssault : PatternBase
     [SerializeField]
     float chopRidus;
 
-    GameObject wraning;
     Renderer renderer;
 
     public override void StartPattern()
     {
-        wraning = enemy.transform.GetChild(0).gameObject;
         renderer = enemy.GetComponent<Renderer>();
 
         base.StartPattern();
@@ -61,14 +59,14 @@ public class RageAssault : PatternBase
 
         }
 
-        wraning.SetActive(true);
-        wraning.transform.localScale = Vector3.one * (chopRidus + 1);
+        enemy.OnWraning();
+        enemy.SetWraningScale(chopRidus + 1);
         enemy.transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, enemy.transform.position.z);
         renderer.enabled = false;
 
         yield return new WaitForSeconds(chopDelay);
 
-        wraning.SetActive(false);
+        enemy.OffWraning();
         renderer.enabled = true;
 
         Destroy(go, 1f);
@@ -76,7 +74,7 @@ public class RageAssault : PatternBase
         yield return new WaitUntil(() => go == null);
 
         enemy.transform.position = startEnemyPoaition;
-        wraning.transform.localScale = Vector3.one * 1.5f;
+        enemy.SetWraningScale(Vector3.one * 1.5f);
 
         BattleManager.ChangeTrun(Trun.¾Æ±º);
     }

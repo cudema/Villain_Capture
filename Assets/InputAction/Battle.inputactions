@@ -212,6 +212,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "BattlePhoto",
+            "id": "deb407e7-dc7e-451d-a3d2-613c69399d06",
+            "actions": [
+                {
+                    "name": "Photo",
+                    "type": "Button",
+                    "id": "6f4a0d06-5b4e-478a-9d4b-fcc89dda728d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a9653d6e-d5e3-4385-91c3-3281a0355361",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Photo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

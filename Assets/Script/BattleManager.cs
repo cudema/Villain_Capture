@@ -38,6 +38,8 @@ public class BattleManager : MonoBehaviour
         private set { radius = value; }
     }
 
+    vkstjdtjs attackJudgment;
+
     public static event Action OnEnemyTrun;
     public static event Action EndEnemyTrun;
 
@@ -60,6 +62,7 @@ public class BattleManager : MonoBehaviour
 
         input = GameObject.Find("PlayerInputManager").GetComponent<InputManager>();
         spawner = transform.GetComponentInChildren<SpawnObject>();
+        attackJudgment = transform.GetComponentInChildren<vkstjdtjs>();
     }
 
     private void Start()
@@ -124,6 +127,11 @@ public class BattleManager : MonoBehaviour
     public static void SetEnemy(EnemyBase newEnemy)
     {
         currentEnemy = newEnemy;
+    }
+
+    public float GetJudgmentFloat()
+    {
+        return 0;
     }
 
     //public static void ChangeCenter(Vector2 newCenter)

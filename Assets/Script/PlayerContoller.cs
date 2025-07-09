@@ -54,4 +54,10 @@ public class PlayerContoller : MonoBehaviour
     {
         BattleManager.PatternStart(pattern);
     }
+
+    public void Attack()
+    {
+        BattleManager.CurrentEnemy.TakeDamage(PlayerData.player.Damage);
+        PlayerData.player.CurrentAttackJudgment = 0;
+    }
 }

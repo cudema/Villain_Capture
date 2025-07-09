@@ -1,7 +1,16 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyBase : MonoBehaviour
+public interface IHealthReporter
+{
+    event Action<float> ChangeHealth;
+
+    void TakeDamage(float damage);
+    float GetMaxHealth();
+}
+
+public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 {
     [Header("이름")]
     [SerializeField]
@@ -10,18 +19,14 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("게이지")]
     [SerializeField]
     protected float maxPhotoGauge;
-    protected float currentPhotoGauge;
+    protected float currentPhotoGauge = 0;
     public float CurrentPhotoGauge
     {
         get => currentPhotoGauge;
         set
         {
-            currentPhotoGauge = Mathf.Clamp(currentPhotoGauge + value, 0, maxPhotoGauge);
-            ChangedPhotoGauge?.Invoke();
-            if (currentPhotoGauge == maxPhotoGauge)
-            {
-                PhotoGaugeReachedMax?.Invoke();
-            }
+            currentPhotoGauge = Mathf.Clamp(value, 0, maxPhotoGauge);
+            ChangeHealth?.Invoke(CurrentPhotoGauge);
         }
     }
 
@@ -33,32 +38,35 @@ public abstract class EnemyBase : MonoBehaviour
         get => currentAngerGauge;
         set
         {
-            currentAngerGauge = Mathf.Clamp(currentPhotoGauge + value, 0, maxAngerGauge);
+            currentAngerGauge = Mathf.Clamp(value, 0, maxAngerGauge);
             ChangedAngerGauge?.Invoke();
-            if (currentAngerGauge == maxAngerGauge)
-            {
-                AngerGaugeReachedMax?.Invoke();
-            }
         }
     }
 
     [Header("공격 패턴")]
     [SerializeField]
-    protected PatternBase[] patterns;
+    protected PatternBase[] nomalPattern;
+    [SerializeField]
+    protected PatternBase[] spacialPattern;
+    [SerializeField]
+    protected PatternBase enagedPattern;
+
+    List<PatternBase> patterns = new List<PatternBase>();
+    int usePatternIndex = 0;
 
     GameObject wraning;
 
-    public event Action ChangedPhotoGauge;
-    public event Action PhotoGaugeReachedMax;
+    public event Action<float> ChangeHealth;
     public event Action ChangedAngerGauge;
-    public event Action AngerGaugeReachedMax;
 
     public void Setup()
     {
+        patterns.AddRange(nomalPattern);
+        patterns.AddRange(spacialPattern);
         BattleManager.SetEnemy(this);
         BattleManager.OnEnemyTrun += StartPattern;
         wraning = transform.GetChild(0).gameObject;
-        for (int i = 0; i < patterns.Length; i++)
+        for (int i = 0; i < patterns.Count; i++)
         {
             patterns[i].Setup(this);
         }
@@ -71,8 +79,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     public virtual void StartPattern()
     {
-        int temp = UnityEngine.Random.Range(0, patterns.Length);
-        patterns[temp].StartPattern();
+        patterns[usePatternIndex++ % patterns.Count].StartPattern();
     }
 
     public void OnWraning()
@@ -83,5 +90,26 @@ public abstract class EnemyBase : MonoBehaviour
     public void OffWraning()
     {
         wraning.SetActive(false);
+    }
+
+    public void SetWraningScale(float scale)
+    {
+        wraning.transform.localScale = Vector3.one * scale;
+    }
+
+    public void SetWraningScale(Vector3 scale)
+    {
+        wraning.transform.localScale = scale;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        Debug.Log(PlayerData.player.CurrentAttackJudgment);
+        CurrentPhotoGauge += damage * (PlayerData.player.CurrentAttackJudgment);
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxPhotoGauge;
     }
 }

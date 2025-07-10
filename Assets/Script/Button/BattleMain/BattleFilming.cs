@@ -18,13 +18,13 @@ public class BattleFilming : BattleMainButtonBase
     public override void SelectThis()
     {
         base.SelectThis();
-        BattleManager.OnPlayerAction += player.SetPattern;
+        BattleManager.OnPlayerAction += player.StartPattern;
     }
 
     public override void UnselectedThis()
     {
         base.UnselectedThis();
-        BattleManager.OnPlayerAction -= player.SetPattern;
+        BattleManager.OnPlayerAction -= player.StartPattern;
     }
 
     void Shoot()

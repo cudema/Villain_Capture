@@ -104,8 +104,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(PlayerData.player.CurrentAttackJudgment);
-        CurrentPhotoGauge += damage * (PlayerData.player.CurrentAttackJudgment);
+        Debug.Log(PlayerContoller.instance.GetCurrentAttackJudgment());
+        CurrentPhotoGauge += damage * (PlayerContoller.instance.GetCurrentAttackJudgment());
     }
 
     public float GetMaxHealth()

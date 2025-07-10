@@ -40,7 +40,7 @@ public class RageAssault : PatternBase
             go.SetActive(true);
             while (tempTime > 0)
             {
-                player = PlayerData.player.transform.position;
+                player = PlayerContoller.instance.transform.position;
                 go.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(go.transform.position.y - player.y, go.transform.position.x - player.x) * Mathf.Rad2Deg));
                 tempTime -= Time.deltaTime;
 

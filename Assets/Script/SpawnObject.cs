@@ -49,9 +49,9 @@ public class SpawnObject : MonoBehaviour
 
         yield return StartCoroutine(GetComponent<vkstjdtjs>().HitNode(pattern.spawnNodeCount));
 
-        PlayerData.player.GetComponent<PlayerContoller>().Attack();
+        PlayerContoller.instance.GetComponent<PlayerContoller>().Attack();
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(pattern.patternEndTime);
 
         gameObject.SetActive(false);
     }

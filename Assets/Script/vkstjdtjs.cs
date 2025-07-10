@@ -34,7 +34,7 @@ public class vkstjdtjs : MonoBehaviour
                 continue;
             }
         }
-        PlayerData.player.CurrentAttackJudgment = judTemp;
+        PlayerContoller.instance.SetCurrentAttackJudgment(judTemp);
         InputManager.inputManager.photo.performed -= OnAttackjudgment;
     }
 

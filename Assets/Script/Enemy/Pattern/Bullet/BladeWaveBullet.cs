@@ -28,7 +28,7 @@ public class BladeWaveBullet : BulletBase
     {
         while (attackDelay > 0)
         {
-            Vector3 player = PlayerData.player.transform.position;
+            Vector3 player = PlayerContoller.instance.transform.position;
 
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(transform.position.y - player.y, transform.position.x - player.x) * Mathf.Rad2Deg));
             attackDelay -= Time.deltaTime;

@@ -1,27 +1,13 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PlayerContoller : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     float speed;
-
-    [Header("√‘øµ")]
-    [SerializeField]
-    NodePattern pattern;
-
     Vector3 moveDirection;
 
-    private void Start()
-    {
-        BattleManager.EndEnemyTrun += ReturnPosition;
-    }
-
-    private void Update()
-    {
-        ToMove();
-    }
-
-    void ToMove()
+    public void ToMove()
     {
         Vector3 cloen = transform.position + (moveDirection * speed * Time.deltaTime);
 
@@ -37,10 +23,9 @@ public class PlayerContoller : MonoBehaviour
 
 
         transform.position = cloen;
-
     }
 
-    void ReturnPosition()
+    public void ReturnPosition()
     {
         transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z);
     }
@@ -48,16 +33,5 @@ public class PlayerContoller : MonoBehaviour
     public void SetDirection(Vector2 vector)
     {
         moveDirection = new Vector3(vector.x, vector.y, 0);
-    }
-
-    public void SetPattern()
-    {
-        BattleManager.PatternStart(pattern);
-    }
-
-    public void Attack()
-    {
-        BattleManager.CurrentEnemy.TakeDamage(PlayerData.player.Damage);
-        PlayerData.player.CurrentAttackJudgment = 0;
     }
 }

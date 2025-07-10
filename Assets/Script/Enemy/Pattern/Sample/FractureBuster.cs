@@ -18,6 +18,8 @@ public class FractureBuster : PatternBase
     float minDistance;
 
     Vector2[] ativePos = new Vector2[] { Vector2.zero, Vector2.zero, Vector2.zero };
+
+    Vector3 enemyPos;
     public Vector2[] AtivePos
     {
         get => ativePos; private set => ativePos = value;
@@ -46,6 +48,7 @@ public class FractureBuster : PatternBase
         randomPos[1][1] = randomPos[0][1] - new Vector2(0, BattleManager.battlemanager.Radius.y * 0.6666f);
         randomPos[2][0] = randomPos[1][0] - new Vector2(0, BattleManager.battlemanager.Radius.y * 0.6666f);
         randomPos[2][1] = randomPos[1][1] - new Vector2(0, BattleManager.battlemanager.Radius.y * 0.6666f);
+        enemyPos = enemy.transform.position;
         base.StartPattern();
     }
 
@@ -84,7 +87,7 @@ public class FractureBuster : PatternBase
             yield return null;
         }
 
-        Vector3 enemyPos = enemy.transform.position;
+
         warning.SetActive(false);
 
         while (enemy.transform.position.x > -10)

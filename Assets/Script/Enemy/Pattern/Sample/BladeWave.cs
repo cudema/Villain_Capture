@@ -8,7 +8,7 @@ public class BladeWave : PatternBase
     {
         for (int i = 0; i < bulletCount; i++)
         {
-            go = Instantiate(bullet, enemy.transform.position, Quaternion.identity);
+            go = Instantiate(bullet, enemy.transform.position, Quaternion.identity, bulletParent);
             go.GetComponent<BulletBase>().Setup(this);
 
             yield return new WaitForSeconds(bulletSpawnDelay);

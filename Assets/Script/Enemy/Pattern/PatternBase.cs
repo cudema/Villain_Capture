@@ -22,10 +22,6 @@ public class PatternBase : ScriptableObject
     [Header("패턴 탄 설정")]
     [SerializeField]
     protected GameObject bullet;
-    //[SerializeField]
-    //public float damage;
-    //[SerializeField]
-    //public float bulletSpeed;
     [SerializeField]
     public BulletData[] bulletDatas;
     [SerializeField]
@@ -37,10 +33,12 @@ public class PatternBase : ScriptableObject
 
     protected EnemyBase enemy;
     protected GameObject go;
+    protected Transform bulletParent;
 
     public void Setup(EnemyBase enemy)
     {
         this.enemy = enemy;
+        bulletParent = enemy.transform.GetChild(1);
     }
 
     public virtual void StartPattern()
@@ -56,7 +54,7 @@ public class PatternBase : ScriptableObject
     {
         for (int i = 0; i < bulletCount; i++)
         {
-            go = Instantiate(bullet, enemy.transform.position, Quaternion.identity);
+            go = Instantiate(bullet, enemy.transform.position, Quaternion.identity, bulletParent);
             go.GetComponent<BulletBase>().Setup(this);
             Destroy(go, 3.0f);
 
@@ -64,6 +62,18 @@ public class PatternBase : ScriptableObject
         }
 
         yield return new WaitUntil(() => go == null);
+
+        BattleManager.ChangeTrun(Trun.아군);
+    }
+
+    public virtual void StopPattern()
+    {
+        enemy.StopAllCoroutines();
+        Destroy(go);
+        for (int i = 0; i < bulletParent.childCount; i++)
+        {
+            Destroy(bulletParent.GetChild(i).gameObject);
+        }
 
         BattleManager.ChangeTrun(Trun.아군);
     }

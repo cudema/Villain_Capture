@@ -73,10 +73,7 @@ public class BattleManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ChangeTrun(Trun.¾Æ±º);
-        }
+
     }
 
     public static void ChangeTrun(Trun newTrun)

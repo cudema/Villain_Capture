@@ -25,7 +25,7 @@ public class TwinClive : PatternBase
             float tilt = Random.Range(-tiltRange, tiltRange) + temp;
             temp += 90;
 
-            GameObject cloen = Instantiate(bullet, new Vector3(ranX, ranY, enemy.transform.position.z), Quaternion.Euler(new Vector3(0, 0, tilt)));
+            GameObject cloen = Instantiate(bullet, new Vector3(ranX, ranY, enemy.transform.position.z), Quaternion.Euler(new Vector3(0, 0, tilt)), bulletParent);
             cloen.GetComponent<BulletBase>().Setup(this);
 
             if (randomPosition)

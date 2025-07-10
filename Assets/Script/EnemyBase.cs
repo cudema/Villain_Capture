@@ -50,21 +50,38 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected PatternBase[] spacialPattern;
     [SerializeField]
     protected PatternBase enagedPattern;
+    PatternBase currentPattern;
+
+    protected bool isParringable = false;
 
     List<PatternBase> patterns = new List<PatternBase>();
     int usePatternIndex = 0;
 
     GameObject wraning;
+    Renderer enemyRenderer;
+
+    Vector3 startPos;
 
     public event Action<float> ChangeHealth;
     public event Action ChangedAngerGauge;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            currentPattern.StopPattern();
+        }
+    }
+
     public void Setup()
     {
+        startPos = transform.position;
+        enemyRenderer = GetComponent<Renderer>();
         patterns.AddRange(nomalPattern);
         patterns.AddRange(spacialPattern);
         BattleManager.SetEnemy(this);
         BattleManager.OnEnemyTrun += StartPattern;
+        BattleManager.EndEnemyTrun += ResetPosition;
         wraning = transform.GetChild(0).gameObject;
         for (int i = 0; i < patterns.Count; i++)
         {
@@ -79,7 +96,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public virtual void StartPattern()
     {
-        patterns[usePatternIndex++ % patterns.Count].StartPattern();
+        currentPattern = patterns[usePatternIndex++ % patterns.Count];
+        currentPattern.StartPattern();
     }
 
     public void OnWraning()
@@ -90,6 +108,23 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public void OffWraning()
     {
         wraning.SetActive(false);
+    }
+
+    public void OnRenderer()
+    {
+        enemyRenderer.enabled = true;
+    }
+
+    public void OffRenderer()
+    {
+        enemyRenderer.enabled = false;
+    }
+
+    void ResetPosition()
+    {
+        OffWraning();
+        OnRenderer();
+        transform.position = startPos;
     }
 
     public void SetWraningScale(float scale)
@@ -105,11 +140,20 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public void TakeDamage(float damage)
     {
         Debug.Log(PlayerContoller.instance.GetCurrentAttackJudgment());
-        CurrentPhotoGauge += damage * (PlayerContoller.instance.GetCurrentAttackJudgment());
+        float ranTemp = UnityEngine.Random.Range(0.0f, 0.2f);
+        CurrentPhotoGauge += damage * (PlayerContoller.instance.GetCurrentAttackJudgment() + ranTemp);
     }
 
     public float GetMaxHealth()
     {
         return maxPhotoGauge;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isParringable && other.CompareTag("ParringPoint"))
+        {
+
+        }
     }
 }

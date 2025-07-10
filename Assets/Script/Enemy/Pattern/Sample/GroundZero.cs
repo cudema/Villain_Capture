@@ -24,19 +24,17 @@ public class GroundZero : PatternBase
     float patternEndDelay;
 
     Vector3 startPosVector;
-    Renderer renderer;
 
 
     public override void StartPattern()
     {
         startPosVector = enemy.transform.position;
-        renderer = enemy.GetComponent<Renderer>();
         base.StartPattern();
     }
 
     protected override IEnumerator BingPattern()
     {
-        renderer.enabled = false;
+        enemy.OffRenderer();
 
         Vector2 tempVector = BattleManager.battlemanager.Radius * radiusRange;
         Vector2 center = BattleManager.battlemanager.Center;
@@ -49,13 +47,13 @@ public class GroundZero : PatternBase
         yield return new WaitForSeconds(rushDelay);
 
         enemy.OffWraning();
-        renderer.enabled = true;
+        enemy.OnRenderer();
 
         yield return new WaitForSeconds(startSootDelay);
 
         for (int i = 0; i < bulletCount; i++)
         {
-            go = Instantiate(bullet, enemy.transform.position, Quaternion.identity);
+            go = Instantiate(bullet, enemy.transform.position, Quaternion.identity, bulletParent);
             go.GetComponent<BulletBase>().Setup(this);
 
             yield return new WaitForSeconds(bulletSpawnDelay);

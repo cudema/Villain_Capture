@@ -71,7 +71,6 @@ public class vkstjdtjs : MonoBehaviour
 
     void OnAttackjudgment(InputAction.CallbackContext context)
     {
-        Debug.Log(123123123);
         isHaveJudgment = true;
     }
 }

@@ -40,7 +40,7 @@ public class SplitCollapses : PatternBase
             for (int i = 0; i < bulletCount; i++)
             {
                 tempSpawn = GetRandomVector(tempSpawn);
-                go = Instantiate(bullet, spawnVector[tempSpawn], Quaternion.identity);
+                go = Instantiate(bullet, spawnVector[tempSpawn], Quaternion.identity, bulletParent);
                 go.GetComponent<BulletBase>().Setup(this);
 
                 yield return new WaitForSeconds(bulletSpawnDelay);
@@ -51,7 +51,7 @@ public class SplitCollapses : PatternBase
             int tempSpawn = Random.Range(0, spawnVector.Length);
             for (int i = 0; i < bulletCount; i++)
             {
-                go = Instantiate(bullet, spawnVector[tempSpawn++ % 2], Quaternion.identity);
+                go = Instantiate(bullet, spawnVector[tempSpawn++ % 2], Quaternion.identity, bulletParent);
                 go.GetComponent<BulletBase>().Setup(this);
 
                 yield return new WaitForSeconds(bulletSpawnDelay);

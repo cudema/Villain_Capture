@@ -18,18 +18,17 @@ public class RageAssault : PatternBase
     float chopRidus;
 
     Renderer renderer;
+    Vector3 startEnemyPoaition;
 
     public override void StartPattern()
     {
         renderer = enemy.GetComponent<Renderer>();
-
+        startEnemyPoaition = enemy.transform.position;
         base.StartPattern();
     }
 
     protected override IEnumerator BingPattern()
     {
-        Vector3 startEnemyPoaition = enemy.transform.position;
-
         go = Instantiate(bullet, enemy.transform.position, Quaternion.identity, enemy.transform);
 
         Vector3 player = Vector3.zero;

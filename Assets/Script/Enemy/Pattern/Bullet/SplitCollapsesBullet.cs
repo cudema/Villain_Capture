@@ -10,7 +10,14 @@ public class SplitCollapsesBullet : BulletBase
     public override void Setup(PatternBase patternBase)
     {
         base.Setup(patternBase);
-        bulletScale = new Vector3(BattleManager.battlemanager.Radius.x + 0.5f, BattleManager.battlemanager.Radius.y * 2 + 1, 1);
+        if (BattleManager.battlemanager.Center.y - transform.position.y == 0)
+        {
+            bulletScale = new Vector3(BattleManager.battlemanager.Radius.x + 0.5f, BattleManager.battlemanager.Radius.y * 2 + 1, 1);
+        }
+        else
+        {
+            bulletScale = new Vector3(BattleManager.battlemanager.Radius.x * 2 + 1, BattleManager.battlemanager.Radius.y + 0.5f, 1);
+        }
         wraning = transform.GetChild(0).gameObject;
         hitbax = transform.GetChild(1).gameObject;
         ShootBullet();

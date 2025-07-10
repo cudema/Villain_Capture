@@ -25,20 +25,20 @@ public class BattleManager : MonoBehaviour
     [Header("이동 반경 설정")]
     [SerializeField]
     Vector2 center;
+    Vector2 currentCenter;
     public Vector2 Center
     {
-        get { return center; }
-        private set { center = value; }
+        get { return currentCenter; }
+        private set { currentCenter = value; }
     }
     [SerializeField]
     Vector2 radius;
+    Vector2 currentRadius;
     public Vector2 Radius
     {
-        get { return radius; }
-        private set { radius = value; }
+        get { return currentRadius; }
+        private set { currentRadius = value; }
     }
-
-    vkstjdtjs attackJudgment;
 
     public static event Action OnEnemyTrun;
     public static event Action EndEnemyTrun;
@@ -62,11 +62,12 @@ public class BattleManager : MonoBehaviour
 
         input = GameObject.Find("PlayerInputManager").GetComponent<InputManager>();
         spawner = transform.GetComponentInChildren<SpawnObject>();
-        attackJudgment = transform.GetComponentInChildren<vkstjdtjs>();
+        ResetFild();
     }
 
     private void Start()
     {
+        EndEnemyTrun += ResetFild;
         spawner.gameObject.SetActive(false);
     }
 
@@ -134,8 +135,15 @@ public class BattleManager : MonoBehaviour
         return 0;
     }
 
-    //public static void ChangeCenter(Vector2 newCenter)
-    //{
-    //    battlemanager.center += newCenter;
-    //}
+    public void ChangeFild(Vector2 newCenter, Vector2 newRadius)
+    {
+        Center = newCenter;
+        Radius = newRadius;
+    }
+
+    void ResetFild()
+    {
+        Center = center;
+        Radius = radius;
+    }
 }

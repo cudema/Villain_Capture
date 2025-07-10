@@ -26,6 +26,7 @@ public class PlayerContoller : MonoBehaviour
     private void Start()
     {
         BattleManager.EndEnemyTrun += movement.ReturnPosition;
+        BattleManager.OnEnemyTrun += movement.ReturnPosition;
     }
 
     private void Update()

@@ -14,6 +14,11 @@ public class SplitCollapses : PatternBase
 
     public override void StartPattern()
     {
+        if (isChangedFild)
+        {
+            BattleManager.battlemanager.ChangeFild(center, radius);
+        }
+
         spawnVector[0] = new Vector3(BattleManager.battlemanager.Center.x + (BattleManager.battlemanager.Radius.x / 2) + 0.25f, BattleManager.battlemanager.Center.y, enemy.transform.position.z);
         spawnVector[1] = new Vector3(BattleManager.battlemanager.Center.x - (BattleManager.battlemanager.Radius.x / 2) - 0.25f, BattleManager.battlemanager.Center.y, enemy.transform.position.z);
         spawnVector[2] = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y + (BattleManager.battlemanager.Radius.y / 2) + 0.25f, enemy.transform.position.z);
@@ -24,7 +29,7 @@ public class SplitCollapses : PatternBase
         ativeVector.Add(2);
         ativeVector.Add(3);
 
-        base.StartPattern();
+        enemy.StartCoroutine(BingPattern());
     }
 
     protected override IEnumerator BingPattern()
@@ -35,7 +40,7 @@ public class SplitCollapses : PatternBase
             for (int i = 0; i < bulletCount; i++)
             {
                 tempSpawn = GetRandomVector(tempSpawn);
-                go = Instantiate(bullet, spawnVector[tempSpawn], Quaternion.Euler(new Vector3(0, 0, tempSpawn > 1 ? 90 : 0)));
+                go = Instantiate(bullet, spawnVector[tempSpawn], Quaternion.identity);
                 go.GetComponent<BulletBase>().Setup(this);
 
                 yield return new WaitForSeconds(bulletSpawnDelay);

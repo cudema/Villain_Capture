@@ -17,10 +17,10 @@ public class MoveRadiusRenderer : MonoBehaviour
         OffRenderer();
     }
 
-    //private void Update()
-    //{
-    //    linerenderer.SetPositions(GetMoveRadius());
-    //}
+    private void Update()
+    {
+        linerenderer.SetPositions(GetMoveRadius());
+    }
 
     void OnRenderer()
     {

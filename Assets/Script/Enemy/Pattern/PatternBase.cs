@@ -11,6 +11,14 @@ public struct BulletData
 
 public class PatternBase : ScriptableObject
 {
+    [Header("필드 설정")]
+    [SerializeField]
+    protected Vector2 center;
+    [SerializeField]
+    protected Vector2 radius;
+    [SerializeField]
+    protected bool isChangedFild = false;
+
     [Header("패턴 탄 설정")]
     [SerializeField]
     protected GameObject bullet;
@@ -37,6 +45,10 @@ public class PatternBase : ScriptableObject
 
     public virtual void StartPattern()
     {
+        if (isChangedFild)
+        {
+            BattleManager.battlemanager.ChangeFild(center, radius);
+        }
         enemy.StartCoroutine(BingPattern());
     }
 

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8647501826381271541}
   - component: {fileID: 571750189830940628}
   - component: {fileID: 6701535129249062941}
+  - component: {fileID: 2028246683171533234}
   m_Layer: 0
   m_Name: SmallBullet (2)
   m_TagString: Untagged
@@ -134,12 +135,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2028246683171533234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783595364362897796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2a116edde9bae4c8bc0de6619dbfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5971670743486524517
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +165,7 @@ GameObject:
   - component: {fileID: 7729482861832733436}
   - component: {fileID: 5598140807979925069}
   - component: {fileID: 6401231608556405439}
+  - component: {fileID: 224179463249093428}
   m_Layer: 0
   m_Name: SmallBullet (1)
   m_TagString: Untagged
@@ -242,12 +256,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &224179463249093428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5971670743486524517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2a116edde9bae4c8bc0de6619dbfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6765767388502376101
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +378,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -368,6 +394,7 @@ GameObject:
   - component: {fileID: 2386157201760463643}
   - component: {fileID: 3641245440032122652}
   - component: {fileID: 5394324513509663523}
+  - component: {fileID: 6630917020027983851}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -461,12 +488,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6630917020027983851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020477461517586354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2a116edde9bae4c8bc0de6619dbfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8571059529756946332
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +564,7 @@ GameObject:
   - component: {fileID: 4161162619169594041}
   - component: {fileID: 6797099046353293167}
   - component: {fileID: 3724353401548989041}
+  - component: {fileID: 2756296297263344256}
   m_Layer: 0
   m_Name: SmallBullet
   m_TagString: Untagged
@@ -615,9 +655,21 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2756296297263344256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115044459743536304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2a116edde9bae4c8bc0de6619dbfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,12 +14,34 @@ public class FractureBusterBullet : BulletBase
 
     public void Setup(FractureBuster patternBase)
     {
-        base.Setup(patternBase);
+        attackDelay = patternBase.attackDelay;
+        speed = patternBase.bulletDatas[0].speed;
         warning = transform.GetChild(0).gameObject;
         bullet = transform.GetChild(1).gameObject;
         smallBullet[0] = bullet.transform.GetChild(0).gameObject;
         smallBullet[1] = bullet.transform.GetChild(1).gameObject;
         smallBullet[2] = bullet.transform.GetChild(2).gameObject;
+
+        for (int i = 0; i < patternBase.bulletDatas.Length; i++)
+        {
+            if (patternBase.bulletDatas[i].name == "돌조각(small)")
+            {
+                smallBullet[1].GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
+                smallBullet[2].GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
+                continue;
+            }
+            if (patternBase.bulletDatas[i].name == "돌조각(big)")
+            {
+                smallBullet[0].GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
+                continue;
+            }
+            if (patternBase.bulletDatas[i].name == "돌덩이")
+            {
+                bullet.GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
+                continue;
+            }
+        }
+
         pointOfBullet = new Vector2(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x, BattleManager.battlemanager.Center.y);
         randomPos = patternBase.AtivePos;
         smallBulletArrivalTime = patternBase.SmallBulletArrivalTime;

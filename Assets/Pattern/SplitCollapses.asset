@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: SplitCollapses
   m_EditorClassIdentifier: 
   bullet: {fileID: 1908805849458401597, guid: 7cfd96dd065f5a24b82da901d0a65c87, type: 3}
-  bulletSpeed: 0.4
+  bulletDatas:
+  - name: 
+    damage: 5
+    speed: 0.5
   bulletCount: 8
   bulletSpawnDelay: 1
   attackDelay: 1

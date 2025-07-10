@@ -57,4 +57,9 @@ public class PlayerContoller : MonoBehaviour
     {
         attack.Attack();
     }
+
+    public float GetMaxHealth()
+    {
+        return health.GetMaxHealth();
+    }
 }

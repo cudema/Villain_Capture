@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8817376165504866967}
   - component: {fileID: 6799161695688167037}
   - component: {fileID: 9206357110559071502}
+  - component: {fileID: 7818457839891624593}
   m_Layer: 0
   m_Name: TwinClive
   m_TagString: Untagged
@@ -119,5 +120,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3acd8c932fc94e4abb759d05e77995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7818457839891624593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159280481276931533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2a116edde9bae4c8bc0de6619dbfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

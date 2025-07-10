@@ -2,13 +2,24 @@ using System.Collections;
 using UnityEngine;
 
 [System.Serializable]
+public struct BulletData
+{
+    public string name;
+    public float damage;
+    public float speed;
+}
+
 public class PatternBase : ScriptableObject
 {
     [Header("∆–≈œ ≈∫ º≥¡§")]
     [SerializeField]
     protected GameObject bullet;
+    //[SerializeField]
+    //public float damage;
+    //[SerializeField]
+    //public float bulletSpeed;
     [SerializeField]
-    public float bulletSpeed;
+    public BulletData[] bulletDatas;
     [SerializeField]
     protected int bulletCount;
     [SerializeField]

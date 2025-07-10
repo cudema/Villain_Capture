@@ -13,7 +13,19 @@ MonoBehaviour:
   m_Name: FractureBuster
   m_EditorClassIdentifier: 
   bullet: {fileID: 8571059529756946332, guid: a87bf4dfb397c4c408777ae47cc95a56, type: 3}
-  bulletSpeed: 10
+  bulletDatas:
+  - name: "\uB3CC\uB369\uC774"
+    damage: 30
+    speed: 10
+  - name: "\uB3CC\uC870\uAC01(small)"
+    damage: 20
+    speed: 10
+  - name: "\uB3CC\uC870\uAC01(big)"
+    damage: 30
+    speed: 10
+  - name: "\uBCF4\uC2A4 \uB3CC"
+    damage: 70
+    speed: 10
   bulletCount: 1
   bulletSpawnDelay: 0
   attackDelay: 2

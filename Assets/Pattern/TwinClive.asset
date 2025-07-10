@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: TwinClive
   m_EditorClassIdentifier: 
   bullet: {fileID: 7159280481276931533, guid: 78c2cf7038d6c394797fb1298b5ffa56, type: 3}
-  bulletSpeed: 0
+  bulletDatas:
+  - name: 
+    damage: 5
+    speed: 0
   bulletCount: 2
   bulletSpawnDelay: 0.3
   attackDelay: 2

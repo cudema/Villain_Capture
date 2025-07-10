@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: BladeWave
   m_EditorClassIdentifier: 
   bullet: {fileID: 3435580627398291278, guid: 7c15fb2d8fd849c4ea1a0dcb8c4aefaf, type: 3}
-  bulletSpeed: 10
+  bulletDatas:
+  - name: 
+    damage: 5
+    speed: 5
   bulletCount: 1
   bulletSpawnDelay: 0
   attackDelay: 2

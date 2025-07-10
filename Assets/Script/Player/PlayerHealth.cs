@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
         set
         {
             currentHP = Mathf.Clamp(value, 0, maxHP);
+            ChangeHealth?.Invoke(currentHP);
         }
     }
 
@@ -19,16 +20,26 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
 
     private void Awake()
     {
-
+        ChangeHealth += PrintCurrentHP;
+        currentHP = maxHP;
     }
 
     public float GetMaxHealth()
     {
-        throw new NotImplementedException();
+        return maxHP;
     }
 
     public void TakeDamage(float damage)
     {
-        throw new NotImplementedException();
+        CurrentHP -= (int)damage;
+        if (CurrentHP <= 0 )
+        {
+            Debug.Log("Á×À½");
+        }
+    }
+
+    void PrintCurrentHP(float currentHP)
+    {
+        Debug.Log($"{currentHP}");
     }
 }

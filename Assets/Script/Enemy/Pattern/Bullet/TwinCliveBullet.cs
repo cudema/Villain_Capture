@@ -28,7 +28,7 @@ public class TwinCliveBullet : BulletBase
 
         hitcollider.enabled = true;
 
-        yield return null; //공격 모션에 맞게 딜레이 추가
+        yield return new WaitForSeconds(0.1f); //공격 모션에 맞게 딜레이 추가
 
         Destroy(gameObject);
     }

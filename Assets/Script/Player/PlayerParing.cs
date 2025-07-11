@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 public class PlayerParing : MonoBehaviour
 {
     GameObject parringPoint;
+    [SerializeField]
+    float parringColldown;
+    float currentGameTime = -100;
 
     private void Start()
     {
@@ -14,14 +17,19 @@ public class PlayerParing : MonoBehaviour
 
     public void OnParring(InputAction.CallbackContext context)
     {
-        StartCoroutine(Parring());
+        if (Time.time - currentGameTime >  parringColldown)
+        {
+            currentGameTime = Time.time;
+            Debug.Log("parring");
+            StartCoroutine(Parring());
+        }
     }
 
     IEnumerator Parring()
     {
         parringPoint.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         
         parringPoint.SetActive(false);
     }

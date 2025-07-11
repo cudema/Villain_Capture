@@ -1,5 +1,7 @@
 using UnityEngine;
 
+public enum PlayerState { 기본 = 0, 플렛포머}
+
 public class PlayerContoller : MonoBehaviour
 {
     public static PlayerContoller instance;
@@ -8,6 +10,11 @@ public class PlayerContoller : MonoBehaviour
     PlayerAttack attack;
     PlayerHealth health;
     PlayerParing parring;
+
+    bool isMoveable = false;
+
+    [SerializeField]
+    PlayerState currentState = PlayerState.기본;
 
     private void Awake()
     {
@@ -28,13 +35,28 @@ public class PlayerContoller : MonoBehaviour
     private void Start()
     {
         BattleManager.EndEnemyTrun += movement.ReturnPosition;
+        BattleManager.EndEnemyTrun += OffMoveable;
         BattleManager.OnEnemyTrun += movement.ReturnPosition;
+        BattleManager.OnEnemyTrun += OnMoveavle;
         InputManager.inputManager.parring.performed += parring.OnParring;
     }
 
     private void Update()
     {
-        movement.ToMove();
+        if (isMoveable)
+        {
+            switch (currentState)
+            {
+                case PlayerState.기본:
+                    movement.ToMove();
+                    break;
+                case PlayerState.플렛포머:
+                    movement.ToJumpMove();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public void SetDirection(Vector2 vector)
@@ -60,6 +82,16 @@ public class PlayerContoller : MonoBehaviour
     public void Attack()
     {
         attack.Attack();
+    }
+
+    void OnMoveavle()
+    {
+        isMoveable = true;
+    }
+
+    void OffMoveable()
+    {
+        isMoveable = false;
     }
 
     public float GetMaxHealth()

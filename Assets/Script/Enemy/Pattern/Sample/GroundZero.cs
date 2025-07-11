@@ -48,8 +48,11 @@ public class GroundZero : PatternBase
 
         enemy.OffWraning();
         enemy.OnRenderer();
+        enemy.OnParringable();
 
         yield return new WaitForSeconds(startSootDelay);
+
+        enemy.OffParringable();
 
         for (int i = 0; i < bulletCount; i++)
         {

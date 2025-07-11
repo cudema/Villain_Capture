@@ -31,23 +31,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     }
 
     [SerializeField]
-    protected float maxAngerGauge;
-    protected float currentAngerGauge;
-    public float CurrentAngerGauge
-    {
-        get => currentAngerGauge;
-        set
-        {
-            currentAngerGauge = Mathf.Clamp(value, 0, maxAngerGauge);
-            ChangedAngerGauge?.Invoke();
-        }
-    }
+    public int emotionalGauge;
+
+    [Header("색 변경 샘플")]
+    [SerializeField]
+    Material nomalMaterial;
+    [SerializeField]
+    Material parringableMaterial;
 
     [Header("공격 패턴")]
     [SerializeField]
     protected PatternBase[] nomalPattern;
-    [SerializeField]
-    protected PatternBase[] spacialPattern;
     [SerializeField]
     protected PatternBase enagedPattern;
     PatternBase currentPattern;
@@ -63,7 +57,6 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     Vector3 startPos;
 
     public event Action<float> ChangeHealth;
-    public event Action ChangedAngerGauge;
 
     private void Update()
     {
@@ -78,7 +71,6 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         startPos = transform.position;
         enemyRenderer = GetComponent<Renderer>();
         patterns.AddRange(nomalPattern);
-        patterns.AddRange(spacialPattern);
         BattleManager.SetEnemy(this);
         BattleManager.OnEnemyTrun += StartPattern;
         BattleManager.EndEnemyTrun += ResetPosition;
@@ -149,11 +141,24 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         return maxPhotoGauge;
     }
 
+    public void OnParringable()
+    {
+        enemyRenderer.material = parringableMaterial;
+        isParringable = true;
+    }
+
+    public void OffParringable()
+    {
+        enemyRenderer.material = nomalMaterial;
+        isParringable = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (isParringable && other.CompareTag("ParringPoint"))
         {
             currentPattern.StopPattern();
+            OffParringable();
         }
     }
 }

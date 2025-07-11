@@ -31,7 +31,18 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     }
 
     [SerializeField]
-    public int emotionalGauge;
+    int minEmotionalGauge;
+    [SerializeField]
+    int maxEmotionalGauge;
+    int emotionalGauge = 0;
+    public int EmotionalGauge
+    {
+        get => emotionalGauge;
+        set
+        {
+            emotionalGauge = Mathf.Clamp(value, minEmotionalGauge, maxEmotionalGauge);
+        }
+    }
 
     [Header("색 변경 샘플")]
     [SerializeField]

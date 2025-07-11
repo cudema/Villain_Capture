@@ -7,6 +7,7 @@ public class PlayerContoller : MonoBehaviour
     PlayerMovement movement;
     PlayerAttack attack;
     PlayerHealth health;
+    PlayerParing parring;
 
     private void Awake()
     {
@@ -21,12 +22,14 @@ public class PlayerContoller : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         attack = GetComponent<PlayerAttack>();
         health = GetComponent<PlayerHealth>();
+        parring = GetComponent<PlayerParing>();
     }
 
     private void Start()
     {
         BattleManager.EndEnemyTrun += movement.ReturnPosition;
         BattleManager.OnEnemyTrun += movement.ReturnPosition;
+        InputManager.inputManager.parring.performed += parring.OnParring;
     }
 
     private void Update()

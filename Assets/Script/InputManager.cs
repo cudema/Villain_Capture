@@ -17,9 +17,10 @@ public class InputManager : MonoBehaviour
     InputActionMap battleMoveActionMap;
     InputActionMap battlePhotoActionMap;
 
-    InputAction changeSelect;
-    InputAction select;
-    InputAction move;
+    public InputAction changeSelect;
+    public InputAction select;
+    public InputAction move;
+    public InputAction parring;
     public InputAction photo;
 
     InputActionMap currentActionMap;
@@ -36,7 +37,7 @@ public class InputManager : MonoBehaviour
             Destroy(this);
         }
 
-            input = GetComponent<PlayerInput>();
+        input = GetComponent<PlayerInput>();
         input.SwitchCurrentActionMap("BattleMenu");
 
         //현재 임시로 넣어둔 코드 수정 필요
@@ -57,6 +58,7 @@ public class InputManager : MonoBehaviour
         if (battleMoveActionMap != null)
         {
             move = battleMoveActionMap.FindAction("Move");
+            parring = battleMoveActionMap.FindAction("Parring");
         }
         battlePhotoActionMap = input.actions.FindActionMap("BattlePhoto");
         if (battlePhotoActionMap != null)
@@ -71,7 +73,6 @@ public class InputManager : MonoBehaviour
         select.performed += OnSelect;
         move.performed += OnMove;
         move.canceled += OnMove;
-        photo.performed += OnPhoto;
 
         battleMenuActionMap.Disable();
         battleMoveActionMap.Disable();
@@ -125,11 +126,6 @@ public class InputManager : MonoBehaviour
     {
         Vector2 temp = value.ReadValue<Vector2>();
         contoller.SetDirection(temp);
-    }
-
-    public void OnPhoto(InputAction.CallbackContext value)
-    {
-        
     }
 
     public static void ChangeSelecter(BattleSeleterBase newSeleter)

@@ -211,6 +211,15 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Parring"",
+                    ""type"": ""Button"",
+                    ""id"": ""94e2669d-bd1e-47ac-8e57-db9585780029"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -268,6 +277,17 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2987432f-73d5-4e16-892a-9394a5ab58b3"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Parring"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -338,6 +358,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         // BattleMove
         m_BattleMove = asset.FindActionMap("BattleMove", throwIfNotFound: true);
         m_BattleMove_Move = m_BattleMove.FindAction("Move", throwIfNotFound: true);
+        m_BattleMove_Parring = m_BattleMove.FindAction("Parring", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_OpenMenu = m_Menu.FindAction("OpenMenu", throwIfNotFound: true);
@@ -546,6 +567,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_BattleMove;
     private List<IBattleMoveActions> m_BattleMoveActionsCallbackInterfaces = new List<IBattleMoveActions>();
     private readonly InputAction m_BattleMove_Move;
+    private readonly InputAction m_BattleMove_Parring;
     /// <summary>
     /// Provides access to input actions defined in input action map "BattleMove".
     /// </summary>
@@ -561,6 +583,10 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BattleMove/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_BattleMove_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "BattleMove/Parring".
+        /// </summary>
+        public InputAction @Parring => m_Wrapper.m_BattleMove_Parring;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -590,6 +616,9 @@ public partial class @Battle: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Parring.started += instance.OnParring;
+            @Parring.performed += instance.OnParring;
+            @Parring.canceled += instance.OnParring;
         }
 
         /// <summary>
@@ -604,6 +633,9 @@ public partial class @Battle: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Parring.started -= instance.OnParring;
+            @Parring.performed -= instance.OnParring;
+            @Parring.canceled -= instance.OnParring;
         }
 
         /// <summary>
@@ -872,6 +904,13 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Parring" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnParring(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menu" which allows adding and removing callbacks.

@@ -153,7 +153,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         if (isParringable && other.CompareTag("ParringPoint"))
         {
-
+            currentPattern.StopPattern();
         }
     }
 }

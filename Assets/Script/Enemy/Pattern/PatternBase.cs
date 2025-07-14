@@ -31,6 +31,10 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     public float attackDelay;
 
+    [Header("±¤ÆøÈ­ ¿©ºÎ")]
+    [SerializeField]
+    public bool isEnaged;
+
     protected EnemyBase enemy;
     protected GameObject go;
     protected Transform bulletParent;

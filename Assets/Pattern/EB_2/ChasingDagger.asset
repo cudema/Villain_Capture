@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8e081d5b8414f4b973c23fe5eb09fd, type: 3}
+  m_Name: ChasingDagger
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: -1}
+  radius: {x: 5, y: 3}
+  isChangedFild: 0
+  bullet: {fileID: 4873927664824315810, guid: 631c213726d6ec4439e7f07ba4493bb5, type: 3}
+  bulletDatas:
+  - name: 
+    damage: 10
+    speed: 5
+  bulletCount: 10
+  bulletSpawnDelay: 0.5
+  attackDelay: 0.5
+  isEnaged: 0
+  dontSpawnRadius: 0.7

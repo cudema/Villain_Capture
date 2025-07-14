@@ -10,7 +10,7 @@ public class SoulBullet : BulletBase
     protected override void ShootBullet()
     {
         transform.position -= transform.right * speed * Time.deltaTime;
-        if (transform.position.x < -6)
+        if (Mathf.Abs(transform.position.x) > 10 || Mathf.Abs(transform.position.y) > 6)
         {
             Destroy(gameObject);
         }

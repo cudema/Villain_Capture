@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2663732dd79dd01479df74a46ab90e05, type: 3}
-  m_Name: Cut
+  m_Script: {fileID: 11500000, guid: 38419dde3cf2f614c80fb0ec109aeb27, type: 3}
+  m_Name: DaggerDrop
   m_EditorClassIdentifier: 
   center: {x: 0, y: 0}
   radius: {x: 0, y: 0}
   isChangedFild: 0
   state: 1
-  bullet: {fileID: 2466720759053932356, guid: 41e5a3b127170f846b34e00209d4e01c, type: 3}
-  bulletDatas:
-  - name: 
-    damage: 10
-    speed: 0
+  bullet: {fileID: 3435580627398291278, guid: 7c15fb2d8fd849c4ea1a0dcb8c4aefaf, type: 3}
+  bulletDatas: []
   bulletCount: 1
-  bulletSpawnDelay: 0.5
-  attackDelay: 1
+  bulletSpawnDelay: 1000000
+  attackDelay: 1000000
   isEnaged: 0
+  floor: {fileID: 8172484819609631059, guid: 8fb928fa36dcbbc4dbd34f62036082ed, type: 3}
+  xPos: 1.5
+  yPos: 1.5

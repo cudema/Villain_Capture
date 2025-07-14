@@ -54,7 +54,25 @@ public class PlayerMovement : MonoBehaviour
             v /= 2;
         }
 
-        if (cloen.y < BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y || cloen.y > BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y)
+        if (cloen.y - transform.position.y < 0)
+        {
+            Collider[] collider = Physics.OverlapBox(transform.position - new Vector3(0, 0.5f, 0), new Vector3(0.5f, 0.0001f, 1));
+            
+            if (collider.Length > 0 && collider[0].CompareTag("Floor"))
+            {
+                isjumpable = true;
+                v = 0;
+                cloen.y = transform.position.y;
+            }
+        }
+
+        if (cloen.y > BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y)
+        {
+            v = 0;
+            cloen.y = transform.position.y;
+        }
+
+        if (cloen.y < BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y)
         {
             isjumpable = true;
             v = 0;

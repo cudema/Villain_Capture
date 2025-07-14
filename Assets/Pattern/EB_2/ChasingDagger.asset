@@ -15,6 +15,7 @@ MonoBehaviour:
   center: {x: 0, y: -1}
   radius: {x: 5, y: 3}
   isChangedFild: 0
+  state: 0
   bullet: {fileID: 4873927664824315810, guid: 631c213726d6ec4439e7f07ba4493bb5, type: 3}
   bulletDatas:
   - name: 

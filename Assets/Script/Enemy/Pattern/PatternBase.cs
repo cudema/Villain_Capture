@@ -19,6 +19,10 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     protected bool isChangedFild = false;
 
+    [Header("게임 모드 설정")]
+    [SerializeField]
+    protected PlayMode state;
+
     [Header("패턴 탄 설정")]
     [SerializeField]
     protected GameObject bullet;
@@ -51,6 +55,9 @@ public class PatternBase : ScriptableObject
         {
             BattleManager.battlemanager.ChangeFild(center, radius);
         }
+
+        PlayerContoller.instance.ChangePlayMode(state);
+
         enemy.StartCoroutine(BingPattern());
     }
 

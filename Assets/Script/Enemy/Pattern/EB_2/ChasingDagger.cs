@@ -24,6 +24,8 @@ public class ChasingDagger : PatternBase
         maxY = BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y;
         minY = BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y;
 
+        PlayerContoller.instance.ChangePlayMode(state);
+
         enemy.StartCoroutine(BingPattern());
     }
 

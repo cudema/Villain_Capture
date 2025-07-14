@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum PlayerState { 기본 = 0, 플렛포머}
+public enum PlayMode { 기본 = 0, 플렛포머}
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class PlayerContoller : MonoBehaviour
     bool isMoveable = false;
 
     [SerializeField]
-    PlayerState currentState = PlayerState.기본;
+    PlayMode currentState = PlayMode.기본;
 
     private void Awake()
     {
@@ -47,10 +47,10 @@ public class PlayerContoller : MonoBehaviour
         {
             switch (currentState)
             {
-                case PlayerState.기본:
+                case PlayMode.기본:
                     movement.ToMove();
                     break;
-                case PlayerState.플렛포머:
+                case PlayMode.플렛포머:
                     movement.ToJumpMove();
                     break;
                 default:
@@ -97,5 +97,10 @@ public class PlayerContoller : MonoBehaviour
     public float GetMaxHealth()
     {
         return health.GetMaxHealth();
+    }
+
+    public void ChangePlayMode(PlayMode play)
+    {
+        currentState = play;
     }
 }

@@ -27,4 +27,4 @@ MonoBehaviour:
   isEnaged: 0
   durationTime: 8
   spawnRadius: 1.5
-  donSpawnRadius: 0.3
+  donSpawnRadius: 0.8

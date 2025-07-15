@@ -21,10 +21,10 @@ MonoBehaviour:
   - name: 
     damage: 10
     speed: 10
-  bulletCount: 3
+  bulletCount: 1
   bulletSpawnDelay: 1
-  attackDelay: 1
-  isEnaged: 0
+  attackDelay: 0.5
+  isEnaged: 1
   floor: {fileID: 8172484819609631059, guid: 8fb928fa36dcbbc4dbd34f62036082ed, type: 3}
-  xPos: 1.5
+  xPos: 1
   yPos: 1.5

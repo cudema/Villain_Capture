@@ -36,7 +36,7 @@ public class PlayerContoller : MonoBehaviour
     {
         BattleManager.EndEnemyTrun += movement.ReturnPosition;
         BattleManager.EndEnemyTrun += OffMoveable;
-        BattleManager.OnEnemyTrun += movement.ReturnPosition;
+        BattleManager.OnEnemyTrun += movement.StartMovePosition;
         BattleManager.OnEnemyTrun += OnMoveavle;
         InputManager.inputManager.parring.performed += parring.OnParring;
     }
@@ -102,5 +102,10 @@ public class PlayerContoller : MonoBehaviour
     public void ChangePlayMode(PlayMode play)
     {
         currentState = play;
+    }
+
+    public PlayMode GetPlayMode()
+    {
+        return currentState;
     }
 }

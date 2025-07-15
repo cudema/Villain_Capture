@@ -16,11 +16,14 @@ MonoBehaviour:
   radius: {x: 0, y: 0}
   isChangedFild: 0
   state: 1
-  bullet: {fileID: 3435580627398291278, guid: 7c15fb2d8fd849c4ea1a0dcb8c4aefaf, type: 3}
-  bulletDatas: []
-  bulletCount: 1
-  bulletSpawnDelay: 1000000
-  attackDelay: 1000000
+  bullet: {fileID: 3435580627398291278, guid: 1b8496d9c52d7a74eb79ef70eb84cef7, type: 3}
+  bulletDatas:
+  - name: 
+    damage: 10
+    speed: 10
+  bulletCount: 3
+  bulletSpawnDelay: 1
+  attackDelay: 1
   isEnaged: 0
   floor: {fileID: 8172484819609631059, guid: 8fb928fa36dcbbc4dbd34f62036082ed, type: 3}
   xPos: 1.5

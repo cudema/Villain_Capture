@@ -89,6 +89,23 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z);
     }
 
+    public void StartMovePosition()
+    {
+        switch (PlayerContoller.instance.GetPlayMode())
+        {
+            case PlayMode.기본:
+                transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z);
+                break;
+            case PlayMode.플렛포머:
+                v = 0;
+                isjumpable = false;
+                transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y, transform.position.z);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void SetDirection(Vector2 vector)
     {
         moveDirection = new Vector3(vector.x, vector.y, 0);

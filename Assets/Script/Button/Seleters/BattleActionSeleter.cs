@@ -4,12 +4,19 @@ using UnityEngine;
 public class BattleActionSeleter : BattleSeleterBase
 {
     [SerializeField]
-    BattleMainSeleter temp;
+    BattleSeleterBase temp;
 
     private void Start()
     {
+        BattleManager.OnPlayerAction += OffUI;
+        BattleManager.OnEnemyTrun += OffUI;
         currentAction = 0;
         buttons[currentAction].SelectThis();
+    }
+
+    public override void ChangeBattleAction(int newAction)
+    {
+        base.ChangeBattleAction(newAction);
     }
 
     public override void ChangeBattleAction(Vector2 value)

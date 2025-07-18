@@ -6,6 +6,9 @@ public class BattleActionButtonBase : BattleButtonBase
     protected int thisAction = 0;
     GameObject selectArrow;
 
+    [SerializeField]
+    BattleActionSeleter interviewSeleter;
+
     private void Awake()
     {
         action = thisAction;
@@ -20,5 +23,12 @@ public class BattleActionButtonBase : BattleButtonBase
     public override void UnselectedThis()
     {
         selectArrow.SetActive(false);
+    }
+
+    public override void Action()
+    {
+        interviewSeleter.OnUI();
+        seleter.OffUI();
+        InputManager.ChangeSelecter(interviewSeleter);
     }
 }

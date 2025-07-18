@@ -10,13 +10,15 @@ public interface IHealthReporter
     float GetMaxHealth();
 }
 
+public enum Emotion { 증오 = 0, 경멸, 무관심, 흥미, 우호 }
+
 public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 {
     [Header("이름")]
     [SerializeField]
     protected string enemyName;
 
-    [Header("게이지")]
+    [Header("촬영 게이지")]
     [SerializeField]
     protected float maxPhotoGauge;
     protected float currentPhotoGauge = 0;
@@ -30,10 +32,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
     }
 
+    [Header("감정 게이지")]
     [SerializeField]
     int minEmotionalGauge;
     [SerializeField]
     int maxEmotionalGauge;
+    [SerializeField] //임시
     int emotionalGauge = 0;
     public int EmotionalGauge
     {
@@ -41,8 +45,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         set
         {
             emotionalGauge = Mathf.Clamp(value, minEmotionalGauge, maxEmotionalGauge);
+            ChangedEmotionalGauge?.Invoke();
         }
     }
+    [SerializeField]
+    Emotion currentEmotion = Emotion.무관심;
+
+    bool isEnage = false;
 
     [Header("색 변경 샘플")]
     [SerializeField]
@@ -54,10 +63,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     [SerializeField]
     protected PatternBase[] nomalPattern;
     [SerializeField]
+    protected PatternBase[] enhancePattern;
+    [SerializeField]
     protected PatternBase enagedPattern;
     PatternBase currentPattern;
 
     protected bool isParringable = false;
+    bool isUesingEnagedPattern = false;
 
     List<PatternBase> patterns = new List<PatternBase>();
     int usePatternIndex = 0;
@@ -68,6 +80,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     Vector3 startPos;
 
     public event Action<float> ChangeHealth;
+    public event Action ChangedEmotionalGauge;
 
     private void Update()
     {
@@ -81,15 +94,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         startPos = transform.position;
         enemyRenderer = GetComponent<Renderer>();
-        patterns.AddRange(nomalPattern);
         BattleManager.SetEnemy(this);
         BattleManager.OnEnemyTrun += StartPattern;
         BattleManager.EndEnemyTrun += ResetPosition;
+        ChangedEmotionalGauge += OnChangeEmotion;
+        patterns.AddRange(nomalPattern);
         wraning = transform.GetChild(0).gameObject;
         for (int i = 0; i < patterns.Count; i++)
         {
             patterns[i].Setup(this);
         }
+        enagedPattern.Setup(this);
     }
 
     private void OnDisable()
@@ -99,6 +114,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public virtual void StartPattern()
     {
+        if (isEnage && !isUesingEnagedPattern)
+        {
+            isUesingEnagedPattern = true;
+            usePatternIndex++;
+            enagedPattern.StartPattern();
+            return;
+        }
         currentPattern = patterns[usePatternIndex++ % patterns.Count];
         currentPattern.StartPattern();
     }
@@ -171,5 +193,41 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
             currentPattern.StopPattern();
             OffParringable();
         }
+    }
+
+    void OnChangeEmotion()
+    {
+        if (emotionalGauge >= 7)
+        {
+            currentEmotion = Emotion.우호;
+            return;
+        }
+        if (emotionalGauge >= 4)
+        {
+            currentEmotion = Emotion.흥미;
+            return;
+        }
+        if (emotionalGauge >= -3)
+        {
+            currentEmotion = Emotion.무관심;
+            return;
+        }
+        if (emotionalGauge >= -6)
+        {
+            currentEmotion = Emotion.경멸;
+            if (!isEnage)
+            {
+                isEnage = true;
+                patterns.Clear();
+                patterns.AddRange(enhancePattern);
+                for (int i = 0; i < patterns.Count; i++)
+                {
+                    patterns[i].Setup(this);
+                }
+            }
+            return;
+        }
+        currentEmotion = Emotion.증오;
+        ChangedEmotionalGauge -= OnChangeEmotion;
     }
 }

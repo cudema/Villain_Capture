@@ -10,7 +10,8 @@ public class BattleMainSeleter : BattleSeleterBase
         BattleManager.OnPlayerAction += OffUI;
         BattleManager.OnEnemyTrun += OffUI;
         BattleManager.OnPlayerTrun += OnUI;
-        InputManager.ChangeSelecter(this);
+        BattleManager.OnPlayerTrun += ResetSelecter;
+        ResetSelecter();
     }
 
     public override void ChangeBattleAction(int newAction)
@@ -39,5 +40,10 @@ public class BattleMainSeleter : BattleSeleterBase
         currentAction = (currentAction + (int)value.x);
 
         buttons[currentAction].SelectThis();
+    }
+
+    void ResetSelecter()
+    {
+        InputManager.ChangeSelecter(this);
     }
 }

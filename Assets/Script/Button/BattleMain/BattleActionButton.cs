@@ -19,6 +19,6 @@ public class BattleActionButton : BattleMainButtonBase
     {
         actionSeleter.OnUI();
         seleter.OffUI();
-        InputManager.ChangeSelecter(actionSeleter.GetComponent<BattleActionSeleter>());
+        InputManager.ChangeSelecter(actionSeleter);
     }
 }

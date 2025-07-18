@@ -27,7 +27,7 @@ public class SoulRelease : PatternBase
             float rotate = -15;
             for (int j = 0; j < count; j++)
             {
-                go = Instantiate(bullet, enemy.transform.position, Quaternion.Euler(new Vector3(0, 0, rotate)), bulletParent);
+                go = Instantiate(bullet, enemy.transform.position, Quaternion.Euler(new Vector3(0, 0, rotate)));
                 go.GetComponent<BulletBase>().Setup(this);
 
                 rotate += 30 / (count - 1);
@@ -67,7 +67,7 @@ public class SoulRelease : PatternBase
 
         enemy.OffParringable();
         enemy.OffWraning();
-        enemy.SetWraningScale(1);
+        enemy.SetWraningScale(1.5f);
 
         yield return new WaitForSeconds(attackDelay);
 

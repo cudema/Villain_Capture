@@ -50,7 +50,7 @@ public class BattleSeleterBase : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SelectButton()
+    public virtual void SelectButton()
     {
         buttons[currentAction].Action();
     }

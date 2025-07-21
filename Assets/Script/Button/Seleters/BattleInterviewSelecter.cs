@@ -1,6 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BattleInterviewSelecter : BattleActionSeleter
@@ -8,11 +8,12 @@ public class BattleInterviewSelecter : BattleActionSeleter
     [SerializeField]
     PrintDialogue enemyDialogue;
 
+    [SerializeField]
     InterviewButton[] interviewButtons;
 
     private void Awake()
     {
-        interviewButtons = GetComponentsInChildren<InterviewButton>();
+
     }
 
     private void Start()
@@ -69,18 +70,48 @@ public class BattleInterviewSelecter : BattleActionSeleter
 
     IEnumerator PrintAction()
     {
-        Debug.Log(-1);
-        yield return enemyDialogue.StartCoroutine(enemyDialogue.PrintTextCoroutine(interviewButtons[currentAction].interviewText));
-        Debug.Log("≥°");
-        yield return new WaitUntil(() => Input.anyKeyDown);
-
+        yield return enemyDialogue.StartCoroutine(enemyDialogue.PrintTextCoroutine(TempTextLoad.GetEnemyDialogue("ITV_001")));
         enemyDialogue.ResetText();
 
-        BattleManager.ChangeTrun(Trun.¿˚);
+        BattleManager.ChangeTrun(Trun.Ï†Å);
     }
 
     public override void SelectButton()
     {
         interviewButtons[currentAction].Action();
+    }
+
+    public override void OnUI()
+    {
+        interviewButtons = GetComponentsInChildren<InterviewButton>();
+        gameObject.SetActive(true);
+        SetButton();
+    }
+
+    public override void OffUI()
+    {
+        base.OffUI();
+        for (int i = 0; i < interviewButtons.Length; i++)
+        {
+            interviewButtons[i].gameObject.SetActive(true);
+        }
+    }
+
+    void SetButton()
+    {
+        List<uiText> uiTexts = UICSVLoader.GetUIGroup(enemyUIGroupID);
+        for (int i = 0; i < uiTexts.Count; i++)
+        {
+            Debug.Log(0);
+            interviewButtons[i].Setup(uiTexts[i]);
+        }
+
+        if (uiTexts.Count < interviewButtons.Length)
+        {
+            for (int i = uiTexts.Count; i < interviewButtons.Length; i++)
+            {
+                interviewButtons[i].gameObject.SetActive(false);
+            }
+        }
     }
 }

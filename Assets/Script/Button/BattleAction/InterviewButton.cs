@@ -9,6 +9,6 @@ public class InterviewButton : BattleActionButtonBase
         int temp = Random.Range(-1, 2);
         BattleManager.CurrentEnemy.EmotionalGauge += temp;
 
-        BattleManager.PlayerAction((int)BattleAction.�ൿ);
+        BattleManager.PlayerAction((int)BattleAction.행동);
     }
 }

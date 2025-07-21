@@ -657,6 +657,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 1
+  uiText: {fileID: 51783830}
   interviewSeleter: {fileID: 335273421}
 --- !u!114 &159996857
 MonoBehaviour:
@@ -751,6 +752,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 0}
   interviewSeleter: {fileID: 0}
 --- !u!114 &160059305
 MonoBehaviour:
@@ -976,6 +978,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 1
+  uiText: {fileID: 67892828}
   interviewSeleter: {fileID: 335273421}
   interviewText: "\uB098\uB294"
 --- !u!1 &203478694
@@ -1432,6 +1435,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 2
+  uiText: {fileID: 2120099713}
   interviewSeleter: {fileID: 335273421}
   interviewText: "\uBC14\uBCF4"
 --- !u!1 &286919252
@@ -1832,6 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temp: {fileID: 1984532076}
+  enemyUIGroupID: 
   enemyDialogue: {fileID: 1648433448}
 --- !u!1 &368534996
 GameObject:
@@ -2215,6 +2220,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 4
+  uiText: {fileID: 1392736031}
   interviewSeleter: {fileID: 335273421}
   interviewText: "\uADF8\uC9C0\uAC19\uC740"
 --- !u!1 &420105311
@@ -2789,43 +2795,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463817997}
   m_CullTransparentMesh: 1
---- !u!84 &523620296
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 6
-  m_Width: 640
-  m_Height: 360
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_UseDynamicScaleExplicit: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &580184565
 GameObject:
   m_ObjectHideFlags: 0
@@ -3692,6 +3661,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 3
+  uiText: {fileID: 1327837045}
   interviewSeleter: {fileID: 335273421}
 --- !u!114 &845936973
 MonoBehaviour:
@@ -3877,7 +3847,7 @@ PrefabInstance:
     - target: {fileID: 9205371885998440386, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 523620296}
+      objectReference: {fileID: 2040432775}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4318,6 +4288,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 0}
   interviewSeleter: {fileID: 0}
 --- !u!114 &1134128321
 MonoBehaviour:
@@ -4768,6 +4739,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 3
+  uiText: {fileID: 11391744}
   interviewSeleter: {fileID: 335273421}
   interviewText: "\uC785\uB2C8\uB2E4"
 --- !u!1 &1231061275
@@ -5047,6 +5019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temp: {fileID: 688895569}
+  enemyUIGroupID: 
 --- !u!114 &1256855178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,6 +5626,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 0}
   interviewSeleter: {fileID: 0}
 --- !u!114 &1333150916
 MonoBehaviour:
@@ -6290,6 +6264,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 5
+  uiText: {fileID: 420105313}
   interviewSeleter: {fileID: 335273421}
   interviewText: "\uC138\uC0C1"
 --- !u!1 &1494810025
@@ -6655,6 +6630,7 @@ GameObject:
   - component: {fileID: 1648433450}
   - component: {fileID: 1648433449}
   - component: {fileID: 1648433448}
+  - component: {fileID: 1648433451}
   m_Layer: 5
   m_Name: PrintEnemyDialogue
   m_TagString: Untagged
@@ -6794,6 +6770,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648433446}
   m_CullTransparentMesh: 1
+--- !u!114 &1648433451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648433446}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e17b15833ba62d4189acf81cdbf9410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printer: {fileID: 1648433448}
 --- !u!1 &1684017707
 GameObject:
   m_ObjectHideFlags: 0
@@ -7134,6 +7123,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 2
+  uiText: {fileID: 203478696}
   interviewSeleter: {fileID: 335273421}
 --- !u!114 &1779973865
 MonoBehaviour:
@@ -7409,6 +7399,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 0}
   interviewSeleter: {fileID: 0}
 --- !u!114 &1855599890
 MonoBehaviour:
@@ -7611,6 +7602,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 0}
   interviewSeleter: {fileID: 0}
 --- !u!114 &1913213404
 MonoBehaviour:
@@ -7705,6 +7697,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 0}
   interviewSeleter: {fileID: 0}
 --- !u!114 &1926563488
 MonoBehaviour:
@@ -7837,6 +7830,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 1105178700}
   interviewSeleter: {fileID: 335273421}
 --- !u!1 &1984532072
 GameObject:
@@ -7931,6 +7925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temp: {fileID: 688895569}
+  enemyUIGroupID: ITV_Ruby
 --- !u!1 &1996467680
 GameObject:
   m_ObjectHideFlags: 0
@@ -8067,6 +8062,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996467680}
   m_CullTransparentMesh: 1
+--- !u!84 &2040432775
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 640
+  m_Height: 360
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &2046190299
 GameObject:
   m_ObjectHideFlags: 0
@@ -8160,6 +8192,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  uiText: {fileID: 580184567}
   interviewSeleter: {fileID: 335273421}
   interviewText: "\uC57C\uD638"
 --- !u!1 &2066963106

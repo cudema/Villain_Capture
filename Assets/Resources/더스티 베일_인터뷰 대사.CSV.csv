@@ -1,0 +1,157 @@
+인터뷰 ID,대사 그룹 ID,대사 출력 순서,화자,화자 감정 상태,대사 번호,호감도 증감,대사 텍스트_KR,다음 대사 그룹 ID
+ITV_001,DG_ITV001_Ask,1,Player,,1,,당신은 그녀가 쓰고 있는 자루에 대해 물어봤다.,DG_ITV001_DustyVeil_Response_Router
+ITV_002,DG_ITV001_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_003,DG_ITV001_DustyVeil_Response,2,DustyVeil,경멸,1,1,그걸 네가 알 필요 있어?,END
+ITV_004,DG_ITV001_DustyVeil_Response,2,DustyVeil,경멸,2,1,굳이 알려줘야 할까?,END
+ITV_005,DG_ITV001_DustyVeil_Response,2,DustyVeil,무관심,1,1,알려주기 싫은데? 궁금해?,END
+ITV_006,DG_ITV001_DustyVeil_Response,2,DustyVeil,무관심,2,1,그냥 쓰는 거야. 이유는 없어.,END
+ITV_007,DG_ITV001_DustyVeil_Response,2,DustyVeil,흥미,1,1,글쎄? 알고 싶어?,END
+ITV_008,DG_ITV001_DustyVeil_Response,2,DustyVeil,흥미,2,1,궁금해? 후후…,END
+ITV_009,DG_ITV001_DustyVeil_Response,2,DustyVeil,우호,1,0,"내 전부이자, 나의 모든 것이지.",END
+ITV_010,DG_ITV001_DustyVeil_Response,2,DustyVeil,우호,2,0,나를 이루는 모든 것. 이게 없으면 나도 없는 거야.,END
+ITV_011,DG_ITV002_Ask,1,Player,,1,,당신은 그녀가 들고 있는 피 묻은 단검을 보고 몸을 떨었다.,DG_ITV002_DustyVeil_Response_Router
+ITV_012,DG_ITV002_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_013,DG_ITV002_DustyVeil_Response,2,DustyVeil,경멸,1,1,…귀엽네.,END
+ITV_014,DG_ITV002_DustyVeil_Response,2,DustyVeil,경멸,2,1,그렇게 떠니까 마음 약해지잖아.,END
+ITV_015,DG_ITV002_DustyVeil_Response,2,DustyVeil,무관심,1,1,뭐야? 이게 무서운 거야?,END
+ITV_016,DG_ITV002_DustyVeil_Response,2,DustyVeil,무관심,2,1,이 정도에 놀라면 안 될텐데?,END
+ITV_017,DG_ITV002_DustyVeil_Response,2,DustyVeil,흥미,1,1,귀엽네. 작은 동물 같아.,END
+ITV_018,DG_ITV002_DustyVeil_Response,2,DustyVeil,흥미,2,1,"후후, 그런 모습 계속 보여줘.",END
+ITV_019,DG_ITV002_DustyVeil_Response,2,DustyVeil,우호,1,0,그런 모습을 보여줘도 놔줄 수는 없는데…♡,END
+ITV_020,DG_ITV002_DustyVeil_Response,2,DustyVeil,우호,2,0,"지금 그 모습, 너무 사랑스러워.",END
+ITV_021,DG_ITV003_Ask,1,Player,,1,,당신은 그녀가 좋아하는 것이 무엇인지 물어봤다.,DG_ITV003_DustyVeil_Response_Router
+ITV_022,DG_ITV003_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_023,DG_ITV003_DustyVeil_Response,2,DustyVeil,경멸,1,1,"…처절하게 울부짖는 소리, 그리고 피.",END
+ITV_024,DG_ITV003_DustyVeil_Response,2,DustyVeil,경멸,2,1,"빌런이 죽어가는 장면과, 흐르는 피.",END
+ITV_025,DG_ITV003_DustyVeil_Response,2,DustyVeil,무관심,1,1,네가 흘리는 피.,END
+ITV_026,DG_ITV003_DustyVeil_Response,2,DustyVeil,무관심,2,1,그렇게 겁먹은 모습.,END
+ITV_027,DG_ITV003_DustyVeil_Response,2,DustyVeil,흥미,1,1,피와 비명 소리. 사람들이 왜 싫어하는지 모르겠다니까?,END
+ITV_028,DG_ITV003_DustyVeil_Response,2,DustyVeil,흥미,2,1,"피를 만질 때, 삶을 실감해.",END
+ITV_029,DG_ITV003_DustyVeil_Response,2,DustyVeil,우호,1,0,너의 모든 것. 후후… 언젠간 너로도 이 즐거움을 함께 느낄 수 있겠지?,END
+ITV_030,DG_ITV003_DustyVeil_Response,2,DustyVeil,우호,2,0,너와 함께 하는 게 좋아. 이리로 올래?,END
+ITV_031,DG_ITV004_Ask,1,Player,,1,,당신은 그녀에게 그런 낡은 칼로는 종이도 못 자를 것 같다고 말했다.,DG_ITV004_DustyVeil_Response_Router
+ITV_032,DG_ITV004_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_033,DG_ITV004_DustyVeil_Response,2,DustyVeil,경멸,1,-1,"제정신이 아닌가 보네. 뭐, 곧 죽을 건데 무슨 상관이겠어?",END
+ITV_034,DG_ITV004_DustyVeil_Response,2,DustyVeil,경멸,2,-1,"뭐, 곧 체험해보면 알게 될거야.",END
+ITV_035,DG_ITV004_DustyVeil_Response,2,DustyVeil,무관심,1,-1,그래 보여? 한번 네 몸으로 실험해볼까?,END
+ITV_036,DG_ITV004_DustyVeil_Response,2,DustyVeil,무관심,2,-1,이래 보여도 엄청 잘 드는데?,END
+ITV_037,DG_ITV004_DustyVeil_Response,2,DustyVeil,흥미,1,-1,흠… 지금까지는 뭐든 잘 잘렸는데? 알고 싶어?,END
+ITV_038,DG_ITV004_DustyVeil_Response,2,DustyVeil,흥미,2,-1,말은 그렇게 해도… 궁금한거지?,END
+ITV_039,DG_ITV004_DustyVeil_Response,2,DustyVeil,우호,1,-1,그러면 새로운 칼을 살까? 그리고 너에게 한 번 써보는 거지. 후후. 농담이야.,END
+ITV_040,DG_ITV004_DustyVeil_Response,2,DustyVeil,우호,2,-1,걱정 마. 이건 완벽한 칼이니까. 너에게도 충분할거야. 후후.,END
+ITV_041,DG_ITV005_Ask,1,Player,,1,,당신은 그녀에게 죽은 사람들은 어떤 생각을 하고 있을지 상상해본 적 있냐고 물어봤다.,DG_ITV005_DustyVeil_Response_Router
+ITV_042,DG_ITV005_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_043,DG_ITV005_DustyVeil_Response,2,DustyVeil,경멸,1,-1,별로 궁금하지도 않은데. 시체들이 무슨 말을 하겠어?,END
+ITV_044,DG_ITV005_DustyVeil_Response,2,DustyVeil,경멸,2,-1,네가 그렇게 되면 알겠지. 안 그래?,END
+ITV_045,DG_ITV005_DustyVeil_Response,2,DustyVeil,무관심,1,-1,그런 걸 물어보는 이유를 모르겠네. 직접 체험해볼 생각이야?,END
+ITV_046,DG_ITV005_DustyVeil_Response,2,DustyVeil,무관심,2,-1,무의미한 상상은 시간 낭비야.,END
+ITV_047,DG_ITV005_DustyVeil_Response,2,DustyVeil,흥미,1,-1,굳이 이런 말을 한다는 건… 각오는 된거지?,END
+ITV_048,DG_ITV005_DustyVeil_Response,2,DustyVeil,흥미,2,-1,혹시… 죽길 바라는 거야? 소원을 들어줄게.,END
+ITV_049,DG_ITV005_DustyVeil_Response,2,DustyVeil,우호,1,-1,"큰 감흥은 없는데, 그 말도 마음에 안 들고",END
+ITV_050,DG_ITV005_DustyVeil_Response,2,DustyVeil,우호,2,-1,그런 질문을 듣고 나니 조금 속상한데.,END
+ITV_051,DG_ITV006_Ask,1,Player,,1,,당신은 그녀가 정말 끔찍한 빌런인 것 같다고 말했다.,DG_ITV006_DustyVeil_Response_Router
+ITV_052,DG_ITV006_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_053,DG_ITV006_DustyVeil_Response,2,DustyVeil,경멸,1,-1,알면서 그렇게 말하는 거야? 좋아. 원하는 대로 죽여줄게.,END
+ITV_054,DG_ITV006_DustyVeil_Response,2,DustyVeil,경멸,2,-1,내 앞에서 그런 말을 하다니. 용감하구나?,END
+ITV_055,DG_ITV006_DustyVeil_Response,2,DustyVeil,무관심,1,-1,"하나 알려주자면, 내 앞에서 그렇게 말한 사람들은 모두 죽었어.",END
+ITV_056,DG_ITV006_DustyVeil_Response,2,DustyVeil,무관심,2,-1,그게 유언이야? 싱겁네.,END
+ITV_057,DG_ITV006_DustyVeil_Response,2,DustyVeil,흥미,1,-1,당연한 말 하지마. 나에 대한 이야기엔 별 관심 없어.,END
+ITV_058,DG_ITV006_DustyVeil_Response,2,DustyVeil,흥미,2,-1,네가 날 어떻게 보든 신경 안 써.,END
+ITV_059,DG_ITV006_DustyVeil_Response,2,DustyVeil,우호,1,-10,(충격받은 눈빛에 증오가 담기기 시작한다.),END
+ITV_060,DG_ITV006_DustyVeil_Response,2,DustyVeil,우호,2,-10,…절대로 용서 못해. 절대로…,END
+ITV_061,DG_ITV007_Ask,1,Player,,1,,당신은 그녀의 수배서 사진을 보고 감탄했다.,DG_ITV007_DustyVeil_Response_Router
+ITV_062,DG_ITV007_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_063,DG_ITV007_DustyVeil_Response,2,DustyVeil,경멸,1,1,너한테 해줄 말은 없어.,END
+ITV_064,DG_ITV007_DustyVeil_Response,2,DustyVeil,경멸,2,1,제정신도 아닌가 보네.,END
+ITV_065,DG_ITV007_DustyVeil_Response,2,DustyVeil,무관심,1,1,미쳤어?,END
+ITV_066,DG_ITV007_DustyVeil_Response,2,DustyVeil,무관심,2,1,대체 무슨 의미야?,END
+ITV_067,DG_ITV007_DustyVeil_Response,2,DustyVeil,흥미,1,1,…그게 아직도 남아있어?,END
+ITV_068,DG_ITV007_DustyVeil_Response,2,DustyVeil,흥미,2,1,그렇게 오래 된 사진이 남아있는 거야?,END
+ITV_069,DG_ITV007_DustyVeil_Response,2,DustyVeil,우호,1,0,"그건 오래된 사진인데… 지금은 어떨 지 궁금하지 않아? 뭐, 보여주진 않을 거지만.",END
+ITV_070,DG_ITV007_DustyVeil_Response,2,DustyVeil,우호,2,0,"어리고, 미숙한 모습이네… 부끄럽게도.",END
+ITV_071,DG_ITV008_Ask,1,Player,,1,,나는 그녀에게 그녀가 상처 입혔던 히어로를 기억하냐고 물었다.,DG_ITV008_DustyVeil_Response_Router
+ITV_072,DG_ITV008_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_073,DG_ITV008_DustyVeil_Response,2,DustyVeil,경멸,1,-1,네가 그거랑 무슨 상관이 있지?,END
+ITV_074,DG_ITV008_DustyVeil_Response,2,DustyVeil,경멸,2,-1,너한테 말할 이유는 없는 것 같은데?,END
+ITV_075,DG_ITV008_DustyVeil_Response,2,DustyVeil,무관심,1,-1,…아니.,END
+ITV_076,DG_ITV008_DustyVeil_Response,2,DustyVeil,무관심,2,-1,…기억 안나.,END
+ITV_077,DG_ITV008_DustyVeil_Response,2,DustyVeil,흥미,1,-1,"기억은 하지만, 좋은 기억은 아닌데?",END
+ITV_078,DG_ITV008_DustyVeil_Response,2,DustyVeil,흥미,2,-1,"잊으려고 해도, 자꾸 떠올라.",END
+ITV_079,DG_ITV008_DustyVeil_Response,2,DustyVeil,우호,1,0,딱 한번만 봐줄게. 다음은 없어.,END
+ITV_080,DG_ITV008_DustyVeil_Response,2,DustyVeil,우호,2,0,더 이상 말하지 마. 이건 경고야.,END
+ITV_081,DG_ITV009_Ask,1,Player,,1,,당신은 그녀가 외로워 보인다고 말하며 지금 기분이 어떤지 물어봤다.,DG_ITV009_DustyVeil_Response_Router
+ITV_082,DG_ITV009_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_083,DG_ITV009_DustyVeil_Response,2,DustyVeil,경멸,1,-1,너한테 해줄 말은 없어.,END
+ITV_084,DG_ITV009_DustyVeil_Response,2,DustyVeil,경멸,2,-1,네가 신경 쓸 바 아니야.,END
+ITV_085,DG_ITV009_DustyVeil_Response,2,DustyVeil,무관심,1,-1,그런 걸 왜 물어보는 거야?,END
+ITV_086,DG_ITV009_DustyVeil_Response,2,DustyVeil,무관심,2,-1,그딴 말 듣는 게 기분이 더 더러워지는데.,END
+ITV_087,DG_ITV009_DustyVeil_Response,2,DustyVeil,흥미,1,-1,"내 기분? 뭐, 알 필요 있어?",END
+ITV_088,DG_ITV009_DustyVeil_Response,2,DustyVeil,흥미,2,-1,정말로 궁금해서 묻는거야?,END
+ITV_089,DG_ITV009_DustyVeil_Response,2,DustyVeil,우호,1,0,예전엔 그랬지만… 이젠 괜찮아. (나를 보며 얼굴을 붉힌다.),END
+ITV_090,DG_ITV009_DustyVeil_Response,2,DustyVeil,우호,2,0,"엄청 외롭지만, 네가 있으니까…♡",END
+ITV_091,DG_ITV010_Ask,1,Player,,1,,나는 그녀에게 그녀가 살려준 소녀가 생각나는지 물었다.,DG_ITV010_DustyVeil_Response_Router
+ITV_092,DG_ITV010_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_093,DG_ITV010_DustyVeil_Response,2,DustyVeil,경멸,1,2,그 애는… 사냥을 위한 미끼였을 뿐이야.,END
+ITV_094,DG_ITV010_DustyVeil_Response,2,DustyVeil,경멸,2,2,아무 뜻 없이 한 일이야. 신경 꺼.,END
+ITV_095,DG_ITV010_DustyVeil_Response,2,DustyVeil,무관심,1,2,이미 지나간 일이야. 관심 꺼.,END
+ITV_096,DG_ITV010_DustyVeil_Response,2,DustyVeil,무관심,2,2,관심 갖지 마.,END
+ITV_097,DG_ITV010_DustyVeil_Response,2,DustyVeil,흥미,1,2,"그래, 생각나. 왜 그랬는지는 잘 모르겠지만.",END
+ITV_098,DG_ITV010_DustyVeil_Response,2,DustyVeil,흥미,2,2,"글쎄. 평소였다면 그러지 않았을 텐데, 잘 모르겠네.",END
+ITV_099,DG_ITV010_DustyVeil_Response,2,DustyVeil,우호,1,0,그 애를 본 거야? 잘 살고 있어?,END
+ITV_100,DG_ITV010_DustyVeil_Response,2,DustyVeil,우호,2,0,(그녀의 눈에서 안도하는 것이 느껴졌다.),END
+ITV_101,DG_ITV011_Ask,1,Player,,1,,나는 그녀에게 빌런의 기준을 스스로 판단하는 것이 옳은가 대해 물었다.,DG_ITV011_DustyVeil_Response_Router
+ITV_102,DG_ITV011_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_103,DG_ITV011_DustyVeil_Response,2,DustyVeil,경멸,1,-2,건방지게… 네가 나에 대해 뭘 안다고…!,END
+ITV_104,DG_ITV011_DustyVeil_Response,2,DustyVeil,경멸,2,-2,"그런 걸 말하는 건, 너는 그 기준을 알고 있는 건가?",END
+ITV_105,DG_ITV011_DustyVeil_Response,2,DustyVeil,무관심,1,-2,여기의 기준은 나야.,END
+ITV_106,DG_ITV011_DustyVeil_Response,2,DustyVeil,무관심,2,-2,누군가는 정하는 거야. 여기서는 그게 나일 뿐이지.,END
+ITV_107,DG_ITV011_DustyVeil_Response,2,DustyVeil,흥미,1,-2,그러면? 누가 판단하는 게 옳은 거야?,END
+ITV_108,DG_ITV011_DustyVeil_Response,2,DustyVeil,흥미,2,-2,넌 나보다 더 나은 선택을 할 수 있다는 거야?,END
+ITV_109,DG_ITV011_DustyVeil_Response,2,DustyVeil,우호,1,0,히어로와 빌런 결국 누군가에 의해 정해지는 거야.,END
+ITV_110,DG_ITV011_DustyVeil_Response,2,DustyVeil,우호,2,0,사람을 해치는 게 빌런이 아니면 뭐야? 내 생각은 바뀌지 않아.,END
+ITV_111,DG_ITV012_Ask,1,Player,,1,,나는 그녀에게 그녀의 진짜 모습은 무엇인지 물었다.,DG_ITV012_DustyVeil_Response_Router
+ITV_112,DG_ITV012_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_113,DG_ITV012_DustyVeil_Response,2,DustyVeil,경멸,1,-2,건방지게… 네가 나에 대해 뭘 안다고…!,END
+ITV_114,DG_ITV012_DustyVeil_Response,2,DustyVeil,경멸,2,-2,"그딴 질문, 짜증나니까 하지마.",END
+ITV_115,DG_ITV012_DustyVeil_Response,2,DustyVeil,무관심,1,-2,그걸 네가 왜 궁금해 하지?,END
+ITV_116,DG_ITV012_DustyVeil_Response,2,DustyVeil,무관심,2,-2,내…내 진짜 모습은…,END
+ITV_117,DG_ITV012_DustyVeil_Response,2,DustyVeil,흥미,1,-2,이게 내 모습이야. 왜? 역겨워?,END
+ITV_118,DG_ITV012_DustyVeil_Response,2,DustyVeil,흥미,2,-2,"이게 나고, 난 이미 받아들였어. 문제 있어?",END
+ITV_119,DG_ITV012_DustyVeil_Response,2,DustyVeil,우호,1,-2,나도… 잘 모르겠어. 진짜 나는 뭐지?,END
+ITV_120,DG_ITV012_DustyVeil_Response,2,DustyVeil,우호,2,-2,진짜 나는 도대체… 뭐지…?,END
+ITV_121,DG_ITV013_Ask,1,Player,,1,,나는 그녀를 향해 한껏 느끼한 표정을 지으며 윙크 했다.,DG_ITV013_DustyVeil_Response_Router
+ITV_122,DG_ITV013_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_123,DG_ITV013_DustyVeil_Response,2,DustyVeil,경멸,1,2,…역겨워.,END
+ITV_124,DG_ITV013_DustyVeil_Response,2,DustyVeil,경멸,2,2,그건… 으으…,END
+ITV_125,DG_ITV013_DustyVeil_Response,2,DustyVeil,무관심,1,2,무슨 뜻이야?,END
+ITV_126,DG_ITV013_DustyVeil_Response,2,DustyVeil,무관심,2,2,그런 표정도 지을 줄 알아?,END
+ITV_127,DG_ITV013_DustyVeil_Response,2,DustyVeil,흥미,1,2,음… 한 번 더 해줄래?,END
+ITV_128,DG_ITV013_DustyVeil_Response,2,DustyVeil,흥미,2,2,후후 이상한 표정이네.,END
+ITV_129,DG_ITV013_DustyVeil_Response,2,DustyVeil,우호,1,0,역시… 어떤 표정이어도 좋아…♡,END
+ITV_130,DG_ITV013_DustyVeil_Response,2,DustyVeil,우호,2,0,그렇게 보니까 좀 부끄럽네.,END
+ITV_131,DG_ITV014_Ask,1,Player,,1,,나는 그녀에게 우리가 함께할 미래에 대해 말했다.,DG_ITV014_DustyVeil_Response_Router
+ITV_132,DG_ITV014_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_133,DG_ITV014_DustyVeil_Response,2,DustyVeil,경멸,1,2,뭔 헛소리를 하는 건지…,END
+ITV_134,DG_ITV014_DustyVeil_Response,2,DustyVeil,경멸,2,2,망상도 적당히 해.,END
+ITV_135,DG_ITV014_DustyVeil_Response,2,DustyVeil,무관심,1,2,그런 소리를 하다니…!,END
+ITV_136,DG_ITV014_DustyVeil_Response,2,DustyVeil,무관심,2,2,대체 무슨 생각을 하고 사는 거야…!,END
+ITV_137,DG_ITV014_DustyVeil_Response,2,DustyVeil,흥미,1,2,버…벌써 거기까지…?,END
+ITV_138,DG_ITV014_DustyVeil_Response,2,DustyVeil,흥미,2,2,미래 계획이 참… 확실하구나…?,END
+ITV_139,DG_ITV014_DustyVeil_Response,2,DustyVeil,우호,1,0,그렇게까지 생각해주고 있는 거구나? 기뻐♡,END
+ITV_140,DG_ITV014_DustyVeil_Response,2,DustyVeil,우호,2,0,"사실은 나도 조금 생각해봤는데, 우리 마음이 통하나 봐.",END
+ITV_141,DG_ITV015_Ask,1,Player,,1,,당신은 그녀에게 자루를 벗은 맨 얼굴을 보고 싶다고 말했다.,DG_ITV015_DustyVeil_Response_Router
+ITV_142,DG_ITV015_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_143,DG_ITV015_DustyVeil_Response,2,DustyVeil,경멸,1,-2,건방진 놈이… 절대 안 돼.,END
+ITV_144,DG_ITV015_DustyVeil_Response,2,DustyVeil,경멸,2,-2,정신 나갔어? 절대 안 돼.,END
+ITV_145,DG_ITV015_DustyVeil_Response,2,DustyVeil,무관심,1,-2,그건 왜 궁금해 하는거야?,END
+ITV_146,DG_ITV015_DustyVeil_Response,2,DustyVeil,무관심,2,-2,이상한 말을 하네.,END
+ITV_147,DG_ITV015_DustyVeil_Response,2,DustyVeil,흥미,1,-2,미안하지만 그럴 순 없어.,END
+ITV_148,DG_ITV015_DustyVeil_Response,2,DustyVeil,흥미,2,-2,혹시… 기대하고 있는거야?,END
+ITV_149,DG_ITV015_DustyVeil_Response,2,DustyVeil,우호,1,0,절대 싫어♡,END
+ITV_150,DG_ITV015_DustyVeil_Response,2,DustyVeil,우호,2,0,미안해. 보여주는 건 안 돼.,END
+ITV_151,DG_ITV016_Ask,1,Player,,1,,당신은 이 주제에 대한 인터뷰를 모두 마쳤다.,DG_ITV016_DustyVeil_Response_Router
+ITV_152,DG_ITV016_DustyVeil_Response,2,DustyVeil,증오,1,0,(무서운 눈빛으로 노려보고 있다.),END
+ITV_153,DG_ITV016_DustyVeil_Response,2,DustyVeil,경멸,1,0,더 할 거 없지? 이제 죽여줄게.,END
+ITV_154,DG_ITV016_DustyVeil_Response,2,DustyVeil,무관심,2,0,더 이상 할 말이 없어 보이네.,END
+ITV_155,DG_ITV016_DustyVeil_Response,2,DustyVeil,흥미,1,0,할 말은 그게 끝이야?,END
+ITV_156,DG_ITV016_DustyVeil_Response,2,DustyVeil,우호,2,0,(나를 유심히 바라보고 있다.),END

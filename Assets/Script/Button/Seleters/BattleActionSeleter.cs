@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ public class BattleActionSeleter : BattleSeleterBase
 {
     [SerializeField]
     BattleSeleterBase temp;
+    [SerializeField]
+    protected string enemyUIGroupID;
 
     private void Start()
     {
@@ -12,6 +15,7 @@ public class BattleActionSeleter : BattleSeleterBase
         BattleManager.OnEnemyTrun += OffUI;
         currentAction = 0;
         buttons[currentAction].SelectThis();
+        SetButton();
     }
 
     public override void ChangeBattleAction(int newAction)
@@ -44,6 +48,26 @@ public class BattleActionSeleter : BattleSeleterBase
             temp.OnUI();
             InputManager.ChangeSelecter(temp);
             OffUI();
+        }
+    }
+
+    public override void OnUI()
+    {
+        base.OnUI();
+        SetButton();
+    }
+
+    public void SetUIGroupName(string UIGroup)
+    {
+        enemyUIGroupID = UIGroup;
+    }
+
+    void SetButton()
+    {
+        List<uiText> uiTexts = UICSVLoader.GetUIGroup(enemyUIGroupID);
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].Setup(uiTexts[i]);
         }
     }
 }

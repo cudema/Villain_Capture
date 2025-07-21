@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class BattleActionButtonBase : BattleButtonBase
@@ -6,6 +7,11 @@ public class BattleActionButtonBase : BattleButtonBase
     protected int thisAction = 0;
     GameObject selectArrow;
 
+    uiText UIData;
+
+    [SerializeField]
+    TextMeshProUGUI uiText;
+
     [SerializeField]
     BattleActionSeleter interviewSeleter;
 
@@ -13,6 +19,12 @@ public class BattleActionButtonBase : BattleButtonBase
     {
         action = thisAction;
         selectArrow = transform.GetChild(1).gameObject;
+    }
+
+    public override void Setup(uiText uiText)
+    {
+        UIData = uiText;
+        this.uiText.text = UIData.UIText;
     }
 
     public override void SelectThis()
@@ -27,6 +39,7 @@ public class BattleActionButtonBase : BattleButtonBase
 
     public override void Action()
     {
+        interviewSeleter.SetUIGroupName(UIData.nextUIGroup);
         interviewSeleter.OnUI();
         seleter.OffUI();
         InputManager.ChangeSelecter(interviewSeleter);

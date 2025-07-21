@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("ÃÔ¿µ")]
+    [Header("ï¿½Ô¿ï¿½")]
     [SerializeField]
     NodePattern pattern;
 

@@ -22,24 +22,33 @@ public class PrintDialogue : MonoBehaviour
         text.text = "";
     }
 
-    public IEnumerator PrintTextCoroutine(string printText)
+    public void Print(EnemyDialogue text)
     {
-        if (isPlay)
+        StartCoroutine(PrintTextCoroutine(text));
+    }
+
+    public IEnumerator PrintTextCoroutine(EnemyDialogue printText)
+    {
+        if (isPlay || printText == null)
         {
             yield break;
         }
 
         isPlay = true;
         ResetText();
+        string tempText = printText.dialogueText;
 
-        for (int i = 0; i < printText.Length; i++)
+        for (int i = 0; i < tempText.Length; i++)
         {
-            text.text += printText[i];
+            text.text += tempText[i];
 
             yield return new WaitForSeconds(printDelay);
         }
 
-        Debug.Log(0);
         isPlay = false;
+
+        yield return new WaitUntil(() => Input.anyKeyDown);
+
+        yield return StartCoroutine(PrintTextCoroutine(TempTextLoad.GetNextDialogue(printText.interviewID, Emotion.무관심)));
     }
 }

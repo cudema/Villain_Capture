@@ -1,0 +1,39 @@
+﻿UI ID,UI 그룹,UI 텍스트,다음 UI 그룹,실행 인터뷰
+UI_001,ITV_Ruby,현재에 대해,ITV_Ruby_Present_Router,
+UI_002,ITV_Ruby,과거에 대해,ITV_Ruby_Past_Router,
+UI_003,ITV_Ruby,흑련에 대해,ITV_Ruby_Side1_Router,
+UI_004,ITV_Ruby,비밀에 대해,ITV_Ruby_Side2_Router,
+UI_005,ITV_Ruby_Present,다른 빌런에 대해,,ITV_001
+UI_006,ITV_Ruby_Present,힘의 방향성에 대해,,ITV_011
+UI_007,ITV_Ruby_Present,취미에 대해,,ITV_021
+UI_008,ITV_Ruby_Present,리더십에 대해,,ITV_031
+UI_009,ITV_Ruby_Present,건강에 대해,,ITV_041
+UI_010,ITV_Ruby_Present,사건 해결 능력에 대해,,ITV_051
+UI_011,ITV_Ruby_Past,카리스마에 대해,,ITV_061
+UI_012,ITV_Ruby_Past,주변 시선에 대해,,ITV_071
+UI_013,ITV_Ruby_Past,과거사에 대해,,ITV_081
+UI_014,ITV_Ruby_Side1,루넬에 대해,,ITV_091
+UI_015,ITV_Ruby_Side1,조직 방침에 대해,,ITV_101
+UI_016,ITV_Ruby_Side1,강함에 대해,,ITV_111
+UI_017,ITV_Ruby_Side2,외모에 대해,,ITV_121
+UI_018,ITV_Ruby_Side2,만화에 대해,,ITV_131
+UI_019,ITV_Ruby_Side2,연애에 대해,,ITV_141
+UI_020,ITV_DustyVeil,현재에 대해,ITV_DustyVeil_Present_Router,
+UI_021,ITV_DustyVeil,과거에 대해,ITV_DustyVeil_Past_Router,
+UI_022,ITV_DustyVeil,정의에 대해,ITV_DustyVeil_Side1_Router,
+UI_023,ITV_DustyVeil,본 모습에 대해,ITV_DustyVeil_Side2_Router,
+UI_024,ITV_DustyVeil_Present,피 묻은 자루에 대해,,ITV_157
+UI_025,ITV_DustyVeil_Present,피 묻은 단검에 대해,,ITV_167
+UI_026,ITV_DustyVeil_Present,좋아하는 것에 대해,,ITV_177
+UI_027,ITV_DustyVeil_Present,낡은 칼에 대해,,ITV_187
+UI_028,ITV_DustyVeil_Present,희생자들에 대해,,ITV_197
+UI_029,ITV_DustyVeil_Present,상대에 대한 평가,,ITV_207
+UI_030,ITV_DustyVeil_Past,수배서 속 사진에 대해,,ITV_217
+UI_031,ITV_DustyVeil_Past,상처 입은 히어로에 대해,,ITV_227
+UI_032,ITV_DustyVeil_Past,현재 감정에 대해,,ITV_237
+UI_033,ITV_DustyVeil_Side1,그날의 기억에 대해,,ITV_247
+UI_034,ITV_DustyVeil_Side1,빌런의 기준에 대해,,ITV_257
+UI_035,ITV_DustyVeil_Side1,진짜 모습에 대해,,ITV_267
+UI_036,ITV_DustyVeil_Side2,달라진 모습에 대해,,ITV_277
+UI_037,ITV_DustyVeil_Side2,미래에 대해,,ITV_287
+UI_038,ITV_DustyVeil_Side2,맨 얼굴에 대해,,ITV_297

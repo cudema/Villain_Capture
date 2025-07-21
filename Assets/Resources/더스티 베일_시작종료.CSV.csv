@@ -1,0 +1,14 @@
+상황,대사 ID,대사 출력 순서,화자,대사 텍스트_KR,다음 대사 ID
+BS_001,DG_BS001_DustyVeil_001,1,DustyVeil,넌 누구야? 처음보는 얼굴인데…,DG_BS101_DustyVeil_002
+BS_001,DG_BS001_DustyVeil_002,2,DustyVeil,그리고 옷은 왜 그렇게 더러운…,DG_BS101_DustyVeil_003
+BS_001,DG_BS001_DustyVeil_003,3,DustyVeil,그거… 피…?,DG_BS101_DustyVeil_004
+BS_001,DG_BS001_DustyVeil_004,4,DustyVeil,크으으… 크아아아!!!,END
+BS_002,DG_BS002_DustyVeil_001,1,DustyVeil,도망치다니… 놀랐어.,DG_BS002_DustyVeil_002
+BS_002,DG_BS002_DustyVeil_002,2,DustyVeil,이 도시에서 피를 흘리고도 나한테서 도망친 사람은 몇 없었거든.,DG_BS002_DustyVeil_003
+BS_002,DG_BS002_DustyVeil_003,3,DustyVeil,"뭐, 그것도 이젠 끝이야. 깔끔하게 보내줄 테니까 안심해.",END
+BS_003,DG_BS003_DustyVeil_001,1,DustyVeil,너 대체 뭐야? 평범한 기자라고?,DG_BS003_DustyVeil_002
+BS_003,DG_BS003_DustyVeil_002,2,DustyVeil,그럴 리 없어. 평범한 사람이 나한테서 도망치는 건 불가능해…!,DG_BS003_DustyVeil_003
+BS_003,DG_BS003_DustyVeil_003,3,DustyVeil,후우… 뭐 운이 좋았나 봐? 그것도 이젠 끝이겠지만.,DG_BS003_DustyVeil_004
+BS_003,DG_BS003_DustyVeil_004,4,DustyVeil,이제 그만 끝내주지!,END
+BE_003,DG_BE003_DustyVeil_001,1,DustyVeil,가…가지마…!,DG_BE003_DustyVeil_002
+BE_003,DG_BE003_DustyVeil_002,2,DustyVeil,넌 반드시 내가… 으으…,END

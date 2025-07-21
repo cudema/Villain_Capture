@@ -40,12 +40,12 @@ public class BattleSeleterBase : MonoBehaviour
         buttons[currentAction].SelectThis();
     }
 
-    public void OnUI()
+    public virtual void OnUI()
     {
         gameObject.SetActive(true);
     }
 
-    public void OffUI()
+    public virtual void OffUI()
     {
         gameObject.SetActive(false);
     }

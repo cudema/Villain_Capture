@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,7 +8,7 @@ public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerCli
 
     protected int action;
 
-    [Header("»ö")]
+    [Header("ï¿½ï¿½")]
     [SerializeField]
     protected Color baseColor;
     [SerializeField]
@@ -39,6 +38,11 @@ public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerCli
         Action();
     }
 
+    public virtual void Setup(uiText uiText)
+    {
+
+    }
+
     public virtual void SelectThis()
     {
         image.color = selectColor;
@@ -51,6 +55,6 @@ public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerCli
 
     public virtual void Action()
     {
-        Debug.Log("»§");
+        Debug.Log("ë¹µì•¼");
     }
 }

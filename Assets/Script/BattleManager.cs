@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum Trun { ¾Æ±º = 0, Àû }
+public enum Trun { ì•„êµ° = 0, ì  }
 
 public class BattleManager : MonoBehaviour
 {
-    static Trun currentTrun = Trun.¾Æ±º;
+    static Trun currentTrun = Trun.ì•„êµ°;
     static int currentAction = -1;
     InputManager input;
     public static BattleManager battlemanager
@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
         private set => currentEnemy = value;
     }
 
-    [Header("ÀÌµ¿ ¹İ°æ ¼³Á¤")]
+    [Header("ì¤‘ì•™ ì´ë™ ë°©ê²½")]
     [SerializeField]
     Vector2 center;
     Vector2 currentCenter;
@@ -63,6 +63,7 @@ public class BattleManager : MonoBehaviour
         input = GameObject.Find("PlayerInputManager").GetComponent<InputManager>();
         spawner = transform.GetComponentInChildren<SpawnObject>();
         ResetFild();
+        UICSVLoader.SetUICSV();
     }
 
     private void Start()
@@ -86,11 +87,11 @@ public class BattleManager : MonoBehaviour
         currentTrun = newTrun;
         switch (currentTrun)
         {
-            case Trun.¾Æ±º:
+            case Trun.ì•„êµ°:
                 EndEnemyTrun?.Invoke();
                 OnPlayerTrun?.Invoke();
                 break;
-            case Trun.Àû:
+            case Trun.ì :
                 EndPlayerTrun?.Invoke();
                 OnEnemyTrun?.Invoke();
                 break;
@@ -114,7 +115,7 @@ public class BattleManager : MonoBehaviour
         OnPlayerAction?.Invoke();
         yield return new WaitUntil(() => currentAction == -1);
         EndPlayerAction?.Invoke();
-        ChangeTrun(Trun.Àû);
+        ChangeTrun(Trun.ì );
     }
 
     public static void PatternStart(NodePattern pattern)

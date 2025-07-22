@@ -14,6 +14,7 @@ public class BattleManager : MonoBehaviour
     {
         get; private set;
     }
+    public BattleRunConttorl runConttorl;
     static SpawnObject spawner;
     static EnemyBase currentEnemy = null;
     public static EnemyBase CurrentEnemy
@@ -21,7 +22,10 @@ public class BattleManager : MonoBehaviour
         get { return currentEnemy; }
         private set => currentEnemy = value;
     }
-
+    public int turnCount
+    {
+        private set; get;
+    }
     [Header("중앙 이동 방경")]
     [SerializeField]
     Vector2 center;
@@ -64,12 +68,14 @@ public class BattleManager : MonoBehaviour
         spawner = transform.GetComponentInChildren<SpawnObject>();
         ResetFild();
         UICSVLoader.SetUICSV();
+        Application.targetFrameRate = 60;
     }
 
     private void Start()
     {
         EndEnemyTrun += ResetFild;
         spawner.gameObject.SetActive(false);
+        OnPlayerTrun += AddTurn;
     }
 
     private void Update()
@@ -113,8 +119,10 @@ public class BattleManager : MonoBehaviour
     static IEnumerator InAction()
     {
         OnPlayerAction?.Invoke();
+        Debug.Log(0);
         yield return new WaitUntil(() => currentAction == -1);
         EndPlayerAction?.Invoke();
+        Debug.Log(1);
         ChangeTrun(Trun.적);
     }
 
@@ -143,5 +151,15 @@ public class BattleManager : MonoBehaviour
     {
         Center = center;
         Radius = radius;
+    }
+
+    public void StopAction()
+    {
+        currentAction = -1;
+    }
+
+    void AddTurn()
+    {
+        turnCount++;
     }
 }

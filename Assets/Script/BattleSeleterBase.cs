@@ -35,7 +35,7 @@ public class BattleSeleterBase : MonoBehaviour
             buttons[currentAction].UnselectedThis();
         }
 
-        currentAction = (currentAction + (int)value.x);
+        currentAction = currentAction + (int)value.x;
 
         buttons[currentAction].SelectThis();
     }

@@ -7,7 +7,7 @@ public class BattleActionButtonBase : BattleButtonBase
     protected int thisAction = 0;
     GameObject selectArrow;
 
-    uiText UIData;
+    protected uiText UIData;
 
     [SerializeField]
     TextMeshProUGUI uiText;

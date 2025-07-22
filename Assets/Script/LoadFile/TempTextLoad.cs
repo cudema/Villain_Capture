@@ -1,30 +1,33 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
+using CsvHelper;
+using CsvHelper.Configuration.Attributes;
 using UnityEngine;
 
 public class EnemyDialogue
 {
-    public string interviewID;
-    public string dialogueGrup;
-    public string speaker;
-    public string speakerEmotion;
-    public int emotionalGauge;
-    public string dialogueText;
-    public string nextDialogueGrup;
+    [Name("인터뷰 ID")]
+    public string interviewID { get; set; }
+    [Name("대사 그룹 ID")]    
+    public string dialogueGrup { get; set; }
+    [Name("대사 출력 순서")]
+    public int? count { get; set; }
+    [Name("화자")]
+    public string speaker { get; set; }
+    [Name("화자 감정 상태")]
+    public string speakerEmotion { get; set; }
+    [Name("대사 번호")]
+    public int? dialogueNumber { get; set; }
+    [Name("호감도 증감")]
+    public int? emotionalGauge { get; set; }
+    [Name("대사 텍스트_KR")]
+    public string dialogueText { get; set; }
+    [Name("다음 대사 그룹 ID")]
+    public string nextDialogueGrup { get; set; }
     public bool isUse;
-
-    public void SetText(string[] text)
-    {
-        interviewID = text[0];
-        dialogueGrup = text[1];
-        speaker = text[3];
-        speakerEmotion = text[4];
-        int.TryParse(text[6], out emotionalGauge);
-        dialogueText = text[7];
-        nextDialogueGrup = text[8];
-        isUse = false;
-    }
 }
 
 public class TempTextLoad
@@ -34,100 +37,11 @@ public class TempTextLoad
 
     public static void SetupText()
     {
-        tempCSV = new List<EnemyDialogue>();
-        tempAsset = Resources.Load<TextAsset>("����Ƽ ����_���ͺ� ���.CSV");
-        string csvText = Encoding.GetEncoding(949).GetString(tempAsset.bytes);
-        StringReader reader = new StringReader(csvText);
-        string line;
-        while ((line = reader.ReadLine()) != null)
-        {
-            if (string.IsNullOrEmpty(line))
-            {
-                continue;
-            }
-            string[] fields = line.Split(',');
-
-            EnemyDialogue tempDialogue = new EnemyDialogue();
-            tempDialogue.SetText(fields);
-            tempCSV.Add(tempDialogue);
-        }
-    }
-
-    public static EnemyDialogue GetNextDialogue(string ID)
-    {
-        string temp = GetEnemyDialogue(ID).nextDialogueGrup;
-
-        if (temp == "END")
-        {
-            return null;
-        }
-
-        List<EnemyDialogue> grup = new List<EnemyDialogue>();
-        int tempIndex = temp.IndexOf("_Router");
-        if (tempIndex > 0)
-        {
-            temp = temp.Replace("_Router", "");
-            Debug.Log(temp);
-            Debug.Log(0);
-            foreach (EnemyDialogue i in tempCSV)
-            {
-                if (i.dialogueGrup == temp)
-                {
-                    Debug.Log(1);
-                    grup.Add(i);
-                }
-            }
-        }
-
-        for (int i = 0; i < grup.Count; i++)
-        {
-            if (!grup[i].isUse)
-            {
-                grup[i].isUse = true;
-                Debug.Log(2);
-                return grup[i];
-            }
-        }
-
-        return null;
-    }
-
-    public static EnemyDialogue GetNextDialogue(string ID, Emotion emotion)
-    {
-        string temp = GetEnemyDialogue(ID).nextDialogueGrup;
-
-        if (temp == "END")
-        {
-            return null;
-        }
-        List<EnemyDialogue> grup = new List<EnemyDialogue>();
-        int tempIndex = temp.IndexOf("_Router");
-        if (tempIndex > 0)
-        {
-            temp = temp.Replace("_Router", "");
-            Debug.Log(temp);
-            Debug.Log(0);
-            foreach (EnemyDialogue i in tempCSV)
-            {
-                if (i.dialogueGrup == temp)
-                {
-                    Debug.Log(1);
-                    grup.Add(i);
-                }
-            }
-        }
-
-        for (int i = 0; i < grup.Count; i++)
-        {
-            if (grup[i].speakerEmotion == emotion.ToString() && !grup[i].isUse)
-            {
-                grup[i].isUse = true;
-                Debug.Log(2);
-                return grup[i];
-            }
-        }
-
-        return null;
+        tempAsset = Resources.Load<TextAsset>("적_대사");
+        StringReader reader = new StringReader(tempAsset.text);
+        var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+        IEnumerable<EnemyDialogue> records = csv.GetRecords<EnemyDialogue>();
+        tempCSV = new List<EnemyDialogue>(records);
     }
 
     public static EnemyDialogue GetEnemyDialogue(string ID)
@@ -140,7 +54,32 @@ public class TempTextLoad
             }
         }
 
-        Debug.LogError("�������� �ʴ� ID");
+        Debug.LogError("존재하지 않는 ID");
         return new EnemyDialogue();
     }
+
+    public static EnemyDialogue GetEnemyDialogue(string groupID, Emotion emotion)
+    {
+        List<EnemyDialogue> group = new List<EnemyDialogue>();
+
+        foreach (EnemyDialogue i in tempCSV)
+        {
+            if (i.dialogueGrup == groupID)
+            {
+                group.Add(i);
+            }
+        }
+
+        for (int i = 0; i < group.Count; i++)
+        {
+            if (group[i].speakerEmotion == emotion.ToString() && !group[i].isUse)
+            {
+                group[i].isUse = true;
+                return group[i];
+            }
+        }
+
+        return null;
+    }
+
 }

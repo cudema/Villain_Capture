@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SoulRelease", menuName = "Scriptable Objects/SoulRelease")]
 public class SoulRelease : PatternBase
 {
-    [Header("µ¹Áø")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     float rushDelay;
     [SerializeField]
@@ -71,6 +71,6 @@ public class SoulRelease : PatternBase
 
         yield return new WaitForSeconds(attackDelay);
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.ChangeTrun(Trun.ì•„êµ°);
     }
 }

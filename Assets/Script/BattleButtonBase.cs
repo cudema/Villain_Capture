@@ -8,7 +8,7 @@ public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerCli
 
     protected int action;
 
-    [Header("��")]
+    [Header("색")]
     [SerializeField]
     protected Color baseColor;
     [SerializeField]

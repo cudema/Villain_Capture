@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum PlayMode { ±âº» = 0, ÇÃ·¿Æ÷¸Ó}
+public enum PlayMode { ì¼ë°˜ = 0, í”Œë ›í¬ë¨¸}
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class PlayerContoller : MonoBehaviour
     bool isMoveable = false;
 
     [SerializeField]
-    PlayMode currentState = PlayMode.±âº»;
+    PlayMode currentState = PlayMode.ì¼ë°˜;
 
     private void Awake()
     {
@@ -47,10 +47,10 @@ public class PlayerContoller : MonoBehaviour
         {
             switch (currentState)
             {
-                case PlayMode.±âº»:
+                case PlayMode.ì¼ë°˜:
                     movement.ToMove();
                     break;
-                case PlayMode.ÇÃ·¿Æ÷¸Ó:
+                case PlayMode.í”Œë ›í¬ë¨¸:
                     movement.ToJumpMove();
                     break;
                 default:

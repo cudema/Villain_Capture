@@ -10,15 +10,15 @@ public interface IHealthReporter
     float GetMaxHealth();
 }
 
-public enum Emotion { ¡ıø¿ = 0, ∞Ê∏Í, π´∞¸Ω…, »ÔπÃ, øÏ»£ }
+public enum Emotion { Ï¶ùÏò§ = 0, Í≤ΩÎ©∏, Î¨¥Í¥ÄÏã¨, Ìù•ÎØ∏, Ïö∞Ìò∏ }
 
 public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 {
-    [Header("¿Ã∏ß")]
+    [Header("ÏûâÎ¶Ñ")]
     [SerializeField]
     protected string enemyName;
 
-    [Header("√‘øµ ∞‘¿Ã¡ˆ")]
+    [Header("Ï¥¨ÏòÅ Í≤åÏù¥ÏßÄ")]
     [SerializeField]
     protected float maxPhotoGauge;
     protected float currentPhotoGauge = 0;
@@ -32,12 +32,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
     }
 
-    [Header("∞®¡§ ∞‘¿Ã¡ˆ")]
+    [Header("Í∞êÏ†ï Í≤åÏù¥ÏßÄ")]
     [SerializeField]
     int minEmotionalGauge;
     [SerializeField]
     int maxEmotionalGauge;
-    [SerializeField] //¿”Ω√
+    [SerializeField] //ÏûÑÏãú
     int emotionalGauge = 0;
     public int EmotionalGauge
     {
@@ -49,17 +49,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
     }
     [SerializeField]
-    Emotion currentEmotion = Emotion.π´∞¸Ω…;
+    Emotion currentEmotion = Emotion.Î¨¥Í¥ÄÏã¨;
 
     bool isEnage = false;
 
-    [Header("ªˆ ∫Ø∞Ê ª˘«√")]
+    [Header("ÏÉâ Î≥ÄÍ≤Ω Î©îÌÖåÎ¶¨Ïñº")]
     [SerializeField]
     Material nomalMaterial;
     [SerializeField]
     Material parringableMaterial;
 
-    [Header("∞¯∞› ∆–≈œ")]
+    [Header("Ìå®ÌÑ¥")]
     [SerializeField]
     protected PatternBase[] nomalPattern;
     [SerializeField]
@@ -199,22 +199,22 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         if (emotionalGauge >= 7)
         {
-            currentEmotion = Emotion.øÏ»£;
+            currentEmotion = Emotion.Ïö∞Ìò∏;
             return;
         }
         if (emotionalGauge >= 4)
         {
-            currentEmotion = Emotion.»ÔπÃ;
+            currentEmotion = Emotion.Ìù•ÎØ∏;
             return;
         }
         if (emotionalGauge >= -3)
         {
-            currentEmotion = Emotion.π´∞¸Ω…;
+            currentEmotion = Emotion.Î¨¥Í¥ÄÏã¨;
             return;
         }
         if (emotionalGauge >= -6)
         {
-            currentEmotion = Emotion.∞Ê∏Í;
+            currentEmotion = Emotion.Í≤ΩÎ©∏;
             if (!isEnage)
             {
                 isEnage = true;
@@ -227,7 +227,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
             }
             return;
         }
-        currentEmotion = Emotion.¡ıø¿;
+        currentEmotion = Emotion.Ï¶ùÏò§;
         ChangedEmotionalGauge -= OnChangeEmotion;
+    }
+
+    public Emotion GetEnemyEmotion()
+    {
+        return currentEmotion;
+    }
+
+    public bool GetIsEnage()
+    {
+        return isEnage;
     }
 }

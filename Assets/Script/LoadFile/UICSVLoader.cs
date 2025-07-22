@@ -52,17 +52,13 @@ public class UICSVLoader
         string groupID = UIGroup;
         if (groupID.Contains("_Router"))
         {
-            Debug.Log(groupID);
             groupID = groupID.Replace("_Router", "");
-            Debug.Log(groupID);
         }
 
         foreach (uiText i in uiCSV)
         {
-            Debug.Log(123);
             if (i.UIGroup == groupID)
             {
-                Debug.Log(123132);
                 temp.Add(i);
             }
         }

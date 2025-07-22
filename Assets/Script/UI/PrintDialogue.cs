@@ -12,9 +12,20 @@ public class PrintDialogue : MonoBehaviour
     [SerializeField]
     bool isPlay = false;
 
+    bool isSkipPrint;
+
     private void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
+        BattleManager.EndPlayerAction += ResetText;
+    }
+
+    void Update()
+    {
+        if (isPlay && Input.anyKeyDown)
+        {
+            isSkipPrint = true;
+        }
     }
 
     public void ResetText()
@@ -24,6 +35,7 @@ public class PrintDialogue : MonoBehaviour
 
     public void Print(EnemyDialogue text)
     {
+        isSkipPrint = false;
         StartCoroutine(PrintTextCoroutine(text));
     }
 
@@ -34,21 +46,32 @@ public class PrintDialogue : MonoBehaviour
             yield break;
         }
 
-        isPlay = true;
         ResetText();
         string tempText = printText.dialogueText;
 
+        yield return null;
+
+        isPlay = true;
+
         for (int i = 0; i < tempText.Length; i++)
         {
+            if (isSkipPrint)
+            {
+                text.text = tempText;
+                yield return null;
+                break;
+            }
+
             text.text += tempText[i];
 
             yield return new WaitForSeconds(printDelay);
         }
 
         isPlay = false;
-
+        isSkipPrint = false;
         yield return new WaitUntil(() => Input.anyKeyDown);
 
-        yield return StartCoroutine(PrintTextCoroutine(TempTextLoad.GetNextDialogue(printText.interviewID, Emotion.무관심)));
+        DialogueManager.instance.PrintDialogue(printText.nextDialogueGrup);
+
     }
 }

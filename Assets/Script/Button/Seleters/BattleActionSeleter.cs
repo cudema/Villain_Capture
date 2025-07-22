@@ -62,7 +62,7 @@ public class BattleActionSeleter : BattleSeleterBase
         enemyUIGroupID = UIGroup;
     }
 
-    void SetButton()
+    protected virtual void SetButton()
     {
         List<uiText> uiTexts = UICSVLoader.GetUIGroup(enemyUIGroupID);
         for (int i = 0; i < buttons.Length; i++)

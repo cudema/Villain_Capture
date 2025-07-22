@@ -93,10 +93,10 @@ public class PlayerMovement : MonoBehaviour
     {
         switch (PlayerContoller.instance.GetPlayMode())
         {
-            case PlayMode.±âº»:
+            case PlayMode.ì¼ë°˜:
                 transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z);
                 break;
-            case PlayMode.ÇÃ·¿Æ÷¸Ó:
+            case PlayMode.í”Œë ›í¬ë¨¸:
                 v = 0;
                 isjumpable = false;
                 transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y, transform.position.z);

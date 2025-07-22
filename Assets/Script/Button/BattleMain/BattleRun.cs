@@ -4,6 +4,7 @@ public class BattleRun : BattleMainButtonBase
 {
     public override void Action()
     {
-        BattleManager.ChangeTrun(Trun.Àû);
+        BattleManager.PlayerAction((int)BattleAction.ë„ì£¼);
+        BattleManager.battlemanager.runConttorl.BattleRunRandom();
     }
 }

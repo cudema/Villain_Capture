@@ -39,26 +39,22 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         EnemyDialogue temp;
-        if (interviewID.Contains("_Router"))
+
+        temp = TempTextLoad.GetEnemyDialogue(interviewID, BattleManager.CurrentEnemy.GetEnemyEmotion());
+        if (temp.emotionalGauge != null)
         {
-            string tempID = interviewID.Replace("_Router", "");
-            temp = TempTextLoad.GetEnemyDialogue(tempID, BattleManager.CurrentEnemy.GetEnemyEmotion());
             BattleManager.CurrentEnemy.EmotionalGauge += (int)temp.emotionalGauge;
-        }
-        else
-        {
-            temp = TempTextLoad.GetEnemyDialogue(interviewID);
         }
 
         if (temp.speaker == "Player")
-        {
-            playerPrinterPanal.SetActive(true);
-            playerPrinter.Print(temp);
-        }
-        else
-        {
-            enemyPrinter.Print(temp);
-        }
+            {
+                playerPrinterPanal.SetActive(true);
+                playerPrinter.Print(temp);
+            }
+            else
+            {
+                enemyPrinter.Print(temp);
+            }
     }
 
     void OffPlayerPrinterPanal()

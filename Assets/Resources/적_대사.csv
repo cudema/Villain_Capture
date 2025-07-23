@@ -1,4 +1,4 @@
-﻿인터뷰 ID,대사 그룹 ID,대사 출력 순서,화자,화자 감정 상태,대사 번호,호감도 증감,대사 텍스트_KR,다음 대사 그룹 ID
+﻿ID,대사 그룹 ID,대사 출력 순서,화자,화자 감정 상태,대사 번호,호감도 증감,대사 텍스트_KR,다음 ID
 ITV_001,DG_ITV001_Ruby_Ask,1,Player,,1,,당신은 최근 이슈가 된 빌런에 대해 어떻게 생각하는 지 물었다.,DG_ITV001_Ruby_Response_Router
 ITV_002,DG_ITV001_Ruby_Response,2,Ruby,증오,1,0,(압도적인 살기가 주위를 질식시키고 있다.),END
 ITV_003,DG_ITV001_Ruby_Response,2,Ruby,경멸,1,-1,닥쳐. 관심없어.,END
@@ -311,6 +311,24 @@ ITV_309,DG_ITV016_DustyVeil_Response,2,DustyVeil,경멸,1,0,더 할 거 없지? 
 ITV_310,DG_ITV016_DustyVeil_Response,2,DustyVeil,무관심,1,0,더 이상 할 말이 없어 보이네.,END
 ITV_311,DG_ITV016_DustyVeil_Response,2,DustyVeil,흥미,1,0,할 말은 그게 끝이야?,END
 ITV_312,DG_ITV016_DustyVeil_Response,2,DustyVeil,우호,1,0,(나를 유심히 바라보고 있다.),END
+BTS_001,,1,Ruby,,1,,"하, 배짱도 좋네. 빌런 취재라니, 참 고상한 취미셔?",BTS_002
+BTS_002,,2,Player,,1,,당신은 카메라를 허리춤으로 들어올렸다.,BTS_003
+BTS_003,,3,Ruby,,1,,"저기 너, 내가 왜 언론에는 없고, 입소문으로만 있는지 알아?",BTS_004
+BTS_004,,4,Player,,1,,…,BTS_005
+BTS_005,,5,Ruby,,1,,사실 날 언론에 퍼뜨리려는 놈들은 너 말고도 있었지. 하지만 지금은 날 취재하러 오지 않아.,BTS_006
+BTS_006,,6,Player,,1,,당신은 자세를 약간 낮췄다.,BTS_007
+BTS_007,,7,Ruby,,1,,….걔들은 이제 걸을 수가 없거든.,END
+BTS_008,,1,DustyVeil,,1,,,
+BTS_009,,2,DustyVeil,,1,,,
+BTS_010,,3,DustyVeil,,1,,,
+BTS_011,,4,Player,,1,,,
+BTS_012,,5,DustyVeil,,1,,,END
+BTE_001,,1,Ruby,,1,,하아.. 하아.. 어째서 그렇게까지.. 하는거지?,BTE_002
+BTE_002,,2,Player,,1,,당신은 조심스럽게 카메라를 내렸다.,BTE_003
+BTE_003,,3,Player,,1,,(한 눈에 반했기 때문이라고 말한다),BTE_004
+BTE_004,,4,Ruby,,1,,무무무무무무무무무무무뭐라는거야 이 자식이…!!!!!!! 날 놀리는 것은 그 쯤 하라고!!,BTE_005
+BTE_005,,5,Ruby,,1,,"하아… 아무튼, 이 정도면 충분하지?",BTE_006
+BTE_006,,6,Player,,1,,당신은 고개를 끄덕인다.,END
 ESC_001,DG_ESC000_Success,1,Player,,,,무사히 도망쳤다!,END
 ESC_002,DG_ESC001_Ruby_Fail,1,Player,,1,,도망칠 수 없었다…,DG_ESC001_Ruby_Response_Router
 ESC_003,DG_ESC001_Ruby_Response,2,Ruby,증오,1,0,"하, 하하하하하!!!!!!!",END

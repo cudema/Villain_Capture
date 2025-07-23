@@ -1,15 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using CsvHelper;
 using CsvHelper.Configuration.Attributes;
 using UnityEngine;
 
 public class EnemyDialogue
 {
-    [Name("인터뷰 ID")]
+    [Name("ID")]
     public string interviewID { get; set; }
     [Name("대사 그룹 ID")]    
     public string dialogueGrup { get; set; }
@@ -25,7 +23,7 @@ public class EnemyDialogue
     public int? emotionalGauge { get; set; }
     [Name("대사 텍스트_KR")]
     public string dialogueText { get; set; }
-    [Name("다음 대사 그룹 ID")]
+    [Name("다음 ID")]
     public string nextDialogueGrup { get; set; }
     public bool isUse;
 }
@@ -60,26 +58,37 @@ public class TempTextLoad
 
     public static EnemyDialogue GetEnemyDialogue(string groupID, Emotion emotion)
     {
-        List<EnemyDialogue> group = new List<EnemyDialogue>();
-
-        foreach (EnemyDialogue i in tempCSV)
+        if (groupID.Contains("_Router"))
         {
-            if (i.dialogueGrup == groupID)
+            List<EnemyDialogue> group = new List<EnemyDialogue>();
+            string ID = groupID.Replace("_Router", "");
+
+            foreach (EnemyDialogue i in tempCSV)
             {
-                group.Add(i);
+                if (i.dialogueGrup == ID && i.speakerEmotion == emotion.ToString())
+                {
+                    group.Add(i);
+                }
             }
+
+            if (group.Count == 1)
+            {
+                return group[0];
+            }
+
+            for (int i = 0; i < group.Count; i++)
+            {
+                if (!group[i].isUse)
+                {
+                    group[i].isUse = true;
+                    return group[i];
+                }
+            }
+
+            return null;
         }
 
-        for (int i = 0; i < group.Count; i++)
-        {
-            if (group[i].speakerEmotion == emotion.ToString() && !group[i].isUse)
-            {
-                group[i].isUse = true;
-                return group[i];
-            }
-        }
-
-        return null;
+        return GetEnemyDialogue(groupID);
     }
 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public enum Trun { 아군 = 0, 적 }
 
@@ -9,7 +10,6 @@ public class BattleManager : MonoBehaviour
 {
     static Trun currentTrun = Trun.아군;
     static int currentAction = -1;
-    InputManager input;
     public static BattleManager battlemanager
     {
         get; private set;
@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
     static EnemyBase currentEnemy = null;
     public static EnemyBase CurrentEnemy
     {
-        get { return currentEnemy; }
+        get => currentEnemy; 
         private set => currentEnemy = value;
     }
     public int turnCount
@@ -64,7 +64,6 @@ public class BattleManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        input = GameObject.Find("PlayerInputManager").GetComponent<InputManager>();
         spawner = transform.GetComponentInChildren<SpawnObject>();
         ResetFild();
         UICSVLoader.SetUICSV();
@@ -161,5 +160,6 @@ public class BattleManager : MonoBehaviour
     void AddTurn()
     {
         turnCount++;
+        Debug.Log(turnCount);
     }
 }

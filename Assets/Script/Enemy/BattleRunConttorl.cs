@@ -25,15 +25,15 @@ public class BattleRunConttorl : MonoBehaviour
         }
 
         float tempRandom = Random.Range(0.0f, 1.0f);
-        Debug.Log(tempRandom);
+
         if (temp > tempRandom)
         {
-            Debug.Log("성공");
-            BattleManager.battlemanager.StopAction();
+            Debug.Log("도주 성공");
+            DialogueManager.instance.PrintDialogue("ESC_001");
             return;
         }
-        Debug.Log("실패");
-        BattleManager.battlemanager.StopAction();
+        Debug.Log("도주 실패");
+        DialogueManager.instance.PrintDialogue("ESC_002");
         return;
     }
 }

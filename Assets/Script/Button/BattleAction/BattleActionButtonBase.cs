@@ -10,7 +10,7 @@ public class BattleActionButtonBase : BattleButtonBase
     protected uiText UIData;
 
     [SerializeField]
-    TextMeshProUGUI uiText;
+    protected TextMeshProUGUI uiText;
 
     [SerializeField]
     BattleActionSeleter interviewSeleter;

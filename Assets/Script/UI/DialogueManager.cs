@@ -39,11 +39,15 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         EnemyDialogue temp;
-
-        temp = TempTextLoad.GetEnemyDialogue(interviewID, BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion());
+        Emotion enemyemotion = BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion();
+        temp = TempTextLoad.GetEnemyDialogue(interviewID, enemyemotion);
         if (temp.emotionalGauge != null)
         {
             BattleManager.battlemanager.CurrentEnemy.EmotionalGauge += (int)temp.emotionalGauge;
+            if (enemyemotion != BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion())
+            {
+                temp = TempTextLoad.GetEnemyDialogue(interviewID, BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion());
+            }
         }
 
         if (temp.speaker == "Player")

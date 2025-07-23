@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public struct uiText
+public class uiText
 {
     public string UIID;
     public string UIGroup;
     public string UIText;
     public string nextUIGroup;
     public string interview;
+    public int selectedCount;
 
     public void Setup(string[] csvLine)
     {

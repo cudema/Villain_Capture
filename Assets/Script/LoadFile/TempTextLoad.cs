@@ -80,7 +80,6 @@ public class TempTextLoad
             {
                 if (!group[i].isUse)
                 {
-                    group[i].isUse = true;
                     return group[i];
                 }
             }

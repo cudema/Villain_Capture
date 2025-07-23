@@ -52,7 +52,7 @@ public class PrintDialogue : MonoBehaviour
         yield return null;
 
         isPlay = true;
-
+        printText.isUse = true;
         for (int i = 0; i < tempText.Length; i++)
         {
             if (isSkipPrint)

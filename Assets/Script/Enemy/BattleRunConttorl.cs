@@ -15,7 +15,7 @@ public class BattleRunConttorl : MonoBehaviour
     public void BattleRunRandom()
     {
         float temp = nomalProbability;
-        if (BattleManager.CurrentEnemy.GetIsEnage())
+        if (BattleManager.battlemanager.CurrentEnemy.GetIsEnage())
         {
             temp += enageProbability;
         }

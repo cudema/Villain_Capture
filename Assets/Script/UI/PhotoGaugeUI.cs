@@ -8,7 +8,7 @@ public class PhotoGaugeUI : MonoBehaviour
 
     private void Start()
     {
-        enemy = BattleManager.CurrentEnemy;
+        enemy = BattleManager.battlemanager.CurrentEnemy;
         PhotoBar = transform.GetChild(0).GetComponent<RectTransform>();
         enemy.ChangeHealth += ChagePhotoBarUI;
     }

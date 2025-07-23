@@ -13,7 +13,7 @@ public class GroundZero : PatternBase
         get => scalePerSecond; private set => scalePerSecond = value;
     }
 
-    [Header("Á÷Á¢ °ø°Ý")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     float rushDelay;
     [SerializeField]
@@ -68,6 +68,6 @@ public class GroundZero : PatternBase
 
         yield return new WaitForSeconds(patternEndDelay);
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 }

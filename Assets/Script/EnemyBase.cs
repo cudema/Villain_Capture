@@ -94,7 +94,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         startPos = transform.position;
         enemyRenderer = GetComponent<Renderer>();
-        BattleManager.SetEnemy(this);
+        BattleManager.battlemanager.SetEnemy(this);
         BattleManager.OnEnemyTrun += StartPattern;
         BattleManager.EndEnemyTrun += ResetPosition;
         ChangedEmotionalGauge += OnChangeEmotion;

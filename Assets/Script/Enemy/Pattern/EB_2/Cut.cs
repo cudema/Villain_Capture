@@ -25,6 +25,6 @@ public class Cut : PatternBase
 
         yield return new WaitUntil(() => go == null);
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 }

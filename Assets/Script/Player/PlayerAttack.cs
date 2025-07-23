@@ -21,12 +21,12 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        BattleManager.CurrentEnemy.TakeDamage(damage);
+        BattleManager.battlemanager.CurrentEnemy.TakeDamage(damage);
         CurrentAttackJudgment = 0;
     }
 
     public void SetPattern()
     {
-        BattleManager.PatternStart(pattern);
+        BattleManager.battlemanager.PatternStart(pattern);
     }
 }

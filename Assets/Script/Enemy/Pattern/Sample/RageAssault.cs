@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RageAssault", menuName = "Scriptable Objects/RageAssault")]
 public class RageAssault : PatternBase
 {
-    [Header("º¸½º µ¹Áø")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     float rushDelay;
     [SerializeField]
     float rushSpeed;
 
-    [Header("º¸½º Âï±â")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½")]
     [SerializeField]
     float chopDelay;
     [SerializeField]
@@ -75,7 +75,7 @@ public class RageAssault : PatternBase
         enemy.transform.position = startEnemyPoaition;
         enemy.SetWraningScale(Vector3.one * 1.5f);
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 
     bool IsOutFild(Vector3 nomal)

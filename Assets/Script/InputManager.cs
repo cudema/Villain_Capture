@@ -40,8 +40,8 @@ public class InputManager : MonoBehaviour
         input = GetComponent<PlayerInput>();
         input.SwitchCurrentActionMap("BattleMenu");
 
-        //ÇöÀç ÀÓ½Ã·Î ³Ö¾îµĞ ÄÚµå ¼öÁ¤ ÇÊ¿ä
-        //ÀüÅõ ½ÃÀÛ½Ã ±¸µ¶, ÀüÅõ Á¾·á½Ã ÇØÁö
+        //í˜„ì¬ ì„ì‹œë¡œ ë„£ì–´ë‘” ì½”ë“œ ìˆ˜ì • í•„ìš”
+        //ì „íˆ¬ ì‹œì‘ì‹œ êµ¬ë…, ì „íˆ¬ ì¢…ë£Œì‹œ í•´ì§€
         BattleManager.OnPlayerTrun += ChangeBattleUIInput;
         BattleManager.OnEnemyTrun += ChangeBattleMoveInput;
         BattleManager.OnPlayerAction += ChangeBattlePhotoInput;
@@ -65,6 +65,14 @@ public class InputManager : MonoBehaviour
         {
             photo = battlePhotoActionMap.FindAction("Photo");
         }
+    }
+
+    void OnDestroy()
+    {
+        BattleManager.OnPlayerTrun -= ChangeBattleUIInput;
+        BattleManager.OnEnemyTrun -= ChangeBattleMoveInput;
+        BattleManager.OnPlayerAction -= ChangeBattlePhotoInput;
+        BattleManager.EndPlayerAction -= ChangeBattleBeforeInput;
     }
 
     private void OnEnable()

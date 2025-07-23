@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DaggerDrop", menuName = "Scriptable Objects/DaggerDrop")]
 public class DaggerDrop : PatternBase
 {
-    [Header("¹ßÆÇ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     GameObject floor;
     [SerializeField]
@@ -83,7 +83,7 @@ public class DaggerDrop : PatternBase
             Destroy(floors[i]);
         }
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 
     public override void StopPattern()

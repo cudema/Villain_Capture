@@ -13,7 +13,7 @@ public class FractureBuster : PatternBase
     }
 
     Vector2[][] randomPos = new Vector2[3][];
-    [Header("·£´ý ¹üÀ§")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     float minDistance;
 
@@ -25,7 +25,7 @@ public class FractureBuster : PatternBase
         get => ativePos; private set => ativePos = value;
     }
 
-    [Header("º¸½º µ¹Áø")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     float rushDelay;
     [SerializeField]
@@ -99,7 +99,7 @@ public class FractureBuster : PatternBase
                 Destroy(go);
                 yield return new WaitForSeconds(sternTime);
                 enemy.transform.position = enemyPos;
-                BattleManager.ChangeTrun(Trun.¾Æ±º);
+                BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
                 yield break;
             }
 
@@ -108,7 +108,7 @@ public class FractureBuster : PatternBase
 
         enemy.transform.position = enemyPos;
         Destroy(go);
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 
     void SetRandomPos(Vector2[] pos, int index)

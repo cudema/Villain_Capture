@@ -8,16 +8,16 @@ public enum Trun { 아군 = 0, 적 }
 
 public class BattleManager : MonoBehaviour
 {
-    static Trun currentTrun = Trun.아군;
-    static int currentAction = -1;
+    Trun currentTrun = Trun.아군;
+    int currentAction = -1;
     public static BattleManager battlemanager
     {
         get; private set;
     }
     public BattleRunConttorl runConttorl;
-    static SpawnObject spawner;
-    static EnemyBase currentEnemy = null;
-    public static EnemyBase CurrentEnemy
+    SpawnObject spawner;
+    EnemyBase currentEnemy = null;
+    public EnemyBase CurrentEnemy
     {
         get => currentEnemy; 
         private set => currentEnemy = value;
@@ -58,6 +58,7 @@ public class BattleManager : MonoBehaviour
         if (battlemanager == null)
         {
             battlemanager = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -82,7 +83,7 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    public static void ChangeTrun(Trun newTrun)
+    public void ChangeTrun(Trun newTrun)
     {
         if (currentTrun == newTrun)
         {
@@ -105,7 +106,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public static void PlayerAction(int newAction)
+    public void PlayerAction(int newAction)
     {
         currentAction = newAction;
 
@@ -115,7 +116,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    static IEnumerator InAction()
+    IEnumerator InAction()
     {
         OnPlayerAction?.Invoke();
         Debug.Log(0);
@@ -125,19 +126,14 @@ public class BattleManager : MonoBehaviour
         ChangeTrun(Trun.적);
     }
 
-    public static void PatternStart(NodePattern pattern)
+    public void PatternStart(NodePattern pattern)
     {
         spawner.SpawnObj(pattern);
     }
 
-    public static void SetEnemy(EnemyBase newEnemy)
+    public void SetEnemy(EnemyBase newEnemy)
     {
         currentEnemy = newEnemy;
-    }
-
-    public float GetJudgmentFloat()
-    {
-        return 0;
     }
 
     public void ChangeFild(Vector2 newCenter, Vector2 newRadius)

@@ -22,12 +22,12 @@ public class SpawnObject : MonoBehaviour
 
     private void OnEnable()
     {
-        
+
     }
 
     private void OnDisable()
     {
-        BattleManager.PlayerAction((int)BattleAction.√ ±‚»≠);
+        BattleManager.battlemanager.StopAction();
     }
 
     public void SpawnObj(NodePattern pattern)

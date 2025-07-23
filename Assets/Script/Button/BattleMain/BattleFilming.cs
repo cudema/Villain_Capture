@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BattleFilming : BattleMainButtonBase
 {
-    [Header("√‘øµ")]
+    [Header("ÔøΩ‘øÔøΩ")]
     [SerializeField]
     SpawnObject temp;
     [SerializeField]
@@ -12,7 +12,7 @@ public class BattleFilming : BattleMainButtonBase
 
     public override void Action()
     {
-        BattleManager.PlayerAction((int)BattleAction.√‘øµ);
+        BattleManager.battlemanager.PlayerAction((int)BattleAction.Ï¥¨ÏòÅ);
     }
 
     public override void SelectThis()
@@ -25,10 +25,5 @@ public class BattleFilming : BattleMainButtonBase
     {
         base.UnselectedThis();
         BattleManager.OnPlayerAction -= player.StartPattern;
-    }
-
-    void Shoot()
-    {
-
     }
 }

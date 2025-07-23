@@ -39,6 +39,6 @@ public class TwinClive : PatternBase
 
         yield return new WaitForSeconds(attackDelay);
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 }

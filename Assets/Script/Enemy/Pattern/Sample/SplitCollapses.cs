@@ -6,7 +6,7 @@ using UnityEngine;
 public class SplitCollapses : PatternBase
 {
     Vector3[] spawnVector = new Vector3[4];
-    [Header("4¹æÇâ ¾îÅÃ")]
+    [Header("4ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     bool isFourWayAttack;
 
@@ -60,7 +60,7 @@ public class SplitCollapses : PatternBase
 
         yield return new WaitUntil(() => go == null);
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 
     int GetRandomVector(int currentVector = -1)

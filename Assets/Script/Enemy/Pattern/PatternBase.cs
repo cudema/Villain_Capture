@@ -11,7 +11,7 @@ public struct BulletData
 
 public class PatternBase : ScriptableObject
 {
-    [Header("ÇÊµå ¼³Á¤")]
+    [Header("ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     protected Vector2 center;
     [SerializeField]
@@ -19,11 +19,11 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     protected bool isChangedFild = false;
 
-    [Header("°ÔÀÓ ¸ðµå ¼³Á¤")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     protected PlayMode state;
 
-    [Header("ÆÐÅÏ Åº ¼³Á¤")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ Åº ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     protected GameObject bullet;
     [SerializeField]
@@ -35,7 +35,7 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     public float attackDelay;
 
-    [Header("±¤ÆøÈ­ ¿©ºÎ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     public bool isEnaged;
 
@@ -74,7 +74,7 @@ public class PatternBase : ScriptableObject
 
         yield return new WaitUntil(() => go == null);
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 
     public virtual void StopPattern()
@@ -86,6 +86,6 @@ public class PatternBase : ScriptableObject
             Destroy(bulletParent.GetChild(i).gameObject);
         }
 
-        BattleManager.ChangeTrun(Trun.¾Æ±º);
+        BattleManager.battlemanager.ChangeTrun(Trun.ì•„êµ°);
     }
 }

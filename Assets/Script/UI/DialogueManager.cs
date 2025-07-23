@@ -40,10 +40,10 @@ public class DialogueManager : MonoBehaviour
         }
         EnemyDialogue temp;
 
-        temp = TempTextLoad.GetEnemyDialogue(interviewID, BattleManager.CurrentEnemy.GetEnemyEmotion());
+        temp = TempTextLoad.GetEnemyDialogue(interviewID, BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion());
         if (temp.emotionalGauge != null)
         {
-            BattleManager.CurrentEnemy.EmotionalGauge += (int)temp.emotionalGauge;
+            BattleManager.battlemanager.CurrentEnemy.EmotionalGauge += (int)temp.emotionalGauge;
         }
 
         if (temp.speaker == "Player")

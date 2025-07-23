@@ -71,6 +71,6 @@ public class SoulRelease : PatternBase
 
         yield return new WaitForSeconds(attackDelay);
 
-        BattleManager.ChangeTrun(Trun.아군);
+        BattleManager.battlemanager.ChangeTrun(Trun.아군);
     }
 }

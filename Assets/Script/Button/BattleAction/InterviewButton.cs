@@ -6,6 +6,6 @@ public class InterviewButton : BattleActionButtonBase
     {
         DialogueManager.instance.PrintDialogue(UIData.interview);
 
-        BattleManager.PlayerAction((int)BattleAction.행동);
+        BattleManager.battlemanager.PlayerAction((int)BattleAction.행동);
     }
 }

@@ -66,6 +66,40 @@ MonoBehaviour:
   p21:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &-7908700836531828303
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf33cb1f3f8cf74ea183dba62e9a2cb, type: 3}
+  m_Name: MultiVignetteVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
+  vignette1Center:
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  vignette1Intensity:
+    m_OverrideState: 1
+    m_Value: 0.5
+  vignette1Smoothness:
+    m_OverrideState: 1
+    m_Value: 0.2
+  vignette2Center:
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  vignette2Intensity:
+    m_OverrideState: 1
+    m_Value: 0.5
+  vignette2Smoothness:
+    m_OverrideState: 1
+    m_Value: 0.2
 --- !u!114 &-7750755424749557576
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -465,6 +499,8 @@ MonoBehaviour:
   - {fileID: -6288072647309666549}
   - {fileID: 7518938298396184218}
   - {fileID: -1410297666881709256}
+  - {fileID: -7908700836531828303}
+  - {fileID: 1790979523271784616}
 --- !u!114 &853819529557874667
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -755,6 +791,22 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+--- !u!114 &1790979523271784616
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d920b8b865b8c0645a48d26393d352ef, type: 3}
+  m_Name: NewPostProcessEffectVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &1918650496244738858
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -922,6 +974,44 @@ MonoBehaviour:
   scale:
     m_OverrideState: 1
     m_Value: 1
+--- !u!114 &8747982999738734134
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f39489148075142847e0a9e8c17e98, type: 3}
+  m_Name: MultiVignette
+  m_EditorClassIdentifier: 
+  active: 1
+  <displayName>k__BackingField: 
+  vignette1Center:
+    <fieldHash>k__BackingField: -406722536
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  vignette1Intensity:
+    <fieldHash>k__BackingField: -167372144
+    m_OverrideState: 1
+    m_Value: 0.5
+  vignette1Smoothness:
+    <fieldHash>k__BackingField: 71978248
+    m_OverrideState: 1
+    m_Value: 0.2
+  vignette2Center:
+    <fieldHash>k__BackingField: 311328640
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  vignette2Intensity:
+    <fieldHash>k__BackingField: 550679032
+    m_OverrideState: 1
+    m_Value: 0.5
+  vignette2Smoothness:
+    <fieldHash>k__BackingField: 790029424
+    m_OverrideState: 1
+    m_Value: 0.2
 --- !u!114 &9001657382290151224
 MonoBehaviour:
   m_ObjectHideFlags: 3

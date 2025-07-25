@@ -34,7 +34,8 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
         CurrentHP -= (int)damage;
         if (CurrentHP <= 0 )
         {
-            Debug.Log("Á×À½");
+            ScenesManager.instance.LoadTempMain();//ìž„ì‹œë¡œ ë§Œë“ ê±°
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         }
     }
 

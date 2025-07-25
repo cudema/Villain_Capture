@@ -30,6 +30,7 @@ public class BattleRunConttorl : MonoBehaviour
         {
             Debug.Log("도주 성공");
             DialogueManager.instance.PrintDialogue("ESC_001");
+            Invoke("ScenesManager.instance.LoadTempMain()", 2.0f);
             return;
         }
         Debug.Log("도주 실패");

@@ -1,11 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "ShadowLabyrinth", menuName = "Scriptable Objects/ShadowLabyrinth")]
 public class ShadowLabyrinth : PatternBase
 {
-    [Header("¼¨µµ¿ì")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]
     int spawnFakeEnemyCount;
     [SerializeField]

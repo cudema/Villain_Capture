@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,12 +20,27 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
+    public void LoadTempMain()
+    {
+        StartCoroutine(Load("tempStartMenu"));
+    }
+
+    IEnumerator Load(string sceneName)
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+        //asyncOperation.allowSceneActivation = false;
+        Debug.Log(0);
+        yield return asyncOperation;
+    }
+
     public void LoadBattleScene(GameObject enemy)
     {
         StartCoroutine(Load("Battle", enemy));
+        StartCoroutine(LoadBattle("Battle", enemy));
     }
 
     IEnumerator Load(string SceneName, GameObject enemy)
+    IEnumerator LoadBattle(string SceneName, GameObject enemy)
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(SceneName);
         //asyncOperation.allowSceneActivation = false;

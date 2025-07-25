@@ -11,7 +11,7 @@ public struct BulletData
 
 public class PatternBase : ScriptableObject
 {
-    [Header("�ʵ� ����")]
+    [Header("필드 설정")]
     [SerializeField]
     protected Vector2 center;
     [SerializeField]
@@ -19,11 +19,11 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     protected bool isChangedFild = false;
 
-    [Header("���� ��� ����")]
+    [Header("플레이어 게임 모드")]
     [SerializeField]
     protected PlayMode state;
 
-    [Header("���� ź ����")]
+    [Header("투사체 설정")]
     [SerializeField]
     protected GameObject bullet;
     [SerializeField]
@@ -35,7 +35,7 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     public float attackDelay;
 
-    [Header("����ȭ ����")]
+    [Header("광폭화 여부")]
     [SerializeField]
     public bool isEnaged;
 

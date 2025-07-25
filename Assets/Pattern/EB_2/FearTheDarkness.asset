@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b753bac57aea6f043ae0452e7013e896, type: 3}
+  m_Name: FearTheDarkness
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 5, y: 3}
+  isChangedFild: 1
+  state: 0
+  bullet: {fileID: 4953155350482549642, guid: 522b01480510c0a49b153e954ee9259e, type: 3}
+  bulletDatas:
+  - name: 
+    damage: 10
+    speed: 0
+  bulletCount: 5
+  bulletSpawnDelay: 0.2
+  attackDelay: 2
+  isEnaged: 0
+  candlePrefab: {fileID: 3555106174127260569, guid: 9606d9f161e45f040b768402a1ceb867, type: 3}
+  spawnRadius: 1.5
+  senseRadius: 0.5
+  patternTime: 10
+  candle: {fileID: 0}
+  end: 1

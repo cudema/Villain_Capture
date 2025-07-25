@@ -143,6 +143,7 @@ public sealed class MultiVignetteRendererFeature : ScriptableRendererFeature
                 s_SharedPropertyBlock.SetFloat("_Vignette1Smoothness", myVolume.vignette1Smoothness.value);
                 s_SharedPropertyBlock.SetFloat("_Vignette2Intensity", myVolume.vignette2Intensity.value);
                 s_SharedPropertyBlock.SetFloat("_Vignette2Smoothness", myVolume.vignette2Smoothness.value);
+                s_SharedPropertyBlock.SetTexture("_MainTex", sourceTexture);
             }
             // Draw to the current render target.
             cmd.DrawProcedural(Matrix4x4.identity, material, 0, MeshTopology.Triangles, 3, 1, s_SharedPropertyBlock);

@@ -113,11 +113,17 @@ public class InputManager : MonoBehaviour
         currentActionMap.Enable();
     }
 
-    void ChangeBattleBeforeInput()
+    public void ChangeBattleBeforeInput()
     {
         currentActionMap.Disable();
         currentActionMap = map;
         currentActionMap.Enable();
+    }
+
+    public void ChangeBattleNonInput()
+    {
+        map = currentActionMap;
+        currentActionMap.Disable();
     }
 
     public void OnChangeSelect(InputAction.CallbackContext value)

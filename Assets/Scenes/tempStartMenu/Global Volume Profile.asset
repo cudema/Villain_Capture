@@ -34,22 +34,22 @@ MonoBehaviour:
     m_Value: 1
   vignette1Center:
     m_OverrideState: 1
-    m_Value: {x: 0.37, y: 0.5}
+    m_Value: {x: 0.5, y: 0.5}
   vignette1Intensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 1
   vignette1Smoothness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   vignette2Center:
     m_OverrideState: 1
-    m_Value: {x: 0.63, y: 0.5}
+    m_Value: {x: 0.5, y: 0.5}
   vignette2Intensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0
   vignette2Smoothness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.1
 --- !u!114 &-3390771669585524528
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -733,8 +733,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 1
-  uiText: {fileID: 51783830}
-  interviewSeleter: {fileID: 335273421}
+  uiText: {fileID: 0}
+  interviewSeleter: {fileID: 0}
 --- !u!114 &159996857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3884,8 +3884,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 3
-  uiText: {fileID: 1327837045}
-  interviewSeleter: {fileID: 335273421}
+  uiText: {fileID: 0}
+  interviewSeleter: {fileID: 0}
 --- !u!114 &845936973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4078,7 +4078,7 @@ PrefabInstance:
     - target: {fileID: 9205371885998440386, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1676964453}
+      objectReference: {fileID: 1440484654}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4861,7 +4861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9182cfd3fa9644b418dbdc7cf1fcf974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runConttorl: {fileID: 1220716464}
+  runConttorl: {fileID: 0}
   center: {x: -4, y: 0}
   radius: {x: 2.5, y: 2.5}
 --- !u!4 &1220716463
@@ -5964,6 +5964,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &1440484654
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 640
+  m_Height: 360
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &1441776357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6651,43 +6688,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648433446}
   m_CullTransparentMesh: 1
---- !u!84 &1676964453
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 6
-  m_Width: 640
-  m_Height: 360
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_UseDynamicScaleExplicit: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1684017707
 GameObject:
   m_ObjectHideFlags: 0
@@ -6997,8 +6997,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 2
-  uiText: {fileID: 203478696}
-  interviewSeleter: {fileID: 335273421}
+  uiText: {fileID: 0}
+  interviewSeleter: {fileID: 0}
 --- !u!114 &1779973865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7596,8 +7596,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
-  uiText: {fileID: 1105178700}
-  interviewSeleter: {fileID: 335273421}
+  uiText: {fileID: 0}
+  interviewSeleter: {fileID: 0}
 --- !u!1 &1984532072
 GameObject:
   m_ObjectHideFlags: 0
@@ -7691,7 +7691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temp: {fileID: 688895569}
-  enemyUIGroupID: ITV_Ruby
+  enemyUIGroupID: 
 --- !u!1 &1996467680
 GameObject:
   m_ObjectHideFlags: 0

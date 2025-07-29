@@ -4,10 +4,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Hack", menuName = "Scriptable Objects/Hack")]
 public class Hack : PatternBase
 {
+    public override void SetPattern()
+    {
+        base.SetPattern();
+    }
+
     public override void StartPattern()
     {
-        
-
         base.StartPattern();
     }
 

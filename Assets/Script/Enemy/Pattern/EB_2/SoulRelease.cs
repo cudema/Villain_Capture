@@ -13,6 +13,11 @@ public class SoulRelease : PatternBase
     [SerializeField]
     float attackRadius;
 
+    public override void SetPattern()
+    {
+        base.SetPattern();
+    }
+
     public override void StartPattern()
     {
         base.StartPattern();

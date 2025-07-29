@@ -11,6 +11,16 @@ public class TwinClive : PatternBase
     [SerializeField]
     bool randomPosition;
 
+    public override void SetPattern()
+    {
+        base.SetPattern();
+    }
+
+    public override void StartPattern()
+    {
+        base.StartPattern();
+    }
+
     protected override IEnumerator BingPattern()
     {
         Vector2 tempVector = BattleManager.battlemanager.Radius * radiusRange;

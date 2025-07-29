@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShadowFall", menuName = "Scriptable Objects/ShadowFall")]
 public class ShadowFall : PatternBase
 {
-    [Header("Âï±â")]
+    [Header("ï¿½ï¿½ï¿½")]
     [SerializeField]
     float enemySpawnDelay;
     [SerializeField]
@@ -15,6 +15,11 @@ public class ShadowFall : PatternBase
     float rushDamage;
     [SerializeField]
     int rushCount;
+
+    public override void SetPattern()
+    {
+        base.SetPattern();
+    }
 
     public override void StartPattern()
     {

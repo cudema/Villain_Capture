@@ -43,7 +43,7 @@ public class BattleManager : MonoBehaviour
         get { return currentRadius; }
         private set { currentRadius = value; }
     }
-
+    public static event Action OnSetEnemyTrun;
     public static event Action OnEnemyTrun;
     public static event Action EndEnemyTrun;
 
@@ -99,6 +99,7 @@ public class BattleManager : MonoBehaviour
                 break;
             case Trun.적:
                 EndPlayerTrun?.Invoke();
+                OnSetEnemyTrun?.Invoke();
                 OnEnemyTrun?.Invoke();
                 break;
             default:

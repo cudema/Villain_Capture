@@ -12,10 +12,15 @@ public class ShadowLabyrinth : PatternBase
 
     FakeEnemyBullet[] fakeEnemy;
 
+    public override void SetPattern()
+    {
+        base.SetPattern();
+
+        fakeEnemy = new FakeEnemyBullet[spawnFakeEnemyCount];
+    }
+
     public override void StartPattern()
     {
-        fakeEnemy = new FakeEnemyBullet[spawnFakeEnemyCount];
-
         base.StartPattern();
     }
 

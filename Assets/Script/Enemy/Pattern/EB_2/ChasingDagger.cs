@@ -12,20 +12,18 @@ public class ChasingDagger : PatternBase
     float maxY;
     float minY;
 
-    public override void StartPattern()
+    public override void SetPattern()
     {
-        if (isChangedFild)
-        {
-            BattleManager.battlemanager.ChangeFild(center, radius);
-        }
+        base.SetPattern();
 
         maxX = BattleManager.battlemanager.Center.x + BattleManager.battlemanager.Radius.x;
         minX = BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x;
         maxY = BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y;
         minY = BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y;
+    }
 
-        PlayerContoller.instance.ChangePlayMode(state);
-
+    public override void StartPattern()
+    {
         enemy.StartCoroutine(BingPattern());
     }
 

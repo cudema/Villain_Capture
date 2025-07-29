@@ -13,7 +13,7 @@ public class GroundZero : PatternBase
         get => scalePerSecond; private set => scalePerSecond = value;
     }
 
-    [Header("���� ����")]
+    [Header("돌진 설정")]
     [SerializeField]
     float rushDelay;
     [SerializeField]
@@ -25,6 +25,10 @@ public class GroundZero : PatternBase
 
     Vector3 startPosVector;
 
+    public override void SetPattern()
+    {
+        base.SetPattern();
+    }
 
     public override void StartPattern()
     {

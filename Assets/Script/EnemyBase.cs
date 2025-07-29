@@ -14,7 +14,7 @@ public enum Emotion { 증오 = 0, 경멸, 무관심, 흥미, 우호 }
 
 public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 {
-    [Header("잉름")]
+    [Header("이름")]
     [SerializeField]
     protected string enemyName;
 
@@ -95,6 +95,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         startPos = transform.position;
         enemyRenderer = GetComponent<Renderer>();
         BattleManager.battlemanager.SetEnemy(this);
+        BattleManager.OnSetEnemyTrun += SetPattern;
         BattleManager.OnEnemyTrun += StartPattern;
         BattleManager.EndEnemyTrun += ResetPosition;
         ChangedEmotionalGauge += OnChangeEmotion;
@@ -112,16 +113,23 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         BattleManager.OnEnemyTrun -= StartPattern;
     }
 
-    public virtual void StartPattern()
+    protected virtual void SetPattern()
     {
         if (isEnage && !isUesingEnagedPattern)
         {
             isUesingEnagedPattern = true;
             usePatternIndex++;
-            enagedPattern.StartPattern();
-            return;
+            currentPattern = enagedPattern;
         }
-        currentPattern = patterns[usePatternIndex++ % patterns.Count];
+        else
+        {
+            currentPattern = patterns[usePatternIndex++ % patterns.Count];
+        }
+        currentPattern.SetPattern();
+    }
+    
+    public virtual void StartPattern()
+    {
         currentPattern.StartPattern();
     }
 

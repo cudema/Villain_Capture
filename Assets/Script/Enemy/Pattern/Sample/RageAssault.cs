@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RageAssault", menuName = "Scriptable Objects/RageAssault")]
 public class RageAssault : PatternBase
 {
-    [Header("���� ����")]
+    [Header("돌진 설정")]
     [SerializeField]
     float rushDelay;
     [SerializeField]
     float rushSpeed;
 
-    [Header("���� ���")]
+    [Header("찍기 설정")]
     [SerializeField]
     float chopDelay;
     [SerializeField]
@@ -20,9 +20,14 @@ public class RageAssault : PatternBase
     Renderer renderer;
     Vector3 startEnemyPoaition;
 
+    public override void SetPattern()
+    {
+        base.SetPattern();
+        renderer = enemy.GetComponent<Renderer>();
+    }
+
     public override void StartPattern()
     {
-        renderer = enemy.GetComponent<Renderer>();
         startEnemyPoaition = enemy.transform.position;
         base.StartPattern();
     }

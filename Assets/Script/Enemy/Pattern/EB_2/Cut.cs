@@ -4,6 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cut", menuName = "Scriptable Objects/Cut")]
 public class Cut : PatternBase
 {
+    public override void SetPattern()
+    {
+        base.SetPattern();
+    }
+
     public override void StartPattern()
     {
         base.StartPattern();

@@ -12,12 +12,9 @@ public class SplitCollapses : PatternBase
 
     List<int> ativeVector = new List<int>();
 
-    public override void StartPattern()
+    public override void SetPattern()
     {
-        if (isChangedFild)
-        {
-            BattleManager.battlemanager.ChangeFild(center, radius);
-        }
+        base.SetPattern();
 
         spawnVector[0] = new Vector3(BattleManager.battlemanager.Center.x + (BattleManager.battlemanager.Radius.x / 2) + 0.25f, BattleManager.battlemanager.Center.y, enemy.transform.position.z);
         spawnVector[1] = new Vector3(BattleManager.battlemanager.Center.x - (BattleManager.battlemanager.Radius.x / 2) - 0.25f, BattleManager.battlemanager.Center.y, enemy.transform.position.z);
@@ -28,7 +25,10 @@ public class SplitCollapses : PatternBase
         ativeVector.Add(1);
         ativeVector.Add(2);
         ativeVector.Add(3);
+    }
 
+    public override void StartPattern()
+    {
         enemy.StartCoroutine(BingPattern());
     }
 

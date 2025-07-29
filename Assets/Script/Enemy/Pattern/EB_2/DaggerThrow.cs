@@ -7,21 +7,18 @@ public class DaggerThrow : PatternBase
 {
     Vector3[] spawnPos = new Vector3[3];
 
-    public override void StartPattern()
+    public override void SetPattern()
     {
-        if (isChangedFild)
-        {
-            BattleManager.battlemanager.ChangeFild(center, radius);
-        }
-
-        PlayerContoller.instance.ChangePlayMode(state);
-
+        base.SetPattern();
         float temp = BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y + 2;
 
         spawnPos[0] = new Vector3(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x, temp, enemy.transform.position.z);
         spawnPos[1] = new Vector3(BattleManager.battlemanager.Center.x, temp, enemy.transform.position.z);
         spawnPos[2] = new Vector3(BattleManager.battlemanager.Center.x + BattleManager.battlemanager.Radius.x, temp, enemy.transform.position.z);
+    }
 
+    public override void StartPattern()
+    {
         enemy.StartCoroutine(BingPattern());
     }
 

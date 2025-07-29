@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("�Կ�")]
+    [Header("촬영")]
     [SerializeField]
     NodePattern pattern;
 

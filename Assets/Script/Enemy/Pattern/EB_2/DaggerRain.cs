@@ -4,13 +4,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DaggerRain", menuName = "Scriptable Objects/DaggerRain")]
 public class DaggerRain : PatternBase
 {
-    [Header("½ñ¾ÆÁö´Â ´Ü°Ë")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½")]
     [SerializeField]
     float durationTime;
     [SerializeField]
     float spawnRadius;
     [SerializeField]
     float donSpawnRadius;
+
+    public override void SetPattern()
+    {
+        base.SetPattern();
+    }
 
     public override void StartPattern()
     {

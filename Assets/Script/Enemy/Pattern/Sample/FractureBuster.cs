@@ -25,7 +25,7 @@ public class FractureBuster : PatternBase
         get => ativePos; private set => ativePos = value;
     }
 
-    [Header("���� ����")]
+    [Header("돌진 설정")]
     [SerializeField]
     float rushDelay;
     [SerializeField]
@@ -37,8 +37,10 @@ public class FractureBuster : PatternBase
 
     GameObject warning;
 
-    public override void StartPattern()
+    public override void SetPattern()
     {
+        base.SetPattern();
+
         randomPos[0] = new Vector2[2];
         randomPos[1] = new Vector2[2];
         randomPos[2] = new Vector2[2];
@@ -48,6 +50,10 @@ public class FractureBuster : PatternBase
         randomPos[1][1] = randomPos[0][1] - new Vector2(0, BattleManager.battlemanager.Radius.y * 0.6666f);
         randomPos[2][0] = randomPos[1][0] - new Vector2(0, BattleManager.battlemanager.Radius.y * 0.6666f);
         randomPos[2][1] = randomPos[1][1] - new Vector2(0, BattleManager.battlemanager.Radius.y * 0.6666f);
+    }
+
+    public override void StartPattern()
+    {
         enemyPos = enemy.transform.position;
         base.StartPattern();
     }

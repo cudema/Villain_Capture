@@ -14,15 +14,10 @@ public class DaggerDrop : PatternBase
 
     GameObject[] floors = new GameObject[4];
 
-    public override void StartPattern()
+    public override void SetPattern()
     {
-        if (isChangedFild)
-        {
-            BattleManager.battlemanager.ChangeFild(center, radius);
-        }
-
-        PlayerContoller.instance.ChangePlayMode(state);
-
+        base.SetPattern();
+        
         Vector2 fildCenter = BattleManager.battlemanager.Center;
         Vector2 fildRadius = BattleManager.battlemanager.Radius;
 
@@ -30,7 +25,10 @@ public class DaggerDrop : PatternBase
         floors[1] = Instantiate(floor, new Vector3(fildCenter.x - (fildRadius.x - xPos), fildCenter.y + (fildRadius.y - yPos), enemy.transform.position.z), Quaternion.identity);
         floors[2] = Instantiate(floor, new Vector3(fildCenter.x + (fildRadius.x - xPos), fildCenter.y - (fildRadius.y - yPos), enemy.transform.position.z), Quaternion.identity);
         floors[3] = Instantiate(floor, new Vector3(fildCenter.x + (fildRadius.x - xPos), fildCenter.y + (fildRadius.y - yPos), enemy.transform.position.z), Quaternion.identity);
+    }
 
+    public override void StartPattern()
+    {
         enemy.StartCoroutine(BingPattern());
     }
 

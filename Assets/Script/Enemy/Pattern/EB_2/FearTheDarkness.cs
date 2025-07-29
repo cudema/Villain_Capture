@@ -25,15 +25,12 @@ public class FearTheDarkness : PatternBase
     [HideInInspector]
     public bool end = false;
 
-    public override void StartPattern()
+    public override void SetPattern()
     {
-        if (isChangedFild)
-        {
-            BattleManager.battlemanager.ChangeFild(center, radius);
-        }
+        base.SetPattern();
+
         end = false;
         isFail = false;
-        PlayerContoller.instance.ChangePlayMode(state);
 
         spawnedBulletPos = new Vector2[bulletCount];
         spawnPosRange = BattleManager.battlemanager.Center + BattleManager.battlemanager.Radius - (Vector2.one * spawnRadius) + (Vector2.one * 0.5f);
@@ -42,7 +39,10 @@ public class FearTheDarkness : PatternBase
         spawnCandlePos[1] = BattleManager.battlemanager.Center - BattleManager.battlemanager.Radius;
         spawnCandlePos[2] = BattleManager.battlemanager.Center + new Vector2(-BattleManager.battlemanager.Radius.x, BattleManager.battlemanager.Radius.y);
         spawnCandlePos[3] = BattleManager.battlemanager.Center + new Vector2(BattleManager.battlemanager.Radius.x, -BattleManager.battlemanager.Radius.y);
+    }
 
+    public override void StartPattern()
+    {
         enemy.StartCoroutine(BingPattern());
     }
 

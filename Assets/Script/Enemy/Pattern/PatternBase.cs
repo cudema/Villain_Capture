@@ -49,7 +49,7 @@ public class PatternBase : ScriptableObject
         bulletParent = enemy.transform.GetChild(1);
     }
 
-    public virtual void StartPattern()
+    public virtual void SetPattern()
     {
         if (isChangedFild)
         {
@@ -57,7 +57,10 @@ public class PatternBase : ScriptableObject
         }
 
         PlayerContoller.instance.ChangePlayMode(state);
+    }
 
+    public virtual void StartPattern()
+    {
         enemy.StartCoroutine(BingPattern());
     }
 

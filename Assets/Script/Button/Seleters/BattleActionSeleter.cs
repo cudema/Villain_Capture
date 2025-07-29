@@ -8,6 +8,8 @@ public class BattleActionSeleter : BattleSeleterBase
     BattleSeleterBase temp;
     [SerializeField]
     protected string enemyUIGroupID;
+    [SerializeField]
+    UIAnimation uiAnimation;
 
     private void Start()
     {
@@ -54,6 +56,7 @@ public class BattleActionSeleter : BattleSeleterBase
     public override void OnUI()
     {
         base.OnUI();
+        uiAnimation.PlayUpAnimation();
         SetButton();
     }
 

@@ -84,10 +84,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            currentPattern.StopPattern();
-        }
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     currentPattern.StopPattern();
+        // }
     }
 
     public void Setup()

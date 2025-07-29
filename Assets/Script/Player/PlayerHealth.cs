@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
         if (CurrentHP <= 0 )
         {
             ScenesManager.instance.LoadTempMain();//임시로 만든거
-            Debug.Log("����");
+            Debug.Log("죽음");
         }
     }
 

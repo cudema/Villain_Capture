@@ -113,7 +113,7 @@ public class BattleManager : MonoBehaviour
 
         if (newAction != -1)
         {
-            battlemanager.StartCoroutine(InAction());
+            StartCoroutine(InAction());
         }
     }
 

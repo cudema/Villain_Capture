@@ -17,6 +17,7 @@ public class InterviewButton : BattleActionButtonBase
 
     public override void Action()
     {
+        seleter.OffUI();
         if (UIData.selectedCount >= 2)
         {
             DialogueManager.instance.PrintDialogue("ITV_151");
@@ -27,6 +28,6 @@ public class InterviewButton : BattleActionButtonBase
             DialogueManager.instance.PrintDialogue(UIData.interview);
         }
 
-        BattleManager.battlemanager.PlayerAction((int)BattleAction.행동);
+        BattleManager.battlemanager.PlayerAction((int)BattleAction.인터뷰);
     }
 }

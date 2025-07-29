@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public enum BattleAction { ÃÊ±âÈ­ = -1, ÃÔ¿µ = 0, Çàµ¿, ¾ÆÀÌÅÛ, µµÁÖ }
+public enum BattleAction { ì´ˆê¸°í™” = -1, ì´¬ì˜ = 0, ì¸í„°ë·°, ì•„ì´í…œ, ë„ì£¼ }
 
 public class BattleMainSeleter : BattleSeleterBase
 {
+    [SerializeField]
+    MainUIAnimation MainUI;
+
     private void Start()
     {
-        //ÀÌ°Å ÀüÅõ ½ÃÀÛ½Ã ¼ÂÆÃÇÏ´Â ºÎºĞÀ¸·Î ¿ò°Ü¾ßÇÔ
+        //ì„ì‹œë¡œ í•´ ë‘” ê²ƒ ê²Œì„ ì‹œì‘ ì‹œë¡œ ì˜´ê²¨ì•¼í•¨
         BattleManager.OnPlayerAction += OffUI;
         BattleManager.OnEnemyTrun += OffUI;
         BattleManager.OnPlayerTrun += OnUI;
@@ -16,7 +19,7 @@ public class BattleMainSeleter : BattleSeleterBase
 
     public override void ChangeBattleAction(int newAction)
     {
-        if ((BattleAction)currentAction != BattleAction.ÃÊ±âÈ­)
+        if ((BattleAction)currentAction != BattleAction.ì´ˆê¸°í™”)
         {
             buttons[currentAction].UnselectedThis();
         }
@@ -27,12 +30,12 @@ public class BattleMainSeleter : BattleSeleterBase
 
     public override void ChangeBattleAction(Vector2 value)
     {
-        if ((currentAction + (int)value.x) < (int)BattleAction.ÃÔ¿µ || (currentAction + (int)value.x) > (int)BattleAction.µµÁÖ)
+        if ((currentAction + (int)value.x) < (int)BattleAction.ì´¬ì˜ || (currentAction + (int)value.x) > (int)BattleAction.ë„ì£¼)
         {
             return;
         }
 
-        if ((BattleAction)currentAction != BattleAction.ÃÊ±âÈ­)
+        if ((BattleAction)currentAction != BattleAction.ì´ˆê¸°í™”)
         {
             buttons[currentAction].UnselectedThis();
         }
@@ -40,6 +43,16 @@ public class BattleMainSeleter : BattleSeleterBase
         currentAction = (currentAction + (int)value.x);
 
         buttons[currentAction].SelectThis();
+    }
+
+    public override void OnUI()
+    {
+        MainUI.PlayUpAnimation();
+    }
+
+    public override void OffUI()
+    {
+        MainUI.PlayDownAnimation();
     }
 
     void ResetSelecter()

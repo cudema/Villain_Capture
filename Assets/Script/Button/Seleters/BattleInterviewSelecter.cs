@@ -31,6 +31,12 @@ public class BattleInterviewSelecter : BattleActionSeleter
     //     BattleManager.ChangeTrun(Trun.적);
     // }
 
+    public override void OnUI()
+    {
+        gameObject.SetActive(true);
+        SetButton();
+    }
+
     public override void OffUI()
     {
         base.OffUI();

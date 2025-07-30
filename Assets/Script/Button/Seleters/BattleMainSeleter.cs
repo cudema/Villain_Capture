@@ -55,6 +55,11 @@ public class BattleMainSeleter : BattleSeleterBase
         MainUI.PlayDownAnimation();
     }
 
+    public override void ReturnUI()
+    {
+        MainUI.PlayUpAnimation();
+    }
+
     void ResetSelecter()
     {
         InputManager.ChangeSelecter(this);

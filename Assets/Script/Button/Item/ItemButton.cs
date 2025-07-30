@@ -8,6 +8,7 @@ public class ItemButton : BattleButtonBase
     GameObject selectArrow;
 
     TextMeshProUGUI uiText;
+    ItemData itemData;
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class ItemButton : BattleButtonBase
     {
         selectArrow.SetActive(false);
     }
-    
+
     public override void Action()
     {
 

@@ -50,6 +50,11 @@ public class BattleSeleterBase : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public virtual void ReturnUI()
+    {
+        gameObject.SetActive(true);
+    }
+
     public virtual void SelectButton()
     {
         buttons[currentAction].Action();

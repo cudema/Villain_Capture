@@ -8,8 +8,7 @@ public class BattleActionButtonBase : BattleButtonBase
     GameObject selectArrow;
 
     protected uiText UIData;
-
-    [SerializeField]
+    
     protected TextMeshProUGUI uiText;
 
     [SerializeField]
@@ -18,6 +17,7 @@ public class BattleActionButtonBase : BattleButtonBase
     private void Awake()
     {
         action = thisAction;
+        uiText = transform.GetComponentInChildren<TextMeshProUGUI>();
         selectArrow = transform.GetChild(1).gameObject;
     }
 

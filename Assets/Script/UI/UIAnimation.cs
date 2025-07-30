@@ -18,4 +18,9 @@ public class UIAnimation : MonoBehaviour
     {
         animator.Play("UP");
     }
+
+    public void PlayEventUpAnimation()
+    {
+        animator.Play("EventUp");
+    }
 }

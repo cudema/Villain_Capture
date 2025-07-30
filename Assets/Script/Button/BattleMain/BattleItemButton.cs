@@ -3,7 +3,7 @@ using UnityEngine;
 public class BattleItemButton : BattleMainButtonBase
 {
     [SerializeField]
-    BattleActionSeleter itemSeleter;
+    BattleSeleterBase itemSeleter;
 
     public override void SelectThis()
     {
@@ -19,7 +19,6 @@ public class BattleItemButton : BattleMainButtonBase
     {
         itemSeleter.OnUI();
         seleter.OffUI();
-        base.Action();
         InputManager.ChangeSelecter(itemSeleter);
     }
 }

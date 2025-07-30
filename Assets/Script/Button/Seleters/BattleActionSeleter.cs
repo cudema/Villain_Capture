@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleActionSeleter : BattleSeleterBase
 {
     [SerializeField]
-    BattleSeleterBase temp;
+    BattleSeleterBase BeforeSeleter;
     [SerializeField]
     protected string enemyUIGroupID;
     [SerializeField]
@@ -47,8 +47,8 @@ public class BattleActionSeleter : BattleSeleterBase
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            temp.OnUI();
-            InputManager.ChangeSelecter(temp);
+            BeforeSeleter.OnUI();
+            InputManager.ChangeSelecter(BeforeSeleter);
             OffUI();
         }
     }

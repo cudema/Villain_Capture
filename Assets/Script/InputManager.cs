@@ -22,6 +22,9 @@ public class InputManager : MonoBehaviour
     public InputAction move;
     public InputAction parring;
     public InputAction photo;
+    public InputAction rotationCamera;
+    public InputAction zoom;
+    public InputAction focus;
 
     InputActionMap currentActionMap;
     InputActionMap map;
@@ -49,7 +52,7 @@ public class InputManager : MonoBehaviour
         //-------------------------------------------------------------------
 
         battleMenuActionMap = input.actions.FindActionMap("BattleMenu");
-        if (battleMenuActionMap != null )
+        if (battleMenuActionMap != null)
         {
             changeSelect = battleMenuActionMap.FindAction("ChangeSelect");
             select = battleMenuActionMap.FindAction("Select");
@@ -64,6 +67,9 @@ public class InputManager : MonoBehaviour
         if (battlePhotoActionMap != null)
         {
             photo = battlePhotoActionMap.FindAction("Photo");
+            rotationCamera = battlePhotoActionMap.FindAction("RotationCamera");
+            zoom = battlePhotoActionMap.FindAction("Zoom");
+            focus = battlePhotoActionMap.FindAction("Focus");
         }
     }
 

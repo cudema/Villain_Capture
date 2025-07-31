@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum PlayMode { 일반 = 0, 플렛포머}
 
@@ -10,6 +11,7 @@ public class PlayerContoller : MonoBehaviour
     PlayerAttack attack;
     PlayerHealth health;
     PlayerParing parring;
+    Filming filming;
 
     bool isMoveable = false;
 
@@ -30,6 +32,7 @@ public class PlayerContoller : MonoBehaviour
         attack = GetComponent<PlayerAttack>();
         health = GetComponent<PlayerHealth>();
         parring = GetComponent<PlayerParing>();
+        filming = GetComponent<Filming>();
     }
 
     private void Start()
@@ -39,6 +42,10 @@ public class PlayerContoller : MonoBehaviour
         BattleManager.OnEnemyTrun += movement.StartMovePosition;
         BattleManager.OnEnemyTrun += OnMoveavle;
         InputManager.inputManager.parring.performed += parring.OnParring;
+        InputManager.inputManager.zoom.performed += filming.OnChangeZoom;
+        InputManager.inputManager.focus.performed += filming.OnChangeFocus;
+        InputManager.inputManager.focus.canceled += filming.OnChangeFocus;
+        InputManager.inputManager.rotationCamera.performed += filming.OnChangeRotation;
     }
 
     private void Update()

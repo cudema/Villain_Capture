@@ -331,6 +331,33 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotationCamera"",
+                    ""type"": ""Value"",
+                    ""id"": ""79365a3e-ec00-4a3b-bc06-588f88fbbdb2"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""c5793b35-28c1-448b-9cd4-717a8eb06a57"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Focus"",
+                    ""type"": ""Value"",
+                    ""id"": ""de3a71f9-9223-4ba1-b368-b78a237e263c"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -344,6 +371,61 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""action"": ""Photo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83e515af-a30c-472c-8acb-2b16a6c40741"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotationCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3ee5848-e345-4f17-8468-134834398553"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""2f1f93c0-ec26-4e97-b0bc-125c7357f9c7"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Focus"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""dec5c6df-3d85-4345-a385-34e4d3dcf48f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Focus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f090fa04-cafb-4ef6-afd1-2b67aac5da1e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Focus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -365,6 +447,9 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         // BattlePhoto
         m_BattlePhoto = asset.FindActionMap("BattlePhoto", throwIfNotFound: true);
         m_BattlePhoto_Photo = m_BattlePhoto.FindAction("Photo", throwIfNotFound: true);
+        m_BattlePhoto_RotationCamera = m_BattlePhoto.FindAction("RotationCamera", throwIfNotFound: true);
+        m_BattlePhoto_Zoom = m_BattlePhoto.FindAction("Zoom", throwIfNotFound: true);
+        m_BattlePhoto_Focus = m_BattlePhoto.FindAction("Focus", throwIfNotFound: true);
     }
 
     ~@Battle()
@@ -770,6 +855,9 @@ public partial class @Battle: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_BattlePhoto;
     private List<IBattlePhotoActions> m_BattlePhotoActionsCallbackInterfaces = new List<IBattlePhotoActions>();
     private readonly InputAction m_BattlePhoto_Photo;
+    private readonly InputAction m_BattlePhoto_RotationCamera;
+    private readonly InputAction m_BattlePhoto_Zoom;
+    private readonly InputAction m_BattlePhoto_Focus;
     /// <summary>
     /// Provides access to input actions defined in input action map "BattlePhoto".
     /// </summary>
@@ -785,6 +873,18 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BattlePhoto/Photo".
         /// </summary>
         public InputAction @Photo => m_Wrapper.m_BattlePhoto_Photo;
+        /// <summary>
+        /// Provides access to the underlying input action "BattlePhoto/RotationCamera".
+        /// </summary>
+        public InputAction @RotationCamera => m_Wrapper.m_BattlePhoto_RotationCamera;
+        /// <summary>
+        /// Provides access to the underlying input action "BattlePhoto/Zoom".
+        /// </summary>
+        public InputAction @Zoom => m_Wrapper.m_BattlePhoto_Zoom;
+        /// <summary>
+        /// Provides access to the underlying input action "BattlePhoto/Focus".
+        /// </summary>
+        public InputAction @Focus => m_Wrapper.m_BattlePhoto_Focus;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -814,6 +914,15 @@ public partial class @Battle: IInputActionCollection2, IDisposable
             @Photo.started += instance.OnPhoto;
             @Photo.performed += instance.OnPhoto;
             @Photo.canceled += instance.OnPhoto;
+            @RotationCamera.started += instance.OnRotationCamera;
+            @RotationCamera.performed += instance.OnRotationCamera;
+            @RotationCamera.canceled += instance.OnRotationCamera;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
+            @Focus.started += instance.OnFocus;
+            @Focus.performed += instance.OnFocus;
+            @Focus.canceled += instance.OnFocus;
         }
 
         /// <summary>
@@ -828,6 +937,15 @@ public partial class @Battle: IInputActionCollection2, IDisposable
             @Photo.started -= instance.OnPhoto;
             @Photo.performed -= instance.OnPhoto;
             @Photo.canceled -= instance.OnPhoto;
+            @RotationCamera.started -= instance.OnRotationCamera;
+            @RotationCamera.performed -= instance.OnRotationCamera;
+            @RotationCamera.canceled -= instance.OnRotationCamera;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
+            @Focus.started -= instance.OnFocus;
+            @Focus.performed -= instance.OnFocus;
+            @Focus.canceled -= instance.OnFocus;
         }
 
         /// <summary>
@@ -941,5 +1059,26 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPhoto(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RotationCamera" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRotationCamera(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Zoom" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnZoom(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Focus" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFocus(InputAction.CallbackContext context);
     }
 }

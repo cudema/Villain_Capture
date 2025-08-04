@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
         CurrentHP -= (int)damage;
         if (CurrentHP <= 0 )
         {
+            BattleManager.battlemanager.EscapeBattle();
             ScenesManager.instance.LoadTempMain();//임시로 만든거
             Debug.Log("죽음");
         }

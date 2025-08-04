@@ -25,6 +25,11 @@ public class DialogueManager : MonoBehaviour
         BattleManager.EndPlayerAction += OffPlayerPrinterPanal;
     }
 
+    void OnDisable()
+    {
+        BattleManager.EndPlayerAction -= OffPlayerPrinterPanal;
+    }
+
     public void PrintDialogue(string interviewID)
     {
         if (interviewID == "END")
@@ -51,14 +56,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         if (temp.speaker == "Player")
-            {
-                playerPrinterPanal.SetActive(true);
-                playerPrinter.Print(temp);
-            }
-            else
-            {
-                enemyPrinter.Print(temp);
-            }
+        {
+            playerPrinterPanal.SetActive(true);
+            playerPrinter.Print(temp);
+        }
+        else
+        {
+            enemyPrinter.Print(temp);
+        }
     }
 
     void OffPlayerPrinterPanal()

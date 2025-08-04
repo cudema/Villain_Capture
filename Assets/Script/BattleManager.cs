@@ -135,6 +135,8 @@ public class BattleManager : MonoBehaviour
     public void SetEnemy(EnemyBase newEnemy)
     {
         currentEnemy = newEnemy;
+        turnCount = 0;
+        currentTrun = Trun.아군;
     }
 
     public void ChangeFild(Vector2 newCenter, Vector2 newRadius)
@@ -165,5 +167,10 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         StopAction();
+    }
+
+    public void EscapeBattle()
+    {
+        currentEnemy = null;
     }
 }

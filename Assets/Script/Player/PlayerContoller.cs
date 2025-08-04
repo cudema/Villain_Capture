@@ -50,6 +50,20 @@ public class PlayerContoller : MonoBehaviour
         InputManager.inputManager.rotationCamera.performed += filming.OnChangeRotation;
     }
 
+    void OnDisable()
+    {
+        BattleManager.OnPlayerTrun -= movement.ReturnPosition;
+        BattleManager.EndEnemyTrun -= OffMoveable;
+        BattleManager.OnEnemyTrun -= movement.StartMovePosition;
+        BattleManager.OnEnemyTrun -= OnMoveavle;
+        InputManager.inputManager.parring.performed -= parring.OnParring;
+        InputManager.inputManager.zoom.performed -= filming.OnChangeZoom;
+        InputManager.inputManager.focus.performed -= filming.OnChangeFocus;
+        InputManager.inputManager.photo.performed -= attack.Attack;
+        //InputManager.inputManager.focus.canceled -= filming.OnChangeFocus;
+        InputManager.inputManager.rotationCamera.performed -= filming.OnChangeRotation;
+    }
+
     private void Update()
     {
         if (isMoveable)
@@ -88,6 +102,7 @@ public class PlayerContoller : MonoBehaviour
         //attack.SetPattern();
         filming.SetPerfactDistance();
         filming.OnFilming();
+        InputManager.inputManager.ChangeBattlePhotoInput();
         StartCoroutine(BattleManager.battlemanager.ActionTimer(filming.filmingTime));
     }
 

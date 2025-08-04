@@ -47,7 +47,6 @@ public class InputManager : MonoBehaviour
         //전투 시작시 구독, 전투 종료시 해지
         BattleManager.OnPlayerTrun += ChangeBattleUIInput;
         BattleManager.OnEnemyTrun += ChangeBattleMoveInput;
-        BattleManager.OnPlayerAction += ChangeBattlePhotoInput;
         BattleManager.EndPlayerAction += ChangeBattleBeforeInput;
         //-------------------------------------------------------------------
 
@@ -77,7 +76,6 @@ public class InputManager : MonoBehaviour
     {
         BattleManager.OnPlayerTrun -= ChangeBattleUIInput;
         BattleManager.OnEnemyTrun -= ChangeBattleMoveInput;
-        BattleManager.OnPlayerAction -= ChangeBattlePhotoInput;
         BattleManager.EndPlayerAction -= ChangeBattleBeforeInput;
     }
 
@@ -95,7 +93,7 @@ public class InputManager : MonoBehaviour
         ChangeBattleUIInput();
     }
 
-    void ChangeBattleUIInput()
+    public void ChangeBattleUIInput()
     {
         map = currentActionMap;
         currentActionMap.Disable();
@@ -103,7 +101,7 @@ public class InputManager : MonoBehaviour
         currentActionMap.Enable();
     }
 
-    void ChangeBattleMoveInput()
+    public void ChangeBattleMoveInput()
     {
         map = currentActionMap;
         currentActionMap.Disable();
@@ -111,7 +109,7 @@ public class InputManager : MonoBehaviour
         currentActionMap.Enable();
     }
 
-    void ChangeBattlePhotoInput()
+    public void ChangeBattlePhotoInput()
     {
         map = currentActionMap;
         currentActionMap.Disable();

@@ -82,6 +82,11 @@ public class Filming : MonoBehaviour
         BattleManager.EndPlayerAction += OffFilming;
     }
 
+    void OnDisable()
+    {
+        BattleManager.EndPlayerAction -= OffFilming;
+    }
+
     void Update()
     {
         //Focus += updateFocus;
@@ -108,7 +113,6 @@ public class Filming : MonoBehaviour
     public void OnChangeZoom(InputAction.CallbackContext value)
     {
         Zoom -= value.ReadValue<float>() * zoomSpeed/* * Time.deltaTime*/;
-        Debug.Log(value.ReadValue<float>());
     }
 
     public void OnChangeFocus(InputAction.CallbackContext value)

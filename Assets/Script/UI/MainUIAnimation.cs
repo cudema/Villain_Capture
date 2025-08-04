@@ -10,6 +10,11 @@ public class MainUIAnimation : MonoBehaviour
         BattleManager.OnPlayerTrun += PlayUpAnimation;
     }
 
+    void OnDisable()
+    {
+        BattleManager.OnPlayerTrun -= PlayUpAnimation;
+    }
+
     public void PlayDownAnimation()
     {
         animator.Play("MainUIDown");

@@ -17,6 +17,14 @@ public class BattleMainSeleter : BattleSeleterBase
         ResetSelecter();
     }
 
+    void OnDisable()
+    {
+        BattleManager.OnPlayerAction -= OffUI;
+        BattleManager.OnEnemyTrun -= OffUI;
+        BattleManager.OnPlayerTrun -= OnUI;
+        BattleManager.OnPlayerTrun -= ResetSelecter;
+    }
+
     public override void ChangeBattleAction(int newAction)
     {
         if ((BattleAction)currentAction != BattleAction.초기화)

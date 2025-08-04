@@ -94,7 +94,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         startPos = transform.position;
         enemyRenderer = GetComponent<Renderer>();
-        BattleManager.battlemanager.SetEnemy(this);
+        //BattleManager.battlemanager.SetEnemy(this);
         BattleManager.OnSetEnemyTrun += SetPattern;
         BattleManager.OnEnemyTrun += StartPattern;
         BattleManager.EndEnemyTrun += ResetPosition;
@@ -111,10 +111,14 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     private void OnDisable()
     {
         BattleManager.OnEnemyTrun -= StartPattern;
+        BattleManager.OnSetEnemyTrun -= SetPattern;
+        BattleManager.EndEnemyTrun -= ResetPosition;
+        ChangedEmotionalGauge -= OnChangeEmotion;
     }
 
     protected virtual void SetPattern()
     {
+        Debug.Log(123456789);
         if (isEnage && !isUesingEnagedPattern)
         {
             isUesingEnagedPattern = true;
@@ -172,8 +176,14 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void TakeDamage(float damage)
     {
+        float justTemp = PlayerContoller.instance.GetJust();
+        if (justTemp == 0)
+        {
+            BattleManager.battlemanager.StopAction();
+            return;
+        }
         float ranTemp = UnityEngine.Random.Range(0.0f, 0.2f);
-        CurrentPhotoGauge += damage * (PlayerContoller.instance.GetJust() + ranTemp);
+        CurrentPhotoGauge += damage * (justTemp + ranTemp);
         BattleManager.battlemanager.StopAction();
     }
 

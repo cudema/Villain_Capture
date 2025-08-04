@@ -20,6 +20,12 @@ public class BattleActionSeleter : BattleSeleterBase
         SetButton();
     }
 
+    void OnDisable()
+    {
+        BattleManager.OnPlayerAction -= OffUI;
+        BattleManager.OnEnemyTrun -= OffUI;
+    }
+
     public override void ChangeBattleAction(int newAction)
     {
         base.ChangeBattleAction(newAction);

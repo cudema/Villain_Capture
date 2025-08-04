@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal.Filters;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -44,7 +45,8 @@ public class PlayerContoller : MonoBehaviour
         InputManager.inputManager.parring.performed += parring.OnParring;
         InputManager.inputManager.zoom.performed += filming.OnChangeZoom;
         InputManager.inputManager.focus.performed += filming.OnChangeFocus;
-        InputManager.inputManager.focus.canceled += filming.OnChangeFocus;
+        InputManager.inputManager.photo.performed += attack.Attack;
+        //InputManager.inputManager.focus.canceled += filming.OnChangeFocus;
         InputManager.inputManager.rotationCamera.performed += filming.OnChangeRotation;
     }
 
@@ -83,12 +85,10 @@ public class PlayerContoller : MonoBehaviour
 
     public void StartPattern()
     {
-        attack.SetPattern();
-    }
-
-    public void Attack()
-    {
-        attack.Attack();
+        //attack.SetPattern();
+        filming.SetPerfactDistance();
+        filming.OnFilming();
+        StartCoroutine(BattleManager.battlemanager.ActionTimer(filming.filmingTime));
     }
 
     void OnMoveavle()
@@ -114,5 +114,19 @@ public class PlayerContoller : MonoBehaviour
     public PlayMode GetPlayMode()
     {
         return currentState;
+    }
+
+    public float GetJust()
+    {
+        if (Mathf.Abs(filming.justFocus) > 1)
+        {
+            return 0;
+        }
+        float temp = 1f - (Mathf.Abs(filming.justFocus) * 0.3f);
+        if (filming.justZoom && filming.justFocus == 0)
+        {
+            temp += 0.2f;
+        }
+        return temp;
     }
 }

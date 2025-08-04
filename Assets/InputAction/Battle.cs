@@ -134,7 +134,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Up"",
                     ""id"": ""f00d1149-fe5a-43d3-b71f-a5ed651163ae"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -145,7 +145,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Down"",
                     ""id"": ""a8628098-6307-4a77-844a-1425adc33f95"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -156,7 +156,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Left"",
                     ""id"": ""3c8ffab8-7215-4022-bb28-1be1efdb2aed"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -167,7 +167,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Right"",
                     ""id"": ""0dfaec0b-e7ee-44cd-b29a-f47696eef67d"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -178,7 +178,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ddbde219-1d01-4cfa-87cf-685ca2238831"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -189,7 +189,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1f665b8a-ede2-4d76-8647-6de88d25a2ba"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -237,7 +237,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""fed18a72-dd0c-4ca0-a539-8cbf5b80a8a3"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -248,7 +248,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""68a8d404-b17d-4b2c-b424-461aba98a1ef"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -259,7 +259,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""e21020f9-cfaa-4b81-b550-fd0daca3610b"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -270,7 +270,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""84d0d9be-da7c-4d84-a7db-7ab4b9f319a3"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -364,7 +364,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a9653d6e-d5e3-4385-91c3-3281a0355361"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

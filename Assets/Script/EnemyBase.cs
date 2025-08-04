@@ -172,9 +172,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(PlayerContoller.instance.GetCurrentAttackJudgment());
         float ranTemp = UnityEngine.Random.Range(0.0f, 0.2f);
-        CurrentPhotoGauge += damage * (PlayerContoller.instance.GetCurrentAttackJudgment() + ranTemp);
+        CurrentPhotoGauge += damage * (PlayerContoller.instance.GetJust() + ranTemp);
+        BattleManager.battlemanager.StopAction();
     }
 
     public float GetMaxHealth()

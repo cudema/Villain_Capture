@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -19,10 +20,9 @@ public class PlayerAttack : MonoBehaviour
         set { currentAttackJudgment = Mathf.Clamp(value, 0f, maxAttackJudgment); }
     }
 
-    public void Attack()
+    public void Attack(InputAction.CallbackContext value)
     {
         BattleManager.battlemanager.CurrentEnemy.TakeDamage(damage);
-        CurrentAttackJudgment = 0;
     }
 
     public void SetPattern()

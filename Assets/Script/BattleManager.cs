@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
     EnemyBase currentEnemy = null;
     public EnemyBase CurrentEnemy
     {
-        get => currentEnemy; 
+        get => currentEnemy;
         private set => currentEnemy = value;
     }
     public int turnCount
@@ -158,5 +158,12 @@ public class BattleManager : MonoBehaviour
     {
         turnCount++;
         Debug.Log(turnCount);
+    }
+
+    public IEnumerator ActionTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        StopAction();
     }
 }

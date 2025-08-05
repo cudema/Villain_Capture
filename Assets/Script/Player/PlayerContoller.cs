@@ -139,4 +139,9 @@ public class PlayerContoller : MonoBehaviour
         }
         return temp;
     }
+
+    public void HealPlayer(float point, float percentPoint)
+    {
+        health.Heal(point, percentPoint);
+    }
 }

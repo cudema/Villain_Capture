@@ -28,10 +28,15 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
         return maxHP;
     }
 
+    public void Heal(float healPoint, float healPercentPoint)
+    {
+        CurrentHP += (int)healPoint + (int)(maxHP * healPercentPoint);
+    }
+
     public void TakeDamage(float damage)
     {
         CurrentHP -= (int)damage;
-        if (CurrentHP <= 0 )
+        if (CurrentHP <= 0)
         {
             BattleManager.battlemanager.EscapeBattle();
             ScenesManager.instance.LoadTempMain();//임시로 만든거

@@ -68,6 +68,7 @@ public class BattleManager : MonoBehaviour
         spawner = transform.GetComponentInChildren<SpawnObject>();
         ResetFild();
         UICSVLoader.SetUICSV();
+        ItemCSVLoader.SetItemCSV();
         Application.targetFrameRate = 60;
     }
 

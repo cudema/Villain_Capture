@@ -9,11 +9,11 @@ public class Inventori : MonoBehaviour
     {
         foreach (ItemData i in items)
         {
-            // if (i.itemID == newItem.itemID)
-            // {
-            //     i.count += newItem.count;
-            //     return;
-            // }
+            if (i.id == newItem.id)
+            {
+                //i.count += newItem.count;
+                return;
+            }
         }
         items.Add(newItem);
     }
@@ -22,10 +22,10 @@ public class Inventori : MonoBehaviour
     {
         foreach (ItemData i in items)
         {
-            // if (i.itemID == item.itemID)
-            // {
-            //     return;
-            // }
+            if (i.id == item.id)
+            {
+                return;
+            }
         }
 
         Debug.Log("아이템이 없습니다.");

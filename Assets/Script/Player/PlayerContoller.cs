@@ -10,7 +10,7 @@ public class PlayerContoller : MonoBehaviour
 
     PlayerMovement movement;
     PlayerAttack attack;
-    PlayerHealth health;
+    public PlayerHealth health;
     PlayerParing parring;
     Filming filming;
 

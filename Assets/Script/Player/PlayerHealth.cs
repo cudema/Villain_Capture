@@ -20,7 +20,6 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
 
     private void Awake()
     {
-        ChangeHealth += PrintCurrentHP;
         currentHP = maxHP;
     }
 
@@ -38,10 +37,5 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
             ScenesManager.instance.LoadTempMain();//임시로 만든거
             Debug.Log("죽음");
         }
-    }
-
-    void PrintCurrentHP(float currentHP)
-    {
-        Debug.Log($"{currentHP}");
     }
 }

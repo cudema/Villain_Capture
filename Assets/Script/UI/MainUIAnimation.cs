@@ -7,6 +7,10 @@ public class MainUIAnimation : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    void OnEnable()
+    {
         BattleManager.OnPlayerTrun += PlayUpAnimation;
     }
 

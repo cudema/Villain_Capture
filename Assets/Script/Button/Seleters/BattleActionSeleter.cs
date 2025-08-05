@@ -13,11 +13,15 @@ public class BattleActionSeleter : BattleSeleterBase
 
     private void Start()
     {
-        BattleManager.OnPlayerAction += OffUI;
-        BattleManager.OnEnemyTrun += OffUI;
         currentAction = 0;
         buttons[currentAction].SelectThis();
         SetButton();
+    }
+
+    void OnEnable()
+    {
+        BattleManager.OnPlayerAction += OffUI;
+        BattleManager.OnEnemyTrun += OffUI;
     }
 
     void OnDisable()

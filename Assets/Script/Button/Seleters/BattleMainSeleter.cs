@@ -9,12 +9,15 @@ public class BattleMainSeleter : BattleSeleterBase
 
     private void Start()
     {
-        //임시로 해 둔 것 게임 시작 시로 옴겨야함
+        ResetSelecter();
+    }
+
+    void OnEnable()
+    {
         BattleManager.OnPlayerAction += OffUI;
         BattleManager.OnEnemyTrun += OffUI;
         BattleManager.OnPlayerTrun += OnUI;
         BattleManager.OnPlayerTrun += ResetSelecter;
-        ResetSelecter();
     }
 
     void OnDisable()

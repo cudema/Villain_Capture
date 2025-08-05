@@ -14,10 +14,14 @@ public class BattleItemSeleter : BattleSeleterBase
 
     private void Start()
     {
-        BattleManager.OnPlayerAction += OffUI;
-        BattleManager.OnEnemyTrun += OffUI;
         currentAction = 0;
         buttons[currentAction].SelectThis();
+    }
+
+    void OnEnable()
+    {
+        BattleManager.OnPlayerAction += OffUI;
+        BattleManager.OnEnemyTrun += OffUI;
     }
 
     void OnDisable()
@@ -82,11 +86,29 @@ public class BattleItemSeleter : BattleSeleterBase
     {
         base.OnUI();
         uiAnimation.PlayEventUpAnimation();
+        SetButton();
     }
 
     public override void OffUI()
     {
         base.OffUI();
         OffItemData();
+    }
+
+    void SetButton()
+    {
+        int a = 0;
+        foreach (ItemData i in ItemCSVLoader.healItemCSV)
+        {
+            if (i.CurrentCount > 0)
+            {
+                buttons[a++].Setup(i);
+            }
+        }
+
+        for (int i = a; i < buttons.Length; i++)
+        {
+            buttons[i].gameObject.SetActive(false);
+        }
     }
 }

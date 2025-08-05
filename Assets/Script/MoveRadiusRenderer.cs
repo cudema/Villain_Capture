@@ -7,8 +7,6 @@ public class MoveRadiusRenderer : MonoBehaviour
     private void Awake()
     {
         linerenderer = GetComponent<LineRenderer>();
-        BattleManager.OnEnemyTrun += OnRenderer;
-        BattleManager.EndEnemyTrun += OffRenderer;
     }
 
     private void Start()
@@ -20,6 +18,12 @@ public class MoveRadiusRenderer : MonoBehaviour
     private void Update()
     {
         linerenderer.SetPositions(GetMoveRadius());
+    }
+
+    void OnEnable()
+    {
+        BattleManager.OnEnemyTrun += OnRenderer;
+        BattleManager.EndEnemyTrun += OffRenderer;
     }
 
     void OnDisable()

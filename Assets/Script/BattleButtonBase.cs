@@ -43,6 +43,11 @@ public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerCli
 
     }
 
+    public virtual void Setup(ItemData itemData)
+    {
+
+    }
+
     public virtual void SelectThis()
     {
         image.color = selectColor;

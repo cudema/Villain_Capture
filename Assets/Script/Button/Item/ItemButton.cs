@@ -5,6 +5,10 @@ public class ItemButton : BattleButtonBase
 {
     [SerializeField]
     int thisAction = 0;
+    [SerializeField]
+    PrintItemData printer;
+    [SerializeField]
+    PrintDialogue printDialogue;
     GameObject selectArrow;
 
     TextMeshProUGUI uiText;
@@ -20,6 +24,7 @@ public class ItemButton : BattleButtonBase
     public override void SelectThis()
     {
         selectArrow.SetActive(true);
+        printer.SetItemData(itemData);
     }
 
     public override void UnselectedThis()
@@ -27,8 +32,17 @@ public class ItemButton : BattleButtonBase
         selectArrow.SetActive(false);
     }
 
+    public override void Setup(ItemData itemData)
+    {
+        this.itemData = itemData;
+        uiText.text = itemData.name;
+    }
+
     public override void Action()
     {
-
+        itemData.UseItem();
+        printDialogue.transform.parent.gameObject.SetActive(true);
+        printDialogue.PrintItem(itemData);
+        BattleManager.battlemanager.PlayerAction((int)BattleAction.아이템);
     }
 }

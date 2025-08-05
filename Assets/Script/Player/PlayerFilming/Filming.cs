@@ -79,6 +79,10 @@ public class Filming : MonoBehaviour
         useMaterialData = new Material(material);
         rawImage.material = useMaterialData;
         sliders = rawImage.transform.GetComponentsInChildren<Slider>();
+    }
+
+    void OnEnable()
+    {
         BattleManager.EndPlayerAction += OffFilming;
     }
 

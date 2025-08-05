@@ -18,7 +18,7 @@ public class ItemData
     public string tooltip;
     public string description;
 
-    int currentCount = 0;
+    int currentCount = 1;
     public int CurrentCount
     {
         get => currentCount;
@@ -98,10 +98,10 @@ public class PartItemData : ItemData
 
 public class ItemCSVLoader
 {
-    static List<HealItemData> healItemCSV;
-    static List<ProvisoItemData> provisoItemCSV;
-    static List<EquipmentItemData> equipmentItemCSV;
-    static List<PartItemData> partItemCSV;
+    public static List<HealItemData> healItemCSV;
+    public static List<ProvisoItemData> provisoItemCSV;
+    public static List<EquipmentItemData> equipmentItemCSV;
+    public static List<PartItemData> partItemCSV;
     static TextAsset itemAsset;
     static TextAsset itemEffectAsset;
 

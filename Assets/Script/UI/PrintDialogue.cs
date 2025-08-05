@@ -17,7 +17,16 @@ public class PrintDialogue : MonoBehaviour
     private void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
+    }
+
+    void OnEnable()
+    {
         BattleManager.EndPlayerAction += ResetText;
+    }
+
+    void OnDisable()
+    {
+        BattleManager.EndPlayerAction -= ResetText;
     }
 
     void Update()
@@ -31,6 +40,42 @@ public class PrintDialogue : MonoBehaviour
     public void ResetText()
     {
         text.text = "";
+    }
+
+    public void PrintItem(ItemData data)
+    {
+        isSkipPrint = false;
+        string temp = $"당신은 {data.name}을(를) 사용했다.\n당신은 체력을 회복했다.";
+        StartCoroutine(PrintItemCoroutine(temp));
+    }
+
+    IEnumerator PrintItemCoroutine(string text)
+    {
+        if (isPlay || text == null)
+        {
+            yield break;
+        }
+        ResetText();
+        yield return null;
+        isPlay = true;
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (isSkipPrint)
+            {
+                this.text.text = text;
+                yield return null;
+                break;
+            }
+
+            this.text.text += text[i];
+
+            yield return new WaitForSeconds(printDelay);
+        }
+        isPlay = false;
+        isSkipPrint = false;
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        BattleManager.battlemanager.StopAction();
     }
 
     public void Print(EnemyDialogue text)

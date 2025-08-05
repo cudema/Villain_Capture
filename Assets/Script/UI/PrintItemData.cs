@@ -12,6 +12,8 @@ public class PrintItemData : MonoBehaviour
 
     public void SetItemData(ItemData item)
     {
-
+        itemName.text = item.name;
+        effect.text = item.tooltip;
+        explanation.text = item.description;
     }
 }

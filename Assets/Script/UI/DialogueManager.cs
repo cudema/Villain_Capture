@@ -22,6 +22,10 @@ public class DialogueManager : MonoBehaviour
             Destroy(gameObject);
         }
         TempTextLoad.SetupText();
+    }
+
+    void OnEnable()
+    {
         BattleManager.EndPlayerAction += OffPlayerPrinterPanal;
     }
 

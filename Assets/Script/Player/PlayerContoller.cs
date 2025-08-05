@@ -116,11 +116,6 @@ public class PlayerContoller : MonoBehaviour
         isMoveable = false;
     }
 
-    public float GetMaxHealth()
-    {
-        return health.GetMaxHealth();
-    }
-
     public void ChangePlayMode(PlayMode play)
     {
         currentState = play;

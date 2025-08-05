@@ -118,7 +118,6 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     protected virtual void SetPattern()
     {
-        Debug.Log(123456789);
         if (isEnage && !isUesingEnagedPattern)
         {
             isUesingEnagedPattern = true;

@@ -117,6 +117,15 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Tab"",
+                    ""type"": ""Button"",
+                    ""id"": ""48466568-a269-4dde-80f2-4c3e9134015c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -194,6 +203,17 @@ public partial class @Battle: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8170bf0-50d8-4c9f-9300-bbd30019e771"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -437,6 +457,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         m_BattleMenu_ChangeSelect = m_BattleMenu.FindAction("ChangeSelect", throwIfNotFound: true);
         m_BattleMenu_Select = m_BattleMenu.FindAction("Select", throwIfNotFound: true);
         m_BattleMenu_Back = m_BattleMenu.FindAction("Back", throwIfNotFound: true);
+        m_BattleMenu_Tab = m_BattleMenu.FindAction("Tab", throwIfNotFound: true);
         // BattleMove
         m_BattleMove = asset.FindActionMap("BattleMove", throwIfNotFound: true);
         m_BattleMove_Move = m_BattleMove.FindAction("Move", throwIfNotFound: true);
@@ -536,6 +557,7 @@ public partial class @Battle: IInputActionCollection2, IDisposable
     private readonly InputAction m_BattleMenu_ChangeSelect;
     private readonly InputAction m_BattleMenu_Select;
     private readonly InputAction m_BattleMenu_Back;
+    private readonly InputAction m_BattleMenu_Tab;
     /// <summary>
     /// Provides access to input actions defined in input action map "BattleMenu".
     /// </summary>
@@ -559,6 +581,10 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BattleMenu/Back".
         /// </summary>
         public InputAction @Back => m_Wrapper.m_BattleMenu_Back;
+        /// <summary>
+        /// Provides access to the underlying input action "BattleMenu/Tab".
+        /// </summary>
+        public InputAction @Tab => m_Wrapper.m_BattleMenu_Tab;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -594,6 +620,9 @@ public partial class @Battle: IInputActionCollection2, IDisposable
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
+            @Tab.started += instance.OnTab;
+            @Tab.performed += instance.OnTab;
+            @Tab.canceled += instance.OnTab;
         }
 
         /// <summary>
@@ -614,6 +643,9 @@ public partial class @Battle: IInputActionCollection2, IDisposable
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
+            @Tab.started -= instance.OnTab;
+            @Tab.performed -= instance.OnTab;
+            @Tab.canceled -= instance.OnTab;
         }
 
         /// <summary>
@@ -1007,6 +1039,13 @@ public partial class @Battle: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Tab" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTab(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "BattleMove" which allows adding and removing callbacks.

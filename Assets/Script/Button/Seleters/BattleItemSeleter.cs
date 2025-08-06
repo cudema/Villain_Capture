@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BattleItemSeleter : BattleSeleterBase
 {
@@ -11,6 +13,9 @@ public class BattleItemSeleter : BattleSeleterBase
     UIAnimation uiAnimation;
     [SerializeField]
     PrintItemData printItemData;
+
+    List<ItemData[]> healItems = new List<ItemData[]>();
+    List<ItemData[]> eqItems = new List<ItemData[]>();
 
     private void Start()
     {
@@ -33,33 +38,6 @@ public class BattleItemSeleter : BattleSeleterBase
     public override void ChangeBattleAction(int newAction)
     {
         base.ChangeBattleAction(newAction);
-    }
-
-    public override void ChangeBattleAction(Vector2 value)
-    {
-        if (value.x < 0 && currentAction % 2 == 0)
-        {
-            return;
-        }
-        if (value.x > 0 && currentAction % 2 == 1)
-        {
-            return;
-        }
-
-        int temp = (currentAction + (int)value.x) - (int)value.y * 2;
-        if (temp < 0 || temp > buttons.Count() - 1)
-        {
-            return;
-        }
-
-        if (currentAction != -1)
-        {
-            buttons[currentAction].UnselectedThis();
-        }
-
-        currentAction = temp;
-
-        buttons[currentAction].SelectThis();
     }
 
     private void Update()
@@ -97,18 +75,83 @@ public class BattleItemSeleter : BattleSeleterBase
 
     void SetButton()
     {
+        healItems.Clear();
+        eqItems.Clear();
+
         int a = 0;
+        int temp = 0;
         foreach (ItemData i in ItemCSVLoader.healItemCSV)
         {
+            if (healItems.Count < 1 + a / 6)
+            {
+                healItems.Add(new ItemData[6]);
+            }
             if (i.CurrentCount > 0)
             {
-                buttons[a++].Setup(i);
+                healItems[a][temp++] = i;
+            }
+            if (temp == 6)
+            {
+                a++;
+                temp = 0;
             }
         }
 
-        for (int i = a; i < buttons.Length; i++)
+        a = 0;
+        temp = 0;
+
+        foreach (ItemData i in ItemCSVLoader.equipmentItemCSV)
+        {
+            Debug.Log(i.CurrentCount);
+            if (eqItems.Count < 1 + a / 6)
+            {
+                eqItems.Add(new ItemData[6]);
+            }
+            if (i.CurrentCount > 0)
+            {
+                eqItems[a][temp++] = i;
+            }
+            if (temp == 6)
+            {
+                a++;
+                temp = 0;
+            }
+        }
+
+        OpenButton(0, 0);
+    }
+
+    public void OpenButton(int kategori, int page)
+    {
+        int temp = 0;
+        if (kategori == 0)
+        {
+            foreach (ItemData i in healItems[page])
+            {
+                if (i == null)
+                {
+                    break;
+                }
+                buttons[temp++].Setup(i);
+            }
+        }
+        else
+        {
+            foreach (ItemData i in eqItems[page])
+            {
+                if (i == null)
+                {
+                    break;
+                }
+                buttons[temp++].Setup(i);
+            }
+        }
+
+        for (int i = temp; i < buttons.Length; i++)
         {
             buttons[i].gameObject.SetActive(false);
         }
+
+        ChangeBattleAction(0);
     }
 }

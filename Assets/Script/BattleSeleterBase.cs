@@ -25,7 +25,17 @@ public class BattleSeleterBase : MonoBehaviour
 
     public virtual void ChangeBattleAction(Vector2 value)
     {
-        if ((currentAction + (int)value.x) < 0 || (currentAction + (int)value.x) > buttons.Count() - 1)
+        if (value.x < 0 && currentAction % 2 == 0)
+        {
+            return;
+        }
+        if (value.x > 0 && currentAction % 2 == 1)
+        {
+            return;
+        }
+
+        int temp = (currentAction + (int)value.x) - (int)value.y * 2;
+        if (temp < 0 || temp > buttons.Count() - 1 || !buttons[temp].gameObject.activeSelf)
         {
             return;
         }
@@ -35,7 +45,7 @@ public class BattleSeleterBase : MonoBehaviour
             buttons[currentAction].UnselectedThis();
         }
 
-        currentAction = currentAction + (int)value.x;
+        currentAction = temp;
 
         buttons[currentAction].SelectThis();
     }

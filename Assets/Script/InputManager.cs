@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
     InputActionMap battlePhotoActionMap;
 
     public InputAction changeSelect;
+    public InputAction tab;
     public InputAction select;
     public InputAction move;
     public InputAction parring;
@@ -55,6 +56,7 @@ public class InputManager : MonoBehaviour
         {
             changeSelect = battleMenuActionMap.FindAction("ChangeSelect");
             select = battleMenuActionMap.FindAction("Select");
+            tab = battleMenuActionMap.FindAction("Tab");
         }
         battleMoveActionMap = input.actions.FindActionMap("BattleMove");
         if (battleMoveActionMap != null)

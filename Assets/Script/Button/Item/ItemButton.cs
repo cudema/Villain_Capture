@@ -34,6 +34,7 @@ public class ItemButton : BattleButtonBase
 
     public override void Setup(ItemData itemData)
     {
+        gameObject.SetActive(true);
         this.itemData = itemData;
         uiText.text = itemData.name;
     }

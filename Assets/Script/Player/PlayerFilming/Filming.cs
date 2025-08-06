@@ -6,6 +6,7 @@ using System;
 
 public class Filming : MonoBehaviour
 {
+    [Header("오브젝트 가져오기")]
     [SerializeField]
     RawImage rawImage;
     [SerializeField]
@@ -15,15 +16,21 @@ public class Filming : MonoBehaviour
     [SerializeField]
     Image rotateGood;
     Material useMaterialData;
+    [Header("확대")]
     [SerializeField]
     float maxZoom;
     [SerializeField]
     float zoomSpeed;
     [SerializeField]
+    [Header("초점")]
     float focusSpeed;
+    [Header("회전")]
     [SerializeField]
     float cameraRotationSpeed;
+    [SerializeField]
+    float justRotationRange;
     Slider[] sliders = new Slider[2];
+    [Header("제한 시간")]
     [SerializeField]
     public float filmingTime;
     int perfactDistance;
@@ -105,7 +112,6 @@ public class Filming : MonoBehaviour
         sliders[0].value = (zoom + 5) * 6 / 10;
         sliders[1].value = (focus + 10) * 6 / 20;
         ChackRange();
-        ChackRotate();
     }
 
     public void OnFilming()
@@ -138,6 +144,8 @@ public class Filming : MonoBehaviour
 
     void ChackRange()
     {
+        int tempRotateJust = 0;
+
         if (sliders[0].value == perfactDistance)
         {
             ColorBlock temp = sliders[0].colors;
@@ -165,18 +173,19 @@ public class Filming : MonoBehaviour
             temp.disabledColor = Color.white;
             sliders[1].colors = temp;
         }
-        justFocus = (int)(sliders[0].value + sliders[1].value) - 6;
-    }
 
-    void ChackRotate()
-    {
-        if (Mathf.Abs(x) < 1 && Mathf.Abs(y - 90) < 1)
+        if (Mathf.Abs(x) < 1 && Mathf.Abs(y - 90) < justRotationRange)
         {
             rotateGood.color = Color.green;
-            return;
+            tempRotateJust = 1;
+        }
+        else
+        {
+            rotateGood.color = Color.red;
+            tempRotateJust = 0;
         }
 
-        rotateGood.color = Color.red;
+        justFocus = ((int)(sliders[0].value + sliders[1].value) - 6) * tempRotateJust;
     }
 
     public void SetPerfactDistance()

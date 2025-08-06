@@ -44,6 +44,7 @@ public class BattleInterviewSelecter : BattleActionSeleter
         {
             buttons[i].gameObject.SetActive(true);
         }
+        InputManager.ChangeSelecter(null);
     }
 
     protected override void SetButton()

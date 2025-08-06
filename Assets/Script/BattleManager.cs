@@ -96,6 +96,8 @@ public class BattleManager : MonoBehaviour
         {
             case Trun.아군:
                 EndEnemyTrun?.Invoke();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 OnPlayerTrun?.Invoke();
                 break;
             case Trun.적:
@@ -120,6 +122,8 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator InAction()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         OnPlayerAction?.Invoke();
         Debug.Log(0);
         yield return new WaitUntil(() => currentAction == -1);

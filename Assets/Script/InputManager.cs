@@ -134,12 +134,12 @@ public class InputManager : MonoBehaviour
 
     public void OnChangeSelect(InputAction.CallbackContext value)
     {
-        selecter.ChangeBattleAction(value.ReadValue<Vector2>());
+        selecter?.ChangeBattleAction(value.ReadValue<Vector2>());
     }
 
     public void OnSelect(InputAction.CallbackContext value)
     {
-        selecter.SelectButton();
+        selecter?.SelectButton();
     }
 
     public void OnMove(InputAction.CallbackContext value)

@@ -12,6 +12,18 @@ public class BattleSeleterBase : MonoBehaviour
         buttons = GetComponentsInChildren<BattleButtonBase>();
     }
 
+    void OnEnable()
+    {
+        BattleManager.OnPlayerAction += OffUI;
+        BattleManager.OnEnemyTrun += OffUI;
+    }
+
+    void OnDisable()
+    {
+        BattleManager.OnPlayerAction -= OffUI;
+        BattleManager.OnEnemyTrun -= OffUI;
+    }
+
     public virtual void ChangeBattleAction(int newAction)
     {
         if (currentAction != -1)

@@ -36,6 +36,7 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
     public void TakeDamage(float damage)
     {
         CurrentHP -= (int)damage;
+        PlayerContoller.instance.filming.OnSettingChange();
         if (CurrentHP <= 0)
         {
             BattleManager.battlemanager.EscapeBattle();

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Unity.Mathematics;
+using System;
 
 public class Filming : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Filming : MonoBehaviour
     Material material;
     [SerializeField]
     Camera cam;
+    [SerializeField]
+    Image rotateGood;
     Material useMaterialData;
     [SerializeField]
     float maxZoom;
@@ -44,7 +47,7 @@ public class Filming : MonoBehaviour
             }
         }
     }
-    float updateFocus;
+    //float updateFocus;
     float zoom;
     public float Zoom
     {
@@ -102,6 +105,7 @@ public class Filming : MonoBehaviour
         sliders[0].value = (zoom + 5) * 6 / 10;
         sliders[1].value = (focus + 10) * 6 / 20;
         ChackRange();
+        ChackRotate();
     }
 
     public void OnFilming()
@@ -164,8 +168,28 @@ public class Filming : MonoBehaviour
         justFocus = (int)(sliders[0].value + sliders[1].value) - 6;
     }
 
+    void ChackRotate()
+    {
+        if (Mathf.Abs(x) < 1 && Mathf.Abs(y - 90) < 1)
+        {
+            rotateGood.color = Color.green;
+            return;
+        }
+
+        rotateGood.color = Color.red;
+    }
+
     public void SetPerfactDistance()
     {
         perfactDistance = UnityEngine.Random.Range(0, 6);
+        cam.transform.localRotation = Quaternion.Euler(x, y, 0);
+    }
+
+    public void OnSettingChange()
+    {
+        focus = UnityEngine.Random.Range(0, 6);
+        zoom = UnityEngine.Random.Range(0, 6);
+        x = UnityEngine.Random.Range(-30, 30);
+        y = UnityEngine.Random.Range(60, 120);
     }
 }

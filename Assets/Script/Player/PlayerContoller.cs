@@ -12,7 +12,7 @@ public class PlayerContoller : MonoBehaviour
     PlayerAttack attack;
     public PlayerHealth health;
     PlayerParing parring;
-    Filming filming;
+    public Filming filming;
 
     bool isMoveable = false;
 

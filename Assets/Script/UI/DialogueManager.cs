@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     PrintDialogue playerPrinter;
     [SerializeField]
     GameObject playerPrinterPanal;
-
+    
     void Awake()
     {
         if (instance == null)
@@ -35,6 +35,20 @@ public class DialogueManager : MonoBehaviour
         BattleManager.EndPlayerAction -= OffPlayerPrinterPanal;
     }
 
+    public void PrintItem(string itemName, string naxtDialogueID)
+    {
+        string temp = $"당신은 {itemName}을(를) 사용했다.";
+        playerPrinterPanal.SetActive(true);
+        StartCoroutine(playerPrinter.PrintItemCoroutine(temp, naxtDialogueID));
+    }
+
+    public void PrintItem(string itemName, float heal, float healPercent)
+    {
+        string temp = $"당신은 {itemName}을(를) 사용했다.\n체력 {heal + (PlayerContoller.instance.health.GetMaxHealth() * healPercent)}을 회복했다.";
+        playerPrinterPanal.SetActive(true);
+        StartCoroutine(playerPrinter.PrintItemCoroutine(temp));
+    }
+
     public IEnumerator PrintDialogue(string interviewID)
     {
         if (interviewID == "END")
@@ -54,6 +68,7 @@ public class DialogueManager : MonoBehaviour
         if (temp.emotionalGauge != null)
         {
             BattleManager.battlemanager.CurrentEnemy.EmotionalGauge += (int)temp.emotionalGauge;
+            Debug.Log(temp.emotionalGauge);
             if (enemyemotion != BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion())
             {
                 temp = TempTextLoad.GetEnemyDialogue(interviewID, BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion());

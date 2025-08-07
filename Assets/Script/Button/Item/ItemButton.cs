@@ -43,7 +43,6 @@ public class ItemButton : BattleButtonBase
     {
         itemData.UseItem();
         printDialogue.transform.parent.gameObject.SetActive(true);
-        printDialogue.PrintItem(itemData);
         BattleManager.battlemanager.PlayerAction((int)BattleAction.아이템);
     }
 }

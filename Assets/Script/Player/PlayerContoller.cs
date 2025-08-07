@@ -128,7 +128,7 @@ public class PlayerContoller : MonoBehaviour
 
     public float GetJust()
     {
-        if (Mathf.Abs(filming.justFocus) > 1)
+        if (Mathf.Abs(filming.justFocus) > 1 || !filming.justRotate)
         {
             return 0;
         }

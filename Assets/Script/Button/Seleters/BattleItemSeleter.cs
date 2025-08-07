@@ -59,6 +59,7 @@ public class BattleItemSeleter : BattleSeleterBase
     {
         base.OffUI();
         OffItemData();
+        InputManager.ChangeSelecter(null);
     }
 
     void SetButton()

@@ -63,6 +63,7 @@ public class HealItemData : ItemData
     {
         base.UseItem();
         PlayerContoller.instance.HealPlayer(heal, healPercent);
+        DialogueManager.instance.PrintItem(name, heal, healPercent);
     }
 }
 
@@ -80,17 +81,19 @@ public class EquipmentItemData : ItemData
 {
     public int emotionalGauge;
     public string buff;
+    public string naxtDialogueID;
 
     public void Setup2(string[] csvLine)
     {
         int.TryParse(csvLine[4], out emotionalGauge);
         buff = csvLine[6];
+        naxtDialogueID = csvLine[9];
     }
 
     public override void UseItem()
     {
         base.UseItem();
-        DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue(id));
+        DialogueManager.instance.PrintItem(name, naxtDialogueID);
     }
 }
 

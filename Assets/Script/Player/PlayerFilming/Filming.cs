@@ -34,6 +34,7 @@ public class Filming : MonoBehaviour
     [SerializeField]
     public float filmingTime;
     int perfactDistance;
+    public bool justRotate { get; private set; }
     public bool justZoom { get; private set; }
     public int justFocus { get; private set; }
     float focus;
@@ -144,8 +145,6 @@ public class Filming : MonoBehaviour
 
     void ChackRange()
     {
-        int tempRotateJust = 0;
-
         if (sliders[0].value == perfactDistance)
         {
             ColorBlock temp = sliders[0].colors;
@@ -177,15 +176,15 @@ public class Filming : MonoBehaviour
         if (Mathf.Abs(x) < 1 && Mathf.Abs(y - 90) < justRotationRange)
         {
             rotateGood.color = Color.green;
-            tempRotateJust = 1;
+            justRotate = true;
         }
         else
         {
             rotateGood.color = Color.red;
-            tempRotateJust = 0;
+            justRotate = false;
         }
 
-        justFocus = ((int)(sliders[0].value + sliders[1].value) - 6) * tempRotateJust;
+        justFocus = (int)(sliders[0].value + sliders[1].value) - 6;
     }
 
     public void SetPerfactDistance()

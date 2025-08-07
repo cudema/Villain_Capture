@@ -42,14 +42,7 @@ public class PrintDialogue : MonoBehaviour
         text.text = "";
     }
 
-    public void PrintItem(ItemData data)
-    {
-        isSkipPrint = false;
-        string temp = $"당신은 {data.name}을(를) 사용했다.\n당신은 체력을 회복했다.";
-        StartCoroutine(PrintItemCoroutine(temp));
-    }
-
-    IEnumerator PrintItemCoroutine(string text)
+    public IEnumerator PrintItemCoroutine(string text)
     {
         if (isPlay || text == null)
         {
@@ -76,6 +69,35 @@ public class PrintDialogue : MonoBehaviour
         isSkipPrint = false;
         yield return new WaitUntil(() => Input.anyKeyDown);
         BattleManager.battlemanager.StopAction();
+    }
+
+    public IEnumerator PrintItemCoroutine(string text, string nextDialogueID)
+    {
+        if (isPlay || text == null)
+        {
+            yield break;
+        }
+        ResetText();
+        yield return null;
+        isPlay = true;
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (isSkipPrint)
+            {
+                this.text.text = text;
+                yield return null;
+                break;
+            }
+
+            this.text.text += text[i];
+
+            yield return new WaitForSeconds(printDelay);
+        }
+        isPlay = false;
+        isSkipPrint = false;
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue(nextDialogueID));
     }
 
     public IEnumerator PrintTextCoroutine(EnemyDialogue printText)

@@ -14,6 +14,7 @@ public class ChangeKategori : MonoBehaviour
     void OnEnable()
     {
         InputManager.inputManager.tab.performed += ChangeKatefori;
+        heal.isOn = true;
     }
 
     void OnDisable()

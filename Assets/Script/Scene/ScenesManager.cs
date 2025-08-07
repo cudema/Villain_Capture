@@ -23,6 +23,8 @@ public class ScenesManager : MonoBehaviour
     public void LoadTempMain()
     {
         StartCoroutine(Load("tempStartMenu"));
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     IEnumerator Load(string sceneName)

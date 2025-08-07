@@ -6,7 +6,6 @@ public class BattleActionSeleter : BattleSeleterBase
 {
     [SerializeField]
     BattleSeleterBase BeforeSeleter;
-    [SerializeField]
     protected string enemyUIGroupID;
     [SerializeField]
     UIAnimation uiAnimation;
@@ -15,7 +14,7 @@ public class BattleActionSeleter : BattleSeleterBase
     {
         currentAction = 0;
         buttons[currentAction].SelectThis();
-        SetButton();
+        //SetButton();
     }
 
     public override void ChangeBattleAction(int newAction)
@@ -51,6 +50,7 @@ public class BattleActionSeleter : BattleSeleterBase
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].Setup(uiTexts[i]);
+            //Debug.Log(uiTexts[i].UIID);
         }
     }
 }

@@ -17,6 +17,7 @@ public class BattleActionButton : BattleMainButtonBase
 
     public override void Action()
     {
+        actionSeleter.SetUIGroupName(BattleManager.battlemanager.CurrentEnemy.GetDialogueID());
         actionSeleter.OnUI();
         seleter.OffUI();
         base.Action();

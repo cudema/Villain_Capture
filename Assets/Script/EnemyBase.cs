@@ -68,6 +68,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected PatternBase enagedPattern;
     PatternBase currentPattern;
 
+    [Header("대사 코드")]
+    [SerializeField]
+    string dialogueID;
+
     protected bool isParringable = false;
     bool isUesingEnagedPattern = false;
 
@@ -130,7 +134,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
         currentPattern.SetPattern();
     }
-    
+
     public virtual void StartPattern()
     {
         currentPattern.StartPattern();
@@ -256,5 +260,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public bool GetIsEnage()
     {
         return isEnage;
+    }
+
+    public string GetDialogueID()
+    {
+        return dialogueID;
     }
 }

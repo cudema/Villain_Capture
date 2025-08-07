@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 961176421831474317}
   - component: {fileID: 4092080976366980126}
   m_Layer: 0
-  m_Name: SampleEnemy
+  m_Name: SampleEnemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,4 +281,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26484e222bc29ed4ba1be91f6271d8d5, type: 2}
   - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}
   enagedPattern: {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
-  dialogueID: ITV_Ruby
+  dialogueID: ITV_DustyVeil

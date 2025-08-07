@@ -78,18 +78,14 @@ public class PrintDialogue : MonoBehaviour
         BattleManager.battlemanager.StopAction();
     }
 
-    public void Print(EnemyDialogue text)
-    {
-        isSkipPrint = false;
-        StartCoroutine(PrintTextCoroutine(text));
-    }
-
     public IEnumerator PrintTextCoroutine(EnemyDialogue printText)
     {
         if (isPlay || printText == null)
         {
             yield break;
         }
+
+        isSkipPrint = false;
 
         ResetText();
         string tempText = printText.dialogueText;
@@ -116,7 +112,6 @@ public class PrintDialogue : MonoBehaviour
         isSkipPrint = false;
         yield return new WaitUntil(() => Input.anyKeyDown);
 
-        DialogueManager.instance.PrintDialogue(printText.nextDialogueGrup);
-
+        DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue(printText.nextDialogueGrup));
     }
 }

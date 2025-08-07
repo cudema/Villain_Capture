@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BattleRunConttorl : MonoBehaviour
@@ -29,12 +30,17 @@ public class BattleRunConttorl : MonoBehaviour
         if (temp > tempRandom)
         {
             Debug.Log("도주 성공");
-            DialogueManager.instance.PrintDialogue("ESC_001");
-            Invoke("ScenesManager.instance.LoadTempMain()", 2.0f);
+            StartCoroutine(SuccessRun());
             return;
         }
         Debug.Log("도주 실패");
-        DialogueManager.instance.PrintDialogue("ESC_002");
+        DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue("ESC_002"));
         return;
+    }
+
+    IEnumerator SuccessRun()
+    {
+        yield return DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue("ESC_001"));
+        ScenesManager.instance.LoadTempMain();
     }
 }

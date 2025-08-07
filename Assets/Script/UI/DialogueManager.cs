@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
@@ -34,18 +35,18 @@ public class DialogueManager : MonoBehaviour
         BattleManager.EndPlayerAction -= OffPlayerPrinterPanal;
     }
 
-    public void PrintDialogue(string interviewID)
+    public IEnumerator PrintDialogue(string interviewID)
     {
         if (interviewID == "END")
         {
             Debug.Log("대사 끝");
             BattleManager.battlemanager.StopAction();
-            return;
+            yield break;
         }
         if (interviewID == "")
         {
-            Debug.Log("대사 없음");
-            return;
+            Debug.LogWarning("대사 없음");
+            yield break;
         }
         EnemyDialogue temp;
         Emotion enemyemotion = BattleManager.battlemanager.CurrentEnemy.GetEnemyEmotion();
@@ -62,11 +63,11 @@ public class DialogueManager : MonoBehaviour
         if (temp.speaker == "Player")
         {
             playerPrinterPanal.SetActive(true);
-            playerPrinter.Print(temp);
+            yield return StartCoroutine(playerPrinter.PrintTextCoroutine(temp));
         }
         else
         {
-            enemyPrinter.Print(temp);
+            yield return StartCoroutine(enemyPrinter.PrintTextCoroutine(temp));
         }
     }
 

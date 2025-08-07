@@ -86,6 +86,12 @@ public class EquipmentItemData : ItemData
         int.TryParse(csvLine[4], out emotionalGauge);
         buff = csvLine[6];
     }
+
+    public override void UseItem()
+    {
+        base.UseItem();
+        DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue(id));
+    }
 }
 
 public class PartItemData : ItemData

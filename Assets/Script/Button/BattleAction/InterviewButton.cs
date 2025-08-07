@@ -20,12 +20,12 @@ public class InterviewButton : BattleActionButtonBase
         seleter.OffUI();
         if (UIData.selectedCount >= 2)
         {
-            DialogueManager.instance.PrintDialogue("ITV_151");
+            DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue("ITV_151"));
         }
         else
         {
             UIData.selectedCount++;
-            DialogueManager.instance.PrintDialogue(UIData.interview);
+            DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue(UIData.interview));
         }
 
         BattleManager.battlemanager.PlayerAction((int)BattleAction.인터뷰);

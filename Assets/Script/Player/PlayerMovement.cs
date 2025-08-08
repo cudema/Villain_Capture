@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -26,6 +27,32 @@ public class PlayerMovement : MonoBehaviour
             cloen.y = transform.position.y;
         }
 
+        Collider[] collider = Physics.OverlapBox(cloen, new Vector3(0.5f, 0.5f, 1));
+        if (collider.Length > 0)
+        {
+            int index = -1;
+            for (int i = 0; i < collider.Length; i++)
+            {
+                if (collider[i].CompareTag("Wall"))
+                {
+                    index = i;
+                    break;
+                }
+            }
+            if (index != -1)
+            {
+                Vector3 temp = collider[0].transform.position - transform.position;
+                temp = temp.normalized;
+                if (Mathf.Abs(temp.x) > 0.65f)
+                {
+                    cloen.x = transform.position.x;
+                }
+                if (Mathf.Abs(temp.y) > 0.65f)
+                {
+                    cloen.y = transform.position.y;
+                }
+            }
+        }
 
         transform.position = cloen;
     }
@@ -56,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (cloen.y - transform.position.y < 0)
         {
             Collider[] collider = Physics.OverlapBox(transform.position - new Vector3(0, 0.5f, 0), new Vector3(0.5f, 0.0001f, 1));
-            
+
             if (collider.Length > 0 && collider[0].CompareTag("Floor"))
             {
                 isjumpable = true;

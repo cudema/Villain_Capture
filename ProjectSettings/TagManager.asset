@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ParringPoint
   - Floor
+  - Wall
   layers:
   - Default
   - TransparentFX

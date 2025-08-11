@@ -102,7 +102,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         startPos = transform.position;
         enemyRenderer = GetComponent<Renderer>();
         //BattleManager.battlemanager.SetEnemy(this);
-        BattleManager.OnSetEnemyTrun += SetPattern;
+        BattleManager.EndPlayerTrun += SetPattern;
         BattleManager.OnEnemyTrun += StartPattern;
         BattleManager.EndEnemyTrun += ResetPosition;
         ChangedEmotionalGauge += OnChangeEmotion;
@@ -119,7 +119,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     private void OnDisable()
     {
         BattleManager.OnEnemyTrun -= StartPattern;
-        BattleManager.OnSetEnemyTrun -= SetPattern;
+        BattleManager.EndPlayerTrun -= SetPattern;
         BattleManager.EndEnemyTrun -= ResetPosition;
         ChangedEmotionalGauge -= OnChangeEmotion;
     }

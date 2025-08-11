@@ -8,6 +8,8 @@ public enum Trun { 아군 = 0, 적 }
 
 public class BattleManager : MonoBehaviour
 {
+    //임시
+    public bool isOnEnemy;
     Trun currentTrun = Trun.아군;
     int currentAction = -1;
     public static BattleManager battlemanager
@@ -101,13 +103,21 @@ public class BattleManager : MonoBehaviour
                 OnPlayerTrun?.Invoke();
                 break;
             case Trun.적:
-                EndPlayerTrun?.Invoke();
-                OnSetEnemyTrun?.Invoke();
-                OnEnemyTrun?.Invoke();
+                StartCoroutine(OnEnemyTrunCorutine());
                 break;
             default:
                 break;
         }
+    }
+
+    IEnumerator OnEnemyTrunCorutine()
+    {
+        isOnEnemy = false;
+        EndPlayerTrun?.Invoke();
+        yield return null;
+        OnSetEnemyTrun?.Invoke();
+        yield return new WaitUntil(() => isOnEnemy);
+        OnEnemyTrun?.Invoke();
     }
 
     public void PlayerAction(int newAction)

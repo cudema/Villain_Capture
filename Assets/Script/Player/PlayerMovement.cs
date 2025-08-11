@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -12,6 +13,15 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     float v;
+
+    //임시조치
+    Renderer playerRenderer;
+
+    void Awake()
+    {
+        //임시조치
+        playerRenderer = GetComponent<Renderer>();
+    }
 
     public void ToMove()
     {
@@ -109,17 +119,42 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z);
     }
 
+    IEnumerator PlayerStartPositionAnimation()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            playerRenderer.enabled = i % 2 == 0 ? false : true;
+
+            yield return new WaitForSeconds(0.15f);
+        }
+        playerRenderer.enabled = true;
+        BattleManager.battlemanager.isOnEnemy = true;
+        yield break;
+    }
+    IEnumerator GoToStartPosition(Vector3 pos)
+    {
+        Vector3 temp = pos - transform.position;
+        while (!BattleManager.battlemanager.isOnEnemy)
+        {
+            transform.position += temp * Time.deltaTime / (0.15f * 5);
+            yield return null;
+        }
+        transform.position = pos;
+    }
+
     public void StartMovePosition()
     {
         switch (PlayerContoller.instance.GetPlayMode())
         {
             case PlayMode.일반:
-                transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z);
+                StartCoroutine(PlayerStartPositionAnimation());
+                StartCoroutine(GoToStartPosition(new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z)));
                 break;
             case PlayMode.플렛포머:
                 v = 0;
                 isjumpable = false;
-                transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y, transform.position.z);
+                StartCoroutine(PlayerStartPositionAnimation());
+                StartCoroutine(GoToStartPosition(new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y, transform.position.z)));
                 break;
             default:
                 break;

@@ -58,7 +58,7 @@ public class RubyDropBullet : BulletBase
         Vector3 temp = goToPos - transform.position;
         while (Vector3.Distance(goToPos, transform.position) > 0.1f)
         {
-            transform.position += temp.normalized * Time.deltaTime * speed;
+            transform.position += temp * Time.deltaTime / speed;
             yield return null;
         }
 

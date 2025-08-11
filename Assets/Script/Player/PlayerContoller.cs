@@ -40,7 +40,7 @@ public class PlayerContoller : MonoBehaviour
     {
         BattleManager.OnPlayerTrun += movement.ReturnPosition;
         BattleManager.EndEnemyTrun += OffMoveable;
-        BattleManager.OnEnemyTrun += movement.StartMovePosition;
+        BattleManager.OnSetEnemyTrun += movement.StartMovePosition;
         BattleManager.OnEnemyTrun += OnMoveavle;
         InputManager.inputManager.parring.performed += parring.OnParring;
         InputManager.inputManager.zoom.performed += filming.OnChangeZoom;
@@ -54,7 +54,7 @@ public class PlayerContoller : MonoBehaviour
     {
         BattleManager.OnPlayerTrun -= movement.ReturnPosition;
         BattleManager.EndEnemyTrun -= OffMoveable;
-        BattleManager.OnEnemyTrun -= movement.StartMovePosition;
+        BattleManager.OnSetEnemyTrun -= movement.StartMovePosition;
         BattleManager.OnEnemyTrun -= OnMoveavle;
         InputManager.inputManager.parring.performed -= parring.OnParring;
         InputManager.inputManager.zoom.performed -= filming.OnChangeZoom;

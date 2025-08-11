@@ -24,12 +24,17 @@ MonoBehaviour:
   bulletCount: 4
   bulletSpawnDelay: 3
   attackDelay: 3
+  enemyDamage: 10
+  enemyAttackTime: 0.2
   isEnaged: 0
   firstAttackSize: 10
   firstAttackDelay: 4
+  boomDamage: 20
   takeDownAttackSize: 5
   chaseTime: 2
   chaseSpeed: 4
   takeDownAttackDelay: 1
   nextAttackDelay: 1
+  takeDownAttackDamage: 10
   wall: {fileID: 9128964050993526041, guid: 59dd8651294aedc47adf9c138e3f0c87, type: 3}
+  dropDamage: 30

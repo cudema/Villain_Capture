@@ -35,6 +35,12 @@ public class PatternBase : ScriptableObject
     [SerializeField]
     public float attackDelay;
 
+    [Header("몸박 설정")]
+    [SerializeField]
+    protected float enemyDamage;
+    [SerializeField]
+    protected float enemyAttackTime;
+
     [Header("광폭화 여부")]
     [SerializeField]
     public bool isEnaged;
@@ -47,6 +53,7 @@ public class PatternBase : ScriptableObject
     {
         this.enemy = enemy;
         bulletParent = enemy.transform.GetChild(1);
+        enemy.SetAttack(enemyDamage, enemyAttackTime);
     }
 
     public virtual void SetPattern()

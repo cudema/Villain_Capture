@@ -13,7 +13,7 @@ public class FractureBuster : PatternBase
     }
 
     Vector2[][] randomPos = new Vector2[3][];
-    [Header("���� ����")]
+    [Header("돌덩이 간격")]
     [SerializeField]
     float minDistance;
 
@@ -95,6 +95,7 @@ public class FractureBuster : PatternBase
 
 
         warning.SetActive(false);
+        enemy.OnAttack();
 
         while (enemy.transform.position.x > -10)
         {

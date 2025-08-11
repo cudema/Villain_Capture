@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -68,6 +69,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected PatternBase enagedPattern;
     PatternBase currentPattern;
 
+    float attackTime;
+
     [Header("대사 코드")]
     [SerializeField]
     string dialogueID;
@@ -77,8 +80,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     List<PatternBase> patterns = new List<PatternBase>();
     int usePatternIndex = 0;
-
-    GameObject wraning;
+    BulletAttack attack;
+    Transform wraning;
     Renderer enemyRenderer;
 
     Vector3 startPos;
@@ -104,7 +107,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         BattleManager.EndEnemyTrun += ResetPosition;
         ChangedEmotionalGauge += OnChangeEmotion;
         patterns.AddRange(nomalPattern);
-        wraning = transform.GetChild(0).gameObject;
+        wraning = transform.GetChild(0);
+        attack = GetComponent<BulletAttack>();
         for (int i = 0; i < patterns.Count; i++)
         {
             patterns[i].Setup(this);
@@ -142,22 +146,24 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void OnWraning()
     {
-        wraning.SetActive(true);
+        wraning.GetChild(0).gameObject.SetActive(true);
     }
 
     public void OffWraning()
     {
-        wraning.SetActive(false);
+        wraning.GetChild(0).gameObject.SetActive(false);
     }
 
     public void OnRenderer()
     {
         enemyRenderer.enabled = true;
+        GetComponent<Collider>().enabled = true;
     }
 
     public void OffRenderer()
     {
         enemyRenderer.enabled = false;
+        GetComponent<Collider>().enabled = false;
     }
 
     void ResetPosition()
@@ -169,12 +175,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void SetWraningScale(float scale)
     {
-        wraning.transform.localScale = Vector3.one * scale;
+        wraning.localScale = new Vector3(scale, scale, 1);
     }
 
     public void SetWraningScale(Vector3 scale)
     {
-        wraning.transform.localScale = scale;
+        wraning.localScale = scale;
     }
 
     public void TakeDamage(float damage)
@@ -265,5 +271,27 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public string GetDialogueID()
     {
         return dialogueID;
+    }
+
+    public void SetAttack(float damage, float attackTime)
+    {
+        attack.SetDamage(damage);
+        this.attackTime = attackTime;
+    }
+
+    public void OnAttack()
+    {
+        StartCoroutine(Attack());
+    }
+
+    IEnumerator Attack()
+    {
+        wraning.GetComponentInChildren<Collider>().enabled = true;
+
+        yield return new WaitForSeconds(attackTime);
+
+        wraning.GetComponentInChildren<Collider>().enabled = false;
+
+        yield break;
     }
 }

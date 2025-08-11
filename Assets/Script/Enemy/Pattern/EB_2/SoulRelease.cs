@@ -72,9 +72,11 @@ public class SoulRelease : PatternBase
 
         enemy.OffParringable();
         enemy.OffWraning();
-        enemy.SetWraningScale(1.5f);
+        enemy.OnAttack();
 
         yield return new WaitForSeconds(attackDelay);
+
+        enemy.SetWraningScale(1.5f);
 
         BattleManager.battlemanager.ChangeTrun(Trun.아군);
     }

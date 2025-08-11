@@ -5,13 +5,13 @@ using UnityEngine;
 public class RubyDropBullet : BulletBase
 {
     bool isUXO = false;
+    [SerializeField]
     Collider attackRange;
     Vector3 goToPos;
 
     public override void Setup(PatternBase patternBase)
     {
         base.Setup(patternBase);
-        attackRange = GetComponentInChildren<Collider>();
     }
 
     public void Setup(int i)

@@ -50,6 +50,7 @@ public class GroundZero : PatternBase
 
         yield return new WaitForSeconds(rushDelay);
 
+        enemy.OnAttack();
         enemy.OffWraning();
         enemy.OnRenderer();
         enemy.OnParringable();

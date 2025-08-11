@@ -1,10 +1,15 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealthReporter
 {
     [SerializeField]
     int maxHP;
+    [SerializeField]
+    float invincibleTime;
+    [SerializeField]
+    float blinkingTime;
     int currentHP;
     public int CurrentHP
     {
@@ -42,6 +47,25 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
             BattleManager.battlemanager.EscapeBattle();
             ScenesManager.instance.LoadTempMain();//임시로 만든거
             Debug.Log("죽음");
+            return;
         }
+
+        StartCoroutine(NoHitTime());
+    }
+
+    IEnumerator NoHitTime()
+    {
+        GetComponent<Collider>().enabled = false;
+        float time = Time.time;
+        while (invincibleTime > Time.time - time)
+        {
+            GetComponent<Renderer>().enabled = (Time.time - time) % blinkingTime < blinkingTime / 2 ? true : false;
+            yield return null;
+        }
+        GetComponent<Renderer>().enabled = true;
+
+        GetComponent<Collider>().enabled = true;
+
+        yield break;
     }
 }

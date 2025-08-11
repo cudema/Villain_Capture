@@ -15,6 +15,7 @@ MonoBehaviour:
   center: {x: 0, y: 0}
   radius: {x: 0, y: 0}
   isChangedFild: 0
+  state: 0
   bullet: {fileID: 7302727100684599586, guid: 85c892d76baac4f4fa782f8d04c61f14, type: 3}
   bulletDatas:
   - name: 
@@ -23,6 +24,8 @@ MonoBehaviour:
   bulletCount: 3
   bulletSpawnDelay: 0.4
   attackDelay: 1.5
+  enemyDamage: 10
+  enemyAttackTime: 0.2
   isEnaged: 0
   rushDelay: 1
   rushSpeed: 15

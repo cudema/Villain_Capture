@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RubyDrop", menuName = "Scriptable Objects/RubyDrop")]
@@ -9,6 +10,8 @@ public class RubyDrop : PatternBase
     float firstAttackSize;
     [SerializeField]
     float firstAttackDelay;
+    [SerializeField]
+    float boomDamage;
 
     [Header("내려찍기 설정")]
     [SerializeField]
@@ -21,10 +24,14 @@ public class RubyDrop : PatternBase
     float takeDownAttackDelay;
     [SerializeField]
     float nextAttackDelay;
+    [SerializeField]
+    float takeDownAttackDamage;
 
-    [Header("벽 프리팹")]
+    [Header("벽")]
     [SerializeField]
     GameObject wall;
+    [SerializeField]
+    float dropDamage;
     Transform[] walls = new Transform[4];
     Vector3[] wallsPos = new Vector3[4];
     bool[] isMoveableFields = new bool[4];
@@ -57,16 +64,18 @@ public class RubyDrop : PatternBase
         enemy.OnWraning();
         enemy.SetWraningScale(firstAttackSize);
         enemy.transform.position = new Vector3(center.x, center.y, enemy.transform.position.z);
+        enemy.SetAttack(boomDamage, enemyAttackTime);
 
         yield return new WaitForSeconds(firstAttackDelay);
 
         SetUXOField();
+        enemy.OnAttack();
         enemy.OnRenderer();
         enemy.OffWraning();
-        enemy.SetWraningScale(1);
 
         yield return null;
 
+        enemy.SetWraningScale(1);
         SpawnLine();
 
         for (int i = 0; i < bulletCount; i++)
@@ -97,6 +106,7 @@ public class RubyDrop : PatternBase
                 yield return null;
             }
             yield return new WaitForSeconds(takeDownAttackDelay);
+            enemy.OnAttack();
             enemy.OnRenderer();
             enemy.OffWraning();
 
@@ -116,6 +126,7 @@ public class RubyDrop : PatternBase
                 uxo.Boom();
                 yield return new WaitForSeconds(1);
                 StopPattern();
+                yield break;
             }
             else
             {
@@ -143,6 +154,7 @@ public class RubyDrop : PatternBase
                     if (isMoveableFields[++playerPos % 4])
                     {
                         PlayerContoller.instance.transform.position = wallsPos[playerPos % 4];
+                        PlayerContoller.instance.GetComponent<IHealthReporter>().TakeDamage(dropDamage);
                         break;
                     }
                 }

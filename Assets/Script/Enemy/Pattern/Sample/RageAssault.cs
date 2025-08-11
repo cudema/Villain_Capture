@@ -52,6 +52,7 @@ public class RageAssault : PatternBase
             }
 
             go.SetActive(false);
+            enemy.OnAttack();
             Vector3 rushRotate = new Vector3(player.x - enemy.transform.position.x, player.y - enemy.transform.position.y, 0).normalized;
 
             while (IsOutFild(rushRotate))
@@ -70,6 +71,7 @@ public class RageAssault : PatternBase
 
         yield return new WaitForSeconds(chopDelay);
 
+        enemy.OnAttack();
         enemy.OffWraning();
         renderer.enabled = true;
 

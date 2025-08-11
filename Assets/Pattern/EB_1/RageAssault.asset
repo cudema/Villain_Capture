@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adaf7de29d363b741a3bebec31061c4e, type: 3}
   m_Name: RageAssault
   m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 0, y: 0}
+  isChangedFild: 0
+  state: 0
   bullet: {fileID: 6161374347783475099, guid: 42c758dd3e677d948baeb37427ef459c, type: 3}
   bulletDatas:
   - name: 
@@ -20,6 +24,9 @@ MonoBehaviour:
   bulletCount: 8
   bulletSpawnDelay: 0
   attackDelay: 0
+  enemyDamage: 10
+  enemyAttackTime: 0.5
+  isEnaged: 0
   rushDelay: 0.5
   rushSpeed: 15
   chopDelay: 1

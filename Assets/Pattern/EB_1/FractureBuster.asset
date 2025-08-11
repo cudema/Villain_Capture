@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e45cbc7bed46d148aad28317609a961, type: 3}
   m_Name: FractureBuster
   m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 0, y: 0}
+  isChangedFild: 0
+  state: 0
   bullet: {fileID: 8571059529756946332, guid: a87bf4dfb397c4c408777ae47cc95a56, type: 3}
   bulletDatas:
   - name: "\uB3CC\uB369\uC774"
@@ -23,12 +27,12 @@ MonoBehaviour:
   - name: "\uB3CC\uC870\uAC01(big)"
     damage: 30
     speed: 10
-  - name: "\uBCF4\uC2A4 \uB3CC"
-    damage: 70
-    speed: 10
   bulletCount: 1
   bulletSpawnDelay: 0
   attackDelay: 2
+  enemyDamage: 70
+  enemyAttackTime: 2
+  isEnaged: 0
   smallBulletArrivalTime: 1.5
   minDistance: 0.75
   rushDelay: 2

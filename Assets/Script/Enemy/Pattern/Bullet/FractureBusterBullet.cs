@@ -24,18 +24,18 @@ public class FractureBusterBullet : BulletBase
 
         for (int i = 0; i < patternBase.bulletDatas.Length; i++)
         {
-            if (patternBase.bulletDatas[i].name == "µπ¡∂∞¢(small)")
+            if (patternBase.bulletDatas[i].name == "ÎèåÏ°∞Í∞Å(small)")
             {
                 smallBullet[1].GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
                 smallBullet[2].GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
                 continue;
             }
-            if (patternBase.bulletDatas[i].name == "µπ¡∂∞¢(big)")
+            if (patternBase.bulletDatas[i].name == "ÎèåÏ°∞Í∞Å(big)")
             {
                 smallBullet[0].GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
                 continue;
             }
-            if (patternBase.bulletDatas[i].name == "µπµ¢¿Ã")
+            if (patternBase.bulletDatas[i].name == "ÎèåÎç©Ïù¥")
             {
                 bullet.GetComponent<BulletAttack>().SetDamage(patternBase.bulletDatas[i].damage);
                 continue;

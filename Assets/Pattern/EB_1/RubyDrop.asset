@@ -25,4 +25,11 @@ MonoBehaviour:
   bulletSpawnDelay: 3
   attackDelay: 3
   isEnaged: 0
+  firstAttackSize: 10
+  firstAttackDelay: 4
+  takeDownAttackSize: 5
+  chaseTime: 2
+  chaseSpeed: 4
+  takeDownAttackDelay: 1
+  nextAttackDelay: 1
   wall: {fileID: 9128964050993526041, guid: 59dd8651294aedc47adf9c138e3f0c87, type: 3}

@@ -116,7 +116,8 @@ public class PlayerMovement : MonoBehaviour
     {
         v = 0;
         isjumpable = false;
-        transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z);
+        StartCoroutine(PlayerStartPositionAnimation());
+        StartCoroutine(GoToStartPosition(new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z)));
     }
 
     IEnumerator PlayerStartPositionAnimation()

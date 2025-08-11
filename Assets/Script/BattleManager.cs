@@ -92,7 +92,7 @@ public class BattleManager : MonoBehaviour
         {
             return;
         }
-
+        isOnEnemy = false;
         currentTrun = newTrun;
         switch (currentTrun)
         {

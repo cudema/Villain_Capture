@@ -28,6 +28,9 @@ public class BattleManager : MonoBehaviour
     {
         private set; get;
     }
+    [Header("턴 사이 시간")]
+    [SerializeField]
+    float trunDelay;
     [Header("중앙 이동 방경")]
     [SerializeField]
     Vector2 center;
@@ -127,6 +130,7 @@ public class BattleManager : MonoBehaviour
         yield return null;
         OnSetEnemyTrun?.Invoke();
         yield return new WaitUntil(() => isOnEnemy);
+        yield return new WaitForSeconds(trunDelay);
         OnEnemyTrun?.Invoke();
     }
 
@@ -145,10 +149,8 @@ public class BattleManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         OnPlayerAction?.Invoke();
-        Debug.Log(0);
         yield return new WaitUntil(() => currentAction == -1);
         EndPlayerAction?.Invoke();
-        Debug.Log(1);
         ChangeTrun(Trun.적);
     }
 

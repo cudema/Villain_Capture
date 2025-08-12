@@ -110,8 +110,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1011927894741551967}
   - {fileID: 1581930581820058904}
@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1011927894741551967
 Transform:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
   nomalMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   nomalPattern:
-  - {fileID: 11400000, guid: fdda0794aff71bc4c9612502931215fc, type: 2}
+  - {fileID: 11400000, guid: 49785626187d1cc4fb4a1eb75b3fb735, type: 2}
   - {fileID: 11400000, guid: 5ae767196120382478879085ed79090f, type: 2}
   - {fileID: 11400000, guid: bc7f00f02e7cd9d4d902eadb9a3f7641, type: 2}
   - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}

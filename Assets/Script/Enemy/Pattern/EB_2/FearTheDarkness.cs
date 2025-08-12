@@ -76,6 +76,8 @@ public class FearTheDarkness : PatternBase
             enemy.transform.position = PlayerContoller.instance.transform.position + new Vector3(1.5f, 0, 0);
 
             yield return new WaitForSeconds(attackDelay);
+
+            PlayerContoller.instance.GetComponent<IHealthReporter>().TakeDamage(enemyDamage);
         }
 
         StopPattern();
@@ -102,7 +104,6 @@ public class FearTheDarkness : PatternBase
                 {
                     isFandPos = true;
                     spawnedBulletPos[i] = temp;
-                    Debug.Log(temp);
                     break;
                 }
             }

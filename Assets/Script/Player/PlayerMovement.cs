@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 temp = pos - transform.position;
         while (!BattleManager.battlemanager.isOnEnemy)
         {
-            transform.position += temp * Time.deltaTime / (0.15f * 5);
+            transform.position += temp * Time.deltaTime / (0.15f * 5.5f);
             yield return null;
         }
         transform.position = pos;

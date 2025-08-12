@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MoveRadiusRenderer : MonoBehaviour
@@ -18,24 +19,24 @@ public class MoveRadiusRenderer : MonoBehaviour
 
     private void Update()
     {
-        linerenderer.SetPositions(GetMoveRadius());
+        //linerenderer.SetPositions(GetMoveRadius());
     }
 
     void OnEnable()
     {
         BattleManager.OnSetEnemyTrun += OnRenderer;
-        BattleManager.EndEnemyTrun += OffRenderer;
+        BattleManager.EndSetEnemyTrun += OffRenderer;
     }
 
     void OnDisable()
     {
         BattleManager.OnSetEnemyTrun -= OnRenderer;
-        BattleManager.EndEnemyTrun -= OffRenderer;
+        BattleManager.EndSetEnemyTrun -= OffRenderer;
     }
 
     void OnRenderer()
     {
-        linerenderer.enabled = true;
+        StartCoroutine(OnRendererAnimation());
     }
 
     void OffRenderer()
@@ -53,5 +54,31 @@ public class MoveRadiusRenderer : MonoBehaviour
         vectors[4] = new Vector3(BattleManager.battlemanager.Center.x - BattleManager.battlemanager.Radius.x - 0.5f, BattleManager.battlemanager.Center.y + BattleManager.battlemanager.Radius.y + 0.5f, 0);
 
         return vectors;
+    }
+
+    IEnumerator OnRendererAnimation()
+    {
+        Vector3[] target = GetMoveRadius();
+        Vector3[] temp = new Vector3[5];
+
+        for (int i = 0; i < temp.Length; i++)
+        {
+            temp[i] = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, 0);
+            target[i] -= new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, 0);
+        }
+        linerenderer.SetPositions(temp);
+        linerenderer.enabled = true;
+
+        while (!BattleManager.battlemanager.isOnEnemy)
+        {
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] += target[i] * Time.deltaTime / (0.15f * 5.5f);
+            }
+            linerenderer.SetPositions(temp);
+            yield return null;
+        }
+        linerenderer.SetPositions(GetMoveRadius());
+        yield break;
     }
 }

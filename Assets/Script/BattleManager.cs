@@ -46,6 +46,7 @@ public class BattleManager : MonoBehaviour
         private set { currentRadius = value; }
     }
     public static event Action OnSetEnemyTrun;
+    public static event Action EndSetEnemyTrun;
     public static event Action OnEnemyTrun;
     public static event Action EndEnemyTrun;
 
@@ -76,7 +77,7 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
-        EndEnemyTrun += ResetFild;
+        EndSetEnemyTrun += ResetFild;
         spawner.gameObject.SetActive(false);
         OnPlayerTrun += AddTurn;
     }
@@ -97,10 +98,7 @@ public class BattleManager : MonoBehaviour
         switch (currentTrun)
         {
             case Trun.아군:
-                EndEnemyTrun?.Invoke();
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                OnPlayerTrun?.Invoke();
+                StartCoroutine(OnPlayerTrunCorutine());
                 break;
             case Trun.적:
                 StartCoroutine(OnEnemyTrunCorutine());
@@ -108,6 +106,18 @@ public class BattleManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    IEnumerator OnPlayerTrunCorutine()
+    {
+        isOnEnemy = false;
+        EndSetEnemyTrun?.Invoke();
+        yield return null;
+        EndEnemyTrun?.Invoke();
+        yield return new WaitUntil(() => isOnEnemy);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        OnPlayerTrun?.Invoke();
     }
 
     IEnumerator OnEnemyTrunCorutine()

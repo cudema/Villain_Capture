@@ -38,7 +38,7 @@ public class PlayerContoller : MonoBehaviour
 
     private void Start()
     {
-        BattleManager.OnPlayerTrun += movement.ReturnPosition;
+        BattleManager.EndEnemyTrun += movement.ReturnPosition;
         BattleManager.EndEnemyTrun += OffMoveable;
         BattleManager.OnSetEnemyTrun += movement.StartMovePosition;
         BattleManager.OnEnemyTrun += OnMoveavle;
@@ -52,7 +52,7 @@ public class PlayerContoller : MonoBehaviour
 
     void OnDisable()
     {
-        BattleManager.OnPlayerTrun -= movement.ReturnPosition;
+        BattleManager.EndEnemyTrun -= movement.ReturnPosition;
         BattleManager.EndEnemyTrun -= OffMoveable;
         BattleManager.OnSetEnemyTrun -= movement.StartMovePosition;
         BattleManager.OnEnemyTrun -= OnMoveavle;

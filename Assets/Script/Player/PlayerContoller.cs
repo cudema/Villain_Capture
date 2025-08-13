@@ -41,7 +41,7 @@ public class PlayerContoller : MonoBehaviour
         BattleManager.EndEnemyTrun += movement.ReturnPosition;
         BattleManager.EndEnemyTrun += OffMoveable;
         BattleManager.OnSetEnemyTrun += movement.StartMovePosition;
-        BattleManager.OnEnemyTrun += OnMoveavle;
+        BattleManager.OnSetEnemyTrun += OnMoveavle;
         InputManager.inputManager.parring.performed += parring.OnParring;
         InputManager.inputManager.zoom.performed += filming.OnChangeZoom;
         InputManager.inputManager.focus.performed += filming.OnChangeFocus;
@@ -55,7 +55,7 @@ public class PlayerContoller : MonoBehaviour
         BattleManager.EndEnemyTrun -= movement.ReturnPosition;
         BattleManager.EndEnemyTrun -= OffMoveable;
         BattleManager.OnSetEnemyTrun -= movement.StartMovePosition;
-        BattleManager.OnEnemyTrun -= OnMoveavle;
+        BattleManager.OnSetEnemyTrun -= OnMoveavle;
         InputManager.inputManager.parring.performed -= parring.OnParring;
         InputManager.inputManager.zoom.performed -= filming.OnChangeZoom;
         InputManager.inputManager.focus.performed -= filming.OnChangeFocus;
@@ -102,8 +102,6 @@ public class PlayerContoller : MonoBehaviour
         //attack.SetPattern();
         filming.SetPerfactDistance();
         filming.OnFilming();
-        InputManager.inputManager.ChangeBattlePhotoInput();
-        StartCoroutine(BattleManager.battlemanager.ActionTimer(filming.filmingTime));
     }
 
     void OnMoveavle()

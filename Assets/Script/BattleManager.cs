@@ -9,7 +9,10 @@ public enum Trun { 아군 = 0, 적 }
 public class BattleManager : MonoBehaviour
 {
     //임시
+    [HideInInspector]
     public bool isOnEnemy;
+    [HideInInspector]
+    public bool isEndPlayerAction = true;
     Trun currentTrun = Trun.아군;
     int currentAction = -1;
     public static BattleManager battlemanager
@@ -151,6 +154,7 @@ public class BattleManager : MonoBehaviour
         OnPlayerAction?.Invoke();
         yield return new WaitUntil(() => currentAction == -1);
         EndPlayerAction?.Invoke();
+        yield return new WaitUntil(() => isEndPlayerAction);
         ChangeTrun(Trun.적);
     }
 

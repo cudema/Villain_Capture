@@ -9,6 +9,7 @@ public class Filming : MonoBehaviour
     [Header("오브젝트 가져오기")]
     [SerializeField]
     RawImage rawImage;
+    Animator rawImageAnimator;
     [SerializeField]
     Material material;
     [SerializeField]
@@ -43,16 +44,17 @@ public class Filming : MonoBehaviour
         get => focus;
         set
         {
-            focus = value;
-            if (focus > 10)
+            if (value > 13)
             {
                 focus = -10f;
                 return;
             }
-            if (focus < -10)
+            if (value < -13)
             {
                 focus = 10f;
+                return;
             }
+            focus = Mathf.Clamp(value, -10, 10);
         }
     }
     //float updateFocus;
@@ -90,6 +92,7 @@ public class Filming : MonoBehaviour
         useMaterialData = new Material(material);
         rawImage.material = useMaterialData;
         sliders = rawImage.transform.GetComponentsInChildren<Slider>();
+        rawImageAnimator = rawImage.GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -118,11 +121,14 @@ public class Filming : MonoBehaviour
     public void OnFilming()
     {
         rawImage.gameObject.SetActive(true);
+        BattleManager.battlemanager.isEndPlayerAction = false;
+        rawImageAnimator.Play("StartFilmingAnimation");
     }
 
     public void OffFilming()
     {
-        rawImage.gameObject.SetActive(false);
+        //rawImage.gameObject.SetActive(false);
+        rawImageAnimator.Play("EndFilmingAnimation");
     }
 
     public void OnChangeZoom(InputAction.CallbackContext value)

@@ -111,7 +111,6 @@ public class InputManager : MonoBehaviour
 
     public void ChangeBattlePhotoInput()
     {
-        Debug.Log(123123123);
         map = currentActionMap;
         currentActionMap.Disable();
         currentActionMap = battlePhotoActionMap;

@@ -20,7 +20,6 @@ public class BattleManager : MonoBehaviour
         get; private set;
     }
     public BattleRunConttorl runConttorl;
-    SpawnObject spawner;
     EnemyBase currentEnemy = null;
     public EnemyBase CurrentEnemy
     {
@@ -74,7 +73,6 @@ public class BattleManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        spawner = transform.GetComponentInChildren<SpawnObject>();
         ResetFild();
         UICSVLoader.SetUICSV();
         ItemCSVLoader.SetItemCSV();
@@ -84,7 +82,6 @@ public class BattleManager : MonoBehaviour
     private void Start()
     {
         EndSetEnemyTrun += ResetFild;
-        spawner.gameObject.SetActive(false);
         OnPlayerTrun += AddTurn;
     }
 
@@ -156,11 +153,6 @@ public class BattleManager : MonoBehaviour
         EndPlayerAction?.Invoke();
         yield return new WaitUntil(() => isEndPlayerAction);
         ChangeTrun(Trun.적);
-    }
-
-    public void PatternStart(NodePattern pattern)
-    {
-        spawner.SpawnObj(pattern);
     }
 
     public void SetEnemy(EnemyBase newEnemy)

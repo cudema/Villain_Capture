@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class BattleFilming : BattleMainButtonBase
 {
-    [Header("촬영")]
-    [SerializeField]
-    SpawnObject temp;
-    [SerializeField]
-    NodePattern samplePattern;
-
     public override void Action()
     {
         BattleManager.battlemanager.PlayerAction((int)BattleAction.촬영);

@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("촬영")]
-    [SerializeField]
-    NodePattern pattern;
 
     [SerializeField]
     float damage;
@@ -23,10 +21,5 @@ public class PlayerAttack : MonoBehaviour
     public void Attack(InputAction.CallbackContext value)
     {
         BattleManager.battlemanager.CurrentEnemy.TakeDamage(damage);
-    }
-
-    public void SetPattern()
-    {
-        BattleManager.battlemanager.PatternStart(pattern);
     }
 }

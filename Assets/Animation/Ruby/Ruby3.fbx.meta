@@ -1,14 +1,19 @@
 fileFormatVersion: 2
-guid: e138e1d88396a034da5f9bac0dc910e1
+guid: 2e34bc0d04d4ca84b8d92c8e1c085e50
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ruby.vox Material.002
+    second: {fileID: 2100000, guid: 603895f2f90254b488ff73f1390c453a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

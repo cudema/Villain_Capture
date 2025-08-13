@@ -12,14 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619efcd74f65e1747bb4e824aa2e60e7, type: 3}
   m_Name: GroundZero
   m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 0, y: 0}
+  isChangedFild: 0
+  state: 0
   bullet: {fileID: 8222855455361264066, guid: 82924de0514757640968dda3275e7cdb, type: 3}
   bulletDatas:
   - name: 
     damage: 5
     speed: 2
   bulletCount: 5
-  bulletSpawnDelay: 2
+  bulletSpawnDelay: 1
   attackDelay: 1
+  enemyDamage: 0
+  enemyAttackTime: 0
+  isEnaged: 0
   startSootDelay: 1
   scalePerSecond: 1
   rushDelay: 1

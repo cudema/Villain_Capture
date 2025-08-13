@@ -38,7 +38,9 @@ public class GroundZero : PatternBase
 
     protected override IEnumerator BingPattern()
     {
-        enemy.OffRenderer();
+        //enemy.OffRenderer();
+        enemy.animator.SetTrigger("GroundZero");
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Air"));
 
         Vector2 tempVector = BattleManager.battlemanager.Radius * radiusRange;
         Vector2 center = BattleManager.battlemanager.Center;
@@ -69,10 +71,8 @@ public class GroundZero : PatternBase
 
         yield return new WaitUntil(() => go == null);
 
-        enemy.transform.position = startPosVector;
-
         yield return new WaitForSeconds(patternEndDelay);
 
-        BattleManager.battlemanager.ChangeTrun(Trun.아군);
+        StopPattern();
     }
 }

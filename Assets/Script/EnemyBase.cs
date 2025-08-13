@@ -78,6 +78,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected bool isParringable = false;
     bool isUesingEnagedPattern = false;
 
+    [HideInInspector]
+    public Animator animator;
+
     List<PatternBase> patterns = new List<PatternBase>();
     int usePatternIndex = 0;
     BulletAttack attack;
@@ -99,6 +102,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void Setup()
     {
+        animator = GetComponentInChildren<Animator>();
         startPos = transform.position;
         enemyRenderer = GetComponent<Renderer>();
         //BattleManager.battlemanager.SetEnemy(this);
@@ -156,13 +160,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void OnRenderer()
     {
-        enemyRenderer.enabled = true;
+        //enemyRenderer.enabled = true;
         GetComponent<Collider>().enabled = true;
     }
 
     public void OffRenderer()
     {
-        enemyRenderer.enabled = false;
+        //enemyRenderer.enabled = false;
         GetComponent<Collider>().enabled = false;
     }
 
@@ -170,6 +174,16 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         OffWraning();
         OnRenderer();
+        if (transform.position != startPos)
+        {
+            StartCoroutine(PositionReset());
+        }
+    }
+
+    IEnumerator PositionReset()
+    {
+        animator.SetTrigger("EndPattern");
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Land"));
         transform.position = startPos;
     }
 
@@ -203,13 +217,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void OnParringable()
     {
-        enemyRenderer.material = parringableMaterial;
+        //enemyRenderer.material = parringableMaterial;
         isParringable = true;
     }
 
     public void OffParringable()
     {
-        enemyRenderer.material = nomalMaterial;
+        //enemyRenderer.material = nomalMaterial;
         isParringable = false;
     }
 

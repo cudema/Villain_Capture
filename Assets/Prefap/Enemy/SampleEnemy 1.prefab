@@ -262,7 +262,7 @@ MonoBehaviour:
   nomalMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   nomalPattern:
-  - {fileID: 11400000, guid: 49785626187d1cc4fb4a1eb75b3fb735, type: 2}
+  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
   - {fileID: 11400000, guid: 5ae767196120382478879085ed79090f, type: 2}
   - {fileID: 11400000, guid: bc7f00f02e7cd9d4d902eadb9a3f7641, type: 2}
   - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}

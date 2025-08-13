@@ -7,11 +7,14 @@ public enum PlayMode { 일반 = 0, 플렛포머}
 public class PlayerContoller : MonoBehaviour
 {
     public static PlayerContoller instance;
-
+    [SerializeField]
+    TempRawImage flash;
     PlayerMovement movement;
     PlayerAttack attack;
+    [HideInInspector]
     public PlayerHealth health;
     PlayerParing parring;
+    [HideInInspector]
     public Filming filming;
 
     bool isMoveable = false;
@@ -45,7 +48,7 @@ public class PlayerContoller : MonoBehaviour
         InputManager.inputManager.parring.performed += parring.OnParring;
         InputManager.inputManager.zoom.performed += filming.OnChangeZoom;
         InputManager.inputManager.focus.performed += filming.OnChangeFocus;
-        InputManager.inputManager.photo.performed += attack.Attack;
+        InputManager.inputManager.photo.performed += OnFilming;
         //InputManager.inputManager.focus.canceled += filming.OnChangeFocus;
         InputManager.inputManager.rotationCamera.performed += filming.OnChangeRotation;
     }
@@ -59,7 +62,7 @@ public class PlayerContoller : MonoBehaviour
         InputManager.inputManager.parring.performed -= parring.OnParring;
         InputManager.inputManager.zoom.performed -= filming.OnChangeZoom;
         InputManager.inputManager.focus.performed -= filming.OnChangeFocus;
-        InputManager.inputManager.photo.performed -= attack.Attack;
+        InputManager.inputManager.photo.performed -= OnFilming;
         //InputManager.inputManager.focus.canceled -= filming.OnChangeFocus;
         InputManager.inputManager.rotationCamera.performed -= filming.OnChangeRotation;
     }
@@ -141,5 +144,16 @@ public class PlayerContoller : MonoBehaviour
     public void HealPlayer(float point, float percentPoint)
     {
         health.Heal(point, percentPoint);
+    }
+
+    public void OnAttack()
+    {
+        attack.Attack();
+    }
+
+    public void OnFilming(InputAction.CallbackContext value)
+    {
+        InputManager.inputManager.ChangeBattleNonInput();
+        flash.OnFilming();
     }
 }

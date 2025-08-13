@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
         set { currentAttackJudgment = Mathf.Clamp(value, 0f, maxAttackJudgment); }
     }
 
-    public void Attack(InputAction.CallbackContext value)
+    public void Attack()
     {
         BattleManager.battlemanager.CurrentEnemy.TakeDamage(damage);
     }

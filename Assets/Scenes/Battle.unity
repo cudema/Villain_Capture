@@ -2638,6 +2638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7789bf9bee8a37746836be54db668fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flash: {fileID: 1632291103}
   health: {fileID: 0}
   filming: {fileID: 0}
   currentState: 0
@@ -2682,11 +2683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0205673a1e6b146a933f9afe63a93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern:
-    node: {fileID: 6739017329534641423, guid: 26efc91f5cb6122489eb35e01c003079, type: 3}
-    spawnNodeCount: 3
-    spawnTime: 0.5
-    patternEndTime: 0.2
   damage: 10
   maxAttackJudgment: 1
 --- !u!54 &368535005
@@ -4587,6 +4583,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e755da651086f0488af366bcd49dc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!84 &692340183
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 640
+  m_Height: 360
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &712699030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,7 +5611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3132409262940554809, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3132409262940554809, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5619,7 +5652,7 @@ PrefabInstance:
     - target: {fileID: 9205371885998440386, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1405403839}
+      objectReference: {fileID: 692340183}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8370,43 +8403,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392736029}
   m_CullTransparentMesh: 1
---- !u!84 &1405403839
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 6
-  m_Width: 640
-  m_Height: 360
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_UseDynamicScaleExplicit: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1405740990
 GameObject:
   m_ObjectHideFlags: 0
@@ -9427,7 +9423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683fa7c2071065a42af61da92d4e16a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filming: {fileID: 368535008}
   fade: {fileID: 102400399}
 --- !u!1 &1648433446
 GameObject:
@@ -9963,12 +9958,6 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.5137255, b: 0.5137255, a: 1}
   thisAction: 0
-  temp: {fileID: 0}
-  samplePattern:
-    node: {fileID: 6739017329534641423, guid: 26efc91f5cb6122489eb35e01c003079, type: 3}
-    spawnNodeCount: 3
-    spawnTime: 1
-    patternEndTime: 5
 --- !u!1 &1714764816
 GameObject:
   m_ObjectHideFlags: 0

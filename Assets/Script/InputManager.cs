@@ -47,7 +47,6 @@ public class InputManager : MonoBehaviour
         //현재 임시로 넣어둔 코드 수정 필요
         //전투 시작시 구독, 전투 종료시 해지
         BattleManager.OnPlayerTrun += ChangeBattleUIInput;
-        BattleManager.OnSetEnemyTrun += ChangeBattleMoveInput;
         //-------------------------------------------------------------------
 
         battleMenuActionMap = input.actions.FindActionMap("BattleMenu");
@@ -76,7 +75,6 @@ public class InputManager : MonoBehaviour
     void OnDestroy()
     {
         BattleManager.OnPlayerTrun -= ChangeBattleUIInput;
-        BattleManager.OnSetEnemyTrun -= ChangeBattleMoveInput;
     }
 
     private void OnEnable()

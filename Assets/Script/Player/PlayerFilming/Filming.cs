@@ -97,12 +97,12 @@ public class Filming : MonoBehaviour
 
     void OnEnable()
     {
-        BattleManager.EndPlayerAction += OffFilming;
+
     }
 
     void OnDisable()
     {
-        BattleManager.EndPlayerAction -= OffFilming;
+
     }
 
     void Update()

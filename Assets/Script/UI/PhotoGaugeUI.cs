@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PhotoGaugeUI : MonoBehaviour
@@ -13,8 +14,25 @@ public class PhotoGaugeUI : MonoBehaviour
         enemy.ChangeHealth += ChagePhotoBarUI;
     }
 
+    void OnDisable()
+    {
+        enemy.ChangeHealth -= ChagePhotoBarUI;
+    }
+
     void ChagePhotoBarUI(float photoGauge)
     {
+        StartCoroutine(ChageAnimation(photoGauge));
+    }
+
+    IEnumerator ChageAnimation(float photoGauge)
+    {
+        float temp = photoGauge / enemy.GetMaxHealth() - PhotoBar.localScale.x;
+
+        while (PhotoBar.localScale.x < photoGauge / enemy.GetMaxHealth())
+        {
+            PhotoBar.localScale += new Vector3(temp, 0, 0) * Time.deltaTime / 0.5f;
+            yield return null;
+        }
         PhotoBar.localScale = new Vector3(photoGauge / enemy.GetMaxHealth(), 1, 1);
     }
 }

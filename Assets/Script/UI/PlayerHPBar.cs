@@ -17,6 +17,11 @@ public class HPBar : MonoBehaviour
         player.ChangeHealth += ChagePhotoBarUI;
     }
 
+    void OnDisable()
+    {
+        player.ChangeHealth -= ChagePhotoBarUI;
+    }
+
     void ChagePhotoBarUI(float photoGauge)
     {
         PhotoBar.localScale = new Vector3(photoGauge / player.GetMaxHealth(), 1, 1);

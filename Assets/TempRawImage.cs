@@ -5,23 +5,23 @@ using UnityEngine.UI;
 public class TempRawImage : MonoBehaviour
 {
     [SerializeField]
-    Filming filming;
-    [SerializeField]
     Image fade;
     public void StartFilming()
     {
         InputManager.inputManager.ChangeBattlePhotoInput();
-        StartCoroutine(BattleManager.battlemanager.ActionTimer(filming.filmingTime));
+        StartCoroutine(BattleManager.battlemanager.ActionTimer(PlayerContoller.instance.filming.filmingTime));
     }
 
     public void OnFadeIn()
     {
+        fade.color -= new Color(1, 1, 1, 0);
         StopAllCoroutines();
         StartCoroutine(FadeIn());
     }
 
     public void OnFadeOut()
     {
+        fade.color -= new Color(1, 1, 1, 0);
         StopAllCoroutines();
         StartCoroutine(FadeOut());
     }
@@ -29,6 +29,12 @@ public class TempRawImage : MonoBehaviour
     public void EndPlayerAction()
     {
         BattleManager.battlemanager.isEndPlayerAction = true;
+        PlayerContoller.instance.OnAttack();
+    }
+
+    public void OnFilming()
+    {
+        StartCoroutine(Filming());
     }
 
     IEnumerator FadeIn()
@@ -46,5 +52,18 @@ public class TempRawImage : MonoBehaviour
             fade.color += new Color(0, 0, 0, 1) * Time.deltaTime / 0.06f;
             yield return null;
         }
+    }
+
+    IEnumerator Filming()
+    {
+        fade.color = Color.white;
+        while (fade.color.a > 0)
+        {
+            fade.color -= new Color(0, 0, 0, 1) * Time.deltaTime / 0.2f;
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.3f);
+
+        PlayerContoller.instance.filming.OffFilming();
     }
 }

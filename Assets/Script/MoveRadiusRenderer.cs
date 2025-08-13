@@ -79,6 +79,7 @@ public class MoveRadiusRenderer : MonoBehaviour
             yield return null;
         }
         linerenderer.SetPositions(GetMoveRadius());
+        InputManager.inputManager.ChangeBattleMoveInput();
         yield break;
     }
 }

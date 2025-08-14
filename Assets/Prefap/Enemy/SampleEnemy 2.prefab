@@ -212,8 +212,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6499479533187976827}
-  - component: {fileID: 4092080976366980126}
   - component: {fileID: 7257032294346042918}
+  - component: {fileID: 1387814266256828109}
   - component: {fileID: 1181540671397307113}
   - component: {fileID: 6053211242958010057}
   m_Layer: 0
@@ -242,36 +242,6 @@ Transform:
   - {fileID: 8560826142360729922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4092080976366980126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6460423999332003427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a107f9d6d01816a4295027a1b0cbab8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyName: 
-  maxPhotoGauge: 100
-  minEmotionalGauge: -7
-  maxEmotionalGauge: 7
-  emotionalGauge: 0
-  currentEmotion: 2
-  nomalMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
-  nomalPattern:
-  - {fileID: 11400000, guid: fdda0794aff71bc4c9612502931215fc, type: 2}
-  enhancePattern:
-  - {fileID: 11400000, guid: 49785626187d1cc4fb4a1eb75b3fb735, type: 2}
-  - {fileID: 11400000, guid: 6c5b294c19a500a45b4ef1a350651594, type: 2}
-  - {fileID: 11400000, guid: 26484e222bc29ed4ba1be91f6271d8d5, type: 2}
-  - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}
-  enagedPattern: {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
-  dialogueID: ITV_Ruby
-  animator: {fileID: 0}
 --- !u!114 &7257032294346042918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +254,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2a116edde9bae4c8bc0de6619dbfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1387814266256828109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6460423999332003427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67871683f1000c46a65bdceb60c6cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: Dusty Veil
+  maxPhotoGauge: 100
+  minEmotionalGauge: -7
+  maxEmotionalGauge: 7
+  currentEmotion: 2
+  nomalMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
+  nomalPattern:
+  - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}
+  enhancePattern: []
+  enagedPattern: {fileID: 11400000, guid: 26484e222bc29ed4ba1be91f6271d8d5, type: 2}
+  dialogueID: ITV_DustyVeil
+  animator: {fileID: 0}
 --- !u!54 &1181540671397307113
 Rigidbody:
   m_ObjectHideFlags: 0

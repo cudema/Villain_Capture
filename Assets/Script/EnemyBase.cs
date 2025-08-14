@@ -35,11 +35,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     [Header("감정 게이지")]
     [SerializeField]
-    int minEmotionalGauge;
+    protected int minEmotionalGauge;
     [SerializeField]
-    int maxEmotionalGauge;
-    [SerializeField] //임시
-    int emotionalGauge = 0;
+    protected int maxEmotionalGauge;
+    protected int emotionalGauge = 0;
     public int EmotionalGauge
     {
         get => emotionalGauge;
@@ -50,15 +49,15 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
     }
     [SerializeField]
-    Emotion currentEmotion = Emotion.무관심;
+    protected Emotion currentEmotion = Emotion.무관심;
 
-    bool isEnage = false;
+    protected bool isEnage = false;
 
     [Header("색 변경 메테리얼")]
     [SerializeField]
-    Material nomalMaterial;
+    protected Material nomalMaterial;
     [SerializeField]
-    Material parringableMaterial;
+    protected Material parringableMaterial;
 
     [Header("패턴")]
     [SerializeField]
@@ -67,9 +66,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected PatternBase[] enhancePattern;
     [SerializeField]
     protected PatternBase enagedPattern;
-    PatternBase currentPattern;
+    protected PatternBase currentPattern;
 
-    float attackTime;
+    protected float attackTime;
 
     [Header("대사 코드")]
     [SerializeField]
@@ -81,13 +80,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     [HideInInspector]
     public Animator animator;
 
-    List<PatternBase> patterns = new List<PatternBase>();
-    int usePatternIndex = 0;
-    BulletAttack attack;
-    Transform wraning;
-    Renderer enemyRenderer;
+    protected List<PatternBase> patterns = new List<PatternBase>();
+    protected int usePatternIndex = 0;
+    protected BulletAttack attack;
+    protected Transform wraning;
+    protected Renderer enemyRenderer;
 
-    Vector3 startPos;
+    protected Vector3 startPos;
 
     public event Action<float> ChangeHealth;
     public event Action ChangedEmotionalGauge;
@@ -180,10 +179,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
     }
 
-    IEnumerator PositionReset()
+    protected virtual IEnumerator PositionReset()
     {
-        animator.SetTrigger("EndPattern");
-        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Land"));
+        yield return null;
         transform.position = startPos;
     }
 

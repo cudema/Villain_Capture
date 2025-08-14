@@ -52,6 +52,14 @@ public class RageAssault : PatternBase
             go.SetActive(false);
             enemy.OnAttack();
             Vector3 rushRotate = new Vector3(player.x - enemy.transform.position.x, player.y - enemy.transform.position.y, 0).normalized;
+            if (rushRotate.x >= 0)
+            {
+                enemy.animator.transform.rotation = Quaternion.Euler(new Vector3(0, 130, 0));
+            }
+            else
+            {
+                enemy.animator.transform.rotation = Quaternion.Euler(new Vector3(0, -130, 0));
+            }
 
             while (IsOutFild(rushRotate))
             {
@@ -62,6 +70,8 @@ public class RageAssault : PatternBase
 
             enemy.animator.SetBool("IsRun", false);
         }
+
+        enemy.animator.transform.rotation = Quaternion.Euler(new Vector3(0, -130, 0));
         enemy.animator.SetTrigger("Jump");
 
         yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
@@ -83,7 +93,6 @@ public class RageAssault : PatternBase
 
         yield return new WaitUntil(() => go == null);
 
-        enemy.transform.position = startEnemyPoaition;
         enemy.SetWraningScale(Vector3.one * 1.5f);
 
         StopPattern();

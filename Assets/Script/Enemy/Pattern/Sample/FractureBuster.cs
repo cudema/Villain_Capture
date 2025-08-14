@@ -77,6 +77,12 @@ public class FractureBuster : PatternBase
             yield return new WaitForSeconds(bulletSpawnDelay);
         }
 
+        yield return new WaitForSeconds(attackDelay - (18f / 24f));
+
+        enemy.animator.SetTrigger("FB");
+
+        //yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 18 / 24);
+
         yield return new WaitUntil(() => go.GetComponent<FractureBusterBullet>().Arrival());
 
         Vector3 player = Vector3.zero;
@@ -96,26 +102,25 @@ public class FractureBuster : PatternBase
 
         warning.SetActive(false);
         enemy.OnAttack();
-
+        enemy.animator.SetBool("IsRun", true);
         while (enemy.transform.position.x > -10)
         {
             enemy.transform.Translate((player - enemyPos).normalized * rushSpeed * Time.deltaTime);
 
             if (Vector2.Distance(ativePos[1], (Vector2)enemy.transform.position) < collisionDistance)
             {
+                enemy.animator.SetBool("IsRun", false);
                 Destroy(go);
                 yield return new WaitForSeconds(sternTime);
-                enemy.transform.position = enemyPos;
-                BattleManager.battlemanager.ChangeTrun(Trun.아군);
+                StopPattern();
                 yield break;
             }
 
             yield return null;
         }
 
-        enemy.transform.position = enemyPos;
-        Destroy(go);
-        BattleManager.battlemanager.ChangeTrun(Trun.아군);
+        enemy.animator.SetBool("IsRun", false);
+        StopPattern();
     }
 
     void SetRandomPos(Vector2[] pos, int index)

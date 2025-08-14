@@ -75,6 +75,7 @@ public class FractureBusterBullet : BulletBase
         smallBullet[1].SetActive(true);
         smallBullet[2].SetActive(true);
         bullet.GetComponent<MeshRenderer>().enabled = false;
+        bullet.GetComponent<Collider>().enabled = false;
 
         while (!Arrival())
         {

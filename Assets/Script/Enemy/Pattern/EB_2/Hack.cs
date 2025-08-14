@@ -19,7 +19,7 @@ public class Hack : PatternBase
         for (int i = 0; i < bulletCount; i++)
         {
             int temp = Random.Range(0, 3);
-            enemy.animator.speed = 2.5f;
+            enemy.animator.speed = 1.5f;
             enemy.animator.Play($"Attack{temp}");
             Vector3 playerPos = PlayerContoller.instance.transform.position;
             int ranRotation = Random.Range(0, 180);

@@ -26,6 +26,8 @@ public class DaggerThrow : PatternBase
     {
         for (int i = 0; i < bulletCount; i++)
         {
+            enemy.animator.Play("Attack0");
+
             for (int j = 0; j < 3; j++)
             {
                 go = Instantiate(bullet, spawnPos[j], Quaternion.identity, bulletParent);
@@ -37,6 +39,6 @@ public class DaggerThrow : PatternBase
 
         yield return new WaitUntil(() => go == null);
 
-        BattleManager.battlemanager.ChangeTrun(Trun.아군);
+        StopPattern();
     }
 }

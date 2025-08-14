@@ -30,6 +30,9 @@ public class SoulRelease : PatternBase
         for (int i = 0; i < bulletCount; i++)
         {
             float rotate = -15;
+
+            enemy.animator.Play("Attack2");
+
             for (int j = 0; j < count; j++)
             {
                 go = Instantiate(bullet, enemy.transform.position, Quaternion.Euler(new Vector3(0, 0, rotate)));
@@ -47,12 +50,14 @@ public class SoulRelease : PatternBase
                 count--;
             }
 
-                yield return new WaitForSeconds(bulletSpawnDelay);
+            yield return new WaitForSeconds(bulletSpawnDelay);
         }
 
         yield return new WaitForSeconds(rushDelay);
 
         Vector3 player = PlayerContoller.instance.transform.position;
+
+        enemy.animator.SetBool("IsRush", true);
 
         while (Vector3.Distance(player, enemy.transform.position) > 0.1f)
         {
@@ -61,6 +66,7 @@ public class SoulRelease : PatternBase
             yield return null;
         }
 
+        enemy.animator.SetBool("IsRush", false);
         enemy.OnWraning();
         enemy.SetWraningScale(attackRadius * 2);
         if (!isEnaged)
@@ -70,6 +76,10 @@ public class SoulRelease : PatternBase
 
         yield return new WaitForSeconds(attackDelay);
 
+        enemy.animator.Play("Attack1");
+        yield return null;
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 18f / 24f);
+
         enemy.OffParringable();
         enemy.OffWraning();
         enemy.OnAttack();
@@ -78,6 +88,6 @@ public class SoulRelease : PatternBase
 
         enemy.SetWraningScale(1.5f);
 
-        BattleManager.battlemanager.ChangeTrun(Trun.아군);
+        StopPattern();
     }
 }

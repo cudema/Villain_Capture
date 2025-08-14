@@ -31,12 +31,18 @@ public class ChasingDagger : PatternBase
     {
         for (int i = 0; i < bulletCount; i++)
         {
+            enemy.animator.Play("Attack2");
+
+            yield return null;
+            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 13f / 24f);
+
             Vector3 spawnPos = GetRandomPos();
             go = Instantiate(bullet, spawnPos, Quaternion.Euler(0, 0, Mathf.Atan2(spawnPos.y - PlayerContoller.instance.transform.position.y, spawnPos.x - PlayerContoller.instance.transform.position.x) * Mathf.Rad2Deg), bulletParent);
             go.GetComponent<BulletBase>().Setup(this);
 
             yield return new WaitForSeconds(bulletSpawnDelay);
         }
+
 
         yield return new WaitUntil(() => go == null);
 

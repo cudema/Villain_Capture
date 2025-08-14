@@ -10,6 +10,8 @@ public class DustyVeil : EnemyBase
 
     protected override IEnumerator PositionReset()
     {
-        return base.PositionReset();
+        animator.SetTrigger("EndPattern");
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("DustyBone_Land"));
+        transform.position = startPos;
     }
 }

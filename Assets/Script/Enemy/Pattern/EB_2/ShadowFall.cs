@@ -34,19 +34,29 @@ public class ShadowFall : PatternBase
         for (int i = 0; i < rushCount; i++)
         {
             enemy.OffRenderer();
+            enemy.animator.SetTrigger("UP");
 
             yield return new WaitForSeconds(enemySpawnDelay);
+
+            enemy.animator.SetBool("IsRush", true);
+            enemy.transform.GetChild(2).rotation = Quaternion.Euler(new Vector3(90, 180, 0));
 
             enemy.transform.position = new Vector3(PlayerContoller.instance.transform.position.x, spawnY, enemy.transform.position.z);
             enemy.OnRenderer();
 
             yield return new WaitForSeconds(rushDelay);
 
+            enemy.OnAttack();
+
             while (enemy.transform.position.y > floorY)
             {
                 enemy.transform.position += Vector3.down * rushSpeed * Time.deltaTime;
                 yield return null;
             }
+
+            enemy.transform.GetChild(2).rotation = Quaternion.Euler(new Vector3(0, -130, 0));
+            enemy.animator.SetBool("IsRush", false);
+
             go = Instantiate(bullet, enemy.transform.position + Vector3.left * 0.7f, Quaternion.identity, bulletParent);
             go.GetComponent<BulletBase>().Setup(this);
             go = Instantiate(bullet, enemy.transform.position + Vector3.right * 0.7f, Quaternion.Euler(new Vector3(0, 0, 180)), bulletParent);
@@ -54,6 +64,8 @@ public class ShadowFall : PatternBase
 
             yield return new WaitForSeconds(bulletSpawnDelay);
         }
+
+        enemy.animator.SetBool("IsRush", false);
 
         yield return new WaitForSeconds(bulletSpawnDelay);
 

@@ -18,6 +18,9 @@ public class Hack : PatternBase
     {
         for (int i = 0; i < bulletCount; i++)
         {
+            int temp = Random.Range(0, 3);
+            enemy.animator.speed = 2.5f;
+            enemy.animator.Play($"Attack{temp}");
             Vector3 playerPos = PlayerContoller.instance.transform.position;
             int ranRotation = Random.Range(0, 180);
 
@@ -26,7 +29,7 @@ public class Hack : PatternBase
 
             yield return new WaitForSeconds(bulletSpawnDelay);
         }
-
+        enemy.animator.speed = 1.0f;
         if (isEnaged)
         {
             yield return new WaitForSeconds(attackDelay + attackDelay / 2);

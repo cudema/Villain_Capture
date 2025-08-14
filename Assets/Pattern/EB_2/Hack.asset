@@ -15,6 +15,7 @@ MonoBehaviour:
   center: {x: 0, y: 0}
   radius: {x: 0, y: 0}
   isChangedFild: 0
+  state: 0
   bullet: {fileID: 5430679917601574695, guid: 57de8885236c90f429ee6e2603be1ede, type: 3}
   bulletDatas:
   - name: hcak
@@ -23,4 +24,6 @@ MonoBehaviour:
   bulletCount: 8
   bulletSpawnDelay: 0.3
   attackDelay: 0.3
+  enemyDamage: 0
+  enemyAttackTime: 0
   isEnaged: 0

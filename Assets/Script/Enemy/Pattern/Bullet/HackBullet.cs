@@ -38,16 +38,18 @@ public class HackBullet : BulletBase
         yield return new WaitForSeconds(attackDelay);
 
         attackCollider.enabled = true;
-        attackRenderer.material = attack;
-        Debug.Log(0);
+        //attackRenderer.material = attack;
+        attackRenderer.enabled = false;
+        transform.GetChild(0).gameObject.SetActive(true);
 
         yield return new WaitForSeconds(attackDelay / 2);
 
         if (isEnaged)
         {
+            transform.GetChild(0).gameObject.SetActive(false);
+            attackRenderer.enabled = true;
             attackCollider.enabled = false;
             attackRenderer.material = dilay;
-            Debug.Log(1);
 
             yield return new WaitUntil(() => isBoobm);
             yield return new WaitForSeconds(attackDelay);
@@ -59,7 +61,8 @@ public class HackBullet : BulletBase
     public void SetBoobm()
     {
         isBoobm = true;
+        attackRenderer.enabled = false;
         attackCollider.enabled = true;
-        attackRenderer.material = attack;
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 }

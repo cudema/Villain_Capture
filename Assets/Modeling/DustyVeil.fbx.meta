@@ -3,7 +3,17 @@ guid: 5c2e07cdf68a5d84bb9e931b4f7dc2fc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dusty.vox Material.003
+    second: {fileID: 2100000, guid: 96840cc61d926a447954aad17f0b5070, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DustyKnife.vox Material
+    second: {fileID: 2100000, guid: 9ef109bde1ff6fb41942f06b880b1537, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

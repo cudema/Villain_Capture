@@ -8,8 +8,8 @@ public class TempRawImage : MonoBehaviour
     Image fade;
     public void StartFilming()
     {
+        BattleManager.battlemanager.StartCoroutine(BattleManager.battlemanager.ActionTimer(PlayerContoller.instance.filming.filmingTime));
         InputManager.inputManager.ChangeBattlePhotoInput();
-        StartCoroutine(BattleManager.battlemanager.ActionTimer(PlayerContoller.instance.filming.filmingTime));
     }
 
     public void OnFadeIn()

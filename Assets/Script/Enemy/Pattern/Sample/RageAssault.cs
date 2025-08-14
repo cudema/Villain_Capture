@@ -17,13 +17,11 @@ public class RageAssault : PatternBase
     [SerializeField]
     float chopRidus;
 
-    Renderer renderer;
     Vector3 startEnemyPoaition;
 
     public override void SetPattern()
     {
         base.SetPattern();
-        renderer = enemy.GetComponent<Renderer>();
     }
 
     public override void StartPattern()
@@ -50,7 +48,7 @@ public class RageAssault : PatternBase
 
                 yield return null;
             }
-
+            enemy.animator.SetBool("IsRun", true);
             go.SetActive(false);
             enemy.OnAttack();
             Vector3 rushRotate = new Vector3(player.x - enemy.transform.position.x, player.y - enemy.transform.position.y, 0).normalized;
@@ -62,18 +60,24 @@ public class RageAssault : PatternBase
                 yield return null;
             }
 
+            enemy.animator.SetBool("IsRun", false);
         }
+        enemy.animator.SetTrigger("Jump");
+
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
         enemy.OnWraning();
         enemy.SetWraningScale(chopRidus + 1);
         enemy.transform.position = new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, enemy.transform.position.z);
-        renderer.enabled = false;
 
         yield return new WaitForSeconds(chopDelay);
 
-        enemy.OnAttack();
+        enemy.animator.SetTrigger("Land");
         enemy.OffWraning();
-        renderer.enabled = true;
+
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump 0") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
+
+        enemy.OnAttack();
 
         Destroy(go, 1f);
 
@@ -82,7 +86,7 @@ public class RageAssault : PatternBase
         enemy.transform.position = startEnemyPoaition;
         enemy.SetWraningScale(Vector3.one * 1.5f);
 
-        BattleManager.battlemanager.ChangeTrun(Trun.아군);
+        StopPattern();
     }
 
     bool IsOutFild(Vector3 nomal)

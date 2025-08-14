@@ -45,10 +45,9 @@ public class SplitCollapsesBullet : BulletBase
         wraning.SetActive(false);
         hitbax.SetActive(true);
 
-        yield return new WaitForSeconds(speed);
+        yield return new WaitUntil(() => GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+        yield return null;
 
         Destroy(gameObject);
-
-        yield return null;
     }
 }

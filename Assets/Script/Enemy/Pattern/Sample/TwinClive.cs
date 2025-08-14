@@ -30,6 +30,9 @@ public class TwinClive : PatternBase
 
         float temp = 0;
 
+        enemy.animator.SetTrigger("FB");
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_FB") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > (18f / 24f));
+
         for (int i = 0; i < bulletCount; i++)
         {
             float tilt = Random.Range(-tiltRange, tiltRange) + temp;
@@ -49,6 +52,6 @@ public class TwinClive : PatternBase
 
         yield return new WaitForSeconds(attackDelay);
 
-        BattleManager.battlemanager.ChangeTrun(Trun.아군);
+        StopPattern();
     }
 }

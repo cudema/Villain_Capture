@@ -161,13 +161,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public void OnRenderer()
     {
         //enemyRenderer.enabled = true;
-        GetComponent<Collider>().enabled = true;
+        //GetComponent<Collider>().enabled = true;
     }
 
     public void OffRenderer()
     {
         //enemyRenderer.enabled = false;
-        GetComponent<Collider>().enabled = false;
+        //GetComponent<Collider>().enabled = false;
     }
 
     void ResetPosition()

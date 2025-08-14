@@ -4,11 +4,12 @@ using UnityEngine;
 public class TwinCliveBullet : BulletBase
 {
     Collider hitcollider;
-
+    Animator animator;
     public override void Setup(PatternBase patternBase)
     {
         base.Setup(patternBase);
         hitcollider = GetComponent<Collider>();
+        animator = GetComponentInChildren<Animator>();
         ShootBullet();
     }
 
@@ -27,8 +28,9 @@ public class TwinCliveBullet : BulletBase
         yield return new WaitForSeconds(attackDelay);
 
         hitcollider.enabled = true;
-
-        yield return new WaitForSeconds(0.1f); //공격 모션에 맞게 딜레이 추가
+        GetComponent<Renderer>().enabled = false;
+        animator.Play("TwinClive");
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("TwinClive") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
 
         Destroy(gameObject);
     }

@@ -123,12 +123,14 @@ public class Filming : MonoBehaviour
         rawImage.gameObject.SetActive(true);
         BattleManager.battlemanager.isEndPlayerAction = false;
         rawImageAnimator.Play("StartFilmingAnimation");
+        BattleManager.EndPlayerAction += OffFilming;
     }
 
     public void OffFilming()
     {
         //rawImage.gameObject.SetActive(false);
         rawImageAnimator.Play("EndFilmingAnimation");
+        BattleManager.EndPlayerAction -= OffFilming;
     }
 
     public void OnChangeZoom(InputAction.CallbackContext value)

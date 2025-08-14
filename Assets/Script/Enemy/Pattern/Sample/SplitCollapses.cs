@@ -6,7 +6,7 @@ using UnityEngine;
 public class SplitCollapses : PatternBase
 {
     Vector3[] spawnVector = new Vector3[4];
-    [Header("4���� ����")]
+    [Header("4방향 설정")]
     [SerializeField]
     bool isFourWayAttack;
 
@@ -34,6 +34,8 @@ public class SplitCollapses : PatternBase
 
     protected override IEnumerator BingPattern()
     {
+        enemy.animator.SetTrigger("SplitCollapses");
+
         if (isFourWayAttack)
         {
             int tempSpawn = -1;
@@ -59,8 +61,9 @@ public class SplitCollapses : PatternBase
         }
 
         yield return new WaitUntil(() => go == null);
+        enemy.animator.SetTrigger("EndHit");
 
-        BattleManager.battlemanager.ChangeTrun(Trun.아군);
+        StopPattern();
     }
 
     int GetRandomVector(int currentVector = -1)

@@ -35,7 +35,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadBattleScene(GameObject enemy)
     {
-        StartCoroutine(LoadBattle("Battle", enemy));
+        StartCoroutine(LoadBattle("Battle 1", enemy));
     }
 
     IEnumerator LoadBattle(string SceneName, GameObject enemy)

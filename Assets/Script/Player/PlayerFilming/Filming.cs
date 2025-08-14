@@ -130,6 +130,7 @@ public class Filming : MonoBehaviour
     {
         //rawImage.gameObject.SetActive(false);
         rawImageAnimator.Play("EndFilmingAnimation");
+        InputManager.inputManager.ChangeBattleNonInput();
         BattleManager.EndPlayerAction -= OffFilming;
     }
 

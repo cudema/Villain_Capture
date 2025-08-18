@@ -27,6 +27,7 @@ MonoBehaviour:
   enemyDamage: 50
   enemyAttackTime: 0
   isEnaged: 0
+  endDelay: 0.3
   candlePrefab: {fileID: 3555106174127260569, guid: 9606d9f161e45f040b768402a1ceb867, type: 3}
   spawnRadius: 1.5
   senseRadius: 0.5

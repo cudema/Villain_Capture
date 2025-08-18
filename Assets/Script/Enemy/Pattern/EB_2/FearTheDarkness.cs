@@ -4,7 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FearTheDarkness", menuName = "Scriptable Objects/FearTheDarkness")]
 public class FearTheDarkness : PatternBase
 {
-    [Header("초 설정")]
+    [Header("종료 딜레이")]
+    [SerializeField]
+    float endDelay;
+
+    [Header("양초 설정")]
     [SerializeField]
     GameObject candlePrefab;
     [SerializeField]
@@ -49,7 +53,10 @@ public class FearTheDarkness : PatternBase
     protected override IEnumerator BingPattern()
     {
         enemy.OffRenderer();
+        enemy.animator.SetTrigger("UP");
         InputManager.inputManager.ChangeBattleNonInput();
+
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("DustyBone_Back") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f);
 
         for (int i = 0; i < bulletCount; i++)
         {
@@ -71,14 +78,23 @@ public class FearTheDarkness : PatternBase
         yield return new WaitUntil(() => candle == null);
 
         enemy.OnRenderer();
+        enemy.animator.SetTrigger("Down");
+
         if (isFail)
         {
             enemy.transform.position = PlayerContoller.instance.transform.position + new Vector3(1.5f, 0, 0);
 
             yield return new WaitForSeconds(attackDelay);
 
+            enemy.animator.Play("Attack1");
+
+            yield return null;
+            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 18f / 24f);
+
             PlayerContoller.instance.GetComponent<IHealthReporter>().TakeDamage(enemyDamage);
         }
+
+        yield return new WaitForSeconds(endDelay);
 
         StopPattern();
     }

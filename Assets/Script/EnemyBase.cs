@@ -58,6 +58,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected Material nomalMaterial;
     [SerializeField]
     protected Material parringableMaterial;
+    [SerializeField]
+    protected GameObject model;
 
     [Header("패턴")]
     [SerializeField]
@@ -161,12 +163,14 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         //enemyRenderer.enabled = true;
         //GetComponent<Collider>().enabled = true;
+        model.SetActive(true);
     }
 
     public void OffRenderer()
     {
         //enemyRenderer.enabled = false;
         //GetComponent<Collider>().enabled = false;
+        model.SetActive(false);
     }
 
     void ResetPosition()

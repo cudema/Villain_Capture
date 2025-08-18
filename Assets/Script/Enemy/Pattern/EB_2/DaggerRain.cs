@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DaggerRain", menuName = "Scriptable Objects/DaggerRain")]
 public class DaggerRain : PatternBase
 {
-    [Header("������� �ܰ�")]
+    [Header("범위 설정")]
     [SerializeField]
     float durationTime;
     [SerializeField]
@@ -35,6 +35,8 @@ public class DaggerRain : PatternBase
 
         while (time > 0)
         {
+            enemy.animator.Play("Attack0");
+
             if (temp++ % 3 == 0)
             {
                 go = Instantiate(bullet, new Vector3(PlayerContoller.instance.transform.position.x, spawnY, enemy.transform.position.z), Quaternion.identity, bulletParent);

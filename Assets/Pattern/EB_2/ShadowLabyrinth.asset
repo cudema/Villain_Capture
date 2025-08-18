@@ -23,7 +23,10 @@ MonoBehaviour:
     speed: 0
   bulletCount: 3
   bulletSpawnDelay: 1
-  attackDelay: 1
+  attackDelay: 2
+  enemyDamage: 0
+  enemyAttackTime: 0
   isEnaged: 0
   spawnFakeEnemyCount: 8
-  delay: 0.5
+  delay: 1
+  endDelay: 0.3

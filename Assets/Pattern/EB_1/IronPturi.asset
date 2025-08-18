@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea6b4b02757495489ffd587d5926335, type: 3}
   m_Name: IronPturi
   m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 0, y: 0}
+  isChangedFild: 0
+  state: 0
   bullet: {fileID: 7159280481276931533, guid: 78c2cf7038d6c394797fb1298b5ffa56, type: 3}
   bulletDatas:
   - name: 
@@ -19,7 +23,10 @@ MonoBehaviour:
     speed: 0
   bulletCount: 3
   bulletSpawnDelay: 0.3
-  attackDelay: 2
+  attackDelay: 1
+  enemyDamage: 0
+  enemyAttackTime: 0
+  isEnaged: 0
   radiusRange: 0.85
   tiltRange: 40
   randomPosition: 1

@@ -56,14 +56,13 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
     IEnumerator NoHitTime()
     {
         GetComponent<Collider>().enabled = false;
-        Renderer tempPlayerRenderer = GetComponent<Renderer>();
         float time = Time.time;
         while (invincibleTime > Time.time - time)
         {
-            tempPlayerRenderer.enabled = (Time.time - time) % blinkingTime < blinkingTime / 2 ? true : false;
+            PlayerContoller.instance.moveModel.SetActive((Time.time - time) % blinkingTime < blinkingTime / 2 ? true : false);
             yield return null;
         }
-        tempPlayerRenderer.enabled = true;
+        PlayerContoller.instance.moveModel.SetActive(true);
 
         GetComponent<Collider>().enabled = true;
 

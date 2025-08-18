@@ -14,15 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     float v;
 
-    //임시조치
-    Renderer playerRenderer;
-
-    void Awake()
-    {
-        //임시조치
-        playerRenderer = GetComponent<Renderer>();
-    }
-
     public void ToMove()
     {
         Vector3 cloen = transform.position + (moveDirection * speed * Time.deltaTime);
@@ -116,19 +107,39 @@ public class PlayerMovement : MonoBehaviour
     {
         v = 0;
         isjumpable = false;
-        StartCoroutine(PlayerStartPositionAnimation());
+        StartCoroutine(PlayerStartPositionAnimation(1));
         StartCoroutine(GoToStartPosition(new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z)));
     }
 
-    IEnumerator PlayerStartPositionAnimation()
+    IEnumerator PlayerStartPositionAnimation(int a)
     {
         for (int i = 0; i < 5; i++)
         {
-            playerRenderer.enabled = i % 2 == 0 ? false : true;
+            if (PlayerContoller.instance.nomalModel.activeSelf)
+            {
+                PlayerContoller.instance.nomalModel.SetActive(false);
+                PlayerContoller.instance.moveModel.SetActive(true);
+            }
+            else
+            {
+                PlayerContoller.instance.nomalModel.SetActive(true);
+                PlayerContoller.instance.moveModel.SetActive(false);
+            }
+
 
             yield return new WaitForSeconds(0.15f);
         }
-        playerRenderer.enabled = true;
+        if (a == 0)
+        {
+            PlayerContoller.instance.nomalModel.SetActive(false);
+            PlayerContoller.instance.moveModel.SetActive(true);
+        }
+        else
+        {
+            PlayerContoller.instance.nomalModel.SetActive(true);
+            PlayerContoller.instance.moveModel.SetActive(false);
+        }
+
         BattleManager.battlemanager.isOnEnemy = true;
         yield break;
     }
@@ -148,13 +159,13 @@ public class PlayerMovement : MonoBehaviour
         switch (PlayerContoller.instance.GetPlayMode())
         {
             case PlayMode.일반:
-                StartCoroutine(PlayerStartPositionAnimation());
+                StartCoroutine(PlayerStartPositionAnimation(0));
                 StartCoroutine(GoToStartPosition(new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z)));
                 break;
             case PlayMode.플렛포머:
                 v = 0;
                 isjumpable = false;
-                StartCoroutine(PlayerStartPositionAnimation());
+                StartCoroutine(PlayerStartPositionAnimation(0));
                 StartCoroutine(GoToStartPosition(new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y - BattleManager.battlemanager.Radius.y, transform.position.z)));
                 break;
             default:

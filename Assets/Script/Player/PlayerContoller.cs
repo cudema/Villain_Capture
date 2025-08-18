@@ -22,6 +22,11 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField]
     PlayMode currentState = PlayMode.일반;
 
+    [SerializeField]
+    public GameObject nomalModel;
+    [SerializeField]
+    public GameObject moveModel;
+
     private void Awake()
     {
         if (instance == null)

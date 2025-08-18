@@ -14,9 +14,9 @@ public class BattleButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerCli
     [SerializeField]
     protected Color selectColor;
 
-    Image image;
+    protected Image image;
 
-    private void Start()
+    void Awake()
     {
         image = GetComponent<Image>();
         seleter = transform.GetComponentInParent<BattleSeleterBase>();

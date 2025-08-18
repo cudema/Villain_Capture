@@ -34,7 +34,7 @@ public class BattleItemSeleter : BattleSeleterBase
         {
             BeforeSeleter.OnUI();
             InputManager.ChangeSelecter(BeforeSeleter);
-            OffUI();
+            ReOffUI();
         }
     }
 
@@ -60,6 +60,12 @@ public class BattleItemSeleter : BattleSeleterBase
         base.OffUI();
         OffItemData();
         InputManager.ChangeSelecter(null);
+    }
+
+    public override void ReOffUI()
+    {
+        base.ReOffUI();
+        OffItemData();
     }
 
     void SetButton()
@@ -91,7 +97,6 @@ public class BattleItemSeleter : BattleSeleterBase
 
         foreach (ItemData i in ItemCSVLoader.equipmentItemCSV)
         {
-            Debug.Log(i.CurrentCount);
             if (eqItems.Count < 1 + a / 6)
             {
                 eqItems.Add(new ItemData[6]);

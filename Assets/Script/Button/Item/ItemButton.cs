@@ -19,6 +19,7 @@ public class ItemButton : BattleButtonBase
         action = thisAction;
         uiText = transform.GetComponentInChildren<TextMeshProUGUI>();
         selectArrow = transform.GetChild(1).gameObject;
+        seleter = transform.GetComponentInParent<BattleSeleterBase>();
     }
 
     public override void SelectThis()

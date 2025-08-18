@@ -6,12 +6,12 @@ public class BattleMainSeleter : BattleSeleterBase
 {
     [SerializeField]
     MainUIAnimation MainUI;
-
-    private void Start()
+    void Start()
     {
         ResetSelecter();
+        currentAction = 0;
+        buttons[currentAction].SelectThis();
     }
-
     void OnEnable()
     {
         BattleManager.OnPlayerAction += OffUI;

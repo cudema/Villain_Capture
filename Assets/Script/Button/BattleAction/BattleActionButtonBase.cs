@@ -16,6 +16,7 @@ public class BattleActionButtonBase : BattleButtonBase
 
     private void Awake()
     {
+        seleter = transform.GetComponentInParent<BattleSeleterBase>();
         action = thisAction;
         uiText = transform.GetComponentInChildren<TextMeshProUGUI>();
         selectArrow = transform.GetChild(1).gameObject;
@@ -40,7 +41,7 @@ public class BattleActionButtonBase : BattleButtonBase
     public override void Action()
     {
         interviewSeleter.SetUIGroupName(UIData.nextUIGroup);
-        interviewSeleter.OnUI();
+        interviewSeleter.ReturnUI();
         seleter.OffUI();
         InputManager.ChangeSelecter(interviewSeleter);
     }

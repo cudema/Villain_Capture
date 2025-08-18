@@ -11,7 +11,7 @@ public class BattleSeleterBase : MonoBehaviour
     {
         buttons = GetComponentsInChildren<BattleButtonBase>();
     }
-
+    
     void OnEnable()
     {
         BattleManager.OnPlayerAction += OffUI;
@@ -65,16 +65,25 @@ public class BattleSeleterBase : MonoBehaviour
     public virtual void OnUI()
     {
         gameObject.SetActive(true);
+        currentAction = 0;
+        //buttons[currentAction].SelectThis();
     }
 
     public virtual void OffUI()
     {
         gameObject.SetActive(false);
+        buttons[currentAction].UnselectedThis();
     }
 
     public virtual void ReturnUI()
     {
         gameObject.SetActive(true);
+    }
+
+    public virtual void ReOffUI()
+    {
+        gameObject.SetActive(false);
+        buttons[currentAction].UnselectedThis();
     }
 
     public virtual void SelectButton()

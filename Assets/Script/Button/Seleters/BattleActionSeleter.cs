@@ -28,7 +28,7 @@ public class BattleActionSeleter : BattleSeleterBase
         {
             BeforeSeleter.ReturnUI();
             InputManager.ChangeSelecter(BeforeSeleter);
-            OffUI();
+            ReOffUI();
         }
     }
 
@@ -36,6 +36,15 @@ public class BattleActionSeleter : BattleSeleterBase
     {
         base.OnUI();
         uiAnimation.PlayUpAnimation();
+        buttons[currentAction].SelectThis();
+        SetButton();
+    }
+
+    public override void ReturnUI()
+    {
+        base.ReturnUI();
+        currentAction = 0;
+        buttons[currentAction].SelectThis();
         SetButton();
     }
 

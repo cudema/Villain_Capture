@@ -33,7 +33,7 @@ public class BattleInterviewSelecter : BattleActionSeleter
 
     public override void OnUI()
     {
-        gameObject.SetActive(true);
+        base.OnUI();
         SetButton();
     }
 
@@ -45,6 +45,23 @@ public class BattleInterviewSelecter : BattleActionSeleter
             buttons[i].gameObject.SetActive(true);
         }
         InputManager.ChangeSelecter(null);
+    }
+
+    public override void ReturnUI()
+    {
+        base.ReturnUI();
+        buttons[currentAction].SelectThis();
+        SetButton();
+    }
+
+    public override void ReOffUI()
+    {
+        base.ReOffUI();
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].gameObject.SetActive(true);
+        }
     }
 
     protected override void SetButton()

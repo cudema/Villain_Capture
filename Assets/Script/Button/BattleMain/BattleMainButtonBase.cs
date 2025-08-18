@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleMainButtonBase : BattleButtonBase
 {
@@ -7,6 +8,8 @@ public class BattleMainButtonBase : BattleButtonBase
 
     private void Awake()
     {
+        seleter = transform.GetComponentInParent<BattleSeleterBase>();
+        image = GetComponent<Image>();
         action = (int)thisAction;
     }
 }

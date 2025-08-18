@@ -16,6 +16,15 @@ public class Filming : MonoBehaviour
     Camera cam;
     [SerializeField]
     Image rotateGood;
+    [SerializeField]
+    Image hSlider;
+    [SerializeField]
+    Image vSlider;
+    [SerializeField]
+    Sprite good;
+    [SerializeField]
+    Sprite bad;
+
     Material useMaterialData;
     [Header("확대")]
     [SerializeField]
@@ -156,30 +165,22 @@ public class Filming : MonoBehaviour
     {
         if (sliders[0].value == perfactDistance)
         {
-            ColorBlock temp = sliders[0].colors;
-            temp.disabledColor = Color.green;
-            sliders[0].colors = temp;
+            vSlider.color = Color.green;
             justZoom = true;
         }
         else
         {
-            ColorBlock temp = sliders[0].colors;
-            temp.disabledColor = Color.white;
-            sliders[0].colors = temp;
+            vSlider.color = Color.white;
             justZoom = false;
         }
 
         if (sliders[0].value + sliders[1].value == 6)
         {
-            ColorBlock temp = sliders[1].colors;
-            temp.disabledColor = Color.green;
-            sliders[1].colors = temp;
+            hSlider.color = Color.green;
         }
         else
         {
-            ColorBlock temp = sliders[1].colors;
-            temp.disabledColor = Color.white;
-            sliders[1].colors = temp;
+            hSlider.color = Color.white;
         }
 
         if (Mathf.Abs(x) < 1 && Mathf.Abs(y - 90) < justRotationRange)

@@ -185,12 +185,12 @@ public class Filming : MonoBehaviour
 
         if (Mathf.Abs(x) < 1 && Mathf.Abs(y - 90) < justRotationRange)
         {
-            rotateGood.color = Color.green;
+            rotateGood.sprite = good;
             justRotate = true;
         }
         else
         {
-            rotateGood.color = Color.red;
+            rotateGood.sprite = bad;
             justRotate = false;
         }
 

@@ -73,8 +73,8 @@ public class RageAssault : PatternBase
 
         enemy.animator.transform.rotation = Quaternion.Euler(new Vector3(0, -130, 0));
         enemy.animator.SetTrigger("Jump");
-
-        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump"));
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
         enemy.OnWraning();
         enemy.SetWraningScale(chopRidus + 1);
@@ -85,7 +85,8 @@ public class RageAssault : PatternBase
         enemy.animator.SetTrigger("Land");
         enemy.OffWraning();
 
-        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump 0") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Land"));
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
 
         enemy.OnAttack();
 

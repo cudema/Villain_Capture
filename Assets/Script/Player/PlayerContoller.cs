@@ -1,4 +1,5 @@
 using NUnit.Framework.Internal.Filters;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,7 +28,8 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField]
     public GameObject moveModel;
     [HideInInspector]
-    public Animator animator;
+    public Animator nomalAnimator;
+    public Animator moveAnimator;
 
     private void Awake()
     {
@@ -44,7 +46,8 @@ public class PlayerContoller : MonoBehaviour
         health = GetComponent<PlayerHealth>();
         parring = GetComponent<PlayerParing>();
         filming = GetComponent<Filming>();
-        animator = GetComponentInChildren<Animator>();
+        nomalAnimator = nomalModel.GetComponent<Animator>();
+        moveAnimator = moveModel.GetComponent<Animator>();
     }
 
     private void Start()
@@ -59,6 +62,8 @@ public class PlayerContoller : MonoBehaviour
         InputManager.inputManager.photo.performed += OnFilming;
         //InputManager.inputManager.focus.canceled += filming.OnChangeFocus;
         InputManager.inputManager.rotationCamera.performed += filming.OnChangeRotation;
+        InputManager.inputManager.move.performed += OnMoveAnimation;
+        InputManager.inputManager.move.canceled += StopMoveAnimation;
     }
 
     void OnDisable()
@@ -73,6 +78,8 @@ public class PlayerContoller : MonoBehaviour
         InputManager.inputManager.photo.performed -= OnFilming;
         //InputManager.inputManager.focus.canceled -= filming.OnChangeFocus;
         InputManager.inputManager.rotationCamera.performed -= filming.OnChangeRotation;
+        InputManager.inputManager.move.performed -= OnMoveAnimation;
+        InputManager.inputManager.move.canceled -= StopMoveAnimation;
     }
 
     private void Update()
@@ -83,9 +90,11 @@ public class PlayerContoller : MonoBehaviour
             {
                 case PlayMode.일반:
                     movement.ToMove();
+                    moveAnimator.SetBool("IsF", false);
                     break;
                 case PlayMode.플렛포머:
                     movement.ToJumpMove();
+                    moveAnimator.SetBool("IsF", true);
                     break;
                 default:
                     break;
@@ -163,5 +172,15 @@ public class PlayerContoller : MonoBehaviour
     {
         InputManager.inputManager.ChangeBattleNonInput();
         flash.OnFilming();
+    }
+
+    public void OnMoveAnimation(InputAction.CallbackContext value)
+    {
+        moveAnimator.SetBool("IsMove", true);
+    }
+
+    public void StopMoveAnimation(InputAction.CallbackContext value)
+    {
+        moveAnimator.SetBool("IsMove", false);
     }
 }

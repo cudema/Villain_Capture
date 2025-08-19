@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
             cloen.y = transform.position.y;
         }
 
+        PlayerContoller.instance.moveAnimator.SetBool("IsJump", !isjumpable);
         transform.position = cloen;
     }
 

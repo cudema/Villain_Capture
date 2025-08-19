@@ -133,7 +133,7 @@ public class Filming : MonoBehaviour
         BattleManager.battlemanager.isEndPlayerAction = false;
         rawImageAnimator.Play("StartFilmingAnimation");
         BattleManager.EndPlayerAction += OffFilming;
-        PlayerContoller.instance.animator.Play("Filming");
+        PlayerContoller.instance.nomalAnimator.Play("Filming");
     }
 
     public void OffFilming()
@@ -142,7 +142,7 @@ public class Filming : MonoBehaviour
         rawImageAnimator.Play("EndFilmingAnimation");
         InputManager.inputManager.ChangeBattleNonInput();
         BattleManager.EndPlayerAction -= OffFilming;
-        PlayerContoller.instance.animator.Play("EndFilming");
+        PlayerContoller.instance.nomalAnimator.Play("EndFilming");
     }
 
     public void OnChangeZoom(InputAction.CallbackContext value)

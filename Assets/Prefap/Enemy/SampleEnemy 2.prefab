@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67871683f1000c46a65bdceb60c6cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Dusty Veil
+  enemyName: "\uB354\uC2A4\uD2F0 \uBCA0\uC77C"
   maxPhotoGauge: 100
   minEmotionalGauge: -7
   maxEmotionalGauge: 7
@@ -275,7 +275,6 @@ MonoBehaviour:
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   model: {fileID: 4644183785391774794}
   nomalPattern:
-  - {fileID: 11400000, guid: 49785626187d1cc4fb4a1eb75b3fb735, type: 2}
   - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}
   enhancePattern: []
   enagedPattern: {fileID: 11400000, guid: 26484e222bc29ed4ba1be91f6271d8d5, type: 2}
@@ -771,7 +770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c2e07cdf68a5d84bb9e931b4f7dc2fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c2e07cdf68a5d84bb9e931b4f7dc2fc, type: 3}
       propertyPath: m_LocalPosition.z

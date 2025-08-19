@@ -17,7 +17,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 {
     [Header("이름")]
     [SerializeField]
-    protected string enemyName;
+    public string enemyName;
 
     [Header("촬영 게이지")]
     [SerializeField]
@@ -93,6 +93,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public event Action<float> ChangeHealth;
     public event Action ChangedEmotionalGauge;
 
+    IEnumerator bingAttack;
+
     private void Update()
     {
         // if (Input.GetKeyDown(KeyCode.Escape))
@@ -119,6 +121,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
             patterns[i].Setup(this);
         }
         enagedPattern.Setup(this);
+        bingAttack = Attack();
     }
 
     private void OnDisable()
@@ -177,6 +180,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         OffWraning();
         OnRenderer();
+        StopCoroutine(bingAttack);
         if (transform.position != startPos)
         {
             StartCoroutine(PositionReset());
@@ -297,7 +301,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void OnAttack()
     {
-        StartCoroutine(Attack());
+        StopCoroutine(bingAttack);
+        StartCoroutine(bingAttack);
     }
 
     IEnumerator Attack()

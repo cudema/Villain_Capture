@@ -53,7 +53,6 @@ public class PatternBase : ScriptableObject
     {
         this.enemy = enemy;
         bulletParent = enemy.transform.GetChild(1);
-        enemy.SetAttack(enemyDamage, enemyAttackTime);
     }
 
     public virtual void SetPattern()
@@ -64,6 +63,7 @@ public class PatternBase : ScriptableObject
         }
 
         PlayerContoller.instance.ChangePlayMode(state);
+        enemy.SetAttack(enemyDamage, enemyAttackTime);
     }
 
     public virtual void StartPattern()

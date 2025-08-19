@@ -58,6 +58,8 @@ public class SoulRelease : PatternBase
         Vector3 player = PlayerContoller.instance.transform.position;
 
         enemy.animator.SetBool("IsRush", true);
+        enemy.SetWraningScale(1f);
+        enemy.OnAttack();
 
         while (Vector3.Distance(player, enemy.transform.position) > 0.1f)
         {
@@ -67,8 +69,8 @@ public class SoulRelease : PatternBase
         }
 
         enemy.animator.SetBool("IsRush", false);
-        enemy.OnWraning();
         enemy.SetWraningScale(attackRadius * 2);
+        enemy.OnWraning();
         if (!isEnaged)
         {
             enemy.OnParringable();
@@ -76,11 +78,12 @@ public class SoulRelease : PatternBase
 
         yield return new WaitForSeconds(attackDelay);
 
+        enemy.OffParringable();
+
         enemy.animator.Play("Attack1");
         yield return null;
         yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 18f / 24f);
 
-        enemy.OffParringable();
         enemy.OffWraning();
         enemy.OnAttack();
 

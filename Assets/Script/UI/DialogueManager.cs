@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     PrintDialogue enemyPrinter;
     [SerializeField]
+    GameObject enemyPrinterPanal;
+    [SerializeField]
     PrintDialogue playerPrinter;
     [SerializeField]
     GameObject playerPrinterPanal;
@@ -82,6 +84,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            enemyPrinterPanal.SetActive(true);
             yield return StartCoroutine(enemyPrinter.PrintTextCoroutine(temp));
         }
     }
@@ -89,5 +92,6 @@ public class DialogueManager : MonoBehaviour
     void OffPlayerPrinterPanal()
     {
         playerPrinterPanal.SetActive(false);
+        enemyPrinterPanal.SetActive(false);
     }
 }

@@ -29,6 +29,7 @@ public class PlayerContoller : MonoBehaviour
     public GameObject moveModel;
     [HideInInspector]
     public Animator nomalAnimator;
+    [HideInInspector]
     public Animator moveAnimator;
 
     private void Awake()

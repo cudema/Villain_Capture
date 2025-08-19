@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,10 +7,34 @@ public class TempRawImage : MonoBehaviour
 {
     [SerializeField]
     Image fade;
+    [SerializeField]
+    TextMeshProUGUI timer;
+
+    float time;
+
+    float tempTime
+    {
+        get => time;
+        set
+        {
+            time = Mathf.Clamp(value, 0f, 9999f);
+        }
+    }
+
     public void StartFilming()
     {
         BattleManager.battlemanager.StartCoroutine(BattleManager.battlemanager.ActionTimer(PlayerContoller.instance.filming.filmingTime));
+        time = PlayerContoller.instance.filming.filmingTime;
         InputManager.inputManager.ChangeBattlePhotoInput();
+    }
+
+    void Update()
+    {
+        if (tempTime > 0)
+        {
+            tempTime -= Time.deltaTime;
+        }
+        timer.text = tempTime.ToString("0.00s");
     }
 
     public void OnFadeIn()

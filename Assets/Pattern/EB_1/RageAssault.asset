@@ -26,8 +26,8 @@ MonoBehaviour:
   attackDelay: 0
   enemyDamage: 10
   enemyAttackTime: 0.5
-  isEnaged: 0
-  rushDelay: 1
-  rushSpeed: 15
-  chopDelay: 2
-  chopRidus: 4
+  isEnaged: 1
+  rushDelay: 0.8
+  rushSpeed: 13
+  chopDelay: 1.5
+  chopRidus: 4.5

@@ -205,8 +205,8 @@ public class Filming : MonoBehaviour
 
     public void OnSettingChange()
     {
-        focus = UnityEngine.Random.Range(0, 6);
-        zoom = UnityEngine.Random.Range(0, 6);
+        Focus += UnityEngine.Random.Range(-6, 7) * focusSpeed;
+        Zoom += UnityEngine.Random.Range(-6, 7) * zoomSpeed;
         x = UnityEngine.Random.Range(-30, 30);
         y = UnityEngine.Random.Range(60, 120);
     }

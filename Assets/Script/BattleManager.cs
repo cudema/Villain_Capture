@@ -195,6 +195,7 @@ public class BattleManager : MonoBehaviour
     public void EscapeBattle()
     {
         currentEnemy = null;
+        StopAllCoroutines();
         ScenesManager.instance.LoadTempMain();
     }
 }

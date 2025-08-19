@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6499479533187976827}
-  - component: {fileID: 4092080976366980126}
+  - component: {fileID: 2588711053927539918}
   - component: {fileID: 7257032294346042918}
   - component: {fileID: 1181540671397307113}
   - component: {fileID: 6053211242958010057}
@@ -243,7 +243,7 @@ Transform:
   - {fileID: 7343876483013921626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4092080976366980126
+--- !u!114 &2588711053927539918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6460423999332003427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a107f9d6d01816a4295027a1b0cbab8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d1031c5ccd2d3f4f9ca7ffe35b73368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: "\uB8E8\uBE44"
@@ -264,13 +264,8 @@ MonoBehaviour:
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   model: {fileID: 4387762127316419284}
   nomalPattern:
-  - {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
-  - {fileID: 11400000, guid: 7ecb1d9c67ba3224dbb75dc9232a1ffa, type: 2}
-  enhancePattern:
-  - {fileID: 11400000, guid: 49785626187d1cc4fb4a1eb75b3fb735, type: 2}
-  - {fileID: 11400000, guid: 6c5b294c19a500a45b4ef1a350651594, type: 2}
-  - {fileID: 11400000, guid: 26484e222bc29ed4ba1be91f6271d8d5, type: 2}
-  - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}
+  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
+  enhancePattern: []
   enagedPattern: {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
   dialogueID: ITV_Ruby
   animator: {fileID: 0}

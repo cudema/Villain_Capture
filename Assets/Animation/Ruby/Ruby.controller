@@ -451,17 +451,17 @@ AnimatorStateMachine:
     m_Position: {x: 400, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9105740178541391504}
-    m_Position: {x: 620, y: 270, z: 0}
+    m_Position: {x: 650, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7403075536317370759}
     m_Position: {x: 400, y: 270, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -4306216816018016404}
-    m_Position: {x: 790, y: 120, z: 0}
+    m_Position: {x: 800, y: 90, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: -4032380436889777257}
-    m_Position: {x: 370, y: 10, z: 0}
+    m_Position: {x: 400, y: 20, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 3305891540173166755}
     m_Position: {x: 660, y: 20, z: 0}

@@ -45,12 +45,17 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
         if (CurrentHP <= 0)
         {
             BattleManager.battlemanager.EscapeBattle();
-            ScenesManager.instance.LoadTempMain();//임시로 만든거
             Debug.Log("죽음");
             return;
         }
 
         StartCoroutine(NoHitTime());
+    }
+
+    public void EndNoHitTime()
+    {
+        StopAllCoroutines();
+        GetComponent<Collider>().enabled = true;
     }
 
     IEnumerator NoHitTime()

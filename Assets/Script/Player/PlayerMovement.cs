@@ -108,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
     {
         v = 0;
         isjumpable = false;
+        PlayerContoller.instance.health.EndNoHitTime();
         StartCoroutine(PlayerStartPositionAnimation(1));
         StartCoroutine(GoToStartPosition(new Vector3(BattleManager.battlemanager.Center.x, BattleManager.battlemanager.Center.y, transform.position.z)));
     }

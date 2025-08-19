@@ -195,10 +195,6 @@ public class BattleManager : MonoBehaviour
     public void EscapeBattle()
     {
         currentEnemy = null;
-    }
-
-    public void EndBattle()
-    {
         ScenesManager.instance.LoadTempMain();
     }
 }

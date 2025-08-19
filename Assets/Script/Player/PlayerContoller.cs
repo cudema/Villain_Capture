@@ -26,6 +26,8 @@ public class PlayerContoller : MonoBehaviour
     public GameObject nomalModel;
     [SerializeField]
     public GameObject moveModel;
+    [HideInInspector]
+    public Animator animator;
 
     private void Awake()
     {
@@ -42,6 +44,7 @@ public class PlayerContoller : MonoBehaviour
         health = GetComponent<PlayerHealth>();
         parring = GetComponent<PlayerParing>();
         filming = GetComponent<Filming>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()

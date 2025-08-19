@@ -302,17 +302,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public void OnAttack()
     {
         StopCoroutine(bingAttack);
+        bingAttack = Attack();
         StartCoroutine(bingAttack);
     }
 
     IEnumerator Attack()
     {
-        wraning.GetComponentInChildren<Collider>().enabled = true;
+        wraning.GetChild(1).gameObject.SetActive(true);
 
         yield return new WaitForSeconds(attackTime);
 
-        wraning.GetComponentInChildren<Collider>().enabled = false;
-
+        wraning.GetChild(1).gameObject.SetActive(false);
         yield break;
     }
 }

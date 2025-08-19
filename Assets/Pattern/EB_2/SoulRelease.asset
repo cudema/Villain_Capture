@@ -25,7 +25,7 @@ MonoBehaviour:
   bulletSpawnDelay: 0.7
   attackDelay: 1.5
   enemyDamage: 10
-  enemyAttackTime: 0.5
+  enemyAttackTime: 1
   isEnaged: 0
   rushDelay: 1
   rushSpeed: 15

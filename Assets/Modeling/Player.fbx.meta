@@ -3,12 +3,22 @@ guid: 43b942b6e4b00d84088ca48cddf40077
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Camera.vox Material.001
+    second: {fileID: 2100000, guid: c05cd90acdeab614b92008f3e95b88b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Player.vox Material
+    second: {fileID: 2100000, guid: 5ac7004db7bc44b4fa5a5a555e774ce0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

@@ -10,16 +10,16 @@ public class HackBullet : BulletBase
     bool isBoobm = false;
 
     [SerializeField]
-    Material attack;
+    GameObject attack;
     [SerializeField]
-    Material dilay;
-
+    GameObject dilay;
+    [SerializeField]
+    GameObject warning;
     public override void Setup(PatternBase patternBase)
     {
         base.Setup(patternBase);
         attackCollider = GetComponent<Collider>();
         isEnaged = patternBase.isEnaged;
-        attackRenderer = GetComponent<Renderer>();
         ShootBullet();
     }
 
@@ -39,17 +39,17 @@ public class HackBullet : BulletBase
 
         attackCollider.enabled = true;
         //attackRenderer.material = attack;
-        attackRenderer.enabled = false;
-        transform.GetChild(0).gameObject.SetActive(true);
+        warning.SetActive(false);
+        attack.SetActive(true);
+
 
         yield return new WaitForSeconds(attackDelay / 2);
 
         if (isEnaged)
         {
-            transform.GetChild(0).gameObject.SetActive(false);
-            attackRenderer.enabled = true;
+            attack.SetActive(false);
+            dilay.SetActive(true);
             attackCollider.enabled = false;
-            attackRenderer.material = dilay;
 
             yield return new WaitUntil(() => isBoobm);
             yield return new WaitForSeconds(attackDelay);
@@ -61,8 +61,7 @@ public class HackBullet : BulletBase
     public void SetBoobm()
     {
         isBoobm = true;
-        attackRenderer.enabled = false;
         attackCollider.enabled = true;
-        transform.GetChild(0).gameObject.SetActive(true);
+        attack.SetActive(true);
     }
 }

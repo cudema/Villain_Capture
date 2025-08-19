@@ -22,8 +22,10 @@ MonoBehaviour:
     damage: 5
     speed: 5
   bulletCount: 0
-  bulletSpawnDelay: 0.3
+  bulletSpawnDelay: 0.25
   attackDelay: 1
+  enemyDamage: 0
+  enemyAttackTime: 0
   isEnaged: 0
   durationTime: 8
   spawnRadius: 1.5

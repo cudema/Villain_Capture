@@ -467,6 +467,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51783828}
   m_CullTransparentMesh: 1
+--- !u!84 &67356620
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 640
+  m_Height: 360
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &67892826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1114,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 5
+  printer: {fileID: 0}
+  printDialogue: {fileID: 0}
 --- !u!1 &177732094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,7 +2309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeforeSeleter: {fileID: 1984532076}
-  enemyUIGroupID: 
   uiAnimation: {fileID: 335273423}
 --- !u!95 &335273422
 Animator:
@@ -2421,6 +2459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7789bf9bee8a37746836be54db668fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flash: {fileID: 0}
+  health: {fileID: 0}
+  filming: {fileID: 0}
   currentState: 0
 --- !u!114 &368535002
 MonoBehaviour:
@@ -2449,6 +2490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  invincibleTime: 0
+  blinkingTime: 0
 --- !u!114 &368535004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2461,11 +2504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0205673a1e6b146a933f9afe63a93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern:
-    node: {fileID: 6739017329534641423, guid: 26efc91f5cb6122489eb35e01c003079, type: 3}
-    spawnNodeCount: 3
-    spawnTime: 0.5
-    patternEndTime: 0.2
   damage: 10
   maxAttackJudgment: 1
 --- !u!54 &368535005
@@ -3963,11 +4001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a335d16b65b64548bdf696132541fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  samplePattern:
-    node: {fileID: 6739017329534641423, guid: 26efc91f5cb6122489eb35e01c003079, type: 3}
-    spawnNodeCount: 3
-    spawnTime: 1
-    patternEndTime: 5
 --- !u!114 &701036411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3980,7 +4013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e39eb7766ddd5141a6c198311cf017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHaveJudgment: 0
 --- !u!65 &701036412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4952,7 +4984,7 @@ PrefabInstance:
     - target: {fileID: 9205371885998440386, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1811937096}
+      objectReference: {fileID: 67356620}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5521,6 +5553,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 3
+  printer: {fileID: 0}
+  printDialogue: {fileID: 0}
 --- !u!1 &1137310617
 GameObject:
   m_ObjectHideFlags: 0
@@ -5729,7 +5763,7 @@ GameObject:
   - component: {fileID: 1193693629}
   - component: {fileID: 1193693628}
   - component: {fileID: 1193693627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5959,7 +5993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9182cfd3fa9644b418dbdc7cf1fcf974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOnEnemy: 0
+  isEndPlayerAction: 1
   runConttorl: {fileID: 1220716464}
+  trunDelay: 0
   center: {x: -4, y: 0}
   radius: {x: 2.5, y: 2.5}
 --- !u!4 &1220716463
@@ -6128,6 +6165,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  tab:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d3532bb1-1803-4278-8afe-9797bd475a4a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   select:
     m_Name: Select
     m_Type: 0
@@ -6160,6 +6206,33 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: a3bcdf57-1508-43b9-9927-a3497a097f94
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rotationCamera:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3a1da35c-4d46-41cb-bacd-0ed6596d9b00
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  zoom:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 16c77d6e-0d46-4877-bdfe-2a0ddc5b20d3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  focus:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5821d96e-1c98-4c27-b9fa-1586f5aaa0c2
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -6986,6 +7059,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 2
+  printer: {fileID: 0}
+  printDialogue: {fileID: 0}
 --- !u!1 &1392736029
 GameObject:
   m_ObjectHideFlags: 0
@@ -8362,12 +8437,6 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.5137255, b: 0.5137255, a: 1}
   thisAction: 0
-  temp: {fileID: 701036410}
-  samplePattern:
-    node: {fileID: 6739017329534641423, guid: 26efc91f5cb6122489eb35e01c003079, type: 3}
-    spawnNodeCount: 3
-    spawnTime: 1
-    patternEndTime: 5
 --- !u!1 &1779973862
 GameObject:
   m_ObjectHideFlags: 0
@@ -8660,43 +8729,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
   m_PrefabInstance: {fileID: 1811680733}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1811937096
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 6
-  m_Width: 640
-  m_Height: 360
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_UseDynamicScaleExplicit: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1835029962
 GameObject:
   m_ObjectHideFlags: 0
@@ -8835,6 +8867,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 4
+  printer: {fileID: 0}
+  printDialogue: {fileID: 0}
 --- !u!1 &1913213401
 GameObject:
   m_ObjectHideFlags: 0
@@ -8928,6 +8962,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 1
+  printer: {fileID: 0}
+  printDialogue: {fileID: 0}
 --- !u!1 &1926563485
 GameObject:
   m_ObjectHideFlags: 0
@@ -9021,6 +9057,8 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   selectColor: {r: 1, g: 0.51372, b: 0.51372, a: 1}
   thisAction: 0
+  printer: {fileID: 0}
+  printDialogue: {fileID: 0}
 --- !u!1 &1982787930
 GameObject:
   m_ObjectHideFlags: 0
@@ -9210,7 +9248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeforeSeleter: {fileID: 688895569}
-  enemyUIGroupID: ITV_Ruby
   uiAnimation: {fileID: 1984532078}
 --- !u!95 &1984532077
 Animator:

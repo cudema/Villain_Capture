@@ -27,4 +27,4 @@ MonoBehaviour:
   enemyDamage: 0
   enemyAttackTime: 0
   isEnaged: 0
-  dontSpawnRadius: 0.7
+  dontSpawnRadius: 2.5

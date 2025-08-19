@@ -47,6 +47,7 @@ public class FearTheDarkness : PatternBase
 
     public override void StartPattern()
     {
+        PlayerContoller.instance.transform.position = new Vector3(center.x, center.y, 1);
         enemy.StartCoroutine(BingPattern());
     }
 

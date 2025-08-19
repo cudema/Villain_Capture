@@ -205,6 +205,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     public void TakeDamage(float damage)
     {
+        if (currentEmotion == Emotion.우호)
+        {
+            CurrentPhotoGauge = maxPhotoGauge;
+            return;
+        }
         float justTemp = PlayerContoller.instance.GetJust();
         if (justTemp == 0)
         {

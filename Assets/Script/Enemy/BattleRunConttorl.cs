@@ -41,6 +41,6 @@ public class BattleRunConttorl : MonoBehaviour
     IEnumerator SuccessRun()
     {
         yield return DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue("ESC_001"));
-        ScenesManager.instance.LoadTempMain();
+        BattleManager.battlemanager.EndBattle();
     }
 }

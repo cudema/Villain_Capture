@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PhotoGaugeUI : MonoBehaviour
@@ -34,5 +35,9 @@ public class PhotoGaugeUI : MonoBehaviour
             yield return null;
         }
         PhotoBar.localScale = new Vector3(photoGauge / enemy.GetMaxHealth(), 1, 1);
+        if (PhotoBar.localScale.x >= 1)
+        {
+            BattleManager.battlemanager.EndBattle();
+        }
     }
 }

@@ -34,7 +34,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\uC544\uB9C8\uD29C\uC5B4_Ruby_Jump 0"
+  m_Name: "\uC544\uB9C8\uD29C\uC5B4_Ruby_Land"
   m_Speed: -0.8
   m_CycleOffset: 0
   m_Transitions:
@@ -472,9 +472,9 @@ AnimatorStateMachine:
   - {fileID: -8359369769267952879}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -4484063327378771937}
-    second: []
   - first: {fileID: -4306216816018016404}
+    second: []
+  - first: {fileID: -4484063327378771937}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}

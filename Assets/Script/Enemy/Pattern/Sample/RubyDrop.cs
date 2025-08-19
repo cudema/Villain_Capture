@@ -61,10 +61,10 @@ public class RubyDrop : PatternBase
     protected override IEnumerator BingPattern()
     {
         enemy.animator.SetTrigger("Jump");
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump"));
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
-        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
-
-        enemy.OffRenderer();
+        //enemy.OffRenderer();
         enemy.OnWraning();
         enemy.SetWraningScale(firstAttackSize);
         enemy.transform.position = new Vector3(center.x, center.y, enemy.transform.position.z);
@@ -72,11 +72,11 @@ public class RubyDrop : PatternBase
         
         yield return new WaitForSeconds(firstAttackDelay);
 
-        enemy.OnRenderer();
+        //enemy.OnRenderer();
         enemy.animator.SetTrigger("Land");
         enemy.OffWraning();
-
-        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump 0") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Land"));
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
 
         SetUXOField();
         enemy.OnAttack();
@@ -106,9 +106,10 @@ public class RubyDrop : PatternBase
         {
             enemy.animator.SetTrigger("Jump");
 
-            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
+            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump"));
+            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
-            enemy.OffRenderer();
+            //enemy.OffRenderer();
             enemy.OnWraning();
             float tempTime = Time.time;
             while (Time.time - tempTime < chaseTime)
@@ -119,11 +120,12 @@ public class RubyDrop : PatternBase
             }
             yield return new WaitForSeconds(takeDownAttackDelay);
 
-            enemy.OnRenderer();
+            //enemy.OnRenderer();
             enemy.animator.SetTrigger("Land");
             enemy.OffWraning();
 
-            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump 0") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
+            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Land"));
+            yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
 
             enemy.OnAttack();
 

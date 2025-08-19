@@ -72,6 +72,7 @@ public class RubyDrop : PatternBase
         
         yield return new WaitForSeconds(firstAttackDelay);
 
+        enemy.OnRenderer();
         enemy.animator.SetTrigger("Land");
         enemy.OffWraning();
 
@@ -79,7 +80,6 @@ public class RubyDrop : PatternBase
 
         SetUXOField();
         enemy.OnAttack();
-        enemy.OnRenderer();
 
         yield return null;
 
@@ -119,13 +119,13 @@ public class RubyDrop : PatternBase
             }
             yield return new WaitForSeconds(takeDownAttackDelay);
 
+            enemy.OnRenderer();
             enemy.animator.SetTrigger("Land");
             enemy.OffWraning();
 
             yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump 0") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 5f / 19f);
 
             enemy.OnAttack();
-            enemy.OnRenderer();
 
             int tempField = -1;
             if (enemy.transform.position.x < center.x)

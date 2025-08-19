@@ -264,7 +264,7 @@ MonoBehaviour:
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   model: {fileID: 4387762127316419284}
   nomalPattern:
-  - {fileID: 11400000, guid: 52e3be953f1451d4bbdee7d84d5a3a1c, type: 2}
+  - {fileID: 11400000, guid: 04f88dcb2ad38754597e55b86b5f1b10, type: 2}
   - {fileID: 11400000, guid: 7ecb1d9c67ba3224dbb75dc9232a1ffa, type: 2}
   enhancePattern:
   - {fileID: 11400000, guid: 49785626187d1cc4fb4a1eb75b3fb735, type: 2}

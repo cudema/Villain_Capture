@@ -38,11 +38,11 @@ public class ShadowFall : PatternBase
 
             yield return new WaitForSeconds(enemySpawnDelay);
 
+            enemy.OnRenderer();
             enemy.animator.SetBool("IsRush", true);
             enemy.transform.GetChild(2).rotation = Quaternion.Euler(new Vector3(90, 180, 0));
 
             enemy.transform.position = new Vector3(PlayerContoller.instance.transform.position.x, spawnY, enemy.transform.position.z);
-            enemy.OnRenderer();
 
             yield return new WaitForSeconds(rushDelay);
 

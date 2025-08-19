@@ -52,14 +52,7 @@ public class ShadowLabyrinth : PatternBase
             //fakeEnemy[tempRandom].gameObject.SetActive(false);
             //enemy.OnRenderer();
             //enemy.OnWraning();
-            for (int j = 0; j < fakeEnemy.Length; ++j)
-            {
-                if (j == tempRandom)
-                {
-                    continue;
-                }
-                fakeEnemy[j].OnEffect();
-            }
+            fakeEnemy[tempRandom].OnEffect();
 
             yield return new WaitForSeconds(attackDelay);
 
@@ -67,9 +60,9 @@ public class ShadowLabyrinth : PatternBase
 
             for (int j = 0; j < fakeEnemy.Length; ++j)
             {
-                fakeEnemy[j].OffEffect();
                 if (j == tempRandom)
                 {
+                    fakeEnemy[j].OffEffect();
                     fakeEnemy[j].OnFakeAttack();
                     continue;
                 }

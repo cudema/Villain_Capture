@@ -52,12 +52,12 @@ public class FearTheDarkness : PatternBase
 
     protected override IEnumerator BingPattern()
     {
-        enemy.OffRenderer();
         enemy.animator.SetTrigger("UP");
         InputManager.inputManager.ChangeBattleNonInput();
 
         yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("DustyBone_Back") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f);
 
+        enemy.OffRenderer();
         for (int i = 0; i < bulletCount; i++)
         {
             go = Instantiate(bullet, GetRandomPosToBullet(), Quaternion.identity);

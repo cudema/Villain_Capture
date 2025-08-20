@@ -60,6 +60,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected Material parringableMaterial;
     [SerializeField]
     protected GameObject model;
+    Renderer[] modelRenderer;
 
     [Header("패턴")]
     [SerializeField]
@@ -122,6 +123,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
         enagedPattern.Setup(this);
         bingAttack = Attack();
+        modelRenderer = model.transform.GetComponentsInChildren<Renderer>();
     }
 
     private void OnDisable()
@@ -166,14 +168,20 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     {
         //enemyRenderer.enabled = true;
         //GetComponent<Collider>().enabled = true;
-        model.SetActive(true);
+        foreach (Renderer i in modelRenderer)
+        {
+            i.enabled = true;
+        }
     }
 
     public void OffRenderer()
     {
         //enemyRenderer.enabled = false;
         //GetComponent<Collider>().enabled = false;
-        model.SetActive(false);
+        foreach (Renderer i in modelRenderer)
+        {
+            i.enabled = false;
+        }
     }
 
     void ResetPosition()

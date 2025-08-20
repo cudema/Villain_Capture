@@ -109,7 +109,7 @@ public class RubyDrop : PatternBase
             yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("아마튜어_Ruby_Jump"));
             yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
-            //enemy.OffRenderer();
+            enemy.OffRenderer();
             enemy.OnWraning();
             float tempTime = Time.time;
             while (Time.time - tempTime < chaseTime)
@@ -120,7 +120,7 @@ public class RubyDrop : PatternBase
             }
             yield return new WaitForSeconds(takeDownAttackDelay);
 
-            //enemy.OnRenderer();
+            enemy.OnRenderer();
             enemy.animator.SetTrigger("Land");
             enemy.OffWraning();
 

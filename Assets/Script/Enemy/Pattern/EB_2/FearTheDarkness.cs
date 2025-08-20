@@ -55,8 +55,8 @@ public class FearTheDarkness : PatternBase
     {
         enemy.animator.SetTrigger("UP");
         InputManager.inputManager.ChangeBattleNonInput();
-
-        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("DustyBone_Back") && enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f);
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("DustyBone_Back"));
+        yield return new WaitUntil(() => enemy.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f);
 
         enemy.OffRenderer();
         for (int i = 0; i < bulletCount; i++)

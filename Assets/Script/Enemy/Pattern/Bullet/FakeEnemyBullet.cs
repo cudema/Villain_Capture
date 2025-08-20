@@ -11,6 +11,8 @@ public class FakeEnemyBullet : BulletBase
     GameObject attack;
     [SerializeField]
     GameObject effect;
+    [SerializeField]
+    ParticleSystem particle;
 
     Animator animator;
 
@@ -21,7 +23,9 @@ public class FakeEnemyBullet : BulletBase
     public override void Setup(PatternBase patternBase)
     {
         float temp = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
+        ParticleSystem.MainModule psTemp = particle.main;
         attack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, temp));
+        psTemp.startRotationZMultiplier = (90 - temp) * Mathf.Deg2Rad;
         animator = GetComponentInChildren<Animator>();
         base.Setup(patternBase);
     }
@@ -52,7 +56,7 @@ public class FakeEnemyBullet : BulletBase
         yield return new WaitWhile(() => animator.GetCurrentAnimatorStateInfo(0).IsName("DustyBone_DustyIdle"));
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 13f / 24f);
         attackCollider.SetActive(true);
-        yield return null;
+        yield return new WaitForSeconds(0.3f);
         attackCollider.SetActive(false);
     }
 

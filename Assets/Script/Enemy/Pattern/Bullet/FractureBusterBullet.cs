@@ -12,6 +12,8 @@ public class FractureBusterBullet : BulletBase
 
     Vector2 pointOfBullet;
 
+    bool isEnd = false;
+
     public void Setup(FractureBuster patternBase)
     {
         attackDelay = patternBase.attackDelay;
@@ -77,13 +79,17 @@ public class FractureBusterBullet : BulletBase
         bullet.GetComponent<MeshRenderer>().enabled = false;
         bullet.GetComponent<Collider>().enabled = false;
 
-        while (!Arrival())
+        float temptime = Time.time;
+
+        while (Time.time - temptime < smallBulletArrivalTime)
         {
             smallBullet[0].transform.localPosition += Vector2.Distance(pointOfBullet, randomPos[1]) * GoToPos(randomPos[1]) / smallBulletArrivalTime;
             smallBullet[1].transform.localPosition += Vector2.Distance(pointOfBullet, randomPos[0]) * GoToPos(randomPos[0]) / smallBulletArrivalTime;
             smallBullet[2].transform.localPosition += Vector2.Distance(pointOfBullet, randomPos[2]) * GoToPos(randomPos[2]) / smallBulletArrivalTime;
             yield return null;
         }
+
+        isEnd = true;
     }
 
     Vector3 GoToPos(Vector2 pos)
@@ -93,9 +99,6 @@ public class FractureBusterBullet : BulletBase
 
     public bool Arrival()
     {
-        bool a1 = Vector2.Distance((Vector2)smallBullet[0].transform.position, randomPos[1]) < 0.1f;
-        bool a2 = Vector2.Distance((Vector2)smallBullet[1].transform.position, randomPos[0]) < 0.1f;
-        bool a3 = Vector2.Distance((Vector2)smallBullet[2].transform.position, randomPos[2]) < 0.1f;
-        return a1 && a2 && a3;
+        return isEnd;
     }
 }

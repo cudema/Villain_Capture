@@ -151,10 +151,8 @@ public class PlayerMovement : MonoBehaviour
     {
         ga = 0f;
         Vector3 temp = pos - transform.position;
-        Debug.Log(temp / (0.15f * 5.5f) * Time.deltaTime);
         while (!BattleManager.battlemanager.isOnEnemy)
         {
-            Debug.Log(temp / (0.15f * 5.5f) * Time.deltaTime);
             transform.position += (temp / (0.15f * 5.5f)) * Time.deltaTime;
             yield return null;
         }

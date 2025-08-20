@@ -219,6 +219,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         }
         float ranTemp = UnityEngine.Random.Range(0.0f, 0.2f);
         CurrentPhotoGauge += damage * (justTemp + ranTemp);
+        if (CurrentPhotoGauge == maxPhotoGauge)
+        {
+            return;
+        }
         BattleManager.battlemanager.StopAction();
     }
 

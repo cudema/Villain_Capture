@@ -181,6 +181,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
         OffWraning();
         OnRenderer();
         StopCoroutine(bingAttack);
+        wraning.GetChild(1).gameObject.SetActive(false);
         if (transform.position != startPos)
         {
             StartCoroutine(PositionReset());
@@ -307,8 +308,15 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     public void OnAttack()
     {
         StopCoroutine(bingAttack);
+        wraning.GetChild(1).gameObject.SetActive(false);
         bingAttack = Attack();
         StartCoroutine(bingAttack);
+    }
+
+    public void OffAttack()
+    {
+        StopCoroutine(bingAttack);
+        wraning.GetChild(1).gameObject.SetActive(false);
     }
 
     IEnumerator Attack()

@@ -143,7 +143,7 @@ public class RubyDrop : PatternBase
             {
                 //끝
                 uxo.Boom();
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1.5f);
                 enemy.SetWraningScale(1.5f);
                 StopPattern();
                 yield break;

@@ -7,6 +7,10 @@ public class RubyDropBullet : BulletBase
     bool isUXO = false;
     [SerializeField]
     Collider attackRange;
+    [SerializeField]
+    GameObject bomb;
+    [SerializeField]
+    GameObject effect;
     Vector3 goToPos;
 
     public override void Setup(PatternBase patternBase)
@@ -72,9 +76,12 @@ public class RubyDropBullet : BulletBase
         else
         {
             attackRange.enabled = true;
+            attackRange.GetComponent<Renderer>().enabled = false;
+            bomb.SetActive(false);
+            effect.SetActive(true);
         }
 
-        yield return null;
+        yield return new WaitForSeconds(1.5f);
 
         Destroy(gameObject);
     }
@@ -83,5 +90,8 @@ public class RubyDropBullet : BulletBase
     {
         attackRange.gameObject.SetActive(true);
         attackRange.enabled = true;
+        attackRange.GetComponent<Renderer>().enabled = false;
+        bomb.SetActive(false);
+        effect.SetActive(true);
     }
 }

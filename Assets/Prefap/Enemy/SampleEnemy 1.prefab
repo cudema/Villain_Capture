@@ -264,7 +264,7 @@ MonoBehaviour:
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   model: {fileID: 4387762127316419284}
   nomalPattern:
-  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
+  - {fileID: 11400000, guid: 04f88dcb2ad38754597e55b86b5f1b10, type: 2}
   enhancePattern: []
   enagedPattern: {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
   dialogueID: ITV_Ruby

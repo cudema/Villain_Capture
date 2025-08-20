@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     bool isjumpable = false;
     Vector3 moveDirection;
 
+    float ga = 0f;
+
     float v;
 
     public void ToMove()
@@ -67,8 +69,8 @@ public class PlayerMovement : MonoBehaviour
             isjumpable = false;
         }
 
-        cloen.y = transform.position.y + (v * Time.deltaTime) + (0.5f * -9.8f * Time.deltaTime * Time.deltaTime);
-        v += -9.8f * Time.deltaTime;
+        cloen.y = transform.position.y + (v * Time.deltaTime) + (0.5f * ga * Time.deltaTime * Time.deltaTime);
+        v += ga * Time.deltaTime;
 
         if (cloen.y - transform.position.y > 0 && moveDirection.y < 0.5f)
         {
@@ -147,12 +149,16 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator GoToStartPosition(Vector3 pos)
     {
+        ga = 0f;
         Vector3 temp = pos - transform.position;
+        Debug.Log(temp / (0.15f * 5.5f) * Time.deltaTime);
         while (!BattleManager.battlemanager.isOnEnemy)
         {
-            transform.position += temp * Time.deltaTime / (0.15f * 5.5f);
+            Debug.Log(temp / (0.15f * 5.5f) * Time.deltaTime);
+            transform.position += (temp / (0.15f * 5.5f)) * Time.deltaTime;
             yield return null;
         }
+        ga = -9.8f;
         transform.position = pos;
     }
 

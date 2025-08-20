@@ -3163,43 +3163,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388627089}
   m_CullTransparentMesh: 1
---- !u!84 &401149846
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 6
-  m_Width: 640
-  m_Height: 360
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_UseDynamicScaleExplicit: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &413184406
 GameObject:
   m_ObjectHideFlags: 0
@@ -4453,7 +4416,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580184565}
   m_CullTransparentMesh: 1
---- !u!84 &604156747
+--- !u!84 &621736120
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5330,8 +5293,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a8f01ea0e1d67e64dbbc7c3327408b97, type: 2}
-  m_sharedMaterial: {fileID: 5245084076427071360, guid: a8f01ea0e1d67e64dbbc7c3327408b97, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2adac681dab52c64fb5c8fcb86187bc5, type: 2}
+  m_sharedMaterial: {fileID: -7343946479848180106, guid: 2adac681dab52c64fb5c8fcb86187bc5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6077,7 +6040,7 @@ PrefabInstance:
     - target: {fileID: 9205371885998440386, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 401149846}
+      objectReference: {fileID: 621736120}
     - target: {fileID: 9205371885998440386, guid: e96cffa9d00b6b545adfeb26165952cc, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 55
@@ -10336,8 +10299,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a8f01ea0e1d67e64dbbc7c3327408b97, type: 2}
-  m_sharedMaterial: {fileID: 5245084076427071360, guid: a8f01ea0e1d67e64dbbc7c3327408b97, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2adac681dab52c64fb5c8fcb86187bc5, type: 2}
+  m_sharedMaterial: {fileID: -7343946479848180106, guid: 2adac681dab52c64fb5c8fcb86187bc5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12820,6 +12783,5 @@ SceneRoots:
   - {fileID: 1737637293}
   - {fileID: 1401278838}
   - {fileID: 679807279}
-  - {fileID: 1382895704}
   - {fileID: 343389357}
   - {fileID: 1546545462}

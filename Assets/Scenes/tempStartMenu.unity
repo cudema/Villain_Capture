@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose Your Enemy
+  m_text: Choose Your Villain
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2adac681dab52c64fb5c8fcb86187bc5, type: 2}
   m_sharedMaterial: {fileID: -7343946479848180106, guid: 2adac681dab52c64fb5c8fcb86187bc5, type: 2}
@@ -1333,8 +1333,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 105
+  m_fontSizeBase: 105
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -19,12 +19,12 @@ MonoBehaviour:
   bullet: {fileID: 8222855455361264066, guid: 82924de0514757640968dda3275e7cdb, type: 3}
   bulletDatas:
   - name: 
-    damage: 5
+    damage: 15
     speed: 2
   bulletCount: 5
   bulletSpawnDelay: 1
   attackDelay: 1
-  enemyDamage: 0
+  enemyDamage: 30
   enemyAttackTime: 0
   isEnaged: 0
   startSootDelay: 1

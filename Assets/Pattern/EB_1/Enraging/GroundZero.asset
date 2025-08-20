@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619efcd74f65e1747bb4e824aa2e60e7, type: 3}
+  m_Name: GroundZero
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 0, y: 0}
+  isChangedFild: 0
+  state: 0
+  bullet: {fileID: 8222855455361264066, guid: 82924de0514757640968dda3275e7cdb, type: 3}
+  bulletDatas:
+  - name: 
+    damage: 25
+    speed: 2
+  bulletCount: 5
+  bulletSpawnDelay: 1
+  attackDelay: 1
+  enemyDamage: 50
+  enemyAttackTime: 0
+  isEnaged: 1
+  startSootDelay: 1
+  scalePerSecond: 1
+  rushDelay: 1
+  collisionDistance: 0
+  radiusRange: 0.5
+  patternEndDelay: 0.5

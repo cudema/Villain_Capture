@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RubyDrop
   m_EditorClassIdentifier: 
   center: {x: 0, y: 0}
-  radius: {x: 5, y: 5}
+  radius: {x: 3.5, y: 3.5}
   isChangedFild: 1
   state: 0
   bullet: {fileID: 8318949446569438350, guid: b895c64d5cb18b6489645d73ef8b2c16, type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
   enemyDamage: 10
   enemyAttackTime: 0.3
   isEnaged: 0
-  firstAttackSize: 10
+  firstAttackSize: 8
   firstAttackDelay: 4
   boomDamage: 20
   takeDownAttackSize: 5

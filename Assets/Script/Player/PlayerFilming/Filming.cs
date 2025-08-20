@@ -98,7 +98,7 @@ public class Filming : MonoBehaviour
 
     void Awake()
     {
-        useMaterialData = new Material(material);
+        useMaterialData = new Material(Shader.Find("Shader Graphs/temp"));
         rawImage.material = useMaterialData;
         sliders = rawImage.transform.GetComponentsInChildren<Slider>();
         rawImageAnimator = rawImage.GetComponent<Animator>();

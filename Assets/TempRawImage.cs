@@ -24,7 +24,7 @@ public class TempRawImage : MonoBehaviour
     public void StartFilming()
     {
         BattleManager.battlemanager.StartCoroutine(BattleManager.battlemanager.ActionTimer(PlayerContoller.instance.filming.filmingTime));
-        time = PlayerContoller.instance.filming.filmingTime;
+        tempTime = PlayerContoller.instance.filming.filmingTime;
         InputManager.inputManager.ChangeBattlePhotoInput();
     }
 

@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.IO;
-using Unity.Burst;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public enum ItemType { 부품 = 0, 도구, 단서, 회복 }

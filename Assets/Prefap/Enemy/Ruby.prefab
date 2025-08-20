@@ -439,19 +439,27 @@ MonoBehaviour:
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   model: {fileID: 4387762127316419284}
   nomalPattern:
-  - {fileID: 11400000, guid: 04f88dcb2ad38754597e55b86b5f1b10, type: 2}
-  - {fileID: 11400000, guid: bc7f00f02e7cd9d4d902eadb9a3f7641, type: 2}
   - {fileID: 11400000, guid: 5ae767196120382478879085ed79090f, type: 2}
-  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
   - {fileID: 11400000, guid: bc7f00f02e7cd9d4d902eadb9a3f7641, type: 2}
   - {fileID: 11400000, guid: b554bae5ea76c9c41b6e0b5f0e57437e, type: 2}
+  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
+  - {fileID: 11400000, guid: 52e3be953f1451d4bbdee7d84d5a3a1c, type: 2}
+  - {fileID: 11400000, guid: 5ae767196120382478879085ed79090f, type: 2}
+  - {fileID: 11400000, guid: 8f597b73f75a39c44b39c89fa75e8aa3, type: 2}
+  - {fileID: 11400000, guid: b554bae5ea76c9c41b6e0b5f0e57437e, type: 2}
+  - {fileID: 11400000, guid: bc7f00f02e7cd9d4d902eadb9a3f7641, type: 2}
+  - {fileID: 11400000, guid: 04f88dcb2ad38754597e55b86b5f1b10, type: 2}
   enhancePattern:
-  - {fileID: 11400000, guid: 07927f93ca49dac479f8bfab41682039, type: 2}
   - {fileID: 11400000, guid: d59d15621fe750b47b2612e5847eb879, type: 2}
   - {fileID: 11400000, guid: 838e7900801c13a4695765322afb248c, type: 2}
-  - {fileID: 11400000, guid: a85696fa92d984a4db7cba0d3923c49c, type: 2}
   - {fileID: 11400000, guid: c9b43e6bdebbb7c488649b9a7928d63e, type: 2}
+  - {fileID: 11400000, guid: 07927f93ca49dac479f8bfab41682039, type: 2}
   - {fileID: 11400000, guid: db805a382b7dbaf40ae248592fdb22e9, type: 2}
+  - {fileID: 11400000, guid: d59d15621fe750b47b2612e5847eb879, type: 2}
+  - {fileID: 11400000, guid: 07927f93ca49dac479f8bfab41682039, type: 2}
+  - {fileID: 11400000, guid: c9b43e6bdebbb7c488649b9a7928d63e, type: 2}
+  - {fileID: 11400000, guid: 838e7900801c13a4695765322afb248c, type: 2}
+  - {fileID: 11400000, guid: a85696fa92d984a4db7cba0d3923c49c, type: 2}
   enagedPattern: {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
   dialogueID: ITV_Ruby
   runDialogueID: ESC_002

@@ -21,10 +21,10 @@ MonoBehaviour:
   - name: 
     damage: 10
     speed: 0
-  bulletCount: 5
+  bulletCount: 7
   bulletSpawnDelay: 0.2
   attackDelay: 2
-  enemyDamage: 50
+  enemyDamage: 75
   enemyAttackTime: 0
   isEnaged: 1
   endDelay: 0.3

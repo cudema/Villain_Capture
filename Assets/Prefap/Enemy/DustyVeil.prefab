@@ -275,8 +275,8 @@ MonoBehaviour:
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   model: {fileID: 4644183785391774794}
   nomalPattern:
-  - {fileID: 11400000, guid: 705e6a0f73c6d4647bd7bd946bc48ea4, type: 2}
-  - {fileID: 11400000, guid: 0641fd7cbf954754fb0fcd9a0d347cf5, type: 2}
+  - {fileID: 11400000, guid: 4f6a0961ca77ab04eafd3c4847d62e78, type: 2}
+  - {fileID: 11400000, guid: 4f6a0961ca77ab04eafd3c4847d62e78, type: 2}
   - {fileID: 11400000, guid: fdda0794aff71bc4c9612502931215fc, type: 2}
   - {fileID: 11400000, guid: 74fceda698cefbb4e8345e2379269bdf, type: 2}
   - {fileID: 11400000, guid: 7ecb1d9c67ba3224dbb75dc9232a1ffa, type: 2}

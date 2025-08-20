@@ -213,6 +213,6 @@ public class BattleManager : MonoBehaviour
     public void BattleBack()
     {
         EscapeBattle();
-        ScenesManager.instance.LoadTempMain();
+        ScenesManager.instance.LoadMainMenu();
     }
 }

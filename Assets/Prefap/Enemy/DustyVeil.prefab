@@ -385,6 +385,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f1065d2b27353e5489e5062c4186f411, type: 2}
   enagedPattern: {fileID: 11400000, guid: debf11cb2493b214eb10415064a6ebf1, type: 2}
   dialogueID: ITV_DustyVeil
+  runDialogueID: 
   animator: {fileID: 0}
 --- !u!54 &1181540671397307113
 Rigidbody:
@@ -551,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c2e07cdf68a5d84bb9e931b4f7dc2fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c2e07cdf68a5d84bb9e931b4f7dc2fc, type: 3}
       propertyPath: m_LocalRotation.w

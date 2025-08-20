@@ -37,7 +37,7 @@ public class PhotoGaugeUI : MonoBehaviour
         PhotoBar.localScale = new Vector3(photoGauge / enemy.GetMaxHealth(), 1, 1);
         if (PhotoBar.localScale.x >= 1)
         {
-            BattleManager.battlemanager.EscapeBattle();
+            BattleManager.battlemanager.BattleWin();
         }
     }
 }

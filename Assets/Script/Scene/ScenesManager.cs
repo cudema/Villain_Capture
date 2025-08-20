@@ -31,7 +31,6 @@ public class ScenesManager : MonoBehaviour
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
         //asyncOperation.allowSceneActivation = false;
-        Debug.Log(0);
         yield return asyncOperation;
     }
 
@@ -49,5 +48,19 @@ public class ScenesManager : MonoBehaviour
         Debug.Log(1);
         BattleManager.battlemanager.SetEnemy(Instantiate(enemy).GetComponent<EnemyBase>());
         //asyncOperation.allowSceneActivation = true;
+    }
+
+    public void LoadWin()
+    {
+        StartCoroutine(Load("GameClaer"));
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void LoadLose()
+    {
+        StartCoroutine(Load("GameOver"));
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

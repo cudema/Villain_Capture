@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Battle.unity
     guid: 9bb626e8524647c4f8f8e61dfb6b7daa
   - enabled: 1
-    path: Assets/Scenes/Battle 1.unity
-    guid: 3b736475518ed80408b13682c4473925
+    path: Assets/Scenes/GameClaer.unity
+    guid: 6886e8259405d5946974ebda3adb5fb0
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 14c6528d213fbae419b8445870435238
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 06c3ce66ea959c247a14f4934f5da798, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour, IHealthReporter
         PlayerContoller.instance.filming.OnSettingChange();
         if (CurrentHP <= 0)
         {
-            BattleManager.battlemanager.EscapeBattle();
+            BattleManager.battlemanager.BattleLose();
             Debug.Log("죽음");
             return;
         }

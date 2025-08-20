@@ -34,13 +34,13 @@ public class BattleRunConttorl : MonoBehaviour
             return;
         }
         Debug.Log("도주 실패");
-        DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue("ESC_002"));
+        DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue(BattleManager.battlemanager.CurrentEnemy.runDialogueID));
         return;
     }
 
     IEnumerator SuccessRun()
     {
         yield return DialogueManager.instance.StartCoroutine(DialogueManager.instance.PrintDialogue("ESC_001"));
-        BattleManager.battlemanager.EscapeBattle();
+        BattleManager.battlemanager.BattleBack();
     }
 }

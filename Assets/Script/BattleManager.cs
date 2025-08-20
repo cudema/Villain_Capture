@@ -192,10 +192,27 @@ public class BattleManager : MonoBehaviour
         StopAction();
     }
 
-    public void EscapeBattle()
+    void EscapeBattle()
     {
         currentEnemy = null;
         StopAllCoroutines();
+    }
+
+    public void BattleLose()
+    {
+        EscapeBattle();
+        ScenesManager.instance.LoadLose();
+    }
+
+    public void BattleWin()
+    {
+        EscapeBattle();
+        ScenesManager.instance.LoadWin();
+    }
+
+    public void BattleBack()
+    {
+        EscapeBattle();
         ScenesManager.instance.LoadTempMain();
     }
 }

@@ -76,6 +76,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     [Header("대사 코드")]
     [SerializeField]
     string dialogueID;
+    [SerializeField]
+    public string runDialogueID;
 
     protected bool isParringable = false;
     bool isUesingEnagedPattern = false;

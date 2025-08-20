@@ -362,8 +362,7 @@ MonoBehaviour:
   parringableMaterial: {fileID: 2100000, guid: 3fda179f5d8edd84ab30c0d03b87842e, type: 2}
   model: {fileID: 4644183785391774794}
   nomalPattern:
-  - {fileID: 11400000, guid: debf11cb2493b214eb10415064a6ebf1, type: 2}
-  - {fileID: 11400000, guid: 4f6a0961ca77ab04eafd3c4847d62e78, type: 2}
+  - {fileID: 11400000, guid: 26484e222bc29ed4ba1be91f6271d8d5, type: 2}
   - {fileID: 11400000, guid: 4f6a0961ca77ab04eafd3c4847d62e78, type: 2}
   - {fileID: 11400000, guid: fdda0794aff71bc4c9612502931215fc, type: 2}
   - {fileID: 11400000, guid: 74fceda698cefbb4e8345e2379269bdf, type: 2}
@@ -372,6 +371,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f6a0961ca77ab04eafd3c4847d62e78, type: 2}
   - {fileID: 11400000, guid: 49785626187d1cc4fb4a1eb75b3fb735, type: 2}
   - {fileID: 11400000, guid: 6c5b294c19a500a45b4ef1a350651594, type: 2}
+  - {fileID: 11400000, guid: 891a02b3abefe01498c3d35b20b0068a, type: 2}
   enhancePattern:
   - {fileID: 11400000, guid: 34a84fb39f7ddbd47891cd71a2d6922d, type: 2}
   - {fileID: 11400000, guid: 60436499744cfe645800281a3042808c, type: 2}
@@ -385,7 +385,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f1065d2b27353e5489e5062c4186f411, type: 2}
   enagedPattern: {fileID: 11400000, guid: debf11cb2493b214eb10415064a6ebf1, type: 2}
   dialogueID: ITV_DustyVeil
-  runDialogueID: ESC_008
   animator: {fileID: 0}
 --- !u!54 &1181540671397307113
 Rigidbody:
@@ -552,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c2e07cdf68a5d84bb9e931b4f7dc2fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c2e07cdf68a5d84bb9e931b4f7dc2fc, type: 3}
       propertyPath: m_LocalRotation.w

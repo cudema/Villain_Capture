@@ -4,6 +4,6 @@ public class BackMainMenu : MonoBehaviour
 {
     public void BackMenu()
     {
-        ScenesManager.instance.LoadTempMain();
+        ScenesManager.instance.LoadMainMenu();
     }
 }

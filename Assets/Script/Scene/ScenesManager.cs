@@ -63,4 +63,11 @@ public class ScenesManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+
+    public void LoadMainMenu()
+    {
+        StartCoroutine(Load("MainMenu"));
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }

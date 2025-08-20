@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38419dde3cf2f614c80fb0ec109aeb27, type: 3}
+  m_Name: DaggerDrop
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 0, y: 0}
+  isChangedFild: 0
+  state: 1
+  bullet: {fileID: 3435580627398291278, guid: 1b8496d9c52d7a74eb79ef70eb84cef7, type: 3}
+  bulletDatas:
+  - name: 
+    damage: 10
+    speed: 10
+  bulletCount: 1
+  bulletSpawnDelay: 1
+  attackDelay: 1
+  enemyDamage: 0
+  enemyAttackTime: 0
+  isEnaged: 0
+  floor: {fileID: 8172484819609631059, guid: 8fb928fa36dcbbc4dbd34f62036082ed, type: 3}
+  xPos: 1
+  yPos: 1.5
+  endDelay: 0

@@ -9,24 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea6b4b02757495489ffd587d5926335, type: 3}
-  m_Name: IronPturi
+  m_Script: {fileID: 11500000, guid: 4b8e081d5b8414f4b973c23fe5eb09fd, type: 3}
+  m_Name: ChasingDagger
   m_EditorClassIdentifier: 
-  center: {x: 0, y: 0}
-  radius: {x: 0, y: 0}
+  center: {x: 0, y: -1}
+  radius: {x: 5, y: 3}
   isChangedFild: 0
   state: 0
-  bullet: {fileID: 7159280481276931533, guid: 78c2cf7038d6c394797fb1298b5ffa56, type: 3}
+  bullet: {fileID: 4873927664824315810, guid: 631c213726d6ec4439e7f07ba4493bb5, type: 3}
   bulletDatas:
   - name: 
-    damage: 5
-    speed: 0
-  bulletCount: 3
-  bulletSpawnDelay: 0.3
-  attackDelay: 1
+    damage: 15
+    speed: 6
+  bulletCount: 12
+  bulletSpawnDelay: 0.15
+  attackDelay: 0.15
   enemyDamage: 0
   enemyAttackTime: 0
-  isEnaged: 0
-  radiusRange: 0.85
-  tiltRange: 40
-  randomPosition: 1
+  isEnaged: 1
+  dontSpawnRadius: 2.5

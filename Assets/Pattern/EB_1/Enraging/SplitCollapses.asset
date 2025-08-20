@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435ab8b7d331ea74b80bb9d9f7a22f25, type: 3}
+  m_Name: SplitCollapses
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 0, y: 0}
+  isChangedFild: 0
+  state: 0
+  bullet: {fileID: 1908805849458401597, guid: 7cfd96dd065f5a24b82da901d0a65c87, type: 3}
+  bulletDatas:
+  - name: 
+    damage: 30
+    speed: 0.5
+  bulletCount: 12
+  bulletSpawnDelay: 1
+  attackDelay: 1
+  enemyDamage: 0
+  enemyAttackTime: 0
+  isEnaged: 1
+  isFourWayAttack: 0

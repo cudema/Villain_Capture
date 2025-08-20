@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45e27eea596def44a484ecb7529c971, type: 3}
+  m_Name: RubyDrop
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0}
+  radius: {x: 3.5, y: 3.5}
+  isChangedFild: 1
+  state: 0
+  bullet: {fileID: 8318949446569438350, guid: b895c64d5cb18b6489645d73ef8b2c16, type: 3}
+  bulletDatas:
+  - name: 
+    damage: 15
+    speed: 1
+  bulletCount: 4
+  bulletSpawnDelay: 3
+  attackDelay: 2
+  enemyDamage: 30
+  enemyAttackTime: 0.3
+  isEnaged: 1
+  firstAttackSize: 9
+  firstAttackDelay: 4
+  boomDamage: 30
+  takeDownAttackSize: 5
+  chaseTime: 2
+  chaseSpeed: 4
+  takeDownAttackDelay: 1
+  nextAttackDelay: 1
+  takeDownAttackDamage: 25
+  wall: {fileID: 9128964050993526041, guid: 59dd8651294aedc47adf9c138e3f0c87, type: 3}
+  dropDamage: 30

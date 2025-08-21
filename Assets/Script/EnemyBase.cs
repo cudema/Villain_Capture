@@ -69,6 +69,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
     protected PatternBase[] enhancePattern;
     [SerializeField]
     protected PatternBase enagedPattern;
+    [SerializeField]
+    protected PatternBase nullPattern;
     protected PatternBase currentPattern;
 
     protected float attackTime;
@@ -124,6 +126,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
             patterns[i].Setup(this);
         }
         enagedPattern.Setup(this);
+        nullPattern.Setup(this);
         bingAttack = Attack();
         modelRenderer = model.transform.GetComponentsInChildren<Renderer>();
     }
@@ -138,6 +141,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthReporter
 
     protected virtual void SetPattern()
     {
+        if (currentEmotion == Emotion.우호)
+        {
+            currentPattern = nullPattern;
+            return;
+        }
         if (isEnage && !isUesingEnagedPattern)
         {
             isUesingEnagedPattern = true;

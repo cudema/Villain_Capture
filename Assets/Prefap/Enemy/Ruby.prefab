@@ -461,6 +461,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 838e7900801c13a4695765322afb248c, type: 2}
   - {fileID: 11400000, guid: a85696fa92d984a4db7cba0d3923c49c, type: 2}
   enagedPattern: {fileID: 11400000, guid: 3c34bd38aaab0bc459ad2511fc3700ab, type: 2}
+  nullPattern: {fileID: 11400000, guid: 266472f94a8da3d458308c55c71166b6, type: 2}
   dialogueID: ITV_Ruby
   runDialogueID: ESC_002
   animator: {fileID: 0}

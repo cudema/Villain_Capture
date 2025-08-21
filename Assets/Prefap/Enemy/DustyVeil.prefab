@@ -384,6 +384,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 794d71d74617de943b9545044a8613e7, type: 2}
   - {fileID: 11400000, guid: f1065d2b27353e5489e5062c4186f411, type: 2}
   enagedPattern: {fileID: 11400000, guid: debf11cb2493b214eb10415064a6ebf1, type: 2}
+  nullPattern: {fileID: 11400000, guid: 266472f94a8da3d458308c55c71166b6, type: 2}
   dialogueID: ITV_DustyVeil
   runDialogueID: 
   animator: {fileID: 0}

@@ -83,18 +83,21 @@ public class FractureBusterBullet : BulletBase
 
         while (Time.time - temptime < smallBulletArrivalTime)
         {
-            smallBullet[0].transform.localPosition += Vector2.Distance(pointOfBullet, randomPos[1]) * GoToPos(randomPos[1]) / smallBulletArrivalTime;
-            smallBullet[1].transform.localPosition += Vector2.Distance(pointOfBullet, randomPos[0]) * GoToPos(randomPos[0]) / smallBulletArrivalTime;
-            smallBullet[2].transform.localPosition += Vector2.Distance(pointOfBullet, randomPos[2]) * GoToPos(randomPos[2]) / smallBulletArrivalTime;
+            smallBullet[0].transform.position += GoToPos(randomPos[1]) / smallBulletArrivalTime;
+            smallBullet[1].transform.position += GoToPos(randomPos[0]) / smallBulletArrivalTime;
+            smallBullet[2].transform.position += GoToPos(randomPos[2]) / smallBulletArrivalTime;
             yield return null;
         }
 
+        smallBullet[0].transform.position = (Vector3)randomPos[1] + new Vector3(0, 0, 1);
+        smallBullet[1].transform.position = (Vector3)randomPos[0] + new Vector3(0, 0, 1);
+        smallBullet[2].transform.position = (Vector3)randomPos[2] + new Vector3(0, 0, 1);
         isEnd = true;
     }
 
     Vector3 GoToPos(Vector2 pos)
     {
-        return (pos - pointOfBullet).normalized * Time.deltaTime;
+        return (pos - pointOfBullet) * Time.deltaTime;
     }
 
     public bool Arrival()

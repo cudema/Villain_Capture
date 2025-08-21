@@ -81,7 +81,11 @@ public class RubyDropBullet : BulletBase
             effect.SetActive(true);
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.2f);
+        
+        attackRange.enabled = false;
+
+        yield return new WaitForSeconds(1.3f);
 
         Destroy(gameObject);
     }

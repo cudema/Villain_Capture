@@ -28,12 +28,3 @@
 - `MultiVignetteRendererFeature` 등 URP Post-Processing 커스텀 볼륨과 연동하여 시각적 연출 강화.
 
 ---
-
-## 📂 폴더 구조 (Folder Structure)
-Assets/Scripts/
-├── Enemy/       # 적 베이스 클래스 및 패턴, 보스 로직
-├── Player/      # 플레이어 컨트롤러 및 촬영(Filming) 메커니즘
-├── Turn/        # 턴제 전투 FSM 상태 머신
-├── LoadFile/    # CSV/데이터 파서 및 데이터 로딩 로직
-├── Item/        # 아이템 데이터 및 인벤토리 구조
-└── UI/          # UI 애니메이션 및 대화 출력 제어
